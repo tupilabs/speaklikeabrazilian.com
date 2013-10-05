@@ -15,3 +15,4 @@ application/blog/_cache/*
 .settings/
 /target/
 /dist/
+/blog/
