@@ -13,6 +13,5 @@ application/blog/_cache/*
 .buildpath
 .project
 .settings/
-/build/
 /target/
 /dist/
