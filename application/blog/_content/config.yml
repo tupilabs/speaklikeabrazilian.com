@@ -1,0 +1,25 @@
+site:
+    title: Speak Like A Brazilian
+    description: Do you want to learn portuguese? (aprender portugues) How to speak like a Brazilian is the perfect place for it. Here you can learn common daily used expressions and slangs
+    author: SLBR team
+    pretty_urls: true
+    
+smartypants:
+    enable: true
+
+server:
+    config_variants:
+        default:
+            site:
+                base_url: http://localhost/speaklikeabrazilian.com/
+
+baker:
+    skip_patterns:
+        - /^index.php/
+    config_variants:
+        default:
+            site:
+                base_url: http://localhost/speaklikeabrazilian.com/
+        production:
+            site:
+                base_url: http://www.speaklikeabrazilian.com/

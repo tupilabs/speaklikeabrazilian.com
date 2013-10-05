@@ -1,0 +1,54 @@
+{% extends '_layouts/default/default.html.twig' %}
+
+{% block content %}
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+    		<div class='span10'>
+    			<p><img alt="SLBR Sentences" src="{{ site_url('img/apps/sentences/sentences.png') }}" /></p>
+    			<p>
+    				Learn by examples! Search our database of expressions for sentences 
+    				using certain words. Remember that the same word may have  
+    				different meanings depending on the context, so... practice a lot 
+    				and share what you've learned with others.
+    			</p>
+    			
+    			<hr />
+    			
+    			<p>
+    				<div class='center'>
+    					{{ form_open('/apps/sentences/search', {'class': 'form-search', 'method': 'get'}) }}
+        					<input placeholder='Search for sentences containing certain words' type='text' 
+        							id='q' name='q' value='{{ word }}' class='span8' />
+        					<button class='btn btn-success'>Search</button>
+    					{{ form_close() }}
+    				</div>
+    			</p>
+			
+    			<hr />
+    			{% if sentences is defined and sentences[0] is defined %}
+    			<h5><u>Sentences found:</u></h5>
+    				{% for sentence in sentences %}
+    			<div class='sentence' style="border: 1px solid #eeeeee; padding: 5px 4px; margin-bottom: 4px;">
+    				<h5>
+    					<a href="{{ base_url() }}expression/define?e={{ rawurlencode(sentence.text) }}">{{ sentence.text }}</a>
+    				</h5>
+    				{% set expression = parse_expression(sentence.example) %}
+    				{{ highlight_word(expression, word) }}
+    			</div>
+				{% endfor %}
+			{% endif %}
+			</div>
+			{# 2 columns wide #}
+    		{% include '_layouts/default/sidebar.html.twig' %}
+		</div>
+		<div class='row'>
+    		<div class='span12'>
+    			<div class="pad_l pad_r">
+    				{{ pagination_links }}
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</section>
+{% endblock %}

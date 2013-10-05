@@ -1,0 +1,38 @@
+---
+title: Speak Like A Brazilian feed
+layout: none
+format: none
+posts_per_page: 10
+single_page: true
+---
+ 
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+>
+ 
+<channel>
+    <title>{{site.title}}</title>
+    <atom:link href="{{ site.base_url }}blog/feed.xml" rel="self" type="application/rss+xml" />
+    <link>{{ site.base_url }}</link>
+    <description></description>
+    <lastBuildDate>{{now|date("r")}}</lastBuildDate>
+    <language>en-US</language>
+    <generator>PieCrust {{piecrust.version}}</generator>
+ 
+{% for post in pagination.posts %}
+<item>
+    <title>{{post.title}}</title>
+    <pubDate>{{post.date|date("r")}}</pubDate>
+    <link>{{post.url}}</link>
+    <dc:creator>{{site.author}}</dc:creator>
+    <description>{{post.content}}</description>
+</item>
+{% endfor %}
+</channel>
+</rss>

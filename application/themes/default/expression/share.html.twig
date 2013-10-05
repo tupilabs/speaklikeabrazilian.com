@@ -1,0 +1,129 @@
+{% extends '_layouts/blank/blank.html.twig' %}
+
+{% block content %}
+<section id='main' style="top: 0; left: 0;">
+	<div class='container-fluid'>
+		<div class="row-fluid">
+			<div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) return;
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=221891907922920";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            <div id="share" style="margin: 0px; padding: 0px;">
+        		<div class='text'>
+        			<br />
+        			<div>
+        				<span class='expression'>{{ expression.text }} </span>
+        				<div class='rating'>
+        					{{ form_open('rating/expression/'~expression.definition_id) }}
+        					<input type="hidden" name="_method" value="put" />
+        					<input type="hidden" name="definition_id" 
+        						value="{{ expression.definition_id }}" /> <span
+        						class="like_count">{{ expression.likes }} </span> <input
+        						type="hidden" name="rating" value="0" /> ups, <span
+        						class="dislike_count">{{ expression.dislikes }} </span>
+        					downs <a href="#" class="like"><i class="icon-thumbs-up">&nbsp;</i>
+        					</a> <a href="#" class="dislike"><i class="icon-thumbs-down">&nbsp;</i>
+        					</a>
+        					{{ form_close() }}
+        				</div>
+        				<div class="date">
+        					{{ expression.create_date }}
+        				</div>
+        			</div>
+        		</div>
+        		<div class='description'>
+        			<p>
+        				{{ expression.description }}
+        			</p>
+        		</div>
+        		<div class='example'>
+        			<p>
+        				{{ expression.example }}
+        			</p>
+        		</div>
+        		<div class='tags'>
+        			<strong>Tags</strong>&nbsp;
+        			{% if expression.tags is defined and count(expression.tags) > 0 %}
+        				{% for tag in expression.tags %}
+        			<span class="tag box">{{ tag }} </span>
+        				{% endfor %}
+        			{% endif %}
+        		</div>
+        		<div class="authorship">
+        			<strong>By</strong> <span class="author box">{{ expression.create_user }}
+        			</span>
+        		</div>
+        		<br />
+        		<div id="social_medias">
+        		    <a href="https://twitter.com/share" class="twitter-share-button" data-url="{base_url}expression/{{ expression.definition.id }}" data-text="{{ expression.text }}" data-via="SpeakLikeABR" data-hashtags="BrazilianPortuguese">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        			<div class="fb-like" data-href="{base_url}expression/{{ expression.definition_id }}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+        		</div>
+        		<div id="contact">
+        			{{ form_open(current_url(), {'class': 'form-horizontal'}) }}
+        			<div class="controls">
+        				<h5>Send by e-mail</h5>
+        			</div>
+        			<div class="control-group-pad">
+        				{{ form_label('Your name', 'from_name', {'class': 'control-label'}) }}
+        				<div class="controls">
+        					{{ form_input({'id': 'from_name', 'name': 'from_name', 'style': 'width: 90%;'}, set_value('from_name')) }}
+        					<span style='color: red;'>{{ form_error('from_name') }} {{ errors['from_name'] }}</span>
+        				</div>
+        			</div>
+        			<div class="control-group-pad">
+        				{{ form_label('Your email', 'from_email', {'class': 'control-label'}) }}
+        				<div class="controls">
+        					{{ form_input({'id': 'from_email', 'name': 'from_email', 'style': 'width: 90%;'}, set_value('from_email')) }}
+        					<span style='color: red;'>{{ form_error('from_email') }} {{ errors['from_email'] }}</span>
+        				</div>
+        			</div>
+        			<div class="control-group-pad">
+        				{{ form_label('To', 'to', {'class': 'control-label'}) }}
+        				<div class="controls">
+        					{{ form_input({'id': 'to', 'name': 'to', 'style': 'width: 90%'}, set_value('to')) }}
+        					<span style='color: red;'>{{ form_error('to') }} {{ errors['to'] }}</span>
+        				</div>
+        			</div>
+        			<div class="control-group-pad">
+        				{{ form_label('Email', 'email', {'class': 'control-label'}) }}
+        				<div class="controls">
+        					{{ form_input({'id': 'email', 'name': 'email', 'style': 'width: 90%;'}, set_value('email')) }}
+        					<span style='color: red;'>{{ form_error('email') }} {{ errors['email'] }}</span>
+        				</div>
+        			</div>
+        			<div class="control-group-pad">
+        				<div class="controls">
+        					{{ captcha }}
+        				</div>
+        			</div>
+        			<div class="control-group-pad">
+        				{{ form_label('Verification code', 'captcha', {'class': 'control-label'}) }}
+        				<div class="controls">
+        					{{ form_input({'id': 'captcha', 'name': 'captcha', 'style': 'width: 90%;'}, text) }}
+        					<span style='color: red;'>{{ form_error('captcha') }} {{ errors['captcha'] }}</span>
+        				</div>
+        			</div>
+        			<hr />
+        			<div class="row">
+        				<div class="" style="text-align: center;">
+        					{{ form_submit('submit', 'Send', 'class="btn btn-primary"') }}
+        				</div>
+        			</div>
+        			<br />
+        			{{ form_close() }}
+        		</div>
+            </div>
+		</div>
+	</div>
+</section>
+<script type='text/javascript'>
+templatecallback = function() {
+	base_url = '{{ site_url('/') }}';
+}
+</script>
+{% endblock %}

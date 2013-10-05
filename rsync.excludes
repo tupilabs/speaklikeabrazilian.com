@@ -1,0 +1,9 @@
+.ssh
+.git
+.svn
+/application/config/database.php
+/tools/
+/composer.json
+/composer.phar
+/composer.lock
+/application/logs/

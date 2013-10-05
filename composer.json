@@ -1,0 +1,12 @@
+{
+    "name": "Speak Like A Brazilian",
+    "description": "SLBR web site to share Brazilian common daily expressions and slangs",
+    "version": "1.0",
+    "homepage": "http://speaklikeabrazilian.com",
+    "license": "MIT License",
+    "type": "project",
+    "require-dev": {
+        "respect/validation": "dev-develop", 
+        "monolog/monolog": "1.6.*"
+    }
+}

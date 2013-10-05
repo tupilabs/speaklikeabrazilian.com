@@ -1,0 +1,14 @@
+			<div class='span2 center' style="margin-top: 15px;">
+    			<p>{{ anchor('expression/add', '<strong><i class="icon-plus"></i> Add Your Expression</strong>', 'class="btn btn-success"') }}</p>
+    			<hr/>
+    			<p><a href="http://tupilabs.com" title="TupiLabs" alt="TupiLabs"><img src='{{ site_url('img/tupilabs/ad_01.png') }}' width="120px" class='' /></a></p>
+    			<hr/>
+    			<h4>Word of the day</h4>
+    			<p>Subscribe to the SLBR word of the day mailing list</p>
+    			{{ form_open('subscribe', 'class="form-vertical"') }}
+    				<div class='input-append'>
+    					{{ form_input('email', '', 'class="input-small" placeholder="E-mail"') }}
+    					<button type="submit" value="" class="btn btn-info"><i class="icon-pencil"></i></button>
+    				</div>
+    			{{ form_close() }}
+    		</div>

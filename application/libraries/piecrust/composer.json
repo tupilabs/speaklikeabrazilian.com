@@ -1,0 +1,99 @@
+{
+    "name": "bolt80/piecrust",
+    "description": "A lightweight CMS and static website generator.",
+    "homepage": "http://bolt80.com/piecrust",
+    "authors": [
+        {
+            "name": "Ludovic Chabant",
+            "homepage": "http://ludovic.chabant.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "geshi/geshi",
+                "version": "1.0.8.11",
+                "dist": {
+                    "url":  "http://sourceforge.net/projects/geshi/files/geshi/GeSHi%201.0.8.11/GeSHi-1.0.8.11.zip/download",
+                    "type": "zip"
+                },
+                "autoload": {
+                    "classmap": [ "geshi.php" ]
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "markdown/markdown",
+                "version": "1.0.1",
+                "dist": {
+                    "url": "https://github.com/michelf/php-markdown/archive/v1.0.1p.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "markdown/markdown-extra",
+                "version": "1.2.6",
+                "dist": {
+                    "url": "https://github.com/michelf/php-markdown/archive/x1.2.6.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "smartypants/smartypants",
+                "version": "1.5.1",
+                "dist": {
+                    "url": "https://github.com/michelf/php-smartypants/archive/v1.5.1f.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "smartypants/smartypants-typographer",
+                "version": "1.0.1",
+                "dist": {
+                    "url": "https://github.com/michelf/php-smartypants/archive/t1.0.1.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">= 5.3.0",
+        "symfony/yaml": "v2.2.0",
+        "twig/twig": "v1.12.2",
+        "mustache/mustache": "v2.1.0",
+        "geshi/geshi": "1.0.*",
+        "leafo/lessphp": "0.3.*",
+        "markdown/markdown": "1.0.1",
+        "markdown/markdown-extra": "1.2.6",
+        "smartypants/smartypants": "1.5.1",
+        "smartypants/smartypants-typographer": "1.0.1",
+        "netcarver/textile": "v3.5.1",
+        "bolt80/stupidhttp": "v0.2.0",
+        "mikey179/vfsStream": "v1.1.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "PieCrust": [ "src/", "tests/src/" ],
+            "Log": "libs/pear",
+            "Console": "libs/pear",
+            "Benchmark_": "libs/pear"
+        }
+    },
+	"include-path": [ "libs/pear" ],
+    "config": {
+        "vendor-dir": "libs",
+        "bin-dir": "libs/bin"
+    }
+}

@@ -1,0 +1,48 @@
+{% extends '_layouts/default/default.html.twig' %}
+
+{% block content %}
+<script type="text/javascript">
+function validate_me() {
+	var form = $('quiz_form');
+	var radios = $("input[type=radio]");
+	for (i = 0; i < <?php echo $quiz->number_of_questions; ?> ; ++i) {
+		if (!$('input[name="question_'+i+'"]:checked').val()) {
+			alert('The question ' + (i+1) + ' is empty');
+			return false;
+		}
+	}
+	return true;
+}
+</script>
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+    		<div class='span10'>
+				<h4>SLBR Quiz</h4>
+    			<p>Test your Brazilian Portuguese!</p>
+    			<hr />
+    			{{ form_open('apps/quiz/answer', {'class': 'form-horizontal', 'id': 'quiz_form'}, false) }}
+    			    {% set i = 0 %}
+        			{% for question in quiz.questions %}
+        			<div class='quiz_question'>
+        				<h5>{{ i + 1 }} - {{ question.text }}</h5>
+        				{% for alternative in question.alternatives %}
+        					<label style="font-size: 0.9em">
+        						<input type="radio" id="question_{{ i }}" name="question_{{ i }}" value="{{ alternative.definition_id }}" /> 
+        						{{ alternative.description }}
+        					</label>
+        				{% endfor %}
+        				{% set i = i + 1 %}
+        			</div>
+    			    {% endfor %}
+        			<div style="padding-top: 10px;">
+        				<input type="submit" value="Enviar" class='btn btn-success' onclick='javascript:return validate_me();' />
+        			</div>
+    			{{ form_close() }}
+			</div>
+			{# 2 columns wide #}
+    		{% include '_layouts/default/sidebar.html.twig' %}
+		</div>
+	</div>
+</section>
+{% endblock %}

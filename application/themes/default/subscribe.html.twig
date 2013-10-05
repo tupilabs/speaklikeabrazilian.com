@@ -1,0 +1,32 @@
+{% extends '_layouts/default/default.html.twig' %}
+
+{% block content %}
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+    		<div class='span10'>
+    			<h2 class='subtitle'>Word of the day subscription</h2>
+    			<br/>
+    			{{ validation_errors() }}
+    		</div>
+    		<div class='span10'>
+    			{{ form_open(current_url(), 'class="form-horizontal"') }}
+				<div class="control-group">
+					{{ form_label('Email', 'email', {'class': 'control-label'}) }}
+					<div class="controls">
+						{{ form_input({'id': 'email', 'name': 'email', 'class': 'input-xlarge'}, set_value('email')) }}
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
+						{{ form_submit('submit', 'Send', 'class="btn btn-primary"') }}
+					</div>
+				</div>
+				{{ form_close() }}
+    		</div>
+    		{# 2 columns wide #}
+    		{% include '_layouts/default/sidebar.html.twig' %}
+		</div>
+	</div>
+</section>
+{% endblock %}

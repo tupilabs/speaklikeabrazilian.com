@@ -1,0 +1,22 @@
+{% extends '_layouts/blank/blank.html.twig' %}
+
+{% block content %}
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+			<div id="share" class='span10'>
+				<div style="margin: 0px; padding: 0px;">
+                	<div class="pad_l pad_r">
+                	    <div><h4>Thank you! Video sent! One of our moderators will take a look at your video submission!</h4></div>
+                	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script type='text/javascript'>
+templatecallback = function() {
+	base_url = '{{ site_url('/') }}';
+}
+</script>
+{% endblock %}
