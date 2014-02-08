@@ -51,7 +51,7 @@ class Search extends MY_Controller {
 			$result = $this->sphinxsearch->Query($q);
 			$expressions = array();
 			$docs = array();
-			if ($result !== FALSE && count($result) > 0) {
+                        if ($result !== FALSE && count($result) > 0 && isset($result['mtaches']) && $result['matches']) {
 				foreach($result['matches'] as $key => $match) {
 					array_push($docs, $key);
 				}
