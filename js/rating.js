@@ -17,7 +17,7 @@ $(".like").click(function() {
 				likes.text(parseInt(likes.text())+1);
 				if(data.balance == true) {
 					var dislikes = leform.find('.dislike_count');
-					if (dislikes,text() > 0)
+					if (dislikes.text() > 0)
 						dislikes.text(parseInt(dislikes.text())-1);
 				}
 			}
