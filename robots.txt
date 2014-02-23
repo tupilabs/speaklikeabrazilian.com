@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /moderators/
-Allow: /
-SITEMAP: http://www.speaklikeabrazilian.com/sitemap.xml
