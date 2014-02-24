@@ -1,0 +1,70 @@
+{% extends '_layouts/hq/hq.html.twig' %}
+
+{% block content %}
+<div class='container-fluid' id='content'>
+    <div class='row-fluid'>
+		<div class='span12'>
+			<h3>Users</h3>
+		</div>
+	</div>
+    <div class='row-fluid'>
+    {% include 'hq/users/left_menu.html.twig' %}
+        <div class='span9'>
+            <h1>{{ lang('create_user_heading') }}</h1>
+            <p>{{  lang('create_user_subheading') }}</p>
+
+            <div id="infoMessage">{{ message }}</div>
+
+            {{ validation_errors() }}
+            
+            {{ form_open('/hq/users/create_user', 'class="form-horizontal"') }}
+                <div class="control-group">
+                    <label class="control-label" for="first_name">{{ lang('create_user_fname_label') }}</label>
+				    <div class="controls">
+				      {{ form_input(first_name, set_value('first_name'), 'placeholder="Nome"') }}
+				    </div>
+			  	</div>
+			  	<div class="control-group">
+                    <label class="control-label" for="last_name">{{ lang('create_user_lname_label') }}</label>
+				    <div class="controls">
+				      {{ form_input(last_name, set_value('last_name'), 'placeholder="Sobrenome"') }}
+				    </div>
+			  	</div>
+			  	<div class="control-group">
+                    <label class="control-label" for="email">{{ lang('create_user_email_label') }}</label>
+				    <div class="controls">
+				      {{ form_input(email, set_value('email'), 'placeholder="E-mail"') }}
+				    </div>
+			  	</div>
+			  	<div class="control-group">
+                    <label class="control-label" for="company">{{ lang('create_user_company_label') }}</label>
+				    <div class="controls">
+				      {{ form_input(company, set_value('company'), 'placeholder="Empresa"') }}
+				    </div>
+			  	</div>
+			  	<div class="control-group">
+                    <label class="control-label" for="phone">{{ lang('create_user_phone_label') }}</label>
+				    <div class="controls">
+				      {{ form_input(phone, set_value('phone'), 'placeholder="Telefone"') }}
+				    </div>
+			  	</div>
+			  	<div class="control-group">
+                    <label class="control-label" for="password">{{ lang('create_user_password_label') }}</label>
+				    <div class="controls">
+				      {{ form_password(password, set_value('password'), 'placeholder="Senha"') }}
+				    </div>
+			  	</div>
+			  	<div class="control-group">
+                    <label class="control-label" for="password_confirm">{{ lang('create_user_password_confirm_label') }}</label>
+				    <div class="controls">
+				      {{ form_password(password_confirm, set_value('password_confirm'), 'placeholder="Confirmar Senha"') }}
+				    </div>
+			  	</div>
+                <div class="control-group">
+			  		<input type="submit" value="Add" class='btn btn-primary' />
+			  	</div>
+            {{ form_close() }}
+        </div>
+    </div>
+</div>
+{% endblock %}

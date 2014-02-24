@@ -1,0 +1,20 @@
+{% extends '_layouts/blank/blank.html.twig' %}
+
+{% block content %}
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+				<div id="embed">
+        			<p>Copy and paste the following code to add this expression in you web site</p>
+        			
+        			<textarea style="width: 100%">&lt;iframe type="text/html" width="640" height="385" src="{{ site_url(url) }}" allowfullscreen frameborder="0"&gt;&lt;/iframe&gt;</textarea>
+            	</div>
+		</div>
+	</div>
+</section>
+<script type='text/javascript'>
+templatecallback = function() {
+	base_url = '{{ site_url('/') }}';
+}
+</script>
+{% endblock %}

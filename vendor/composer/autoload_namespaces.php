@@ -7,6 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Whoops' => array($vendorDir . '/filp/whoops/src'),
+    'Twig_' => array($vendorDir . '/twig/twig/lib'),
+    'Teepluss\\Theme' => array($vendorDir . '/teepluss/theme/src'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Symfony\\Component\\Routing\\' => array($vendorDir . '/symfony/routing'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
@@ -21,6 +23,7 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Symfony\\Component\\BrowserKit\\' => array($vendorDir . '/symfony/browser-kit'),
     'Stack' => array($vendorDir . '/stack/builder/src'),
+    'SLBR' => array($baseDir . '/app'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Predis' => array($vendorDir . '/predis/predis/lib'),
     'Patchwork' => array($vendorDir . '/patchwork/utf8/class'),

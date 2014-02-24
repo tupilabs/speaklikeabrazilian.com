@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
 		'Cartalyst\Sentry\SentryServiceProvider',
+		'Teepluss\Theme\ThemeServiceProvider',
 
 	),
 
@@ -176,6 +177,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Theme' => 'Teepluss\Theme\Facades\Theme',
 
 	),
 

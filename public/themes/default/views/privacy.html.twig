@@ -1,0 +1,24 @@
+{% extends '_layouts/default/default.html.twig' %}
+
+{% block content %}
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+    		<div class='span10'>
+    			<div class='row'>
+    				<div class='span10'>
+    					<h2 class='subtitle'>Privacy</h2>
+    				</div>
+    				<hr class='clearfix' />
+    				<div class='span10'>
+    					<p>Work in progress, come back here in few days :-)</p>
+    					<p><a href="{{ site_url('contact/') }}">Send us a message</a> if you need anything in the meantime.</p>
+    				</div>
+    			</div>
+    		</div>
+    		{# 2 columns wide #}
+    		{% include '_layouts/default/sidebar.html.twig' %}
+		</div>
+	</div>
+</section>
+{% endblock %}

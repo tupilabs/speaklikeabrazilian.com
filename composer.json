@@ -1,13 +1,17 @@
 {
-	"name": "laravel/laravel",
-	"description": "The Laravel Framework.",
-	"keywords": ["framework", "laravel"],
+	"name": "slbr/slbr",
+	"description": "Speak Like A Brazilian",
+	"keywords": ["slbr", "languages", "education"],
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
+		"teepluss/theme" : "dev-master",
 		"cartalyst/sentry": "2.0.*"
 	},
 	"autoload": {
+		"psr-0" : {
+			"SLBR" : "app/"
+		},
 		"classmap": [
 			"app/commands",
 			"app/controllers",

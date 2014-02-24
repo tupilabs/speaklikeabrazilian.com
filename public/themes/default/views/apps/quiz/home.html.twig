@@ -1,0 +1,37 @@
+{% extends '_layouts/default/default.html.twig' %}
+
+{% block content %}
+<section id='main'>
+	<div class='container'>
+		<div class="row">
+    		<div class='span10'>
+    			<h4>SLBR Quiz</h4>
+    			<p>
+    				Test your Brazilian Portuguese! 
+    			</p>
+				<hr />
+				{{ validation_errors('<div class="error">', '</div>') }}
+				{{ form_open('apps/quiz/start', {'class': 'form-horizontal'}) }}
+    				<p>Number of questions</p>
+    				<p>
+    					<label class='radio inline'>
+    						<input type='radio' name='number_of_questions' value='5' checked='checked' />5
+    					</label>
+    					<label class='radio inline'>
+    						<input type='radio' name='number_of_questions' value='10' />10
+    					</label>
+    					<label class='radio inline'>
+    						<input type='radio' name='number_of_questions' value='20' />20
+    					</label>
+    				</p>
+    				<p>
+    					<input type="submit" value="Go!" class='btn btn-success' />
+    				</p>
+				{{ form_close() }}
+			</div>
+			{# 2 columns wide #}
+    		{% include '_layouts/default/sidebar.html.twig' %}
+		</div>
+	</div>
+</section>
+{% endblock %}
