@@ -1,5 +1,5 @@
 			<div class='span2 center' style="margin-top: 15px;">
-    			<p>{{ HTML.link('expression/add', '<strong><i class="icon-plus"></i> Add Your Expression</strong>', 'class="btn btn-success"') }}</p>
+    			<p><a href="{{ URL.to('expression/add') }}" class="btn btn-success"><strong><i class="icon-plus"></i> Add Your Expression</a></p>
     			<hr/>
     			<p><a href="http://www.cafehostel.com.br" title="Cafe Hostel" alt="Cafe Hostel"><img src='{{ URL.to('/themes/default/assets/img/ads/banner-cafehostel.png') }}' width="120px" class='' /></a></p>
     			<hr/>
