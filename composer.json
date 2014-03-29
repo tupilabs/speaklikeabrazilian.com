@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"teepluss/theme" : "dev-master",
-		"cartalyst/sentry": "2.0.*"
+		"cartalyst/sentry": "2.0.*",
+		"msurguy/honeypot": "dev-master"
 	},
 	"autoload": {
 		"psr-0" : {

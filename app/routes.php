@@ -13,7 +13,7 @@
 
 // Main app
 Route::get('/', 'HomeController@getIndex');
-
+Route::controller('/expression', 'ExpressionController');
 
 
 if (Config::get('database.log', false))

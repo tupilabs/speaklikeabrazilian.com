@@ -109,6 +109,7 @@ return array(
 
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Teepluss\Theme\ThemeServiceProvider',
+		'Msurguy\Honeypot\HoneypotServiceProvider',
 
 	),
 
