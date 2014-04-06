@@ -7,7 +7,8 @@
 		"laravel/framework": "4.1.*",
 		"teepluss/theme" : "dev-master",
 		"cartalyst/sentry": "2.0.*",
-		"msurguy/honeypot": "dev-master"
+		"msurguy/honeypot": "dev-master",
+		"teepluss/api": "dev-master"
 	},
 	"autoload": {
 		"psr-0" : {

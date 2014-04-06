@@ -110,7 +110,8 @@ return array(
 		'Cartalyst\Sentry\SentryServiceProvider',
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Msurguy\Honeypot\HoneypotServiceProvider',
-
+		'Teepluss\Api\ApiServiceProvider',
+		'Slbr\Api\ApiServiceProvider'
 	),
 
 	/*
@@ -179,6 +180,7 @@ return array(
 
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Theme' => 'Teepluss\Theme\Facades\Theme',
+		'API' => 'Teepluss\Api\Facades\API'
 
 	),
 

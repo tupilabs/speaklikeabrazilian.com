@@ -1,5 +1,5 @@
 <ul class='span12'>
-	<li{% if(active == 'new')%} class='active'{% endif %}><a href="{{ URL.to('/') }}new">New</a></li>
+	<li{% if(active == 'new')%} class='active'{% endif %}><a href="{{ URL.to('/new') }}">New</a></li>
 	<li{% if(letter == 'a')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/a') }}">A</a></li>
 	<li{% if(letter == 'b')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/b') }}">B</a></li>
 	<li{% if(letter == 'c')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/c') }}">C</a></li>

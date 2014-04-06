@@ -50,6 +50,26 @@ return array(
 
         $twig->addFunction($function);*/
 
+        $fns = array(
+            'print_r',
+            'var_dump',
+            'isset',
+            'count',
+            'rawurlencode',
+            'trim',
+            'preg_match',
+            'explode'
+        );
+        
+        foreach ($fns as $fn)
+        {
+            $fn_obj = new Twig_SimpleFunction($fn, function()
+            {
+                $value = func_get_args();
+                return print_r($value);
+            });
+            $twig->addFunction($fn_obj);
+        }
         return $twig;
     }
 

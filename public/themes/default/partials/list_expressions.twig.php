@@ -3,7 +3,7 @@
     <div class='container'>
         <div class='row'>
             <div class='span10'>
-                {% if expressions is defined and expressions[0] is defined %}
+                {% if definitions is defined and definitions[0] is defined %}
                 <div class='row'>
                     <div class='span10'>
                         <h2 class='subtitle'>{{ subtitle }}</h2>
@@ -11,15 +11,15 @@
                 </div>
                 {% endif %}
                 <div class='row'>
-                {% if expressions is defined and expressions[0] is defined %}
+                {% if definitions is defined and definitions[0] is defined %}
                     <div class='span5'>
-                        {% for expression in expressions|slice(0, 5) %}
-                            {% include 'expression/single.twig.php' %}
+                        {% for definition in definitions|slice(0, 5) %}
+                            {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
                     <div class='span5'>
-                        {% for expression in expressions|slice(5, 10) %}
-                            {% include 'expression/single.twig.php' %}
+                        {% for definition in definitions|slice(5, 10) %}
+                            {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
                 {% else %}

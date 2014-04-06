@@ -1,0 +1,25 @@
+{
+    "name": "slbr/api",
+    "description": "",
+    "authors": [
+        {
+            "name": "Bruno P. Kinoshita",
+            "email": "brunodepaulak@yahoo.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers",
+            "src/models"
+        ],
+        "psr-0": {
+            "Slbr\\Api\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

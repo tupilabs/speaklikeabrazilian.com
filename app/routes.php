@@ -13,6 +13,7 @@
 
 // Main app
 Route::get('/', 'HomeController@getIndex');
+Route::get('/new', 'HomeController@getIndex');
 Route::controller('/expression', 'ExpressionController');
 
 
