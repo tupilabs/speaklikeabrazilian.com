@@ -23,6 +23,7 @@ return array(
         'Lang',
         'Paginator',
         'Str',
+        'Session',
         'Theme',
         'URL',
         'Validator'

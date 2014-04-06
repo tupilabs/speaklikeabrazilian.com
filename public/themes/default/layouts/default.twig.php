@@ -36,12 +36,24 @@
 		{{ Theme.partial('footer') }}
 		
 		{{ Theme.asset().scripts() }}
-		
+
 		<script type='text/javascript'>
 function maincallback() {
 	$(document).ajaxStop(jQuery.unblockUI);
 	$.jGrowl.defaults.closerTemplate = '<div>[ Close all ]</div>';
 	$(document).ready(function() {
+		{% if tooltip is not defined %}
+			{% set tooltip = Session.get('tooltip') %}
+		{% endif %}
+		{% if message is not defined %}
+			{% set message = Session.get('message') %}
+		{% endif %}
+		{% if warning is not defined %}
+			{% set warning = Session.get('warning') %}
+		{% endif %}
+		{% if success is not defined %}
+			{% set success = Session.get('success') %}
+		{% endif %}
 		{% if tooltip is defined and tooltip is not empty %}
 			{% if tooltip[0] is defined %}
 				{% for tp in tooltip %}
@@ -60,14 +72,10 @@ function maincallback() {
 				$.jGrowl('{{ message }}', { sticky: true , position: 'top-right'});
 			{% endif %}
 		{% endif %}
-		{% if error is defined and error is not empty %}
-			{% if error[0] is defined %}
-				{% for err in error %}
-				$.jGrowl('{{ err }}', { sticky: true , position: 'top-right', glue: 'after', closer: true});
-				{% endfor %}
-			{% else %}
-				$.jGrowl('{{ error }}', { sticky: true , position: 'top-right'});
-			{% endif %}
+		{% if errors is defined %}
+			{% for err in errors.all() %}
+			$.jGrowl('{{ err }}', { sticky: true , position: 'top-right', glue: 'after', closer: true});
+			{% endfor %}
 		{% endif %}
 		{% if warning is defined and warning is not empty %}
 			{% if warning[0] is defined %}
@@ -78,7 +86,7 @@ function maincallback() {
 				$.jGrowl('{{ warning }}', { sticky: true , position: 'top-right'});
 			{% endif %}
 		{% endif %}
-		{% if success is defined and success is not empty %}
+		{% if success is defined and success != '' %}
 			{% if success[0] is defined %}
 				{% for msg in success %}
 				$.jGrowl('{{ msg }}', { sticky: true , position: 'top-right', glue: 'after', closer: true});

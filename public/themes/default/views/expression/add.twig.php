@@ -16,7 +16,7 @@
     						<div class="control-group">
                                 {{ Form.label('expression', 'Expression', {'class': 'control-label'}) }}
             					<div class="controls">
-                                    {{ Form.input('text', 'id', expression, {'id': 'expression', 'style': 'width: 95%;'}) }}
+                                    {{ Form.input('text', 'text', expression, {'id': 'expression', 'style': 'width: 95%;'}) }}
                                     {% if errors.has('expression') %}
             						<span>
                                         <div class='alert'>

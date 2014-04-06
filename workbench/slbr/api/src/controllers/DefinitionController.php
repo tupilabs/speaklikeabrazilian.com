@@ -49,4 +49,18 @@ class DefinitionController extends \BaseController {
 		return $definitions;
 	}
 
+	public function postDefinition($id)
+	{
+		return Definition::create(array(
+			'expression_id' => $id, 
+			'description' => Input::get('description'),
+			'example' => Input::get('example'),
+			'tags' => Input::get('tags'),
+			'status' => Input::get('status', 1),
+			'email' => Input::get('email'),
+			'contributor' => Input::get('contributor'),
+			'moderator_id' => Input::get('moderator_id', NULL)
+		));
+	}
+
 }
