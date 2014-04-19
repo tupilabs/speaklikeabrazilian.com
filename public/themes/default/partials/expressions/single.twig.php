@@ -61,9 +61,13 @@
 	</div>
 	<div class='entry-media'>
 		<small>
-    	    <strong>Media</strong> <span class='share'>
-    	        <a class='btn btn-mini btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos">+ add video</a> 
-    	      </span>
+    	    <strong>Media</strong>
+    	    <span class='share'>
+    	    	<a class='btn btn-mini btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos">+ add video</a> 
+    	    </span>
+    	    <span class='share'>
+    	    	<a class='btn btn-mini btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures">+ add picture</a> 
+    	    </span>
     	</small>
 	</div>
 </div>
