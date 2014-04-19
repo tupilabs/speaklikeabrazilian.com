@@ -57,6 +57,15 @@ $(function() {
 		},
 		width:"80%", 
 		height:"90%"});
+
+	$(".embed a").colorbox({
+		iframe:true,
+		onOpen: function() {
+	        // prevent Overlay from being displayed...
+	        $('#cboxOverlay,#colorbox').css('visibility', 'hidden');
+		},
+		width:"550px", 
+		height:"375px"});
 	
 	$("a.tts").colorbox({
 		iframe:true, 

@@ -351,3 +351,19 @@ div#share form {
 .post h3 {
 	font-size: 140%;
 }
+
+section.message {
+    background-color: #EEEEEE;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: 0px;
+    margin-left: -200px;
+    z-index: 100;
+    width: 400px;
+    height: 230px;
+}
+
+section.message p {
+    color: #666666;
+}

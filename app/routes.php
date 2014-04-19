@@ -18,6 +18,7 @@ Route::get('/', 'ExpressionController@getNew');
 Route::get('/new', 'ExpressionController@getNew');
 Route::get('/top', 'ExpressionController@getTop');
 Route::get('/random', 'ExpressionController@getRandom');
+Route::get('/expression/{id}/embed', 'ExpressionController@getEmbed')->where('id', '[0-9]+');
 Route::controller('/expression', 'ExpressionController');
 // Subscribe
 Route::post('/subscribe', 'SubscribeController@postSubscribe');

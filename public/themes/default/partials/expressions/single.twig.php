@@ -54,7 +54,7 @@
     		<span class='share'>
     			<a class="label label-inverse" href="{{ URL.to('expression/' ~ definition.id) }}/share">share this</a>
     		</span> 
-    		<span class='share'>
+    		<span class='embed'>
     			<a class="label label-inverse" href="{{ URL.to('expression/' ~  definition.id) }}/embed">embed</a> 
     		</span>
 		</small>
