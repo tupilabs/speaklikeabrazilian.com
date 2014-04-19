@@ -4,11 +4,7 @@
     		<div class='span10'>
     			<div class='row'>
     				<div class='span8'>
-    					{% if expression is defined and expression != '' %}
-    					<h2 class='subtitle'>{{ no_expressions_message }}</h2>
-    					{% else %}
     					<h2 class='subtitle'>Add expression</h2>
-    					{% endif %}
     				</div>
     				<hr class='clearfix' />
     				<div class='span10'>
@@ -104,11 +100,6 @@
                                     </span>
                                     {% endif %}
             						<div>
-            							{% if subscribe is defined and subscribe == 'checked' %}
-            								{% set subscribe_checked = 1 %}
-            							{% else %}
-            								{% set subscribe_checked = false %}
-            							{% endif %}
             							<label class='checkbox muted'>
                                             <small>{{ Form.checkbox('subscribe', 'checked', subscribe)}} Subscribe to our word of day</small>
             							</label>

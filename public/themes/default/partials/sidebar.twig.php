@@ -10,8 +10,10 @@
                 {{ Form.open({'url': 'subscribe', 'class': 'form-vertical', 'id': 'subscribeForm'})}}
                     <div class="control-group">
     				    <div class="controls">
-    					   {{ Form.input('email', 'email', '', {'class': 'input-small', 'placeholder': 'E-mail'}) }}
-    					   <button type="submit" value="" class="btn btn-info"><i class="icon-pencil"></i></button>
+                            <div class="input-append">
+                                {{ Form.input('email', 'email', '', {'class': 'input-small', 'placeholder': 'E-mail'}) }}
+                                <button type="submit" value="" class="btn btn-info"><i class="icon-pencil"></i></button>
+                            </div>
                         </div>
     				</div>
                     <div class="control-group" style="display:none;">

@@ -34,9 +34,9 @@
                 </div>
                 {% endif %}
             </div>
-            {# 2 columns wide #}
-            {% include 'partials/sidebar.twig.php' %}
         </div>
+        {# 2 columns wide #}
+        {% include 'partials/sidebar.twig.php' %}
         {% if expressions is defined and expressions[0] is defined %}
         <div class='row center'>
             {{ pagination_links }}

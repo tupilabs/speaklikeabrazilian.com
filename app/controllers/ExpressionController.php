@@ -25,7 +25,11 @@ class ExpressionController extends BaseController {
 
 	public function getAdd()
 	{
-		return $this->theme->scope('expression.add')->render();
+		$expression = Input::get('e');
+		$args = array();
+		if (isset($expression) && strlen($expression) > 0)
+			$args['expression'] = ucfirst($expression);
+		return $this->theme->scope('expression.add', $args)->render();
 	}
 
 	public function postAdd()
@@ -62,9 +66,19 @@ class ExpressionController extends BaseController {
 				'moderator_id' => NULL
 			));
 
+			if (Input::get('subscribe') === 'checked')
+			{
+				Subscription::create(array(
+					'email' => Input::get('email'),
+					'ip' => Request::getClientIp()
+				));
+				Log::debug('User subscribed!');
+			}
+
 			if ($definition->isValid() && $definition->isSaved())
 			{
 				DB::commit();
+				Log::debug(sprintf('New definition for %s added!', Input::get('text')));
 				return Redirect::to('/')->with('success', 'Expression added!');
 			} 
 			else
