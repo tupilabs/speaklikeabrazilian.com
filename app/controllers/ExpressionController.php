@@ -124,10 +124,10 @@ class ExpressionController extends BaseController {
 
 	public function getRandom()
 	{
-		$definitions = API::get('/api/v1/expressions/top');
+		$definitions = API::get('/api/v1/expressions/random');
 		$args = array();
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = "Top expressions";
+		$args['subtitle'] = "Random expressions";
 		$this->theme->set('active', 'random');
 		return $this->theme->scope('home.index', $args)->render();
 	}

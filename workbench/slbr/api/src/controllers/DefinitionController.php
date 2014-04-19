@@ -41,7 +41,7 @@ class DefinitionController extends \BaseController {
 	public function getRandom()
 	{
 		$definitions = Definition::where('status', '=', 2)
-			->orderBy('created_at', 'desc')
+			->orderBy(DB::raw('RANDOM()'))
 			->get();
 		return $definitions;
 	}
