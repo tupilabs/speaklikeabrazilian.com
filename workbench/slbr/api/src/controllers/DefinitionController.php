@@ -71,6 +71,7 @@ class DefinitionController extends \BaseController {
 		$definitions = Definition::join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('expressions.char', '=', strtoupper($letter))
 			->where('status', '=', 2)
+			->select('definitions.*')
 			->get();
 		return $definitions;
 	}
