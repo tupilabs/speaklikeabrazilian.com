@@ -12,10 +12,15 @@
 */
 
 // Main app
-Route::get('/', 'HomeController@getIndex');
-Route::get('/new', 'HomeController@getIndex');
+Route::get('/', 'ExpressionController@getNew');
+Route::get('/new', 'ExpressionController@getNew');
+Route::get('/top', 'ExpressionController@getTop');
+Route::get('/random', 'ExpressionController@getRandom');
 Route::controller('/expression', 'ExpressionController');
+// Subscribe
 Route::post('/subscribe', 'SubscribeController@postSubscribe');
+// Links
+Route::get('/links', 'LinksController@getLinks');
 
 if (Config::get('database.log', false))
 {           

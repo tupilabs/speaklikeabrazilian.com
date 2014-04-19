@@ -2,6 +2,16 @@
 
 class ExpressionController extends BaseController {
 
+	public function getNew()
+	{
+		$definitions = API::get('/api/v1/expressions/newest');
+		$args = array();
+		$args['definitions'] = $definitions;
+		$args['subtitle'] = "New expressions";
+		$this->theme->set('active', 'new');
+		return $this->theme->scope('home.index', $args)->render();
+	}
+
 	public function getDefine()
 	{
 		$expression = Input::get('e');
@@ -18,8 +28,10 @@ class ExpressionController extends BaseController {
 		$definitions = API::get(sprintf('api/v1/expressions/letters/%s', $letter));
 		$args = array();
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = sprintf("Displaying expressions starting with '%s'", strtoupper($letter));
-		$args['letter'] = strtoupper($letter);
+		$args['subtitle'] = sprintf("Expressions starting with '%s'", strtoupper($letter));
+		$letter = strtoupper($letter);
+		$args['letter'] = $letter;
+		$this->theme->set('active', $letter);
 		return $this->theme->scope('home.index', $args)->render();
 	}
 
@@ -34,6 +46,7 @@ class ExpressionController extends BaseController {
 
 	public function postAdd()
 	{
+		Log::debug('Starting transaction to add new expression');
 		DB::beginTransaction();
 
 		try 
@@ -77,12 +90,14 @@ class ExpressionController extends BaseController {
 
 			if ($definition->isValid() && $definition->isSaved())
 			{
+				Log::debug('Committing transaction');
 				DB::commit();
-				Log::debug(sprintf('New definition for %s added!', Input::get('text')));
+				Log::info(sprintf('New definition for %s added!', Input::get('text')));
 				return Redirect::to('/')->with('success', 'Expression added!');
 			} 
 			else
 			{
+				Log::debug('Rolling back transaction');
 				DB::rollback();
 				return Redirect::to('expression/add')
 					->withInput()
@@ -91,39 +106,30 @@ class ExpressionController extends BaseController {
 		} 
 		catch (\Exception $e) 
 		{
+			Log::debug('Rolling back transaction');
 			DB::rollback();
 			return Redirect::to('/')->with('error', $e->getMessage());
 		}
+	}
 
-/*
-		
-		// Definition
-		$definition = new stdClass();
-		$definition->expression_id = $expression->id;
-		$definition->description = urlencode($this->form_validation->set_value('definition'));
-		$definition->example = urlencode($this->form_validation->set_value('example'));
-		$definition->create_user = $this->form_validation->set_value('pseudonym');
-		$definition->email = $this->form_validation->set_value('email');
-		$definition->tags = $this->form_validation->set_value('tags');
-		$definition->status = 'P';
-		$ip = $_SERVER['REMOTE_ADDR'];
-		$definition->create_user_ip = $ip;
-		$id = $this->definitions_model->create((array) $definition);
-		$definition->id = $id;
-		
-		$subscribe_checked = $this->input->post('subscribe');
-		if (v::notEmpty()->string()->equals('checked')->validate($subscribe_checked)) {
-			$existing_subscriber = $this->subscribers_dao->get_by_email($definition->email);
-			if (!$existing_subscriber) {
-				$subscriber = new stdClass();
-				$subscriber->email = $definition->email;
-				$this->subscribers_dao->create($subscriber);
-			}
-		}
-		
-		$this->db->trans_complete();
-		$this->add_success('Thank you! You will receive a notification when your expression has been published!');
-		redirect('/');*/
+	public function getTop()
+	{
+		$definitions = API::get('/api/v1/expressions/top');
+		$args = array();
+		$args['definitions'] = $definitions;
+		$args['subtitle'] = "Top expressions";
+		$this->theme->set('active', 'top');
+		return $this->theme->scope('home.index', $args)->render();
+	}
+
+	public function getRandom()
+	{
+		$definitions = API::get('/api/v1/expressions/top');
+		$args = array();
+		$args['definitions'] = $definitions;
+		$args['subtitle'] = "Top expressions";
+		$this->theme->set('active', 'random');
+		return $this->theme->scope('home.index', $args)->render();
 	}
 
 }

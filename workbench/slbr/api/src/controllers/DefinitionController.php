@@ -30,6 +30,22 @@ class DefinitionController extends \BaseController {
 		return $definitions;
 	}
 
+	public function getTop()
+	{
+		$definitions = Definition::where('status', '=', 2)
+			->orderBy('created_at', 'desc')
+			->get();
+		return $definitions;
+	}
+
+	public function getRandom()
+	{
+		$definitions = Definition::where('status', '=', 2)
+			->orderBy('created_at', 'desc')
+			->get();
+		return $definitions;
+	}
+
 	public function getByLetter($letter)
 	{
 		$definitions = Definition::join('expressions', 'definitions.expression_id', '=', 'expressions.id')

@@ -1,6 +1,3 @@
-{% extends '_layouts/default/default.html.twig' %}
-
-{% block content %}
 <section id='main'>
 	<div class='container'>
 		<div class="row">
@@ -23,8 +20,7 @@
     			</div>
     		</div>
     		{# 2 columns wide #}
-    		{% include '_layouts/default/sidebar.html.twig' %}
+            {% include 'partials/sidebar.twig.php' %}
 		</div>
 	</div>
 </section>
-{% endblock %}
