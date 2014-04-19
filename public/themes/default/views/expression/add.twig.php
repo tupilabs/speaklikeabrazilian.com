@@ -12,9 +12,9 @@
     				</div>
     				<hr class='clearfix' />
     				<div class='span10'>
-                        {{ Form.open({'url': URL.current(), 'class': 'form-horizontal'}) }}
+                        {{ Form.open({'url': URL.current(), 'class': 'form-horizontal', 'id': 'addExpressionForm'}) }}
     						<div class="control-group">
-                                {{ Form.label('expression', 'Expression', {'class': 'control-label'}) }}
+                                {{ Form.label('text', 'Expression', {'class': 'control-label'}) }}
             					<div class="controls">
                                     {{ Form.input('text', 'text', expression, {'id': 'expression', 'style': 'width: 95%;'}) }}
                                     {% if errors.has('expression') %}
@@ -122,7 +122,7 @@
             				<hr />
             				<div class="row">
             					<div class="" style="text-align: center;">
-                                    {{ Form.submit('Send', {'class': 'btn btn-primary'}) }}
+                                    {{ Form.submit('Send', {'class': 'btn btn-primary', 'id': 'btnSubmitForm'}) }}
             					</div>
             				</div>
     					{{ Form.close() }}
@@ -137,5 +137,58 @@
 <script type='text/javascript'>
 templatecallback = function() {
 	base_url = "{{ URL.to('/') }}";
+    YUI().use(
+      'aui-form-validator',
+      'node',
+      function(Y) {
+        var rules = {
+            text: {
+                required: true, 
+                rangeLength: [1, 255]
+            },
+            definition: {
+                required: true, 
+                rangeLength: [3, 1000]
+            },
+            example: {
+                required: true, 
+                rangeLength: [3, 1000]
+            },
+            tags: {
+                required: true, 
+                rangeLength: [3, 100]
+            },
+            pseudonym: {
+                required: true, 
+                rangeLength: [1, 50]
+            },
+            email: {
+                required: true, 
+                email: true
+            }
+        };
+
+        var validator = new Y.FormValidator(
+        {
+            boundingBox: '#addExpressionForm',
+            //fieldStrings: fieldStrings,
+            rules: rules,
+            showAllMessages: true
+        });
+
+        var btn = Y.one('#btnSubmitForm');
+        Y.one('#addExpressionForm').on('submit', function(e) {
+            var originalText = btn.get('value');
+            btn.set('value', 'Sending...');
+            btn.set('disabled', 'disabled');
+            validator.validate();
+            if(validator.hasErrors()) {
+                btn.set('value', originalText);
+                btn.set('disabled', null);
+                e.preventDefault();
+            }
+        });
+      }
+    );
 }
 </script>

@@ -67,13 +67,13 @@ $(function() {
 		width:"400px", 
 		height:"300px"});
 	
-	// avoid duplicate button calls
+/*	// avoid duplicate button calls
 	$("input[type='submit']").attr("disabled", false);
 	$("input[type='button']").attr("disabled", false);
 	$("form").submit(function(){
 		$("input[type='submit']").attr("disabled", true).val("Please wait...");
 		$("input[type='button']").attr("disabled", true).val("Please wait...");
 		return true;
-	});
+	});*/
 	
 });

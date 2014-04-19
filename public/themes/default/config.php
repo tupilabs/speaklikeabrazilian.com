@@ -94,6 +94,9 @@ return array(
             $asset->add('jquery-blockui-js', 'themes/default/assets/js/plugins/blockui/jquery.blockUI.js');
             $asset->add('jgrowl-js', 'themes/default/assets/js/plugins/jgrowl/jquery.jgrowl_minimized.js');
             $asset->add('jquery-colorbox-js', 'themes/default/assets/js/plugins/colorbox/jquery.colorbox.js');
+            //$asset->add('yui3-js', 'themes/default/assets/js/yui-min.js');
+            $asset->add('aui-js', 'themes/default/assets/js/aui-min.js');
+            //$asset->add('aui-form-validator-js', 'themes/default/assets/js/aui-form-validator-min.js');
             $asset->add('slbr-js', 'themes/default/assets/js/slbr.js');
             $asset->add('slbr-rating-js', 'themes/default/assets/js/rating.js');
         }

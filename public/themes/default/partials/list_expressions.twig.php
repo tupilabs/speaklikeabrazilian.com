@@ -24,8 +24,8 @@
                     </div>
                 {% else %}
                     <div class='span10'>
-                           <h4>{{ no_expressions_message }}</h4>
-                        <p><strong>Be the first to {{ HTML.link('expression/add', 'add one!') }}</strong></p>
+                        <h4>{{ no_expressions_message }}</h4>
+                        <p><strong>No expression found. {{ HTML.link('expression/add', 'Add yours!') }}</strong></p>
                     </div>
                 {% endif %}
                 </div>
