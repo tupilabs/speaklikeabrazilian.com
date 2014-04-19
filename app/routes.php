@@ -11,6 +11,8 @@
 |
 */
 
+// Rating
+Route::post('/rate', 'ExpressionController@postRate');
 // Main app
 Route::get('/', 'ExpressionController@getNew');
 Route::get('/new', 'ExpressionController@getNew');

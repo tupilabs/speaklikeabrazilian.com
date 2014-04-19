@@ -6,6 +6,10 @@ use \Definition;
 use \DB;
 use \Input;
 use \Illuminate\Database\Query\Expression;
+use \Log;
+use \Request;
+use \Rating;
+use \Response;
 
 class DefinitionController extends \BaseController {
 
@@ -32,10 +36,26 @@ class DefinitionController extends \BaseController {
 
 	public function getTop()
 	{
-		$definitions = Definition::where('status', '=', 2)
+		/*$definitions = DB::table('definitions')
+			->where('definitions.status', '=', 2)
+			->join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->join('ratings', 'definitions.id', '=', 'ratings.definition_id')
 			->orderBy('created_at', 'desc')
+			->select('definitions.*', 'expressions.text')
+			->get();*/
+		$definitions = Definition::where('status', '=', 2)
 			->get();
-		return $definitions;
+		$definitions->sortBy(function($definition){
+			$ratings = $definition->ratings();
+			$rate = 0;
+			foreach ($ratings as $rating) 
+			{
+				$rate += $rating->rating;
+			}
+			Log::debug(sprintf("RATE: %s", $rate));
+			return $rate;
+		});
+		return $definitions->reverse();
 	}
 
 	public function getRandom()
@@ -77,6 +97,22 @@ class DefinitionController extends \BaseController {
 			'contributor' => Input::get('contributor'),
 			'moderator_id' => Input::get('moderator_id', NULL)
 		));
+	}
+
+	public function postRate($expressionId, $definitionId)
+	{
+		Log::debug(sprintf('User %s rated definition %d with %d', 
+			Request::getClientIp(),
+			$definitionId,
+			Input::get('rating')
+		));
+		Rating::create(array(
+			'definition_id' => $definitionId,
+			'rating' => Input::get('rating'),
+			'user_ip' => Request::getClientIp()
+		));
+		
+		return Response::json(array('msg' => 'OK'));
 	}
 
 }

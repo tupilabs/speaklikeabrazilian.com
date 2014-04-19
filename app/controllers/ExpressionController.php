@@ -132,4 +132,17 @@ class ExpressionController extends BaseController {
 		return $this->theme->scope('home.index', $args)->render();
 	}
 
+	public function postRate()
+	{
+		$expressionId = Input::get('expressionId');
+		$definitionId = Input::get('definitionId');
+		$rate = API::post(sprintf('api/v1/expressions/%d/definitions/%d/rate', $expressionId, $definitionId), 
+			array(
+				'rating' => Input::get('rating'),
+				'user_ip' => Request::getClientIp()
+			)
+		);
+		return $rate;
+	}
+
 }

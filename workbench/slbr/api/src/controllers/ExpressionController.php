@@ -4,6 +4,8 @@ use \Controller;
 use \App;
 use \Expression;
 use \Input;
+use \Log;
+use \Request;
 
 class ExpressionController extends \BaseController {
 	

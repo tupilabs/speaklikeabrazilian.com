@@ -5,7 +5,7 @@ $(".like").click(function() {
 	var formAction = leform.attr('action');
 	var formData = leform.serialize();
 	$.ajax({
-		type : "post", 
+		type : 'POST', 
 		url : formAction,
 		data : formData,
 		dataType : 'json',
@@ -84,12 +84,8 @@ function onComplete(jqXHR, textStatus) {
 
 function onBeforeSend(formData, jqForm, options) {
 	// formd = $.param(formData);
-	$
-			.blockUI({
-				// message: '<div style="padding: 10px 0px;"><h3><img
-				// src="../assets/img/loading.gif" />Processing your
-				// vote...</h3></div>'
-				message : '<div style="padding: 10px 0px;"><h3>Processing your vote...</h3></div>'
-			});
+	$.blockUI({
+		message : '<div style="padding: 10px 0px;"><h3>Processing your vote...</h3></div>'
+	});
 	return true;
 }

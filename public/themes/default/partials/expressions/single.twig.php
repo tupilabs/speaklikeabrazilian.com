@@ -12,10 +12,10 @@
     			&nbsp;<a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&amp;tl=pt&amp;q={{ definition.expression.text }}"><i class='icon-play'></i></a>
 			</span>
 			<div class='rating'>
-				{{ Form.open({'url': 'rating/definition/' ~ definition.id }) }}
+				{{ Form.open({'url': '/rate' }) }}
 				<small>
-					<input type="hidden" name="_method" value="put" />
-					<input type="hidden" name="definition_id" value="{{ expression.definition_id }}" />
+					<input type="hidden" name="expressionId" value="{{ definition.expression_id }}" />
+					<input type="hidden" name="definitionId" value="{{ definition.id }}" />
 					<span class="like_count">{{ definition.likes }} </span> 
 					<input type="hidden" name="rating" value="0" /> ups, 
 					<span class="dislike_count">{{ definition.dislikes }} </span> 

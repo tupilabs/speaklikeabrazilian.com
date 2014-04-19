@@ -12,6 +12,9 @@ Route::group(
 		Route::get('definition', 'Slbr\Api\DefinitionController@getByExpressionText');
 		Route::get('expressions/search', 'Slbr\Api\ExpressionController@searchByText');
 		Route::post('expressions', 'Slbr\Api\ExpressionController@postExpression');
+		Route::post('expressions/{expressionId}/definitions/{definitionId}/rate', 'Slbr\Api\DefinitionController@postRate')
+			->where('expressionId', '[0-9]+')
+			->where('definitionId', '[0-9]+');
 		Route::post('expressions/{id}/definitions', 'Slbr\Api\DefinitionController@postDefinition')->where('id', '[0-9]+');
 	}
 );
