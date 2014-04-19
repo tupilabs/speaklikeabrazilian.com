@@ -30,6 +30,7 @@
                                 {{ Form.label('definition', 'Definition', {'class': 'control-label'}) }}
             					<div class="controls">
                                     {{ Form.textarea('definition', definition, {'id': 'definition', 'style': 'width: 95%;', 'rows': 4}) }}
+                                    <br/><span class="" id="definitionCounter"></span> character(s) remaining
             						<span class="help-block"><small>
             							Include as much information about your expression as possible. You can mention 
             							other expressions with the following syntax: [expression_name]
@@ -139,8 +140,17 @@ templatecallback = function() {
 	base_url = "{{ URL.to('/') }}";
     YUI().use(
       'aui-form-validator',
+      'aui-char-counter',
       'node',
       function(Y) {
+        new Y.CharCounter(
+          {
+            counter: '#definitionCounter',
+            input: '#definition',
+            maxLength: 1000
+          }
+        );
+
         var rules = {
             text: {
                 required: true, 
