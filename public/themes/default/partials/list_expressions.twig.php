@@ -20,6 +20,7 @@
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
+                </div>
                 {% else %}
                 <div class='row'>
                     <div class='span10'>
@@ -34,9 +35,9 @@
                 </div>
                 {% endif %}
             </div>
+            {# 2 columns wide #}
+            {% include 'partials/sidebar.twig.php' %}
         </div>
-        {# 2 columns wide #}
-        {% include 'partials/sidebar.twig.php' %}
         {% if expressions is defined and expressions[0] is defined %}
         <div class='row center'>
             {{ pagination_links }}
