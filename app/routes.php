@@ -15,7 +15,7 @@
 Route::get('/', 'HomeController@getIndex');
 Route::get('/new', 'HomeController@getIndex');
 Route::controller('/expression', 'ExpressionController');
-
+Route::post('/subscribe', 'SubscribeController@postSubscribe');
 
 if (Config::get('database.log', false))
 {           

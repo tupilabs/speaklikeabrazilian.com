@@ -7,6 +7,7 @@ class HomeController extends BaseController {
 		$definitions = API::get('/api/v1/expressions/newest');
 		$args = array();
 		$args['definitions'] = $definitions;
+		$args['subtitle'] = "New expressions";
 		return $this->theme->scope('home.index', $args)->render();
 	}
 

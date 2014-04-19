@@ -8,6 +8,8 @@ class ExpressionController extends BaseController {
 		$definitions = API::get(sprintf('api/v1/definition?e=%s', $expression));
 		$args = array();
 		$args['definitions'] = $definitions;
+		$args['subtitle'] = sprintf("Definitions of '%s'", $expression);
+		$args['expression'] = $expression;
 		return $this->theme->scope('home.index', $args)->render();
 	}
 
@@ -16,6 +18,8 @@ class ExpressionController extends BaseController {
 		$definitions = API::get(sprintf('api/v1/expressions/letters/%s', $letter));
 		$args = array();
 		$args['definitions'] = $definitions;
+		$args['subtitle'] = sprintf("Displaying expressions starting with '%s'", strtoupper($letter));
+		$args['letter'] = strtoupper($letter);
 		return $this->theme->scope('home.index', $args)->render();
 	}
 

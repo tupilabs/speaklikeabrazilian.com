@@ -77,3 +77,24 @@ $(function() {
 	});*/
 	
 });
+
+YUI().use(
+  'aui-form-validator',
+  'node',
+  function(Y) {
+    var rules = {
+        email: {
+            required: true, 
+            email: true
+        }
+    };
+
+    var validator = new Y.FormValidator(
+    {
+        boundingBox: '#subscribeForm',
+        //fieldStrings: fieldStrings,
+        rules: rules,
+        showAllMessages: true
+    });
+  }
+);

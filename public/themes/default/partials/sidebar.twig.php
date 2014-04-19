@@ -7,10 +7,17 @@
     			<hr/>
     			<h4>Word of the day</h4>
     			<p>Subscribe to the SLBR word of the day mailing list</p>
-                {{ Form.open({'url': 'subscribe', 'class': 'form-vertical'})}}
-    				<div class='input-append'>
-    					{{ Form.input('email', 'email', '', {'class': 'input-small', 'placeholder': 'E-mail'}) }}
-    					<button type="submit" value="" class="btn btn-info"><i class="icon-pencil"></i></button>
+                {{ Form.open({'url': 'subscribe', 'class': 'form-vertical', 'id': 'subscribeForm'})}}
+                    <div class="control-group">
+    				    <div class="controls">
+    					   {{ Form.input('email', 'email', '', {'class': 'input-small', 'placeholder': 'E-mail'}) }}
+    					   <button type="submit" value="" class="btn btn-info"><i class="icon-pencil"></i></button>
+                        </div>
     				</div>
+                    <div class="control-group" style="display:none;">
+                        <div class="controls">
+                            {{ Form.honeypot('name', 'time') }}
+                        </div>
+                    </div>
     			{{ Form.close() }}
     		</div>
