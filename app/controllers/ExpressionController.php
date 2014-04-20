@@ -115,7 +115,7 @@ class ExpressionController extends BaseController {
 				Log::debug('Committing transaction');
 				DB::commit();
 				Log::info(sprintf('New definition for %s added!', Input::get('text')));
-				return Redirect::to('/')->with('success', 'Expression added!');
+				return Redirect::to('/')->with('success', 'Expression added! It will get published after one of our moderators review it. Thank you!');
 			} 
 			else
 			{
@@ -173,6 +173,49 @@ class ExpressionController extends BaseController {
 		$args['url'] = sprintf('/expression/%d/display_embedded', $id);
 		$this->theme->layout('message');
 		return $this->theme->scope('expression.embed', $args)->render();
+	}
+
+	public function displayEmbedded($definitionId)
+	{
+		$expression = API::get("api/v1/expressions/findByDefinitionId?definitionId=$definitionId");
+		$expressionId = $expression->id;
+		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
+		$args = array();
+		$args['definition'] = $definition;
+		$this->theme->layout('message');
+		return $this->theme->scope('expression.display_embedded', $args)->render();
+	}
+
+	public function getShare($definitionId)
+	{
+		$expression = API::get("api/v1/expressions/findByDefinitionId?definitionId=$definitionId");
+		$expressionId = $expression->id;
+		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
+		$likes = 0;
+		$dislikes = 0;
+		foreach ($definition['ratings'] as $rating)
+		{
+			if ($rating['rating'] == 1)
+			{
+				$likes += 1;
+			}
+			else
+			{
+				$dislikes += 1;
+			}
+		}
+		$args = array();
+		$args['definition'] = $definition;
+		$args['likes'] = $likes;
+		$args['dislikes'] = $dislikes;
+		$this->theme->layout('message');
+		return $this->theme->scope('expression.share', $args)->render();
+	}
+
+	public function postShare($definitionId)
+	{
+		echo "TODO: send e-mail";
+		exit;
 	}
 
 }

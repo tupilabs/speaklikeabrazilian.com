@@ -18,7 +18,10 @@ Route::get('/', 'ExpressionController@getNew');
 Route::get('/new', 'ExpressionController@getNew');
 Route::get('/top', 'ExpressionController@getTop');
 Route::get('/random', 'ExpressionController@getRandom');
+Route::get('/expression/{id}/display_embedded', 'ExpressionController@displayEmbedded')->where('id', '[0-9]+');
 Route::get('/expression/{id}/embed', 'ExpressionController@getEmbed')->where('id', '[0-9]+');
+Route::get('/expression/{id}/share', 'ExpressionController@getShare')->where('id', '[0-9]+');
+Route::post('/expression/{id}/share', 'ExpressionController@postShare')->where('id', '[0-9]+');
 Route::controller('/expression', 'ExpressionController');
 // Subscribe
 Route::post('/subscribe', 'SubscribeController@postSubscribe');

@@ -98,12 +98,15 @@ YUI().use(
         }
     };
 
-    var validator = new Y.FormValidator(
-    {
-        boundingBox: '#subscribeForm',
-        //fieldStrings: fieldStrings,
-        rules: rules,
-        showAllMessages: true
-    });
+    var form = Y.one('#subscribeForm');
+    if (form) {
+	    var validator = new Y.FormValidator(
+	    {
+	        boundingBox: '#subscribeForm',
+	        //fieldStrings: fieldStrings,
+	        rules: rules,
+	        showAllMessages: true
+	    });
+	}
   }
 );

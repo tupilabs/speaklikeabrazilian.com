@@ -29,5 +29,8 @@
 		{{ Theme.content() }}
 		
 		{{ Theme.asset().scripts() }}
+        <script type='text/javascript'>
+function maincallback() {}
+        </script>
     </body>
 </html>

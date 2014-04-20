@@ -15,7 +15,8 @@ class DefinitionController extends \BaseController {
 
 	public function getDefinitions($id) 
 	{
-		$definitions = Definition::where('expression_id', '=', $id)->get();
+		$definitions = Definition::with('expression', 'rating')
+			->where('expression_id', '=', $id)->get();
 		if ($definitions->count() > 0)
 		{
 			return $definitions;
@@ -26,9 +27,20 @@ class DefinitionController extends \BaseController {
 		}
 	}
 
+	public function getDefinition($expressionId, $definitionId)
+	{
+		$definition = Definition::with('expression', 'ratings')
+			->where('status', '=', 2)
+			->where('expression_id', $expressionId)
+			->where('id', $definitionId)
+			->first();
+		return Response::json($definition);
+	}
+
 	public function getNewest()
 	{
-		$definitions = Definition::where('status', '=', 2)
+		$definitions = Definition::with('expression', 'ratings')
+			->where('status', '=', 2)
 			->orderBy('created_at', 'desc')
 			->get();
 		return $definitions;
@@ -36,14 +48,8 @@ class DefinitionController extends \BaseController {
 
 	public function getTop()
 	{
-		/*$definitions = DB::table('definitions')
-			->where('definitions.status', '=', 2)
-			->join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-			->join('ratings', 'definitions.id', '=', 'ratings.definition_id')
-			->orderBy('created_at', 'desc')
-			->select('definitions.*', 'expressions.text')
-			->get();*/
-		$definitions = Definition::where('status', '=', 2)
+		$definitions = Definition::with('expression', 'ratings')
+			->where('status', '=', 2)
 			->get();
 		$definitions->sortBy(function($definition){
 			$ratings = $definition->ratings();
@@ -60,7 +66,8 @@ class DefinitionController extends \BaseController {
 
 	public function getRandom()
 	{
-		$definitions = Definition::where('status', '=', 2)
+		$definitions = Definition::with('expression', 'ratings')
+			->where('status', '=', 2)
 			->orderBy(DB::raw('RANDOM()'))
 			->get();
 		return $definitions;
@@ -68,7 +75,8 @@ class DefinitionController extends \BaseController {
 
 	public function getByLetter($letter)
 	{
-		$definitions = Definition::join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+		$definitions = Definition::with('expression', 'ratings')
+			->join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('expressions.char', '=', strtoupper($letter))
 			->where('status', '=', 2)
 			->select('definitions.*')
@@ -79,9 +87,11 @@ class DefinitionController extends \BaseController {
 	public function getByExpressionText() 
 	{
 		$text = Input::get('e');
-		$definitions = Definition::join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+		$definitions = Definition::with('expression', 'ratings')
+			->join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower(htmlentities($text)))
 			->where('status', '=', 2)
+			->select('definitions.*')
 			->get();
 		return $definitions;
 	}

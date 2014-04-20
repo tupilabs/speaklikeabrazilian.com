@@ -6,6 +6,7 @@ use \Expression;
 use \Input;
 use \Log;
 use \Request;
+use \Response;
 
 class ExpressionController extends \BaseController {
 	
@@ -43,6 +44,21 @@ class ExpressionController extends \BaseController {
 			->get();
 
 		return $expressions;
+	}
+
+	public function findByDefinitionId()
+	{
+		$definitionId = Input::get('definitionId');
+		if (!$definitionId)
+		{
+			return Response::json(NULL);
+		}
+		$expression = Expression::
+			join('definitions', 'expressions.id', '=', 'definitions.expression_id')
+			->where('definitions.id', '=', $definitionId)
+			->select('expressions.*')
+			->get();
+		return (count($expression) == 0 ? Response::json(NULL) : $expression[0]);
 	}
 
 }

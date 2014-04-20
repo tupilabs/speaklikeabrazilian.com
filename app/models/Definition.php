@@ -29,12 +29,12 @@ class Definition extends Magniloquent {
 
 	public function expression()
 	{
-		return $this->belongsTo('Expression')->first();
+		return $this->belongsTo('Expression');
 	}
 
 	public function ratings() 
 	{
-		return $this->hasMany('Rating')->get();
+		return $this->hasMany('Rating');
 	}
 
 	public function likes()
