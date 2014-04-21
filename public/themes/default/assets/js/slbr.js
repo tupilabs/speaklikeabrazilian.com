@@ -49,7 +49,7 @@ $(function() {
 		maincallback();
 	}
 	
-	$(".share a").colorbox({
+	$(".share2 a").colorbox({
 		iframe:true,
 		onOpen: function() {
 	        // prevent Overlay from being displayed...
@@ -105,7 +105,9 @@ YUI().use(
 	        boundingBox: '#subscribeForm',
 	        //fieldStrings: fieldStrings,
 	        rules: rules,
-	        showAllMessages: true
+	        showAllMessages: true,
+	        validateOnInput: false,
+	        validateOnBlur: false
 	    });
 	}
   }

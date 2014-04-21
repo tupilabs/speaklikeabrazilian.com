@@ -50,25 +50,25 @@
 	</div>
 	<div class='authorship'>
 		<small>
-    		<strong>Author</strong> <span class="">@{{ definition.contributor }}
+    		<strong>Author</strong> <span class="">{{ definition.contributor }}
     		</span> 
-    		<span class='share'>
-    			<a class="label label-inverse" href="{{ URL.to('expression/' ~ definition.id) }}/share">share this</a>
-    		</span> 
-    		<span class='embed'>
-    			<a class="label label-inverse" href="{{ URL.to('expression/' ~  definition.id) }}/embed">embed</a> 
-    		</span>
-		</small>
+    	</small>
+		<span class='share2'>
+			<a class="label label-info" href="{{ URL.to('expression/' ~ definition.id) }}/share">share this</a>
+		</span> 
+		<span class='embed'>
+			<a class="label label-info" href="{{ URL.to('expression/' ~  definition.id) }}/embed">embed</a> 
+		</span>		
 	</div>
 	<div class='entry-media'>
 		<small>
     	    <strong>Media</strong>
-    	    <span class='share'>
-    	    	<a class='btn btn-sm btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos">+ add video</a> 
-    	    </span>
-    	    <span class='share'>
-    	    	<a class='btn btn-sm btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures">+ add picture</a> 
-    	    </span>
     	</small>
+	    <span class='share2'>
+	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos">+ add video</a> 
+	    </span>
+	    <span class='share2'>
+	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures">+ add picture</a> 
+	    </span>
 	</div>
 </div>

@@ -1,7 +1,7 @@
 <section id="main">
     <div class='container'>
         <div class='row'>
-            <div class='span2' style='padding-top: 20px;'>
+            <div class='col-xs-2' style='padding-top: 20px;'>
             	<ul class="nav nav-list affix">
             		<li><a href="#" class='active'>Moderators Home</a></li>
             		<li class="nav-header">Pending items</li>
@@ -14,7 +14,7 @@
 				  	<li><a href="#">Contact admin</a></li>
 				</ul>
             </div>
-            <div class='span8' style='padding-top: 20px;'>
+            <div class='col-xs-8' style='padding-top: 20px;'>
 
             </div>
             {# 2 columns wide #}

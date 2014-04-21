@@ -5,7 +5,6 @@ body, html {
     outline: 0;
     font-size: 100%;
     line-height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: white;
 }
 
@@ -313,7 +312,7 @@ body, html {
     z-index: 10;
 }
 
-div#share {
+div#share2 {
     background-color: #FFFFFF;
     width: 100%;
     height: 100%;
@@ -322,7 +321,7 @@ div#share {
     display: block;
 }
 
-div#share form {
+div#share2 form {
     margin: 0px;
 }
 
