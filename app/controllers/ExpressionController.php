@@ -229,26 +229,6 @@ class ExpressionController extends BaseController {
 		return $rate;
 	}
 
-	public function getEmbed($id) 
-	{
-		$args = array();
-		$args['url'] = sprintf('/expression/%d/display_embedded', $id);
-		$this->theme->layout('message');
-		return $this->theme->scope('expression.embed', $args)->render();
-	}
-
-	public function displayEmbedded($definitionId)
-	{
-		// TODO: simplify to a single call by def id
-		$expression = API::get("api/v1/expressions/findByDefinitionId?definitionId=$definitionId");
-		$expressionId = $expression->id;
-		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
-		$args = array();
-		$args['definition'] = $definition;
-		$this->theme->layout('message');
-		return $this->theme->scope('expression.display_embedded', $args)->render();
-	}
-
 	public function getVideos($definitionId)
 	{
 		$expressionId = Input::get('expressionId');
