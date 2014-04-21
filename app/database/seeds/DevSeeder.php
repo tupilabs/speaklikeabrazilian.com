@@ -10,6 +10,7 @@ class DevSeeder extends Seeder {
 	{
 		$this->runExpressions();
 		$this->runDefinitions();
+		$this->runUsers();
 	}
 
 	public function runExpressions()
@@ -68,7 +69,7 @@ class DevSeeder extends Seeder {
 			)
 		);
 
-		Definition::create(
+		$approvedDefinition = Definition::create(
 			array(
 				'expression_id' => 1, 
 				'description' => 'Someone born in Carangopolis',
@@ -78,6 +79,38 @@ class DevSeeder extends Seeder {
 				'email' => 'kinow@slbr.com',
 				'contributor' => 'kinow',
 				'moderator_id' => 1
+			)
+		);
+
+		Rating::create(
+			array(
+				'user_ip' => '127.0.0.1',
+				'rating' => 1, 
+				'definition_id' => $approvedDefinition->id
+			)
+		);
+
+		Rating::create(
+			array(
+				'user_ip' => '192.168.0.1',
+				'rating' => 1, 
+				'definition_id' => $approvedDefinition->id
+			)
+		);
+
+		Rating::create(
+			array(
+				'user_ip' => '192.168.0.16',
+				'rating' => 1, 
+				'definition_id' => $approvedDefinition->id
+			)
+		);
+
+		Rating::create(
+			array(
+				'user_ip' => '192.168.0.115',
+				'rating' => -1, 
+				'definition_id' => $approvedDefinition->id
 			)
 		);
 
@@ -106,6 +139,47 @@ class DevSeeder extends Seeder {
 				'moderator_id' => 1
 			)
 		);
+	}
+
+	public function runUsers()
+	{
+		try
+		{
+		    // Create the user
+		    $user = Sentry::createUser(array(
+		        'email'     => 'test@speaklikeabrazilian.com',
+		        'password'  => 'test',
+		        'activated' => true,
+		        'permissions' => array(
+		            'user.create' => 1,
+		            'user.delete' => 1,
+		            'user.view'   => 1,
+		            'user.update' => 1,
+		        ),
+		    ));
+
+		    // Find the group using the group id
+		    // $adminGroup = Sentry::findGroupById(1);
+
+		    // Assign the group to the user
+		    // $user->addGroup($adminGroup);
+		}
+		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+		    echo 'Login field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+		    echo 'Password field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+		    echo 'User with this login already exists.';
+		}
+		catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+		{
+		    echo 'Group was not found.';
+		}
 	}
 
 }

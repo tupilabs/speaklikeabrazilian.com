@@ -1,21 +1,16 @@
-{% block content %}
 <section id="main">
     <div class='container'>
         <div class='row'>
-            <div class='span10'>
+            <div class='col-xs-10'>
                 {% if definitions is defined and definitions[0] is defined %}
+                <h2 class='subtitle'>{{ subtitle }}</h2>
                 <div class='row'>
-                    <div class='span10'>
-                        <h2 class='subtitle'>{{ subtitle }}</h2>
-                    </div>
-                </div>
-                <div class='row'>
-                    <div class='span5'>
+                    <div class='col-xs-6'>
                         {% for definition in definitions|slice(0, 5) %}
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
-                    <div class='span5'>
+                    <div class='col-xs-6'>
                         {% for definition in definitions|slice(5, 10) %}
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
@@ -23,7 +18,7 @@
                 </div>
                 {% else %}
                 <div class='row'>
-                    <div class='span10'>
+                    <div class='col-xs-10'>
                     {% if expression is defined and expression is not empty %}
                         <h2 class='subtitle'>No definitions of '{{ expression }}' found. {{ HTML.link('expression/add?e=' ~ expression, 'Add yours!') }}</h2>
                     {% elseif letter is defined and letter is not empty %}
@@ -45,4 +40,3 @@
         {% endif %}
     </div>
 </section>
-{% endblock %}

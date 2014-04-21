@@ -1,18 +1,16 @@
 <section id='main'>
 	<div class='container'>
 		<div class="row">
-    		<div class='span10'>
+    		<div class='col-xs-10'>
     			<div class='row'>
-    				<div class='span8'>
-    					<h2 class='subtitle'>Add expression</h2>
-    				</div>
-    				<hr class='clearfix' />
+    				<h2 class='subtitle'>Add expression</h2>
+                    <br/>
     				<div class='span10'>
-                        {{ Form.open({'url': URL.current(), 'class': 'form-horizontal', 'id': 'addExpressionForm'}) }}
-    						<div class="control-group">
-                                {{ Form.label('text', 'Expression', {'class': 'control-label'}) }}
-            					<div class="controls">
-                                    {{ Form.input('text', 'text', expression, {'id': 'expression', 'style': 'width: 95%;'}) }}
+                        {{ Form.open({'url': URL.current(), 'class': 'form-horizontal', 'id': 'addExpressionForm', 'role': 'form'}) }}
+    						<div class="form-group">
+                                {{ Form.label('expression', 'Expression', {'class': 'col-xs-2 control-label'}) }}
+            					<div class="col-xs-10">
+                                    {{ Form.input('text', 'text', expression, {'id': 'expression', 'class': 'form-control'}) }}
                                     {% if errors.has('expression') %}
             						<span>
                                         <div class='alert'>
@@ -22,15 +20,14 @@
                                     {% endif %}
             					</div>
             				</div>
-            				<div class="control-group">
-                                {{ Form.label('definition', 'Definition', {'class': 'control-label'}) }}
-            					<div class="controls">
-                                    {{ Form.textarea('definition', definition, {'id': 'definition', 'style': 'width: 95%;', 'rows': 4}) }}
-                                    <br/><span class="" id="definitionCounter"></span> character(s) remaining
-            						<span class="help-block"><small>
+            				<div class="form-group">
+                                {{ Form.label('definition', 'Definition', {'class': 'col-xs-2 control-label'}) }}
+            					<div class="col-xs-10">
+                                    {{ Form.textarea('definition', definition, {'id': 'definition', 'class': 'form-control', 'rows': 4}) }}
+                                    <br/>
+                                    <span class="help-block"><small><span class="" id="definitionCounter"></span> character(s) remaining<br/>
             							Include as much information about your expression as possible. You can mention 
-            							other expressions with the following syntax: [expression_name]
-            						</small></span>
+            							other expressions with the following syntax: [expression_name]</small></span>
             						{% if errors.has('definition') %}
                                     <span>
                                         <div class='alert'>
@@ -40,10 +37,10 @@
                                     {% endif %}
             					</div>
             				</div>
-            				<div class="control-group">
-                                {{ Form.label('example', 'Example', {'class': 'control-label'}) }}
-            					<div class="controls">
-                                    {{ Form.textarea('example', example, {'id': 'example', 'style': 'width: 95%', 'rows': '4'}) }}
+            				<div class="form-group">
+                                {{ Form.label('example', 'Example', {'class': 'col-xs-2 control-label'}) }}
+            					<div class="col-xs-10">
+                                    {{ Form.textarea('example', example, {'id': 'example', 'class': 'form-control', 'rows': '4'}) }}
             						<span class="help-block"><small>
             						List some synonyms, related words, places or misspellings, separated by 
             						commas (e.g.: Sao Paulo City, NSFW, oldie).
@@ -57,10 +54,13 @@
                                     {% endif %}
             					</div>
             				</div>
-            				<div class="control-group">
-                                {{ Form.label('tags', 'Tags', {'class': 'control-label'}) }}
-            					<div class="controls">
-                                    {{ Form.input('text', 'tags', tags, {'id': 'tags', 'style': 'width: 95%;'}) }}
+            				<div class="form-group">
+                                {{ Form.label('tags', 'Tags', {'class': 'col-xs-2 control-label'}) }}
+            					<div class="col-xs-10">
+                                    {{ Form.input('text', 'tags', tags, {'id': 'tags', 'class': 'form-control'}) }}
+                                    <span class="help-block"><small>
+                                    Comma separated list of tags (e.g.: feij&atilde;o, ovo, tromba)
+                                    </small></span>
             						{% if errors.has('tags') %}
                                     <span>
                                         <div class='alert'>
@@ -70,12 +70,10 @@
                                     {% endif %}
             					</div>
             				</div>
-            				<hr />
-            				<h4>Who are you?</h4>
-            				<div class="control-group">
-                                {{ Form.label('pseudonym', 'Your pseudonym', {'class': 'control-label'}) }}
-            					<div class="controls">
-                                    {{ Form.input('text', 'pseudonym', pseudonym, {'id': 'pseudonym', 'style': 'width? 95%;'}) }}
+            				<div class="form-group">
+                                {{ Form.label('pseudonym', 'Your pseudonym', {'class': 'col-xs-2 control-label'}) }}
+            					<div class="col-xs-10">
+                                    {{ Form.input('text', 'pseudonym', pseudonym, {'id': 'pseudonym', 'class': 'form-control'}) }}
             						<span class="help-block"><small>
             						This is how you will be identified as author of this definition.
             						</small></span>
@@ -88,10 +86,10 @@
                                     {% endif %}
             					</div>
             				</div>
-            				<div class="control-group">
-                                {{ Form.label('email', 'Your e-mail', {'class': 'control-label'}) }}
-            					<div class="controls">
-                                    {{ Form.email('email', email, {'style': 'width: 95%'}) }}
+            				<div class="form-group">
+                                {{ Form.label('email', 'Your e-mail', {'class': 'col-xs-2 control-label'}) }}
+            					<div class="col-xs-10">
+                                    {{ Form.email('email', email, {'class': 'form-control'}) }}
             						{% if errors.has('email') %}
                                     <span>
                                         <div class='alert'>
@@ -99,25 +97,27 @@
                                         </div>
                                     </span>
                                     {% endif %}
-            						<div>
-            							<label class='checkbox muted'>
-                                            <small>{{ Form.checkbox('subscribe', 'checked', subscribe)}} Subscribe to our word of day</small>
-            							</label>
-            						</div>
             					</div>
             				</div>
-            				<div class="control-group" style="display:none;">
-            					<div class="controls">
+                            <div class='form-group'>
+                                <div class="col-xs-offset-2 col-xs-8">
+                                    <label class='checkbox' for='subscribe'>
+                                        {{ Form.checkbox('subscribe', 'checked', subscribe, {"data-toggle": "checkbox"})}} <span class="help-block"><small>Subscribe to our word of day</small></span>
+                                    </label>
+                                </div>
+                            </div>
+            				<div class="form-group" style="display:none;">
+            					<div class="col-xs-10">
                                     {{ Form.honeypot('le_name', 'le_time') }}
             					</div>
             				</div>
-            				<hr />
             				<div class="row">
             					<div class="" style="text-align: center;">
-                                    {{ Form.submit('Send', {'class': 'btn btn-primary', 'id': 'btnSubmitForm'}) }}
+                                    {{ Form.submit('Send', {'class': 'btn btn-primary btn-wide', 'id': 'btnSubmitForm'}) }}
             					</div>
             				</div>
     					{{ Form.close() }}
+                        <br/>
     				</div>
     			</div>
     		</div>

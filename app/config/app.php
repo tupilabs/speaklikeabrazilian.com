@@ -111,7 +111,8 @@ return array(
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Msurguy\Honeypot\HoneypotServiceProvider',
 		'Teepluss\Api\ApiServiceProvider',
-		'Slbr\Api\ApiServiceProvider'
+		'Slbr\Api\ApiServiceProvider',
+		'Frozennode\Administrator\AdministratorServiceProvider'
 	),
 
 	/*

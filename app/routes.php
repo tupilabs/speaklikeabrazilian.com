@@ -11,6 +11,12 @@
 |
 */
 
+// Users
+Route::get('/user/login', 'UserController@getLogin');
+Route::post('/user/login', 'UserController@postLogin');
+Route::get('/user/logout', 'UserController@getLogout');
+// Moderators
+Route::get('/moderators', 'ModeratorController@getModerators');
 // Rating
 Route::post('/rate', 'ExpressionController@postRate');
 // Main app

@@ -1,15 +1,18 @@
 <footer id='footer'>
 	<div class='container'>
     	<div class='row'>
-    		<div class='span6'>
-    			<p>&copy; <a href='http://tupilabs.com' title='TupiLabs'>TupiLabs</a> - <a href='https://github.com/tupilabs/speaklikeabrazilian.com'>Source code</a> licensed under MIT License</p>
+    		<div class='col-xs-6'>
+          <h3 class='footer-title'>Speak Like A Brazilian is Open Source!</h3>
+          <p>Our content is created by users like you, and with software that was 
+          created and distributed by great developers! The source code for this 
+          web site was created by TupiLabs and open sourced via GitHub, via the MIT 
+          License.</p>
+    			<p>&copy; <a href='http://tupilabs.com' title='TupiLabs'>TupiLabs</a> &mdash; <a href='https://github.com/tupilabs/speaklikeabrazilian.com'>Source code</a> licensed under MIT License</p>
     		</div>
-    		<div class='span6'>
-    		    <p class='pull-right'>
-    		        <a href='http://facebook.com/tupilabs'><img src='{{ URL.to('/themes/default/assets/img/landing_page/facebook.png') }}' /></a>&nbsp; 
-    		        <a href='http://twitter.com/tupilabs'><img src='{{ URL.to('/themes/default/assets/img/landing_page/twitter.png') }}' /></a>&nbsp;
-    		        <a href='http://www.linkedin.com/company/2631628'><img src='{{ URL.to('/themes/default/assets/img/landing_page/linkedin.png') }}' /></a>
-    		    </p>
+    		<div class='col-xs-6'>
+    		    <div class='footer-banner'>
+
+    		    </div>
     		</div>
     	</div>
     </div>

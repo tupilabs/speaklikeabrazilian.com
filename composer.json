@@ -6,10 +6,11 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"teepluss/theme" : "dev-master",
-		"cartalyst/sentry": "2.0.*",
+		"cartalyst/sentry": "2.1.*",
 		"msurguy/honeypot": "dev-master",
 		"teepluss/api": "dev-master",
-		"magniloquent/magniloquent": "dev-master"
+		"magniloquent/magniloquent": "dev-master",
+		"frozennode/administrator": "dev-master"
 	},
 	"autoload": {
 		"psr-0" : {
@@ -25,13 +26,18 @@
 		]
 	},
 	"scripts": {
+		"pre-update-cmd": [
+        	"php artisan clear-compiled"
+    	],
 		"post-install-cmd": [
 			"php artisan clear-compiled",
-			"php artisan optimize"
+			"php artisan optimize",
+			"php artisan asset:publish frozennode/administrator"
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
-			"php artisan optimize"
+			"php artisan optimize",
+			"php artisan asset:publish frozennode/administrator"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"

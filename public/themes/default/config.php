@@ -83,14 +83,16 @@ return array(
         'asset' => function($asset) {
         	// CSS
             $asset->add('bootstrap-css', 'themes/default/assets/css/bootstrap.min.css');
-            $asset->add('bootstrap-responsive-css', 'themes/default/assets/css/bootstrap-responsive.min.css');
-            $asset->add('elrte-css', 'themes/default/assets/js/plugins/jgrowl/jquery.jgrowl.css');
+            $asset->add('bootstrap-theme-css', 'themes/default/assets/css/bootstrap-theme.min.css');
+            $asset->add('prettify-css', 'themes/default/assets/css/prettify.css');
+            $asset->add('flatui-css', 'themes/default/assets/css/flat-ui.css');
+            $asset->add('jgrowl-css', 'themes/default/assets/js/plugins/jgrowl/jquery.jgrowl.css');
             $asset->add('fancytree-css', 'themes/default/assets/css/plugins/colorbox/colorbox.css');
         	$asset->add('style-css', 'themes/default/assets/css/default.css');
 			// JS
             $asset->add('jquery-js', 'themes/default/assets/js/jquery.js');
             $asset->add('bootstrap-js', 'themes/default/assets/js/bootstrap.min.js');
-            $asset->add('bootstrap-button-js', 'themes/default/assets/js/bootstrap-button.js');
+            $asset->add('flatui-checkbox-js', 'themes/default/assets/js/flatui-checkbox.js');
             $asset->add('jquery-blockui-js', 'themes/default/assets/js/plugins/blockui/jquery.blockUI.js');
             $asset->add('jgrowl-js', 'themes/default/assets/js/plugins/jgrowl/jquery.jgrowl_minimized.js');
             $asset->add('jquery-colorbox-js', 'themes/default/assets/js/plugins/colorbox/jquery.colorbox.js');
