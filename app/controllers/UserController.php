@@ -15,6 +15,7 @@ class UserController extends BaseController {
 	{
 		try
 		{
+			$from = Input::get('from');
 		    // Set login credentials
 		    $credentials = array(
 		        'email'    => Input::get('user'),
@@ -24,40 +25,39 @@ class UserController extends BaseController {
 		    // Try to authenticate the user
     		$user = Sentry::authenticate($credentials, Input::get('remember-me' === 'remember-me'));
 
-    		$from = Input::get('from');
     		if ($from)
     			return Redirect::to($from);
     		return Redirect::to('/')->with('message', 'You are logged in');
 		}
 		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
 		{
-		    return Redirect::to('/user/login')->with('message', 'Login field is required.');
+		    return Redirect::to('/user/login?from=' . $from)->with('message', 'Login field is required.');
 		}
 		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
 		{
-			return Redirect::to('/user/login')->with('message', 'Password field is required.');
+			return Redirect::to('/user/login?from=' . $from)->with('message', 'Password field is required.');
 		}
 		catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
 		{
-			return Redirect::to('/user/login')->with('message', 'Wrong password, try again.');
+			return Redirect::to('/user/login?from=' . $from)->with('message', 'Wrong password, try again.');
 		}
 		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
 		{
-			return Redirect::to('/user/login')->with('message', 'User was not found.');
+			return Redirect::to('/user/login?from=' . $from)->with('message', 'User was not found.');
 		}
 		catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
 		{
-		    return Redirect::to('/user/login')->with('message', 'User is not activated.');
+		    return Redirect::to('/user/login?from=' . $from)->with('message', 'User is not activated.');
 		}
 
 		// The following is only required if throttle is enabled
 		catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
 		{
-		    return Redirect::to('/user/login')->with('message', 'User is suspended.');
+		    return Redirect::to('/user/login?from=' . $from)->with('message', 'User is suspended.');
 		}
 		catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
 		{
-		    return Redirect::to('/user/login')->with('message', 'User is banned.');
+		    return Redirect::to('/user/login?from=' . $from)->with('message', 'User is banned.');
 		}
 	}
 

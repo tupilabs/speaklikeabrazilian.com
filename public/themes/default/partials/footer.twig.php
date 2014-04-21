@@ -1,7 +1,7 @@
 <footer id='footer'>
 	<div class='container'>
     	<div class='row'>
-    		<div class='col-xs-6'>
+    		<div class='col-xs-12 col-md-6 col-lg-6'>
           <h3 class='footer-title'>Speak Like A Brazilian is Open Source!</h3>
           <p>Our content is created by users like you, and with software that was 
           created and distributed by great developers! The source code for this 
@@ -9,7 +9,7 @@
           License.</p>
     			<p>&copy; <a href='http://tupilabs.com' title='TupiLabs'>TupiLabs</a> &mdash; <a href='https://github.com/tupilabs/speaklikeabrazilian.com'>Source code</a> licensed under MIT License</p>
     		</div>
-    		<div class='col-xs-6'>
+    		<div class='hidden-xs col-md-6 col-lg-6'>
     		    <div class='footer-banner'>
 
     		    </div>

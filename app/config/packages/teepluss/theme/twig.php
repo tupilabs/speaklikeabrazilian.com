@@ -26,7 +26,8 @@ return array(
         'Session',
         'Theme',
         'URL',
-        'Validator'
+        'Validator',
+        'Sentry'
     ),
 
     /*
@@ -59,7 +60,8 @@ return array(
             'rawurlencode',
             'trim',
             'preg_match',
-            'explode'
+            'explode',
+            'e'
         );
         
         foreach ($fns as $fn)

@@ -52,13 +52,13 @@ class DefinitionController extends \BaseController {
 			->where('status', '=', 2)
 			->get();
 		$definitions->sortBy(function($definition){
-			$ratings = $definition->ratings();
+			$ratings = $definition->ratings()->get();
 			$rate = 0;
 			foreach ($ratings as $rating) 
 			{
 				$rate += $rating->rating;
 			}
-			Log::debug(sprintf("RATE: %s", $rate));
+			//Log::debug(sprintf("RATE: %s", $rate));
 			return $rate;
 		});
 		return $definitions->reverse();

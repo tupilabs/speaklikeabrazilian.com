@@ -11,7 +11,7 @@
         <meta property="og:image" content="{{ URL.to('themes/default/assets/img/icon-facebook.gif') }}" />
         <meta property="og:title" content="Speak Like A Brazilian" />
 		<meta property="og:site_name" content="Speak Like A Brazilian" />
-        <link rel="shortcut icon" type="image/x-icon" href="{{ base_url }}favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ URL.to('/favicon.ico') }}">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <!-- Apple devices fullscreen -->
@@ -20,8 +20,6 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <!-- Apple devices Homescreen icon -->
         <link rel="apple-touch-icon-precomposed" href="{{ URL.to('themes/default/assets/img/apple-touch-icon-precomposed.png') }}" />
-        <!-- Lato Google Font -->
-        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -29,6 +27,14 @@
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     </head>
     <body>
+    	<div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=221891907922920";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
        	{{ Theme.partial('header') }}
 
 		{{ Theme.content() }}

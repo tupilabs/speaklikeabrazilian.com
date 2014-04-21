@@ -17,6 +17,10 @@ Route::post('/user/login', 'UserController@postLogin');
 Route::get('/user/logout', 'UserController@getLogout');
 // Moderators
 Route::get('/moderators', 'ModeratorController@getModerators');
+Route::get('/moderators/pendingExpressions', 'ModeratorController@getPendingExpressions');
+Route::get('/moderators/pendingVideos', 'ModeratorController@getPendingVideos');
+Route::post('/moderators/approve', 'ModeratorController@approveExpression');
+Route::post('/moderators/reject', 'ModeratorController@rejectExpression');
 // Rating
 Route::post('/rate', 'ExpressionController@postRate');
 // Main app
@@ -26,8 +30,6 @@ Route::get('/top', 'ExpressionController@getTop');
 Route::get('/random', 'ExpressionController@getRandom');
 Route::get('/expression/{id}/display_embedded', 'ExpressionController@displayEmbedded')->where('id', '[0-9]+');
 Route::get('/expression/{id}/embed', 'ExpressionController@getEmbed')->where('id', '[0-9]+');
-Route::get('/expression/{id}/share', 'ExpressionController@getShare')->where('id', '[0-9]+');
-Route::post('/expression/{id}/share', 'ExpressionController@postShare')->where('id', '[0-9]+');
 Route::get('/expression/{id}/videos', 'ExpressionController@getVideos')->where('id', '[0-9]+');
 Route::post('/expression/{id}/videos', 'ExpressionController@postVideos')->where('id', '[0-9]+');
 Route::get('/expression/{id}/pictures', 'ExpressionController@getPictures')->where('id', '[0-9]+');

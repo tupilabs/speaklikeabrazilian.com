@@ -56,89 +56,92 @@ class DevSeeder extends Seeder {
 
 	public function runDefinitions()
 	{
-		Definition::create(
-			array(
-				'expression_id' => 1, 
-				'description' => 'A nice car',
-				'example' => 'O Johnny tem uma bela caranga',
-				'tags' => 'carro, carrao, maquina',
-				'status' => 1,
-				'email' => 'kinow@slbr.com',
-				'contributor' => 'kinow',
-				'moderator_id' => null
-			)
-		);
+		for ($i =0; $i < 15; $i++)
+		{
+			Definition::create(
+				array(
+					'expression_id' => 1, 
+					'description' => 'A nice car',
+					'example' => 'O Johnny tem uma bela caranga',
+					'tags' => 'carro, carrao, maquina',
+					'status' => 1,
+					'email' => 'kinow@slbr.com',
+					'contributor' => 'kinow',
+					'moderator_id' => null
+				)
+			);
 
-		$approvedDefinition = Definition::create(
-			array(
-				'expression_id' => 1, 
-				'description' => 'Someone born in Carangopolis',
-				'example' => 'De onde você &eacute;? <br/>Eu sou Caranga.',
-				'tags' => 'carro, carrao, maquina',
-				'status' => 2,
-				'email' => 'kinow@slbr.com',
-				'contributor' => 'kinow',
-				'moderator_id' => 1
-			)
-		);
+			$approvedDefinition = Definition::create(
+				array(
+					'expression_id' => 1, 
+					'description' => 'Someone born in Carangopolis',
+					'example' => 'De onde você &eacute;? <br/>Eu sou Caranga.',
+					'tags' => 'carro, carrao, maquina',
+					'status' => 2,
+					'email' => 'kinow@slbr.com',
+					'contributor' => 'kinow',
+					'moderator_id' => 1
+				)
+			);
 
-		Rating::create(
-			array(
-				'user_ip' => '127.0.0.1',
-				'rating' => 1, 
-				'definition_id' => $approvedDefinition->id
-			)
-		);
+			Rating::create(
+				array(
+					'user_ip' => '127.0.0.1',
+					'rating' => 1, 
+					'definition_id' => $approvedDefinition->id
+				)
+			);
 
-		Rating::create(
-			array(
-				'user_ip' => '192.168.0.1',
-				'rating' => 1, 
-				'definition_id' => $approvedDefinition->id
-			)
-		);
+			Rating::create(
+				array(
+					'user_ip' => '192.168.0.1',
+					'rating' => 1, 
+					'definition_id' => $approvedDefinition->id
+				)
+			);
 
-		Rating::create(
-			array(
-				'user_ip' => '192.168.0.16',
-				'rating' => 1, 
-				'definition_id' => $approvedDefinition->id
-			)
-		);
+			Rating::create(
+				array(
+					'user_ip' => '192.168.0.16',
+					'rating' => 1, 
+					'definition_id' => $approvedDefinition->id
+				)
+			);
 
-		Rating::create(
-			array(
-				'user_ip' => '192.168.0.115',
-				'rating' => -1, 
-				'definition_id' => $approvedDefinition->id
-			)
-		);
+			Rating::create(
+				array(
+					'user_ip' => '192.168.0.115',
+					'rating' => -1, 
+					'definition_id' => $approvedDefinition->id
+				)
+			);
 
-		Definition::create(
-			array(
-				'expression_id' => 2, 
-				'description' => 'A place in the Northeast',
-				'example' => 'Vamos para Jo&atilde;o Pessoa?',
-				'tags' => 'cidade, para&iacute;ba',
-				'status' => 2,
-				'email' => 'stufi@slbr.com',
-				'contributor' => 'stufi',
-				'moderator_id' => 2
-			)
-		);
+			Definition::create(
+				array(
+					'expression_id' => 2, 
+					'description' => 'A place in the Northeast',
+					'example' => 'Vamos para Jo&atilde;o Pessoa?',
+					'tags' => 'cidade, para&iacute;ba',
+					'status' => 2,
+					'email' => 'stufi@slbr.com',
+					'contributor' => 'stufi',
+					'moderator_id' => 2
+				)
+			);
 
-		Definition::create(
-			array(
-				'expression_id' => 3, 
-				'description' => 'Hard to beat',
-				'example' => 'Meu time &eacute; duro na queda',
-				'tags' => 'duro, bravo, confi&aacute;vel',
-				'status' => 1,
-				'email' => 'angels@slbr.com',
-				'contributor' => 'angels',
-				'moderator_id' => 1
-			)
-		);
+			Definition::create(
+				array(
+					'expression_id' => 3, 
+					'description' => 'Hard to beat',
+					'example' => 'Meu time &eacute; duro na queda',
+					'tags' => 'duro, bravo, confi&aacute;vel',
+					'status' => 1,
+					'email' => 'angels@slbr.com',
+					'contributor' => 'angels',
+					'moderator_id' => 1
+				)
+			);
+		}
 	}
 
 	public function runUsers()

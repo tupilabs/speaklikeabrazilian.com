@@ -65,6 +65,7 @@
                 <br/>
         		<div id="videos">
         			{{ Form.open({'url': Request.url(), 'class': 'form-horizontal', 'id': 'videoExpressionForm'}) }}
+                    <input type='hidden' name='definitionId' value='{{ definition.id }}' />
         			<div>
         				<p>Add Youtube Video</p>
         			</div>

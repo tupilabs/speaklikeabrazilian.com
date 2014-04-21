@@ -1,19 +1,24 @@
 <section id="main">
     <div class='container'>
         <div class='row'>
-            <div class='col-xs-10'>
+            <div class='col-sm-12 col-md-10 col-lg-10'>
                 {% if definitions is defined and definitions[0] is defined %}
                 <h2 class='subtitle'>{{ subtitle }}</h2>
                 <div class='row'>
-                    <div class='col-xs-6'>
+                    <div class='col-sm-12 col-md-6 col-lg-6'>
                         {% for definition in definitions|slice(0, 5) %}
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
-                    <div class='col-xs-6'>
+                    <div class='col-sm-12 col-md-6 col-lg-6'>
                         {% for definition in definitions|slice(5, 10) %}
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-xs-10 center'>
+                        {{ definitions.links }}
                     </div>
                 </div>
                 {% else %}
@@ -24,7 +29,7 @@
                     {% elseif letter is defined and letter is not empty %}
                         <h2 class='subtitle'>No expressions starting with '{{ letter }}' found. {{ HTML.link('expression/add', 'Add yours!') }}</h2>
                     {% else %}
-                        <h2>No expression found. {{ HTML.link('expression/add', 'Add yours!') }}</h2>
+                        <h2 class='subtitle'>No expression found. {{ HTML.link('expression/add', 'Add yours!') }}</h2>
                     {% endif %}
                     </div>
                 </div>
@@ -33,10 +38,6 @@
             {# 2 columns wide #}
             {% include 'partials/sidebar.twig.php' %}
         </div>
-        {% if expressions is defined and expressions[0] is defined %}
-        <div class='row center'>
-            {{ pagination_links }}
-        </div>
-        {% endif %}
+        <br/>
     </div>
 </section>

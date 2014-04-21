@@ -37,14 +37,14 @@ class Definition extends Magniloquent {
 		return $this->hasMany('Rating');
 	}
 
-	public function likes()
-	{
-		return Rating::where('definition_id', $this->id)->where('rating', 1)->count();
-	}
+	// public function likes()
+	// {
+	// 	return Rating::where('definition_id', $this->id)->where('rating', 1)->count();
+	// }
 
-	public function dislikes()
-	{
-		return Rating::where('definition_id', $this->id)->where('rating', -1)->count();
-	}
+	// public function dislikes()
+	// {
+	// 	return Rating::where('definition_id', $this->id)->where('rating', -1)->count();
+	// }
 
 }

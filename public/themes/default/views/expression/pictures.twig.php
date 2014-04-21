@@ -65,6 +65,7 @@
                 <br/>
                 <div id="pictures">
                     {{ Form.open({'url': Request.url(), 'class': 'form-horizontal', 'id': 'pictureExpressionForm'}) }}
+                    <input type='hidden' name='definitionId' value='{{ definition.id }}' />
                     <div>
                         <p>Add Picture</p>
                     </div>

@@ -26,7 +26,16 @@ class ExpressionController extends BaseController {
 
 	public function getNew()
 	{
-		$definitions = API::get('/api/v1/expressions/newest');
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->orderBy('updated_at', 'desc')
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->paginate(10);
 		$args = array();
 		$args['definitions'] = $definitions;
 		$args['subtitle'] = "New expressions";
@@ -36,18 +45,38 @@ class ExpressionController extends BaseController {
 
 	public function getDefine()
 	{
-		$expression = Input::get('e');
-		$definitions = API::get(sprintf('api/v1/definition?e=%s', $expression));
+		$text = Input::get('e');
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower(htmlentities($text)))
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->paginate(10);
 		$args = array();
+		$definitions->appends(array('e' => $text));
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = sprintf("Definitions of '%s'", $expression);
-		$args['expression'] = $expression;
+		$args['subtitle'] = sprintf("Definitions of '%s'", $text);
+		$args['expression'] = $text;
 		return $this->theme->scope('home.index', $args)->render();
 	}
 
 	public function getLetter($letter)
 	{
-		$definitions = API::get(sprintf('api/v1/expressions/letters/%s', $letter));
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->where('expressions.char', '=', strtoupper($letter))
+			->orderBy('created_at', 'desc')
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->paginate(10);
 		$args = array();
 		$args['definitions'] = $definitions;
 		$args['subtitle'] = sprintf("Expressions starting with '%s'", strtoupper($letter));
@@ -136,7 +165,28 @@ class ExpressionController extends BaseController {
 
 	public function getTop()
 	{
-		$definitions = API::get('/api/v1/expressions/top');
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->orderByRaw('(COALESCE(likes, 0) - COALESCE(dislikes, 0)) DESC')
+			->paginate(10);
+		// $definitions->sortBy(function($definition){
+		// 	$ratings = $definition->ratings()->get();
+		// 	$rate = 0;
+		// 	foreach ($ratings as $rating) 
+		// 	{
+		// 		$rate += $rating->rating;
+		// 	}
+		// 	//Log::debug(sprintf("RATE: %s", $rate));
+		// 	return $rate;
+		// });
+		// $definitions = $definitions->reverse();
+
 		$args = array();
 		$args['definitions'] = $definitions;
 		$args['subtitle'] = "Top expressions";
@@ -146,7 +196,17 @@ class ExpressionController extends BaseController {
 
 	public function getRandom()
 	{
-		$definitions = API::get('/api/v1/expressions/random');
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->orderByRaw('RANDOM()')
+			->take(10)
+			->get();
 		$args = array();
 		$args['definitions'] = $definitions;
 		$args['subtitle'] = "Random expressions";
@@ -189,38 +249,6 @@ class ExpressionController extends BaseController {
 		return $this->theme->scope('expression.display_embedded', $args)->render();
 	}
 
-	public function getShare($definitionId)
-	{
-		$expressionId = Input::get('expressionId');
-		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
-		$likes = 0;
-		$dislikes = 0;
-		foreach ($definition['ratings'] as $rating)
-		{
-			if ($rating['rating'] == 1)
-			{
-				$likes += 1;
-			}
-			else
-			{
-				$dislikes += 1;
-			}
-		}
-		$args = array();
-		$args['definition'] = $definition;
-		$args['likes'] = $likes;
-		$args['dislikes'] = $dislikes;
-		$this->theme->layout('message');
-		return $this->theme->scope('expression.share', $args)->render();
-	}
-
-	public function postShare($definitionId)
-	{
-		// TODO: send e-mail
-		echo "TODO: send e-mail";
-		exit;
-	}
-
 	public function getVideos($definitionId)
 	{
 		$expressionId = Input::get('expressionId');
@@ -248,8 +276,32 @@ class ExpressionController extends BaseController {
 
 	public function postVideos()
 	{
-		echo "TODO";
-		exit;
+		Log::info(sprintf('User %s wants to share a new video %s for definition ID %d', 
+			Request::getClientIp(), Input::get('youtube_url'), Input::get('definitionId')));
+		$media = Media::create(
+			array(
+				'definition_id' => Input::get('definitionId'),
+				'url' => Input::get('youtube_url'),
+				'reason' => Input::get('reason'),
+				'email' => Input::get('email'),
+				'status' => 1, 
+				'contributor' => Input::get('contributor'),
+				'content_type' => 'video/youtube'
+			)
+		);
+		if($media->isValid() && $media->isSaved())
+		{
+			$args = array();
+			$args['message'] = 'Your video has been saved for review by our moderators';
+			$this->theme->layout('message');
+			return $this->theme->scope('message', $args)->render();
+		} 
+		else
+		{
+			return Redirect::to(sprintf('expression/%d/videos?expressionId=%d', Input::get('definitionid'), Input::get('expressionId')))
+				->withErrors($media->errors)
+				->withInput();
+		}
 	}
 
 	public function getPictures($definitionId)
@@ -279,8 +331,32 @@ class ExpressionController extends BaseController {
 
 	public function postPictures()
 	{
-		echo "TODO";
-		exit;
+		Log::info(sprintf('User %s wants to share a new picture %s for definition ID %d', 
+			Request::getClientIp(), Input::get('url'), Input::get('definitionId')));
+		$media = Media::create(
+			array(
+				'definition_id' => Input::get('definitionId'),
+				'url' => Input::get('url'),
+				'reason' => Input::get('reason'),
+				'email' => Input::get('email'),
+				'status' => 1, 
+				'contributor' => Input::get('contributor'),
+				'content_type' => 'image/unknown'
+			)
+		);
+		if($media->isValid() && $media->isSaved())
+		{
+			$args = array();
+			$args['message'] = 'Your picture has been saved for review by our moderators';
+			$this->theme->layout('message');
+			return $this->theme->scope('message', $args)->render();
+		} 
+		else
+		{
+			return Redirect::to(sprintf('expression/%d/pictures?expressionId=%d', Input::get('definitionid'), Input::get('expressionId')))
+				->withErrors($media->errors)
+				->withInput();
+		}
 	}
 
 }

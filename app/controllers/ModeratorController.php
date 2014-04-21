@@ -22,8 +22,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-
-use \User;
+use \Definition;
 
 class ModeratorController extends BaseController {
 
@@ -35,9 +34,39 @@ class ModeratorController extends BaseController {
 		return $this->theme->scope('moderators.home')->render();
 	}
 
-	public function getPending()
+	public function getPendingExpressions()
 	{
-		
+		$definition = Definition::with('expression', 'ratings')
+			->where('definitions.status', '=', 1)
+			->orderBy(DB::raw('RANDOM()'))
+			->first();
+		$args = array();
+		$args['definition'] = $definition;
+		return $this->theme->scope('moderators.pendingExpressions', $args)->render();
+	}
+
+	public function approveExpression()
+	{
+		$definitionId = Input::get('definitionId');
+		$user = Sentry::getUser();
+		Log::info(sprintf('User %s approved definition %d', $user->id, $definitionId));
+		$definition = Definition::where('id', '=', $definitionId)->firstOrFail();
+		$definition->status = 2;
+		$definition->save();
+		return Redirect::to('/moderators/pendingExpressions')
+			->with('success', 'Definition approved!');
+	}
+
+	public function rejectExpression()
+	{
+		$definitionId = Input::get('definitionId');
+		$user = Sentry::getUser();
+		Log::info(sprintf('User %s rejected definition %d', $user->id, $definitionId));
+		$definition = Definition::where('id', '=', $definitionId)->firstOrFail();
+		$definition->status = 3;
+		$definition->save();
+		return Redirect::to('/moderators/pendingExpressions')
+			->with('success', 'Definition rejected!');
 	}
 
 }

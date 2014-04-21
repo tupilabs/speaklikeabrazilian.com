@@ -3,22 +3,22 @@
 		<div>
 			<span class='expression'>
     			{% if nolink %}
-    			{{ definition.expression.text }}
+    			{{ definition.text }}
     			{% else %}
-    			<a href="{{ URL.to('/expression/define?e=' ~ definition.expression.text) }}">
-    				{{ definition.expression.text }}
+    			<a href="{{ URL.to('/expression/define?e=' ~ definition.text) }}">
+    				{{ definition.text }}
     			</a>
     			{% endif %}
-    			&nbsp;<a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&amp;tl=pt&amp;q={{ definition.expression.text }}"><span class="glyphicon glyphicon-play"></span></a>
+    			&nbsp;<a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&amp;tl=pt&amp;q={{ definition.text }}"><span class="glyphicon glyphicon-play"></span></a>
 			</span>
 			<div class='rating'>
 				{{ Form.open({'url': '/rate' }) }}
 				<small>
 					<input type="hidden" name="expressionId" value="{{ definition.expression_id }}" />
 					<input type="hidden" name="definitionId" value="{{ definition.id }}" />
-					<span class="like_count">{{ definition.likes }} </span> 
+					<span class="like_count">{{ definition['likes']|default(0) }} </span> 
 					<input type="hidden" name="rating" value="0" /> ups, 
-					<span class="dislike_count">{{ definition.dislikes }} </span> 
+					<span class="dislike_count">{{ definition['dislikes']|default(0) }} </span> 
 					downs <a href="#" class="like"><span class="glyphicon glyphicon-thumbs-up"></span>
 					</a> <a href="#" class="dislike"><span class="glyphicon glyphicon-thumbs-down"></span>
 					</a>
@@ -53,8 +53,15 @@
     		<strong>Author</strong> <span class="">{{ definition.contributor }}
     		</span> 
     	</small>
-		<span class='share2'>
-			<a class="label label-info" href="{{ URL.to('expression/' ~ definition.id) }}/share?expressionId={{ definition.expression_id }}">share this</a>
+		<span class=''>
+			<small>
+				{% set expression_text = definition.text|url_encode|url_encode(true) %}
+				{% set url = URL.to('/expression/define?e='~ expression_text) %}
+				<a target="_blank" class="twitter-btn" title="Share this expression on Twitter" href="https://twitter.com/share?text={{ definition.text ~ ' #BrazilianPortuguese via @SpeakLikeABR '|url_encode(true) ~ url}}">
+					<i></i>
+					<span class="label">tweet</span>
+				</a>
+	        </small>
 		</span> 
 		<span class='embed'>
 			<a class="label label-info" href="{{ URL.to('expression/' ~  definition.id) }}/embed">embed</a> 
