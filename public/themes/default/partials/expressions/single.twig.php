@@ -39,9 +39,6 @@
 	{% set medias = definition.medias.where('status', '=', 2).get() %}
 	{% if medias is not empty %}
 	<div>
-		<small>
-    		<strong>Medias</strong>
-    	</small>
 		{% for media in definition.medias.get %}
 			{% if media.content_type == 'video/youtube' %}
 				{% set data = media.getVideoData() %}
@@ -69,19 +66,6 @@
     		<strong>Author</strong> <span class="">{{ definition.contributor }}
     		</span> 
     	</small>
-		<span class=''>
-			<small>
-				{% set expression_text = definition.text|url_encode|url_encode(true) %}
-				{% set url = URL.to('/expression/define?e='~ expression_text) %}
-				<a target="_blank" class="twitter-btn" title="Share this expression on Twitter" href="https://twitter.com/share?text={{ definition.text ~ ' #BrazilianPortuguese via @SpeakLikeABR '|url_encode(true) ~ url}}">
-					<i></i>
-					<span class="label">tweet</span>
-				</a>
-	        </small>
-		</span> 
-		<span class='embed'>
-			<a class="label label-info" href="{{ URL.to('expression/' ~  definition.id) }}/embed">embed</a> 
-		</span>		
 	</div>
 	<div class='entry-media'>
 		<small>
@@ -93,5 +77,15 @@
 	    <span class='share2'>
 	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures?expressionId={{ definition.expression_id }}">+ add picture</a> 
 	    </span>
+		<span class=''>
+			<small>
+				{% set expression_text = definition.text|url_encode|url_encode(true) %}
+				{% set url = URL.to('/expression/define?e='~ expression_text) %}
+				<a target="_blank" class="twitter-btn" title="Share this expression on Twitter" href="https://twitter.com/share?text={{ definition.text ~ ' #BrazilianPortuguese via @SpeakLikeABR '|url_encode(true) ~ url}}">
+					<i></i>
+					<span class="label">tweet</span>
+				</a>
+	        </small>
+		</span>
 	</div>
 </div>
