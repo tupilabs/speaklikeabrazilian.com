@@ -117,6 +117,38 @@ class DefinitionController extends \BaseController {
 			$definitionId,
 			Input::get('rating')
 		));
+
+		// Check if user already voted up this expression
+		$count = Rating::where('definition_id', '=', $definitionId)
+			->where('user_ip', Request::getClientIp())
+			->where('rating', Input::get('rating'))
+			->count();
+		if ($count > 0)
+		{
+			return Response::json(array('msg' => 'User already voted up!'));
+		}
+
+		// Check if user already voted down this expression
+		$count = Rating::where('definition_id', '=', $definitionId)
+			->where('user_ip', Request::getClientIp())
+			->where('rating', Input::get('rating'))
+			->count();
+		if ($count > 0)
+		{
+			return Response::json(array('msg' => 'User already voted down!'));
+		}
+
+		// Try to update previous vote
+		$rating = Rating::where('definition_id', '=', $definitionId)
+			->where('user_ip', Request::getClientIp())->first();
+
+		if ($rating) 
+		{
+			$rating->rating = Input::get('rating');
+			$rating->save();
+			return Response::json(array('msg' => 'OK', 'balance' => true));
+		}
+
 		Rating::create(array(
 			'definition_id' => $definitionId,
 			'rating' => Input::get('rating'),

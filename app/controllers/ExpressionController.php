@@ -158,10 +158,12 @@ class ExpressionController extends BaseController {
 	{
 		$expressionId = Input::get('expressionId');
 		$definitionId = Input::get('definitionId');
+		$rating = Input::get('rating');
+		$userIp = Request::getClientIp();
 		$rate = API::post(sprintf('api/v1/expressions/%d/definitions/%d/rate', $expressionId, $definitionId), 
 			array(
-				'rating' => Input::get('rating'),
-				'user_ip' => Request::getClientIp()
+				'rating' => $rating,
+				'user_ip' => $userIp
 			)
 		);
 		return $rate;
