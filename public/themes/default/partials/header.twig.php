@@ -1,7 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav-header">
     <div class="navbar-collapse" id="navbar-collapse-01" style="">
     	<a href="{{ URL.to('/') }}" class='btn btn-menu navbar-btn btn-xs'>SLBR Home</a>
-    	<a href="{{ URL.to('/links/') }}" class='btn btn-sm navbar-btn btn-inverse btn-xs'>Links</a>
     	<a href="http://twitter.com/SpeakLikeABR" class='btn btn-sm navbar-btn btn-inverse btn-xs'>@SpeakLikeABR</a>
     	<a href="http://facebook.com/SpeakLikeABrazilian" class='btn btn-sm navbar-btn btn-inverse btn-xs'>Facebook Fan Page</a>
     	<a href="{{ URL.to('/moderators/') }}" class='btn btn-sm btn-info navbar-btn btn-xs'>Moderators area</a>
