@@ -48,7 +48,7 @@ class ExpressionController extends BaseController {
 		$text = Input::get('e');
 		$definitions = Definition::
 			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-			->where('status', '=', 2)
+			->where('definitions.status', '=', 2)
 			->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower(htmlentities($text)))
 			->select('definitions.*', 
 				'expressions.text',
@@ -278,10 +278,19 @@ class ExpressionController extends BaseController {
 	{
 		Log::info(sprintf('User %s wants to share a new video %s for definition ID %d', 
 			Request::getClientIp(), Input::get('youtube_url'), Input::get('definitionId')));
+		$url = Input::get('youtube_url');
+		if (!preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+		{
+			$args = array();
+			$args['message'] = 'Sorry, only YouTube videos are allowed at the moment.';
+			Log::error(sprintf('Error uploading video %s to definition %d', $url, Input::get('definitionId')));
+			$this->theme->layout('message');
+			return $this->theme->scope('message', $args)->render();
+		}
 		$media = Media::create(
 			array(
 				'definition_id' => Input::get('definitionId'),
-				'url' => Input::get('youtube_url'),
+				'url' => $url,
 				'reason' => Input::get('reason'),
 				'email' => Input::get('email'),
 				'status' => 1, 
@@ -298,9 +307,11 @@ class ExpressionController extends BaseController {
 		} 
 		else
 		{
-			return Redirect::to(sprintf('expression/%d/videos?expressionId=%d', Input::get('definitionid'), Input::get('expressionId')))
-				->withErrors($media->errors)
-				->withInput();
+			$args = array();
+			$args['message'] = 'An error occurred while adding your video. Please, try again later.';
+			Log::error(sprintf('Error uploading video %s to definition %d', $url, Input::get('definitionId')));
+			$this->theme->layout('message');
+			return $this->theme->scope('message', $args)->render();
 		}
 	}
 
@@ -333,6 +344,15 @@ class ExpressionController extends BaseController {
 	{
 		Log::info(sprintf('User %s wants to share a new picture %s for definition ID %d', 
 			Request::getClientIp(), Input::get('url'), Input::get('definitionId')));
+		$url = Input::get('url');
+		if (!preg_match('%(?:imgur\.com/)([^"&?/ ]{11})%i', $url, $match))
+		{
+			$args = array();
+			$args['message'] = 'Sorry, only imgur links are allowed at the moment.';
+			Log::error(sprintf('Error uploading picture %s to definition %d', $url, Input::get('definitionId')));
+			$this->theme->layout('message');
+			return $this->theme->scope('message', $args)->render();
+		}
 		$media = Media::create(
 			array(
 				'definition_id' => Input::get('definitionId'),

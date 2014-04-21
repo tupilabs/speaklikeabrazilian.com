@@ -34,6 +34,8 @@ class ModeratorController extends BaseController {
 		return $this->theme->scope('moderators.home')->render();
 	}
 
+	// expressions
+
 	public function getPendingExpressions()
 	{
 		$definition = Definition::with('expression', 'ratings')
@@ -67,6 +69,92 @@ class ModeratorController extends BaseController {
 		$definition->save();
 		return Redirect::to('/moderators/pendingExpressions')
 			->with('success', 'Definition rejected!');
+	}
+
+	// videos
+
+	public function getPendingVideos()
+	{
+		$media = Media::where('medias.status', '=', 1)
+			->where('content_type', '=', 'video/youtube')
+			->orderBy(DB::raw('RANDOM()'))
+			->first();
+		$args = array();
+		if ($media) 
+		{
+			$args['url'] = $media->url;
+			if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $media->url, $match))
+			{
+				$args['video_id'] = $match[1];
+			}
+			if (preg_match('%(?:t=)([0-9]+)%i', $media->url, $match)) 
+			{
+				$args['t'] = $match[1];
+			}
+		}
+		$args['media'] = $media;
+		return $this->theme->scope('moderators.pendingVideos', $args)->render();
+	}
+
+	public function approveVideo()
+	{
+		$mediaId = Input::get('mediaId');
+		$user = Sentry::getUser();
+		Log::info(sprintf('User %s approved video %d', $user->id, $mediaId));
+		$video = Media::where('id', '=', $mediaId)->firstOrFail();
+		$video->status = 2;
+		$video->save();
+		return Redirect::to('/moderators/pendingVideos')
+			->with('success', 'Video approved!');
+	}
+
+	public function rejectVideo()
+	{
+		$mediaId = Input::get('mediaId');
+		$user = Sentry::getUser();
+		Log::info(sprintf('User %s rejected video %d', $user->id, $mediaId));
+		$video = Media::where('id', '=', $mediaId)->firstOrFail();
+		$video->status = 3;
+		$video->save();
+		return Redirect::to('/moderators/pendingVideos')
+			->with('success', 'Video rejected!');
+	}
+
+	// Pictures
+
+	public function getPendingPictures()
+	{
+		$media = Media::where('medias.status', '=', 1)
+			->where('content_type', '=', 'image/unknown')
+			->orderBy(DB::raw('RANDOM()'))
+			->first();
+		$args = array();
+		$args['media'] = $media;
+		return $this->theme->scope('moderators.pendingPictures', $args)->render();
+	}
+
+	public function approvePicture()
+	{
+		$mediaId = Input::get('mediaId');
+		$user = Sentry::getUser();
+		Log::info(sprintf('User %s approved picture %d', $user->id, $mediaId));
+		$video = Media::where('id', '=', $mediaId)->firstOrFail();
+		$video->status = 2;
+		$video->save();
+		return Redirect::to('/moderators/pendingPictures')
+			->with('success', 'Picture approved!');
+	}
+
+	public function rejectPicture()
+	{
+		$mediaId = Input::get('mediaId');
+		$user = Sentry::getUser();
+		Log::info(sprintf('User %s rejected picture %d', $user->id, $mediaId));
+		$video = Media::where('id', '=', $mediaId)->firstOrFail();
+		$video->status = 3;
+		$video->save();
+		return Redirect::to('/moderators/pendingPictures')
+			->with('success', 'Picture rejected!');
 	}
 
 }

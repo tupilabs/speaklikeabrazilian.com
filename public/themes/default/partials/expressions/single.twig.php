@@ -36,6 +36,22 @@
 	<div class='example'>
 		<p class='entry-paragraph'>{{ definition.example }}</p>
 	</div>
+	{% set medias = definition.medias.where('status', '=', 2).get() %}
+	{% if medias is not empty %}
+	<div>
+		<small>
+    		<strong>Medias</strong>
+    	</small>
+		{% for media in definition.medias.get %}
+			{% if media.content_type == 'video/youtube' %}
+				{% set data = media.getVideoData() %}
+				<a style='width: 38px; display: inline' class='thumbnail colorbox' href="http://www.youtube.com/embed/{{ data.video_id }}?wmode=opaque{% if data.t is defined and data.t > 0 %}&start={{ data.t }}{% endif %}" class='colorbox'><span class="fui-video"></span></a>
+			{% else %}
+				<a style='width: 38px; display: inline' class='thumbnail colorbox' href='{{ media.url }}'><span class="fui-photo"></span></a>
+			{% endif %}
+		{% endfor %}
+	</div>
+	{% endif %}
 	<div class='tags'>
 		<small>
     		<strong>Tags</strong>

@@ -75,6 +75,15 @@ $(function() {
 		},
 		width:"400px", 
 		height:"300px"});
+
+	$("a.colorbox").colorbox({
+		iframe:true, 
+		onOpen: function() {
+	        // prevent Overlay from being displayed...
+	        $('#cboxOverlay,#colorbox').css('visibility', 'hidden');
+		},
+		width:"600px", 
+		height:"400px"});
 	
 /*	// avoid duplicate button calls
 	$("input[type='submit']").attr("disabled", false);

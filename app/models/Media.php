@@ -27,4 +27,24 @@ class Media extends Magniloquent {
 	  )
 	);
 
+	public function definition()
+	{
+		return $this->belongsTo('Definition');
+	}
+
+	public function getVideoData() 
+	{
+		$data = array();
+		$url = $this->url;
+		if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $this->url, $match))
+		{
+			$data['video_id'] = $match[1];
+		}
+		if (preg_match('%(?:t=)([0-9]+)%i', $this->url, $match)) 
+		{
+			$data['t'] = $match[1];
+		}
+		return $data;
+	}
+
 }

@@ -18,9 +18,14 @@ Route::get('/user/logout', 'UserController@getLogout');
 // Moderators
 Route::get('/moderators', 'ModeratorController@getModerators');
 Route::get('/moderators/pendingExpressions', 'ModeratorController@getPendingExpressions');
+Route::post('/moderators/approveExpression', 'ModeratorController@approveExpression');
+Route::post('/moderators/rejectExpression', 'ModeratorController@rejectExpression');
 Route::get('/moderators/pendingVideos', 'ModeratorController@getPendingVideos');
-Route::post('/moderators/approve', 'ModeratorController@approveExpression');
-Route::post('/moderators/reject', 'ModeratorController@rejectExpression');
+Route::post('/moderators/approveVideo', 'ModeratorController@approveVideo');
+Route::post('/moderators/rejectVideo', 'ModeratorController@rejectVideo');
+Route::get('/moderators/pendingPictures', 'ModeratorController@getPendingPictures');
+Route::post('/moderators/approvePicture', 'ModeratorController@approvePicture');
+Route::post('/moderators/rejectPicture', 'ModeratorController@rejectPicture');
 // Rating
 Route::post('/rate', 'ExpressionController@postRate');
 // Main app
