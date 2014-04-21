@@ -63,33 +63,21 @@
         			<div class="fb-like" data-href="{{ URL.to('expression/define?e=' ~ definition.expression.text) }}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
         		</div>
                 <br/>
-        		<div>
-        			{{ Form.open({'url': Request.url(), 'class': 'form-horizontal', 'id': 'shareExpressionForm'}) }}
+        		<div id="videos">
+        			{{ Form.open({'url': Request.url(), 'class': 'form-horizontal', 'id': 'videoExpressionForm'}) }}
         			<div>
-        				<p>Send by e-mail</p>
+        				<p>Add Youtube Video</p>
         			</div>
         			<div class="form-group">
-        				{{ Form.label('from_name', 'Your name', {'class': 'col-xs-2 control-label'}) }}
+        				{{ Form.label('youtube_url', 'YouTube URL', {'class': 'col-xs-2 control-label'}) }}
         				<div class='col-xs-10'>
-        					{{ Form.input('text', 'from_name', old.from_name, {'id': 'from_name', 'name': 'from_name', 'class': 'form-control'}) }}
+        					{{ Form.input('text', 'youtube_url', old.youtube_url, {'id': 'youtube_url', 'class': 'form-control'}) }}
         				</div>
         			</div>
         			<div class="form-group">
-        				{{ Form.label('from_email', 'Your email', {'class': 'col-xs-2 control-label'}) }}
+        				{{ Form.label('reason', 'Why is this video related to this expression?', {'class': 'col-xs-2 control-label'}) }}
         				<div class="col-xs-10">
-        					{{ Form.input('text', 'from_email', old.from_email, {'id': 'from_email', 'name': 'from_email', 'class': 'form-control'}) }}
-        				</div>
-        			</div>
-        			<div class="form-group">
-        				{{ Form.label('to', 'To', {'class': 'col-xs-2 control-label'}) }}
-        				<div class="col-xs-10">
-        					{{ Form.input('text', 'to', old.to, {'id': 'to', 'name': 'to', 'class': 'form-control'}) }}
-        				</div>
-        			</div>
-        			<div class="form-group">
-        				{{ Form.label('email', 'Email', {'class': 'col-xs-2 control-label'}) }}
-        				<div class="col-xs-10">
-        					{{ Form.input('text', 'email', old.email, {'id': 'email', 'name': 'email', 'class': 'form-control'}) }}
+        					{{ Form.input('text', 'reason', old.reason, {'id': 'reason', 'class': 'form-control'}) }}
         				</div>
         			</div>
         			<div class="control-group-pad" style='display: none;'>
@@ -97,6 +85,18 @@
         					{{ Form.honeypot('custom_name', 'expire') }}
         				</div>
         			</div>
+                    <div class="form-group">
+                        {{ Form.label('contributor', 'Pseudonym', {'class': 'col-xs-2 control-label'}) }}
+                        <div class="col-xs-10">
+                            {{ Form.input('text', 'contributor', old.contributor, {'id': 'contributor', 'class': 'form-control'}) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ Form.label('email', 'E-mail', {'class': 'col-xs-2 control-label'}) }}
+                        <div class="col-xs-10">
+                            {{ Form.input('text', 'email', old.email, {'id': 'email', 'class': 'form-control'}) }}
+                        </div>
+                    </div>
         			<hr />
         			<div class="row">
         				<div class="" style="text-align: center;">
@@ -118,33 +118,33 @@ templatecallback = function() {
       'node',
       function(Y) {
         var rules = {
-            from_name: {
+            youtube_url: {
                 required: true, 
-                rangeLength: [1, 50]
+                url: true
             },
-            from_email: {
-                email: true, 
-                required: true
+            reason: {
+                required: true,
+                rangeLength: [3, 50]
             },
-            to: {
-                required: true, 
+            contributor: {
+                required: true,
                 rangeLength: [1, 50]
             },
             email: {
-                required: true, 
+                required: true,
                 email: true
             }
         };
 
         var validator = new Y.FormValidator(
         {
-            boundingBox: '#shareExpressionForm',
+            boundingBox: '#videoExpressionForm',
             rules: rules,
             showAllMessages: true
         });
 
         var btn = Y.one('#btnSubmitForm');
-        Y.one('#shareExpressionForm').on('submit', function(e) {
+        Y.one('#videoExpressionForm').on('submit', function(e) {
             var originalText = btn.get('value');
             btn.set('value', 'Sending...');
             btn.set('disabled', 'disabled');

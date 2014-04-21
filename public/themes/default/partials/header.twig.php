@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav-header">
-    <div class="collapse navbar-collapse" id="navbar-collapse-01" style="background-color: #EEEEEE; padding: 0px;">
+    <div class="collapse navbar-collapse" id="navbar-collapse-01" style="">
     	<a href="{{ URL.to('/') }}" class='btn btn-menu navbar-btn btn-xs'>SLBR Home</a>
     	<a href="{{ URL.to('/blog/') }}" class='btn btn-sm navbar-btn btn-inverse btn-xs'>Blog</a>
     	<a href="{{ URL.to('/apps/sentences/') }}" class='btn btn-sm navbar-btn btn-inverse btn-xs'>Sentences</a>

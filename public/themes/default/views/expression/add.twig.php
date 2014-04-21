@@ -1,3 +1,12 @@
+<style>
+.first-icon {
+    top: 10px !important;
+}
+
+.second-icon {
+    top: 10px !important;
+}
+</style>
 <section id='main'>
 	<div class='container'>
 		<div class="row">

@@ -28,23 +28,21 @@
 <section id='main'>
 	<div class='container'>
 		<div class="row">
-    		<div class='offset1 span9'>
+    		<div class='col-xs-offset-1 col-xs-9'>
     			<div class='row'>
     				<br class='clearfix' />
-    				<div class='span10'>
-    					{{ Form.open({'url': '/user/login', 'class': 'form-signin', 'id': 'formSignin'}) }}
-                            <h2 class="center form-signin-heading">Log in</h2>
-                            <input type='hidden' name='from' value='{{ from }}' />
-                            <input type="text" name='user' id='user' class="input-block-level" placeholder="Email address">
-                            <input type="password" name='password' id='password' class="input-block-level" placeholder="Password">
-                            <label class="checkbox" for='remember-me'>
-                              <input type="checkbox" name='remember-me' id='remember-me' value="remember-me"> Remember me
-                            </label>
-                            <div class='center'>
-                                <button class="btn btn-primary" id='btnSubmitForm' type="submit">Sign in</button>
-                            </div>
-                        {{ Form.close() }}
-    				</div>
+					{{ Form.open({'url': '/user/login', 'class': 'form-signin', 'id': 'formSignin'}) }}
+                        <h2 class="center form-signin-heading">Log in</h2>
+                        <input type='hidden' name='from' value='{{ from }}' />
+                        <input type="text" name='user' id='user' class="form-control" placeholder="Email address">
+                        <input type="password" name='password' id='password' class="form-control" placeholder="Password">
+                        <label class="checkbox" for='remember-me'>
+                          <input type="checkbox" name='remember-me' id='remember-me' data-toggle="checkbox" value="remember-me"> Remember me
+                        </label>
+                        <div class='center'>
+                            <button class="btn btn-primary" id='btnSubmitForm' type="submit">Sign in</button>
+                        </div>
+                    {{ Form.close() }}
     			</div>
     		</div>
     		{# 2 columns wide #}

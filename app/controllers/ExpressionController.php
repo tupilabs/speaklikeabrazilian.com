@@ -179,6 +179,7 @@ class ExpressionController extends BaseController {
 
 	public function displayEmbedded($definitionId)
 	{
+		// TODO: simplify to a single call by def id
 		$expression = API::get("api/v1/expressions/findByDefinitionId?definitionId=$definitionId");
 		$expressionId = $expression->id;
 		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
@@ -190,8 +191,7 @@ class ExpressionController extends BaseController {
 
 	public function getShare($definitionId)
 	{
-		$expression = API::get("api/v1/expressions/findByDefinitionId?definitionId=$definitionId");
-		$expressionId = $expression->id;
+		$expressionId = Input::get('expressionId');
 		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
 		$likes = 0;
 		$dislikes = 0;
@@ -216,7 +216,70 @@ class ExpressionController extends BaseController {
 
 	public function postShare($definitionId)
 	{
+		// TODO: send e-mail
 		echo "TODO: send e-mail";
+		exit;
+	}
+
+	public function getVideos($definitionId)
+	{
+		$expressionId = Input::get('expressionId');
+		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
+		$likes = 0;
+		$dislikes = 0;
+		foreach ($definition['ratings'] as $rating)
+		{
+			if ($rating['rating'] == 1)
+			{
+				$likes += 1;
+			}
+			else
+			{
+				$dislikes += 1;
+			}
+		}
+		$args = array();
+		$args['definition'] = $definition;
+		$args['likes'] = $likes;
+		$args['dislikes'] = $dislikes;
+		$this->theme->layout('message');
+		return $this->theme->scope('expression.videos', $args)->render();
+	}
+
+	public function postVideos()
+	{
+		echo "TODO";
+		exit;
+	}
+
+	public function getPictures($definitionId)
+	{
+		$expressionId = Input::get('expressionId');
+		$definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
+		$likes = 0;
+		$dislikes = 0;
+		foreach ($definition['ratings'] as $rating)
+		{
+			if ($rating['rating'] == 1)
+			{
+				$likes += 1;
+			}
+			else
+			{
+				$dislikes += 1;
+			}
+		}
+		$args = array();
+		$args['definition'] = $definition;
+		$args['likes'] = $likes;
+		$args['dislikes'] = $dislikes;
+		$this->theme->layout('message');
+		return $this->theme->scope('expression.pictures', $args)->render();
+	}
+
+	public function postPictures()
+	{
+		echo "TODO";
 		exit;
 	}
 

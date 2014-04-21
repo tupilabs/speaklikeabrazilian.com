@@ -54,7 +54,7 @@
     		</span> 
     	</small>
 		<span class='share2'>
-			<a class="label label-info" href="{{ URL.to('expression/' ~ definition.id) }}/share">share this</a>
+			<a class="label label-info" href="{{ URL.to('expression/' ~ definition.id) }}/share?expressionId={{ definition.expression_id }}">share this</a>
 		</span> 
 		<span class='embed'>
 			<a class="label label-info" href="{{ URL.to('expression/' ~  definition.id) }}/embed">embed</a> 
@@ -65,10 +65,10 @@
     	    <strong>Media</strong>
     	</small>
 	    <span class='share2'>
-	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos">+ add video</a> 
+	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos?expressionId={{ definition.expression_id }}">+ add video</a> 
 	    </span>
 	    <span class='share2'>
-	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures">+ add picture</a> 
+	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures?expressionId={{ definition.expression_id }}">+ add picture</a> 
 	    </span>
 	</div>
 </div>

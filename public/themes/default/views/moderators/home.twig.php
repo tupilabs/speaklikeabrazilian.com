@@ -2,17 +2,18 @@
     <div class='container'>
         <div class='row'>
             <div class='col-xs-2' style='padding-top: 20px;'>
-            	<ul class="nav nav-list affix">
-            		<li><a href="#" class='active'>Moderators Home</a></li>
-            		<li class="nav-header">Pending items</li>
-				  	<li><a href="#">Pending expressions</a></li>
-				  	<li><a href="#">Pending videos</a></li>
-				  	<li><a href="#">Pending pictures</a></li>
-				  	<li class='nav-header'>Edit content</li>
-				  	<li><a href="#">Edit expression</a></li>
-				  	<li class="divider">Misc</li>
-				  	<li><a href="#">Contact admin</a></li>
-				</ul>
+            <div class="btn-toolbar">
+            	<div class="btn-group-vertical">
+                    <a href='#' class='btn btn-primary'>Moderators Home</a>
+                </div>
+                <span>Pending items</span>
+                <div class="btn-group-vertical">
+                    <a href='#' class='btn btn-primary'>Pending expressions</a>
+                    <a href='#' class='btn btn-primary'>Pending videos</a>
+                    <a href='#' class='btn btn-primary'>Edit expression</a>
+                    <a href='#' class='btn btn-primary'>Contact Admin</a>
+				</div>
+                </div>
             </div>
             <div class='col-xs-8' style='padding-top: 20px;'>
 

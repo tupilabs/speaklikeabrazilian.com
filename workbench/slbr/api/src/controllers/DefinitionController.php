@@ -125,17 +125,7 @@ class DefinitionController extends \BaseController {
 			->count();
 		if ($count > 0)
 		{
-			return Response::json(array('msg' => 'User already voted up!'));
-		}
-
-		// Check if user already voted down this expression
-		$count = Rating::where('definition_id', '=', $definitionId)
-			->where('user_ip', Request::getClientIp())
-			->where('rating', Input::get('rating'))
-			->count();
-		if ($count > 0)
-		{
-			return Response::json(array('msg' => 'User already voted down!'));
+			return Response::json(array('msg' => 'You cannot repeat your vote'));
 		}
 
 		// Try to update previous vote
