@@ -16,6 +16,17 @@ Route::get('/user/login', 'UserController@getLogin');
 Route::post('/user/login', 'UserController@postLogin');
 Route::get('/user/logout', 'UserController@getLogout');
 // Moderators
+Route::filter('moderators', function() {
+    if (!Sentry::check())
+    {
+        return "You are not allowed here.";
+    }
+    $user = Sentry::getUser();
+    if (!$user->hasAccess('moderator'))
+    {
+        return "You are not allowed here.";
+    }
+});
 Route::get('/moderators', 'ModeratorController@getModerators');
 Route::get('/moderators/pendingExpressions', 'ModeratorController@getPendingExpressions');
 Route::post('/moderators/approveExpression', 'ModeratorController@approveExpression');

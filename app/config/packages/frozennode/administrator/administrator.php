@@ -64,7 +64,12 @@ return array(
 	 */
 	'permission'=> function()
 	{
-		return Sentry::check();
+		if (Sentry::check())
+		{
+			$user = Sentry::getUser();
+			return $user->hasAccess('admin');
+		}
+		return false;
 	},
 
 	/**
