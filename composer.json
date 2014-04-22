@@ -10,7 +10,9 @@
 		"msurguy/honeypot": "dev-master",
 		"teepluss/api": "dev-master",
 		"magniloquent/magniloquent": "dev-master",
-		"frozennode/administrator": "dev-master"
+		"frozennode/administrator": "dev-master",
+		"gigablah/sphinxphp": "dev-master",
+		"scalia/sphinxsearch": "dev-master"
 	},
 	"autoload": {
 		"psr-0" : {

@@ -54,6 +54,7 @@ Route::post('/expression/{id}/videos', 'ExpressionController@postVideos')->where
 Route::get('/expression/{id}/pictures', 'ExpressionController@getPictures')->where('id', '[0-9]+');
 Route::post('/expression/{id}/pictures', 'ExpressionController@postPictures')->where('id', '[0-9]+');
 Route::controller('/expression', 'ExpressionController');
+Route::get('/search', 'ExpressionController@search');
 // Subscribe
 Route::post('/subscribe', 'SubscribeController@postSubscribe');
 // Links

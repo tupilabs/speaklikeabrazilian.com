@@ -112,7 +112,8 @@ return array(
 		'Msurguy\Honeypot\HoneypotServiceProvider',
 		'Teepluss\Api\ApiServiceProvider',
 		'Slbr\Api\ApiServiceProvider',
-		'Frozennode\Administrator\AdministratorServiceProvider'
+		'Frozennode\Administrator\AdministratorServiceProvider',
+		'Scalia\SphinxSearch\SphinxSearchServiceProvider',
 	),
 
 	/*
@@ -181,7 +182,8 @@ return array(
 
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Theme' => 'Teepluss\Theme\Facades\Theme',
-		'API' => 'Teepluss\Api\Facades\API'
+		'API' => 'Teepluss\Api\Facades\API',
+		'SphinxSearch' => 'Scalia\SphinxSearch\SphinxSearchFacade'
 
 	),
 
