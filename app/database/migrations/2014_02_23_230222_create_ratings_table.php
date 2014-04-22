@@ -15,11 +15,12 @@ class CreateRatingsTable extends Migration {
 		Schema::create('ratings', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('definition_id');
-			$table->foreign('definition_id')->references('id')->on('references');
+			$table->integer('definition_id')->unsigned();
+			$table->foreign('definition_id')->references('id')->on('definitions');
 			$table->string('user_ip', 60);
 			$table->integer('rating');
 			$table->timestamps();
+			$table->engine = 'InnoDB';
 		});
 	}
 

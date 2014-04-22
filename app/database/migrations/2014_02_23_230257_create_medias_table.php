@@ -15,17 +15,17 @@ class CreateMediasTable extends Migration {
 		Schema::create('medias', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('definition_id');
+			$table->integer('definition_id')->unsigned();
 			$table->foreign('definition_id')->references('id')->on('definitions');
-			$table->text('url', 255);
-			$table->text('reason', 500);
-			$table->text('email');
+			$table->string('url', 255);
+			$table->string('reason', 500);
+			$table->string('email');
 			$table->char('status', 1);
-			$table->text('content_type', 20);
-			$table->text('contributor', 50);
+			$table->string('content_type', 20);
+			$table->string('contributor', 50);
 			$table->integer('moderator_id')->nullable();
-			$table->foreign('moderator_id')->references('id')->on('users');
 			$table->timestamps();
+			$table->engine = 'InnoDB';
 		});
 	}
 

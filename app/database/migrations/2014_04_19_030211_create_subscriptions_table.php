@@ -15,9 +15,10 @@ class CreateSubscriptionsTable extends Migration {
 		Schema::create('subscriptions', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('email', 255)->unique();
-			$table->text('ip', 50);
+			$table->string('email', 255)->unique();
+			$table->string('ip', 50);
 			$table->timestamps();
+			$table->engine = 'InnoDB';
 		});
 	}
 

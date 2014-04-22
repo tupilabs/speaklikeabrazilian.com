@@ -60,7 +60,7 @@ Route::post('/subscribe', 'SubscribeController@postSubscribe');
 Route::get('/links', 'LinksController@getLinks');
 
 if (Config::get('database.log', false))
-{           
+{
     Event::listen('illuminate.query', function($query, $bindings, $time, $name)
     {
         $data = compact('bindings', 'time', 'name');

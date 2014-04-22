@@ -44,8 +44,7 @@ class DevSeeder extends Seeder {
 			array(
 				'text' => 'Caranga',
 				'char' => 'C',
-				'contributor' => 'kinow',
-				'moderator_id' => null
+				'contributor' => 'kinow'
 			)
 		);
 
@@ -53,8 +52,7 @@ class DevSeeder extends Seeder {
 			array(
 				'text' => 'Jo&atilde;o Pessoa',
 				'char' => 'J',
-				'contributor' => 'kinow',
-				'moderator_id' => null
+				'contributor' => 'kinow'
 			)
 		);
 
@@ -62,8 +60,7 @@ class DevSeeder extends Seeder {
 			array(
 				'text' => 'Duro na queda',
 				'char' => 'D',
-				'contributor' => 'kinow',
-				'moderator_id' => null
+				'contributor' => 'kinow'
 			)
 		);
 
@@ -71,8 +68,7 @@ class DevSeeder extends Seeder {
 			array(
 				'text' => 'No definitions',
 				'char' => 'N',
-				'contributor' => 'kinow',
-				'moderator_id' => null
+				'contributor' => 'kinow'
 			)
 		);
 	}

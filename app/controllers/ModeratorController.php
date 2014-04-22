@@ -40,7 +40,7 @@ class ModeratorController extends BaseController {
 	{
 		$definition = Definition::with('expression', 'ratings')
 			->where('definitions.status', '=', 1)
-			->orderBy(DB::raw('RANDOM()'))
+			->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
 			->first();
 		$args = array();
 		$args['definition'] = $definition;
@@ -77,7 +77,7 @@ class ModeratorController extends BaseController {
 	{
 		$media = Media::where('medias.status', '=', 1)
 			->where('content_type', '=', 'video/youtube')
-			->orderBy(DB::raw('RANDOM()'))
+			->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
 			->first();
 		$args = array();
 		if ($media) 
@@ -126,7 +126,7 @@ class ModeratorController extends BaseController {
 	{
 		$media = Media::where('medias.status', '=', 1)
 			->where('content_type', '=', 'image/unknown')
-			->orderBy(DB::raw('RANDOM()'))
+			->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
 			->first();
 		$args = array();
 		$args['media'] = $media;
