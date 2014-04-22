@@ -19,24 +19,27 @@ Route::get('/user/logout', 'UserController@getLogout');
 Route::filter('moderators', function() {
     if (!Sentry::check())
     {
-        return "You are not allowed here.";
+        return Redirect::to('user/login?from=moderators')
+            ->with('message', 'Log in first');
     }
     $user = Sentry::getUser();
     if (!$user->hasAccess('moderator'))
     {
-        return "You are not allowed here.";
+        return Redirect::to('user/login?from=moderators')
+            ->with('message', 'Log in first');
     }
 });
-Route::get('/moderators', 'ModeratorController@getModerators');
-Route::get('/moderators/pendingExpressions', 'ModeratorController@getPendingExpressions');
-Route::post('/moderators/approveExpression', 'ModeratorController@approveExpression');
-Route::post('/moderators/rejectExpression', 'ModeratorController@rejectExpression');
-Route::get('/moderators/pendingVideos', 'ModeratorController@getPendingVideos');
-Route::post('/moderators/approveVideo', 'ModeratorController@approveVideo');
-Route::post('/moderators/rejectVideo', 'ModeratorController@rejectVideo');
-Route::get('/moderators/pendingPictures', 'ModeratorController@getPendingPictures');
-Route::post('/moderators/approvePicture', 'ModeratorController@approvePicture');
-Route::post('/moderators/rejectPicture', 'ModeratorController@rejectPicture');
+Route::when('moderators/*', 'moderators');
+Route::get('moderators', 'ModeratorController@getModerators');
+Route::get('moderators/pendingExpressions', 'ModeratorController@getPendingExpressions');
+Route::post('moderators/approveExpression', 'ModeratorController@approveExpression');
+Route::post('moderators/rejectExpression', 'ModeratorController@rejectExpression');
+Route::get('moderators/pendingVideos', 'ModeratorController@getPendingVideos');
+Route::post('moderators/approveVideo', 'ModeratorController@approveVideo');
+Route::post('moderators/rejectVideo', 'ModeratorController@rejectVideo');
+Route::get('moderators/pendingPictures', 'ModeratorController@getPendingPictures');
+Route::post('moderators/approvePicture', 'ModeratorController@approvePicture');
+Route::post('moderators/rejectPicture', 'ModeratorController@rejectPicture');
 // Rating
 Route::post('/rate', 'ExpressionController@postRate');
 // Main app
