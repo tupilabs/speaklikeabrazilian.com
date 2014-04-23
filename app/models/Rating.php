@@ -44,4 +44,9 @@ class Rating extends Magniloquent {
 	  )
 	);
 
+	public function definition()
+	{
+		return $this->belongsTo('Definition');
+	}
+
 }

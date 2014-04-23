@@ -46,9 +46,9 @@ class Expression extends Magniloquent {
 	  )
 	);
 
-	/*protected static $relationships = array(
-        'trophies' => array('hasMany', 'Trophy'),
-        'team'     => array('belongsTo', 'Team', 'team_id'),
-        'sports'   => array('belongsToMany', 'Sport', 'athletes_sports', 'athlete_id', 'sport_id')
-    );*/
+	public function definitions()
+	{
+		return $this->hasMany('Definition');
+	}
+
 }

@@ -19,25 +19,25 @@ return array(
 	 * @type array
 	 */
 	'edit_fields' => array(
-		'site_name' => array(
-			'title' => 'Site Name',
-			'type' => 'text',
-			'limit' => 50,
-		),
-		'page_cache_lifetime' => array(
-			'title' => 'Page Cache Lifetime (in minutes)',
-			'type' => 'number',
-		),
-		'logo' => array(
-			'title' => 'Image (200 x 150)',
-			'type' => 'image',
-			'naming' => 'random',
-			'location' => public_path(),
-			'size_limit' => 2,
-			'sizes' => array(
-		 		array(200, 150, 'crop', public_path() . '/resize/', 100),
-		 	)
-		),
+		// 'site_name' => array(
+		// 	'title' => 'Site Name',
+		// 	'type' => 'text',
+		// 	'limit' => 50,
+		// ),
+		 'page_cache_lifetime' => array(
+		 	'title' => 'Page Cache Lifetime (in minutes)',
+		 	'type' => 'number',
+		 ),
+		// 'logo' => array(
+		// 	'title' => 'Image (200 x 150)',
+		// 	'type' => 'image',
+		// 	'naming' => 'random',
+		// 	'location' => public_path(),
+		// 	'size_limit' => 2,
+		// 	'sizes' => array(
+		//  		array(200, 150, 'crop', public_path() . '/resize/', 100),
+		//  	)
+		// ),
 	),
 
 	/**
@@ -46,9 +46,9 @@ return array(
 	 * @type array
 	 */
 	'rules' => array(
-		'site_name' => 'required|max:50',
+		//'site_name' => 'required|max:50',
 		'page_cache_lifetime' => 'required|integer',
-		'logo' => 'required',
+		//'logo' => 'required',
 	),
 
 	/**
