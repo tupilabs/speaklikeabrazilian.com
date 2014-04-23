@@ -65,7 +65,7 @@ body, html {
     height: 100px;
 }
 
-#header a {
+#header span.title {
     text-decoration: none;
     /*color: #36B54A;*/
     color: #333333;
@@ -422,4 +422,10 @@ line-height: 17px;
 .twitter-btn .label {
     padding: 0 7px 0 29px;
     white-space: nowrap;
+}
+
+.gsc-search-button {
+    -webkit-box-sizing: inherit !important;
+    -moz-box-sizing: inherit !important;
+    box-sizing: initial !important;
 }

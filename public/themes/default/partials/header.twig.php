@@ -10,29 +10,24 @@
     <div class='container'>
         <div class='row'>
             <div class='col-xs-12'>
-				<a href="{{ URL.to('/') }}">Speak Like A Brazilian<img src="{{ URL.to('/themes/default/assets/img/slbr.png') }}" class="logo" alt="Speak Like A Brazilian | Learn Portuguese" title="Speak Like A Brazilian | Learn Portuguese" /></a>
+				<span class='title'>Speak Like A Brazilian<img src="{{ URL.to('/themes/default/assets/img/slbr.png') }}" class="logo" alt="Speak Like A Brazilian | Learn Portuguese" title="Speak Like A Brazilian | Learn Portuguese" /></span>
 			</div>
 	    </div>
 	    <div class='row'>
-			<div class='col-sm-offset-2 col-md-offset-3 col-lg-offset-3 col-sm-8 col-md-6 col-lg input-append' id="search">
-				{{ Form.open({'url': 'search', 'class': 'form-search', 'method': 'get'}) }}
-					<div class='form-group'>
-						<div class='input-group'>
-							<input 
-								class="form-control input-sm" 
-								type="text" 
-								id="q" 
-								name="q" 
-								value="{{ query }}" 
-								placeholder="Search for expressions in English or Portuguese" />
-							<span class='input-group-btn'>
-								<button type="submit" class="btn btn-inverse input-sm">
-									<span class='fui-search'></span>
-								</button>	
-							</span>
-						</div>
-					</div>
-				{{ Form.close() }}
+	    	<div class='col-xs-6 col-xs-offset-3'>
+				<script>
+				  (function() {
+				    var cx = '005522759953720342982:iqpzpagyfes';
+				    var gcse = document.createElement('script');
+				    gcse.type = 'text/javascript';
+				    gcse.async = true;
+				    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+				        '//www.google.com/cse/cse.js?cx=' + cx;
+				    var s = document.getElementsByTagName('script')[0];
+				    s.parentNode.insertBefore(gcse, s);
+				  })();
+				</script>
+				<gcse:searchbox-only></gcse:searchbox-only>
 			</div>
 		</div>
     </div>

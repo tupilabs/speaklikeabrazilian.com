@@ -359,23 +359,4 @@ class ExpressionController extends BaseController {
 		}
 	}
 
-	public function search()
-	{
-		$q = Input::get('q');
-		if ($q)
-		{
-			$definitions = SphinxSearch::search($q)
-				->setMatchMode(\Sphinx\SphinxClient::SPH_MATCH_EXTENDED2)
-				->get();
-			echo "<pre>";var_dump($definitions);echo "</pre>";exit;
-			$args = array();
-			$args['definitions'] = $definitions;
-			$args['subtitle'] = sprintf("Search results for '%s'", $q);
-			$this->theme->set('active', 'new');
-			return $this->theme->scope('home.index', $args)->render();
-		}
-		return Redirect::to('/')
-			->with('message', 'Missing query string');
-	}
-
 }
