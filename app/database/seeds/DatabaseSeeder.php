@@ -33,7 +33,91 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		$this->call('DevSeeder');
+		//$this->call('DevSeeder');
+
+		$this->runGroups();
+		$this->runUsers();
+	}
+
+	public function runGroups()
+	{
+		try
+		{
+		    // Create the groups
+		    $moderators = Sentry::createGroup(array(
+		        'name'        => 'Moderators',
+		        'permissions' => array(
+		            'admin' => 0,
+		            'moderator' => 1,
+		        ),
+		    ));
+
+		    $admins = Sentry::createGroup(array(
+		        'name'        => 'Administrators',
+		        'permissions' => array(
+		            'admin' => 1,
+		            'moderator' => 1,
+		        ),
+		    ));
+
+		    
+		}
+		catch (Cartalyst\Sentry\Groups\NameRequiredException $e)
+		{
+		    echo 'Name field is required';
+		}
+		catch (Cartalyst\Sentry\Groups\GroupExistsException $e)
+		{
+		    echo 'Group already exists';
+		}
+	}
+
+	public function runUsers()
+	{
+		try
+		{
+		    // Create the user
+		    $user = Sentry::createUser(array(
+		        'email'     => 'mod@speaklikeabrazilian.com',
+		        'password'  => 'test',
+		        'activated' => true
+		    ));
+
+		    // Find the group using the group id
+		    $moderatorsGroup = Sentry::findGroupByName('Moderators');
+
+		    // Assign the group to the user
+		    $user->addGroup($moderatorsGroup);
+
+		    // Create the user
+		    $user = Sentry::createUser(array(
+		        'email'     => 'admin@speaklikeabrazilian.com',
+		        'password'  => 'test',
+		        'activated' => true
+		    ));
+
+		    // Find the group using the group id
+		    $adminsGroup = Sentry::findGroupByName('Administrators');
+
+		    // Assign the group to the user
+		    $user->addGroup($adminsGroup);
+		}
+		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+		    echo 'Login field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+		    echo 'Password field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+		    echo 'User with this login already exists.';
+		}
+		catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+		{
+		    echo 'Group was not found.';
+		}
 	}
 
 }
