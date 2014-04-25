@@ -127,7 +127,8 @@ class ExpressionController extends BaseController {
 				'status' => 1,
 				'email' => Input::get('email'),
 				'contributor' => Input::get('pseudonym'),
-				'moderator_id' => NULL
+				'moderator_id' => NULL,
+				'user_ip' => Request::getClientIp()
 			));
 
 			if (Input::get('subscribe') === 'checked')
