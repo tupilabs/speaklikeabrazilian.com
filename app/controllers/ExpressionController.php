@@ -176,17 +176,6 @@ class ExpressionController extends BaseController {
 				)
 			->orderByRaw('(COALESCE(likes, 0) - COALESCE(dislikes, 0)) DESC')
 			->paginate(10);
-		// $definitions->sortBy(function($definition){
-		// 	$ratings = $definition->ratings()->get();
-		// 	$rate = 0;
-		// 	foreach ($ratings as $rating) 
-		// 	{
-		// 		$rate += $rating->rating;
-		// 	}
-		// 	//Log::debug(sprintf("RATE: %s", $rate));
-		// 	return $rate;
-		// });
-		// $definitions = $definitions->reverse();
 
 		$args = array();
 		$args['definitions'] = $definitions;

@@ -2,13 +2,13 @@
 	<div class='text'>
 		<div>
 			<span class='expression'>
-    			<a href="{{ URL.to('/expression/define?e=' ~ definition.text) }}">
+    			<a href="{{ URL.action('ExpressionController@getDefine') }}?e={{ definition.text }}">
     				{{ definition.text }}
     			</a>
     			&nbsp;<a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&amp;tl=pt&amp;q={{ definition.text }}"><span class="glyphicon glyphicon-play"></span></a>
 			</span>
 			<div class='rating'>
-				{{ Form.open({'url': '/rate' }) }}
+				{{ Form.open({'action': 'ExpressionController@postRate' }) }}
 				<small>
 					<input type="hidden" name="expressionId" value="{{ definition.expression_id }}" />
 					<input type="hidden" name="definitionId" value="{{ definition.id }}" />
@@ -53,7 +53,7 @@
 		{% if definition.tags is defined %}
 			{% for tag in definition.tags|split(',') %}
 				{% set tag = tag|trim %}
-		<span class='label label-default'><a href="{{ URL.to('expression/define?e=' ~ tag) }}" style='color: white'>{{ tag }}</a></span> 
+		<span class='label label-default'><a href="{{ URL.action('ExpressionController@getDefine') }}?e={{ tag }}" style='color: white'>{{ tag }}</a></span> 
 			{% endfor %}
 		{% endif %}
 	</div>
@@ -68,10 +68,10 @@
     	    <strong>{{ Lang.get('messages.media') }}</strong>
     	</small>
 	    <span class='share2'>
-	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/videos?expressionId={{ definition.expression_id }}">{{ Lang.get('messages.add_video') }}</a> 
+	    	<a class='label label-info btn-media' href="{{ URL.action('ExpressionController@getVideos', {'id': definition.id}) }}?expressionId={{ definition.expression_id }}">{{ Lang.get('messages.add_video') }}</a> 
 	    </span>
 	    <span class='share2'>
-	    	<a class='label label-info btn-media' href="{{ URL.to('expression/' ~ definition.id) }}/pictures?expressionId={{ definition.expression_id }}">{{ Lang.get('messages.add_picture') }}</a> 
+	    	<a class='label label-info btn-media' href="{{ URL.action('ExpressionController@getPictures', {'id': definition.id}) }}/?expressionId={{ definition.expression_id }}">{{ Lang.get('messages.add_picture') }}</a> 
 	    </span>
 		<span class=''>
 			<small>
