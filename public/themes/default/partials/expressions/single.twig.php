@@ -76,7 +76,7 @@
 		<span class=''>
 			<small>
 				{% set expression_text = definition.text|url_encode|url_encode(true) %}
-				{% set url = URL.to('/expression/define?e='~ expression_text) %}
+				{% set url = URL.action('ExpressionController@getDefine') ~ '?e=' ~ expression_text %}
 				<a target="_blank" class="twitter-btn" title="Share this expression on Twitter" href="https://twitter.com/share?text={{ definition.text ~ ' #BrazilianPortuguese via @SpeakLikeABR '|url_encode(true) ~ url}}">
 					<i></i>
 					<span class="label">{{ Lang.get('messages.tweet') }}</span>

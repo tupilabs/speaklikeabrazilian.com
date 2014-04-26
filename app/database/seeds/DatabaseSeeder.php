@@ -33,13 +33,13 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		//$this->call('DevSeeder');
+		$this->populateGroups();
+		$this->populateUsers();
 
-		$this->runGroups();
-		$this->runUsers();
+		$this->call('LanguagesSeeder');
 	}
 
-	public function runGroups()
+	public function populateGroups()
 	{
 		try
 		{
@@ -72,7 +72,7 @@ class DatabaseSeeder extends Seeder {
 		}
 	}
 
-	public function runUsers()
+	public function populateUsers()
 	{
 		try
 		{

@@ -4,7 +4,8 @@
     	<a href="http://twitter.com/SpeakLikeABR" class='btn btn-sm navbar-btn btn-inverse btn-xs'>@SpeakLikeABR</a>
     	<a href="http://facebook.com/SpeakLikeABrazilian" class='btn btn-sm navbar-btn btn-inverse btn-xs'>Facebook Fan Page</a>
     	<a href="{{ URL.action('ModeratorController@getModerators') }}" class='btn btn-sm btn-info navbar-btn btn-xs'>Moderators area</a>
-    	<a href='' class=''><img src='/themes/default/assets/img/flags/flag_spain.png' width="24px" /></a>
+    	<a href='{{ URL.to('/en') }}' class=''><img src='/themes/default/assets/img/flags/flag_great_britain.png' width="24px" /></a>
+    	<a href='{{ URL.to('/es') }}' class=''><img src='/themes/default/assets/img/flags/flag_spain.png' width="24px" /></a>
 	</div>
 </nav>
 <section id='header'>

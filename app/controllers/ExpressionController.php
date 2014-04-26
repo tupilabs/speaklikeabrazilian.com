@@ -5,13 +5,13 @@
  * Copyright (c) 2013-2014 TupiLabs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
- *  this software and associated documentation files (the "Software"), to deal in
+ * this software and associated documentation files (the "Software"), to deal in
  * the Software without restriction, including without limitation the rights to
  * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
  * the Software, and to permit persons to whom the Software is furnished to do so,
  * subject to the following conditions:
  *
- *  The above copyright notice and this permission notice shall be included in all
+ * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
  * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -26,9 +26,11 @@ class ExpressionController extends BaseController {
 
 	public function getNew()
 	{
+		$lang = App::getLocale();
 		$definitions = Definition::
 			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('status', '=', 2)
+			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
 			->orderBy('updated_at', 'desc')
 			->select('definitions.*', 
 				'expressions.text',
@@ -43,12 +45,58 @@ class ExpressionController extends BaseController {
 		return $this->theme->scope('home.index', $args)->render();
 	}
 
+	public function getTop()
+	{
+		$lang = App::getLocale();
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->orderByRaw('(COALESCE(likes, 0) - COALESCE(dislikes, 0)) DESC')
+			->paginate(10);
+
+		$args = array();
+		$args['definitions'] = $definitions;
+		$args['subtitle'] = Lang::get('messages.top_expressions');
+		$this->theme->set('active', 'top');
+		return $this->theme->scope('home.index', $args)->render();
+	}
+
+	public function getRandom()
+	{
+		$lang = App::getLocale();
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+			->where('status', '=', 2)
+			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+			->take(10)
+			->get();
+		$args = array();
+		$args['definitions'] = $definitions;
+		$args['subtitle'] = Lang::get('messages.random_expressions');
+		$this->theme->set('active', 'random');
+		return $this->theme->scope('home.index', $args)->render();
+	}
+
 	public function getDefine()
 	{
+		$lang = App::getLocale();
 		$text = Input::get('e');
 		$definitions = Definition::
 			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('definitions.status', '=', 2)
+			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
 			->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
 			->select('definitions.*', 
 				'expressions.text',
@@ -66,10 +114,13 @@ class ExpressionController extends BaseController {
 
 	public function getLetter($letter)
 	{
+		$lang = App::getLocale();
+		$queryLetter = $letter === '0-9' ? '0' : strtoupper($letter);
 		$definitions = Definition::
 			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('status', '=', 2)
-			->where('expressions.char', '=', strtoupper($letter))
+			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+			->where('expressions.char', '=', $queryLetter)
 			->orderBy('expressions.text', 'asc')
 			->select('definitions.*', 
 				'expressions.text',
@@ -88,10 +139,12 @@ class ExpressionController extends BaseController {
 
 	public function getAdd()
 	{
+		$lang = App::getLocale();
 		$expression = Input::get('e');
 		$args = array();
 		if (isset($expression) && strlen($expression) > 0)
 			$args['expression'] = ucfirst($expression);
+		$args['lang'] = Config::get("constants.$lang", Config::get('constants.en', 1));
 		return $this->theme->scope('expression.add', $args)->render();
 	}
 
@@ -162,46 +215,6 @@ class ExpressionController extends BaseController {
 			DB::rollback();
 			return Redirect::to('/')->with('error', $e->getMessage());
 		}
-	}
-
-	public function getTop()
-	{
-		$definitions = Definition::
-			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-			->where('status', '=', 2)
-			->select('definitions.*', 
-				'expressions.text',
-				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
-				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
-				)
-			->orderByRaw('(COALESCE(likes, 0) - COALESCE(dislikes, 0)) DESC')
-			->paginate(10);
-
-		$args = array();
-		$args['definitions'] = $definitions;
-		$args['subtitle'] = Lang::get('messages.top_expressions');
-		$this->theme->set('active', 'top');
-		return $this->theme->scope('home.index', $args)->render();
-	}
-
-	public function getRandom()
-	{
-		$definitions = Definition::
-			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-			->where('status', '=', 2)
-			->select('definitions.*', 
-				'expressions.text',
-				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
-				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
-				)
-			->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
-			->take(10)
-			->get();
-		$args = array();
-		$args['definitions'] = $definitions;
-		$args['subtitle'] = Lang::get('messages.random_expressions');
-		$this->theme->set('active', 'random');
-		return $this->theme->scope('home.index', $args)->render();
 	}
 
 	public function postRate()

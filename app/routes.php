@@ -11,25 +11,18 @@
 |
 */
 
-// Route::get('set-language/{lang}', array('as' => 'set-language', function($lang) {
-    
-//     if( in_array($lang, Config::get('app.languages')) )
-//     {
-//         Log::debug('Changing language to ' . $lang);
-//         App::setLocale($lang);
-//         Session::set('locale', $lang);
-//         return Redirect::to(URL::previous());
-//     }
-// }));
-
 $languages = Config::get('app.languages');
 $locale = Request::segment(1);
-if(in_array($locale, $languages)){
-    Cookie::forever('slbr_language', $locale); // TODO: put in session too?
+if(in_array($locale, $languages))
+{
     App::setLocale($locale);
-}else{
-    $locale = null;
 }
+else
+{
+    $locale = Config::get('constants.en', 1);
+    App::setLocale($locale);
+}
+
 Route::group(array('prefix' => $locale), function()
 {
     // Users
