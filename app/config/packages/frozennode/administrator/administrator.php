@@ -52,7 +52,7 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-		'Users' => array('user'),
+		'Users' => array('user', 'subscription'),
 		'Expressions' => array('expression', 'definition', 'rating', 'media'),
 		'Settings' => array('settings.site', 'subscription'),
 	),
