@@ -1,5 +1,5 @@
 			<div class='hidden-xs col-md-2 col-lg-2 center' id="sidebar" style="margin-top: 15px;">
-    			<a href="{{ URL.to('expression/add') }}" class="btn btn-embossed btn-wide btn-success"><strong><span class="fui-plus"></span> Add Your <br/>Expression</a></strong>
+    			<a href="{{ URL.to('expression/add') }}" class="btn btn-embossed btn-wide btn-success"><strong><span class="fui-plus"></span> {{ Lang.get('messages.add_expression') }}</a></strong>
     			<hr/>
     			<p><a href="http://www.cafehostel.com.br" title="Cafe Hostel" alt="Cafe Hostel"><img src='{{ URL.to('/themes/default/assets/img/ads/banner-cafehostel.png') }}' class='img-thumbnail' /></a></p>
     			<hr/>

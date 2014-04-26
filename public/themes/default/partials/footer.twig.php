@@ -2,11 +2,8 @@
 	<div class='container'>
     	<div class='row'>
     		<div class='col-xs-12 col-md-6 col-lg-6'>
-          <h3 class='footer-title'>Speak Like A Brazilian is Open Source!</h3>
-          <p>Our content is created by users like you, and with software that was 
-          created and distributed by great developers! The source code for this 
-          web site was created by TupiLabs and open sourced via GitHub, via the MIT 
-          License.</p>
+          <h3 class='footer-title'>{{ Lang.get('messages.footer_header') }}</h3>
+          <p>{{ Lang.get('messages.footer_body') }}</p>
     			<p>&copy; <a href='http://tupilabs.com' title='TupiLabs'>TupiLabs</a> &mdash; <a href='https://github.com/tupilabs/speaklikeabrazilian.com'>Source code</a> licensed under MIT License</p>
     		</div>
     		<div class='hidden-xs col-md-6 col-lg-6'>

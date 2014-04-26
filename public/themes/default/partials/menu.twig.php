@@ -1,6 +1,6 @@
 {% set active = Theme.get('active') %}
 <ul class='span12'>
-	<li{% if(active == 'new')%} class='active'{% endif %}><a href="{{ URL.to('/new') }}">New</a></li>
+	<li{% if(active == 'new')%} class='active'{% endif %}><a href="{{ URL.to('/new') }}">{{ Lang.get('messages.new') }}</a></li>
 	<li{% if(active == 'A')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/a') }}">A</a></li>
 	<li{% if(active == 'B')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/b') }}">B</a></li>
 	<li{% if(active == 'C')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/c') }}">C</a></li>
@@ -28,6 +28,6 @@
 	<li{% if(active == 'Y')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/y') }}">Y</a></li>
 	<li{% if(active == 'Z')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/z') }}">Z</a></li>
 	<li{% if(active == '0-9')%} class='active'{% endif %}><a href="{{ URL.to('expression/letter/0-9') }}">0 - 9</a></li>
-	<li{% if(active == 'top')%} class='active'{% endif %}><a href="{{ URL.to('top') }}">Top</a></li>
-	<li{% if(active == 'random')%} class='active'{% endif %}><a href="{{ URL.to('random') }}">Random</a></li>
+	<li{% if(active == 'top')%} class='active'{% endif %}><a href="{{ URL.to('top') }}">{{ Lang.get('messages.top') }}</a></li>
+	<li{% if(active == 'random')%} class='active'{% endif %}><a href="{{ URL.to('random') }}">{{ Lang.get('messages.random') }}</a></li>
 </ul>

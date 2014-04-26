@@ -61,7 +61,8 @@ return array(
             'trim',
             'preg_match',
             'explode',
-            'e'
+            'e',
+            'trans'
         );
         
         foreach ($fns as $fn)

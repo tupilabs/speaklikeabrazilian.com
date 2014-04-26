@@ -25,7 +25,7 @@
                 <div class='row'>
                     <div class='col-xs-10'>
                     {% if expression is defined and expression is not empty %}
-                        <h2 class='subtitle'>No definitions of '{{ expression }}' found. {{ HTML.link('expression/add?e=' ~ expression, 'Add yours!') }}</h2>
+                        <h2 class='subtitle'>{{ Lang.get('messages.no_definitions_of', {'definition': expression}) }}. {{ HTML.link('expression/add?e=' ~ expression, Lang.get('messages.add_yours')) }}</h2>
                     {% elseif letter is defined and letter is not empty %}
                         <h2 class='subtitle'>No expressions starting with '{{ letter }}' found. {{ HTML.link('expression/add', 'Add yours!') }}</h2>
                     {% else %}

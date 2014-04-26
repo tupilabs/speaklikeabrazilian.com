@@ -38,7 +38,7 @@ class ExpressionController extends BaseController {
 			->paginate(10);
 		$args = array();
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = "New expressions";
+		$args['subtitle'] = Lang::get('messages.new_expressions');
 		$this->theme->set('active', 'new');
 		return $this->theme->scope('home.index', $args)->render();
 	}
@@ -59,7 +59,7 @@ class ExpressionController extends BaseController {
 		$args = array();
 		$definitions->appends(array('e' => $text));
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = sprintf("Definitions of '%s'", $text);
+		$args['subtitle'] = Lang::get('messages.definitions_of', array('definition' => $text));
 		$args['expression'] = $text;
 		return $this->theme->scope('home.index', $args)->render();
 	}
@@ -79,7 +79,7 @@ class ExpressionController extends BaseController {
 			->paginate(10);
 		$args = array();
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = sprintf("Expressions starting with '%s'", strtoupper($letter));
+		$args['subtitle'] = Lang::get('messages.letter_expressions', array('letter' => strtoupper($letter)));
 		$letter = strtoupper($letter);
 		$args['letter'] = $letter;
 		$this->theme->set('active', $letter);
@@ -145,7 +145,7 @@ class ExpressionController extends BaseController {
 				Log::debug('Committing transaction');
 				DB::commit();
 				Log::info(sprintf('New definition for %s added!', Input::get('text')));
-				return Redirect::to('/')->with('success', 'Expression added! It will get published after one of our moderators review it. Thank you!');
+				return Redirect::to('/')->with('success', Lang::get('messages.expression_added'));
 			} 
 			else
 			{
@@ -190,7 +190,7 @@ class ExpressionController extends BaseController {
 
 		$args = array();
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = "Top expressions";
+		$args['subtitle'] = Lang::get('messages.top_expressions');
 		$this->theme->set('active', 'top');
 		return $this->theme->scope('home.index', $args)->render();
 	}
@@ -210,7 +210,7 @@ class ExpressionController extends BaseController {
 			->get();
 		$args = array();
 		$args['definitions'] = $definitions;
-		$args['subtitle'] = "Random expressions";
+		$args['subtitle'] = Lang::get('messages.random_expressions');
 		$this->theme->set('active', 'random');
 		return $this->theme->scope('home.index', $args)->render();
 	}
@@ -282,14 +282,14 @@ class ExpressionController extends BaseController {
 		if($media->isValid() && $media->isSaved())
 		{
 			$args = array();
-			$args['message'] = 'Your video has been saved for review by our moderators';
+			$args['message'] = Lang::get('messages.video_added');
 			$this->theme->layout('message');
 			return $this->theme->scope('message', $args)->render();
 		} 
 		else
 		{
 			$args = array();
-			$args['message'] = 'An error occurred while adding your video. Please, try again later.';
+			$args['message'] = Lang::get('messages.video_not_added');
 			Log::error(sprintf('Error uploading video %s to definition %d', $url, Input::get('definitionId')));
 			$this->theme->layout('message');
 			return $this->theme->scope('message', $args)->render();
@@ -348,7 +348,7 @@ class ExpressionController extends BaseController {
 		if($media->isValid() && $media->isSaved())
 		{
 			$args = array();
-			$args['message'] = 'Your picture has been saved for review by our moderators';
+			$args['message'] = Lang::get('messages.picture_added');
 			$this->theme->layout('message');
 			return $this->theme->scope('message', $args)->render();
 		} 
