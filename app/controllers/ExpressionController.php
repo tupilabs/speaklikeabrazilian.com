@@ -141,10 +141,17 @@ class ExpressionController extends BaseController {
 	{
 		$lang = App::getLocale();
 		$expression = Input::get('e');
+		$languages = Language::all();
+		$languagesArray = array();
+		foreach ($languages as $language)
+		{
+			$languagesArray[$language->id] = $language->description;
+		}
 		$args = array();
 		if (isset($expression) && strlen($expression) > 0)
 			$args['expression'] = ucfirst($expression);
 		$args['lang'] = Config::get("constants.$lang", Config::get('constants.en', 1));
+		$args['languages'] = $languagesArray;
 		return $this->theme->scope('expression.add', $args)->render();
 	}
 
@@ -155,25 +162,47 @@ class ExpressionController extends BaseController {
 
 		try 
 		{
+			$lang = App::getLocale();
+			$text = Input::get('text');
 			// Get existing expressions
-			$expression = API::get(sprintf('api/v1/expressions/search?e=%s', Input::get('text')));
-			if (count($expression) <= 0)
+			$expression = Expression::
+				where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
+				->first();
+
+			$letter = substr($text, 0, 1);
+			if (is_numeric($letter))
 			{
-				$expression = API::post('api/v1/expressions/', array(
-					'text' => Input::get('text'),
-					'char' => strtoupper(substr(Input::get('text'), 0, 1)),
-					'contributor' => Input::get('pseudonym')
+				$letter = '0';
+			}
+			else
+			{
+				$unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
+                            'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
+                            'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c',
+                            'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o',
+                            'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
+				$text2 = strtr($text, $unwanted_array );
+				$letter = substr($text2, 0, 1);
+			}
+			if (!$expression)
+			{
+				$expression = Expression::create(array(
+					'text' => $text,
+					'char' => $letter,
+					'contributor' => Input::get('pseudonym'),
+					'moderator_id' => NULL
 				));
 
 				if (!$expression->isValid() || !$expression->isSaved())
 				{
-					return Redirect::to('expression/add')
+					return Redirect::to("$lang/expression/add")
 						->withInput()
 						->withErrors($expression->errors());
 				}
 			}
 
-			$definition = API::post(sprintf('api/v1/expressions/%d/definitions', $expression->id), array(
+			$definition = Definition::create(array(
+				'expression_id' => $expression->id, 
 				'description' => Input::get('definition'),
 				'example' => Input::get('example'),
 				'tags' => Input::get('tags'),
@@ -181,7 +210,8 @@ class ExpressionController extends BaseController {
 				'email' => Input::get('email'),
 				'contributor' => Input::get('pseudonym'),
 				'moderator_id' => NULL,
-				'user_ip' => Request::getClientIp()
+				'user_ip' => Request::getClientIp(),
+				'language_id' => Input::get('language')
 			));
 
 			if (Input::get('subscribe') === 'checked')
@@ -198,13 +228,13 @@ class ExpressionController extends BaseController {
 				Log::debug('Committing transaction');
 				DB::commit();
 				Log::info(sprintf('New definition for %s added!', Input::get('text')));
-				return Redirect::to('/')->with('success', Lang::get('messages.expression_added'));
+				return Redirect::to("/$lang")->with('success', Lang::get('messages.expression_added'));
 			} 
 			else
 			{
 				Log::debug('Rolling back transaction');
 				DB::rollback();
-				return Redirect::to('expression/add')
+				return Redirect::to("$lang/expression/add")
 					->withInput()
 					->withErrors($definition->errors());
 			}
@@ -213,7 +243,7 @@ class ExpressionController extends BaseController {
 		{
 			Log::debug('Rolling back transaction');
 			DB::rollback();
-			return Redirect::to('/')->with('error', $e->getMessage());
+			return Redirect::to("/$lang")->with('error', $e->getMessage());
 		}
 	}
 

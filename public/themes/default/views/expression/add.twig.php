@@ -46,6 +46,15 @@
                                     {% endif %}
             					</div>
             				</div>
+                            <div class='form-group'>
+                                {{ Form.label('language', 'Language', {'class': 'col-xs-2 control-label'})}}
+                                <div class='col-xs-10'>
+                                    {{ Form.select('language', languages, lang, {'class': 'form-control', 'id': 'language'}) }}
+                                    <span class="help-block"><small>
+                                        Enter the language of the definition.
+                                        </small></span>
+                                </div>
+                            </div>
             				<div class="form-group">
                                 {{ Form.label('example', 'Example', {'class': 'col-xs-2 control-label'}) }}
             					<div class="col-xs-10">
