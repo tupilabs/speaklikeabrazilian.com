@@ -25,11 +25,11 @@
                 <div class='row'>
                     <div class='col-xs-10'>
                     {% if expression is defined and expression is not empty %}
-                        <h2 class='subtitle'>{{ Lang.get('messages.no_definitions_of', {'definition': expression}) }}. {{ HTML.link('expression/add?e=' ~ expression, Lang.get('messages.add_yours')) }}</h2>
+                        <h2 class='subtitle'>{{ Lang.get('messages.no_definitions_of', {'definition': expression}) }}.  <a href="{{ URL.action("ExpressionController@getAdd") ~ '?e=' ~ expression }}">{{ Lang.get('messages.add_yours') }}</a></h2>
                     {% elseif letter is defined and letter is not empty %}
                         <h2 class='subtitle'>{{ Lang.get('messages.no_letter_expressions', {'letter': letter}) }}. <a href='{{ URL.action("ExpressionController@getAdd") }}'>{{ Lang.get('messages.add_yours') }}</a></h2>
                     {% else %}
-                        <h2 class='subtitle'>No expression found. {{ HTML.link('expression/add', 'Add yours!') }}</h2>
+                        <h2 class='subtitle'>No expression found. <a href='{{ URL.action("ExpressionController@getAdd") }}'>{{ Lang.get('messages.add_yours') }}</a></h2></h2>
                     {% endif %}
                     </div>
                 </div>
