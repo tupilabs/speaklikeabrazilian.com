@@ -14,3 +14,5 @@ composer.lock
 *.sqlite
 database-schema/
 *.sublime-workspace
+.env.production.php
+.env.development.php
