@@ -26,7 +26,7 @@
                 </div>
 
             {% else %}
-                <p>There are no pending expressions</p>
+                <p>There are no pending videos</p>
             {% endif %}
             </div>
             {# 2 columns wide #}

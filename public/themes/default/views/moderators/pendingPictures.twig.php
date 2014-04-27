@@ -28,7 +28,7 @@
                 </div>
 
             {% else %}
-                <p>There are no pending expressions</p>
+                <p>There are no pending pictures</p>
             {% endif %}
             </div>
             {# 2 columns wide #}

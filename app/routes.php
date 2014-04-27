@@ -54,6 +54,8 @@ Route::group(array('prefix' => $locale), function()
     Route::get('moderators/pendingPictures', 'ModeratorController@getPendingPictures');
     Route::post('moderators/approvePicture', 'ModeratorController@approvePicture');
     Route::post('moderators/rejectPicture', 'ModeratorController@rejectPicture');
+    Route::get('moderators/profile', 'ModeratorController@getProfile');
+    Route::post('moderators/profile', 'ModeratorController@postProfile');
     // Rating
     Route::post('/rate', 'ExpressionController@postRate');
     // Main app

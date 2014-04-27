@@ -832,6 +832,11 @@ class User extends Model implements UserInterface {
 		return static::$hasher->hash($string);
 	}
 
+	public static function boot()
+    {
+        self::$hasher = new Cartalyst\Sentry\Hashing\NativeHasher;
+    }
+
 	/**
 	 * Generate a random string.
 	 *

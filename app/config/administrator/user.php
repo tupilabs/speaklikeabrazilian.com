@@ -20,6 +20,14 @@ return array(
 			'title' => 'ID',
 			'type' => 'key'
 		),
+		'first_name' => array(
+			'title' => 'First Name',
+			'type' => 'text'
+		),
+		'last_name' => array(
+			'title' => 'Last Name',
+			'type' => 'text'
+		),
 		'email' => array(
 			'title' => 'E-mail'
 		),
@@ -32,17 +40,15 @@ return array(
 				return "******";
 			}
 		),
-		'permissions' => array(
-			'title' => 'Permissions',
-			'output' => function($value) 
-			{
-				return var_export($value, true);
-			}
-		), 
 		'activated' => array(
 			'title' => 'Activated?',
 			'type' => 'bool'
 	    ),
+	    'groups' => array(
+	    	'title' => '# Groups',
+	    	'relationship' => 'groups',
+	    	'select' => "COUNT((:table).id)"
+	    )
 		// 'isSuperUser' => array(
 		// 	'title' => 'Super user?'
 		// )
@@ -56,6 +62,17 @@ return array(
 			'title' => 'Activated?',
 			'type' => 'bool'
 	    ),
+	    'first_name' => array(
+			'title' => 'First Name',
+			'type' => 'text'
+		),
+		'last_name' => array(
+			'title' => 'Last Name',
+			'type' => 'text'
+		),
+		'email' => array(
+			'title' => 'E-mail'
+		),
 	),
 
 	/**
@@ -69,18 +86,18 @@ return array(
 		'email' => array(
 			'title' => 'E-mail'
 		),
+		'first_name' => array(
+			'title' => 'First Name',
+			'type' => 'text'
+		),
+		'last_name' => array(
+			'title' => 'Last Name',
+			'type' => 'text'
+		),
 		'activated' => array(
 			'title' => 'Activated?',
 			'type' => 'bool'
 	    ),
-	    'created_at' => array(
-	    	'title' => 'Created at',
-	    	'type' => 'datetime'
-	    ),
-	    'updated_at' => array(
-	    	'title' => 'Updated at',
-	    	'type' => 'datetime'
-	    )
 	),
 
 );

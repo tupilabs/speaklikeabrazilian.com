@@ -157,4 +157,75 @@ class ModeratorController extends BaseController {
 			->with('success', 'Picture rejected!');
 	}
 
+	public function getProfile()
+	{
+		$user = Sentry::getUser();
+		$args = array();
+		$args['user'] = $user;
+		return $this->theme->scope('moderators.profile', $args)->render();
+	}
+
+	public function postProfile()
+	{
+		$lang = App::getLocale();
+		$save = FALSE;
+		$user = Sentry::getUser();
+		Log::debug(sprintf('Moderator %d is updating its profile...', $user->id));
+
+		$user->email = Input::get('email');
+		$user->first_name = Input::get('first_name');
+		$user->last_name = Input::get('last_name');
+
+		$password = Input::get('password');
+		$confirm = Input::get('password_confirm');
+
+		if ($password) 
+		{
+			if (0 ===strcmp($password, $confirm))
+			{
+				Log::debug('Setting new password');
+				$user->password = $password;
+			} 
+			else
+			{
+				Log::debug("Passwords don't match");
+				return Redirect::to(URL::current())
+					->withInput()
+					->with('message', "Passwords don't match");
+			}
+		}
+
+		try 
+		{
+			Log::debug('Saving moderator profile');
+			if ($user->save())
+			{
+				Log::info(sprintf("Moderator %d updated its profile successfully!", $user->id));
+				return Redirect::to("$lang/moderators/")
+					->with('success', "Profile updated!");
+			}
+			else
+			{
+				Log::debug("Failed to save moderator.");
+				return Redirect::to(URL::current())
+					->withInput()
+					->with('message', "Failed to save user");
+			}
+		}
+		catch (Cartalyst\Sentry\Users\UserExistsException $e)
+	    {	
+	    	Log::debug("User with this login already exists.");
+	        return Redirect::to(URL::current())
+				->withInput()
+				->with('message', "User with this login already exists.");
+	    }
+	    catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+	    {
+	    	Log::debug("User was not found.");
+	        return Redirect::to(URL::current())
+				->withInput()
+				->with('message', "User was not found.");
+	    }
+	}
+
 }
