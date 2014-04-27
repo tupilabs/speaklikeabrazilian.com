@@ -1,4 +1,4 @@
-@servers(['web' => 'www-data@66.175.222.55'])
+@servers(['web' => 'www-data@66.228.62.211'])
 
 @task('deploy', ['on' => 'web'])
     cd /var/www/speaklikeabrazilian.com/public_html
