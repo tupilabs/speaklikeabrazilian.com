@@ -1,7 +1,7 @@
 @servers(['web' => 'www-data@66.175.222.55'])
 
 @task('deploy', ['on' => 'web'])
-    cd /var/www/speaklikeabrazilian.com/
+    cd /var/www/speaklikeabrazilian.com/public_html
     git reset --hard HEAD
     git clean -f
     git pull origin master
