@@ -78,6 +78,8 @@ class DatabaseSeeder extends Seeder {
 		{
 		    // Create the user
 		    $user = Sentry::createUser(array(
+		    	'first_name' => 'Bruno', 
+		    	'last_name' => 'Kinoshita',
 		        'email'     => 'mod@speaklikeabrazilian.com',
 		        'password'  => 'test',
 		        'activated' => true
@@ -91,6 +93,8 @@ class DatabaseSeeder extends Seeder {
 
 		    // Create the user
 		    $user = Sentry::createUser(array(
+		    	'first_name' => 'Bruno', 
+		    	'last_name' => 'Kinoshita',
 		        'email'     => 'admin@speaklikeabrazilian.com',
 		        'password'  => 'test',
 		        'activated' => true

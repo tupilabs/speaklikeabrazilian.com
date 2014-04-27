@@ -12,16 +12,19 @@ class CreateLanguagesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('languages', function(Blueprint $table)
+		if (!Schema::hasTable('languages'))
 		{
-			$table->integer('id')->unsigned();
-			$table->string('slug', 2);
-			$table->string('description', 30)->nullable();
-			$table->string('local_description', 30)->nullable();
-			$table->timestamps();
-			$table->engine = 'InnoDB';
-			$table->primary(array('id'));
-		});
+			Schema::create('languages', function(Blueprint $table)
+			{
+				$table->integer('id')->unsigned();
+				$table->string('slug', 2);
+				$table->string('description', 30)->nullable();
+				$table->string('local_description', 30)->nullable();
+				$table->timestamps();
+				$table->engine = 'InnoDB';
+				$table->primary(array('id'));
+			});
+		}
 	}
 
 	/**
