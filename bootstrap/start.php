@@ -25,10 +25,8 @@ $app = new Illuminate\Foundation\Application;
 */
 
 $env = $app->detectEnvironment(array(
-
-	'development' => array('chuva'),
-	'production' => array('node02')
-
+	'production' => array('node02'),
+	'development' => array('chuva', '*')
 ));
 
 /*

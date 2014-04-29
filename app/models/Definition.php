@@ -65,6 +65,26 @@ class Definition extends Magniloquent {
 		return $this->hasMany('Media');
 	}
 
+	public function getFormattedDescription()
+	{
+		$url = URL::to("/");
+		$text = nl2br(urldecode($this->description));
+		$pattern = "/\[([^]]*)\]/i";
+        $replace = "<a href=\"{$url}/expression/define?e=$1\">$1</a>";
+        $text = preg_replace($pattern, $replace, $text);
+		return $text;
+	}
+
+	public function formattedExample()
+	{
+		$url = URL::to("/");
+		$text = nl2br(urldecode($this->example));
+		$pattern = "/\[([^]]*)\]/i";
+        $replace = "<a href=\"{$url}/expression/define?e=$1\">$1</a>";
+        $text = preg_replace($pattern, $replace, $text);
+		return $text;
+	}
+
 	// public function likes()
 	// {
 	// 	return Rating::where('definition_id', $this->id)->where('rating', 1)->count();
