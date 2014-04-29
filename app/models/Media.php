@@ -51,7 +51,7 @@ class Media extends Magniloquent {
 
 	public function definition()
 	{
-		return $this->belongsTo('Definition');
+		return $this->belongsTo('Definition', 'definition_id', 'id');
 	}
 
 	public function getVideoData() 

@@ -52,7 +52,7 @@ class Definition extends Magniloquent {
 
 	public function expression()
 	{
-		return $this->belongsTo('Expression');
+		return $this->belongsTo('Expression', 'expression_id', 'id');
 	}
 
 	public function ratings() 

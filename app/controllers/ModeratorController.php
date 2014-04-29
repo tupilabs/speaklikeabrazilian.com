@@ -26,6 +26,23 @@ use \Definition;
 
 class ModeratorController extends BaseController {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$pendingDefinitionsCount = Definition::with('expression', 'ratings')
+			->where('definitions.status', '=', 1)
+			->count();
+		$pendingVideosCount = Media::where('medias.status', '=', 1)
+			->where('content_type', '=', 'video/youtube')
+			->count();
+		$pendingPicturesCount = Media::where('medias.status', '=', 1)
+			->where('content_type', '=', 'image/unknown')
+			->count();
+		$this->theme->set('pendingDefinitionsCount', $pendingDefinitionsCount);
+		$this->theme->set('pendingVideosCount', $pendingVideosCount);
+		$this->theme->set('pendingPicturesCount', $pendingPicturesCount);
+	}
+
 	public function getModerators()
 	{
 		if (!Sentry::check()){
@@ -50,11 +67,29 @@ class ModeratorController extends BaseController {
 	public function approveExpression()
 	{
 		$definitionId = Input::get('definitionId');
+
 		$user = Sentry::getUser();
 		Log::info(sprintf('User %s approved definition %d', $user->id, $definitionId));
 		$definition = Definition::where('id', '=', $definitionId)->firstOrFail();
 		$definition->status = 2;
 		$definition->save();
+
+		try 
+		{
+			Log::info('Sending expression approval e-mail.');
+			Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
+		    {                    
+		    	$email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+		        $email->to($definition->email, $definition->contributor);
+		        $email->subject('Your expression was published in Speak Like A Brazilian');
+		    });
+		}
+		catch (\Exception $e)
+		{
+			Log::error("Error sending approval e-mail: " . $e->getMessage());
+			Log::error($e);
+		}
+
 		return Redirect::to('/moderators/pendingExpressions')
 			->with('success', 'Definition approved!');
 	}
@@ -104,6 +139,23 @@ class ModeratorController extends BaseController {
 		$video = Media::where('id', '=', $mediaId)->firstOrFail();
 		$video->status = 2;
 		$video->save();
+
+		try 
+		{
+			Log::info('Sending video approval e-mail.');
+			Mail::send('emails.videoApproved', array('contributor' => $video->contributor, 'text' => $video->definition()->first()->expression->text), function($email) use($video)
+		    {                    
+		    	$email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+		        $email->to($video->email, $video->contributor);
+		        $email->subject('Your video was published in Speak Like A Brazilian');
+		    });
+		}
+		catch (\Exception $e)
+		{
+			Log::error("Error sending approval e-mail: " . $e->getMessage());
+			Log::error($e);
+		}
+
 		return Redirect::to('/moderators/pendingVideos')
 			->with('success', 'Video approved!');
 	}
@@ -138,9 +190,26 @@ class ModeratorController extends BaseController {
 		$mediaId = Input::get('mediaId');
 		$user = Sentry::getUser();
 		Log::info(sprintf('User %s approved picture %d', $user->id, $mediaId));
-		$video = Media::where('id', '=', $mediaId)->firstOrFail();
-		$video->status = 2;
-		$video->save();
+		$picture = Media::where('id', '=', $mediaId)->firstOrFail();
+		$picture->status = 2;
+		$picture->save();
+
+		try 
+		{
+			Log::info('Sending picture approval e-mail.');
+			Mail::send('emails.pictureApproved', array('contributor' => $picture->contributor, 'text' => $picture->definition()->first()->expression->text), function($email) use($picture)
+		    {                    
+		    	$email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+		        $email->to($picture->email, $picture->contributor);
+		        $email->subject('Your picture was published in Speak Like A Brazilian');
+		    });
+		}
+		catch (\Exception $e)
+		{
+			Log::error("Error sending approval e-mail: " . $e->getMessage());
+			Log::error($e);
+		}
+
 		return Redirect::to('/moderators/pendingPictures')
 			->with('success', 'Picture approved!');
 	}
@@ -150,9 +219,9 @@ class ModeratorController extends BaseController {
 		$mediaId = Input::get('mediaId');
 		$user = Sentry::getUser();
 		Log::info(sprintf('User %s rejected picture %d', $user->id, $mediaId));
-		$video = Media::where('id', '=', $mediaId)->firstOrFail();
-		$video->status = 3;
-		$video->save();
+		$picture = Media::where('id', '=', $mediaId)->firstOrFail();
+		$picture->status = 3;
+		$picture->save();
 		return Redirect::to('/moderators/pendingPictures')
 			->with('success', 'Picture rejected!');
 	}
