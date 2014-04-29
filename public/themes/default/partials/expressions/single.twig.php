@@ -31,10 +31,10 @@
 		</div>
 	</div>
 	<div class='description'>
-		<p class='entry-paragraph'>{{ definition.description }}</p>
+		<p class='entry-paragraph'>{{ definition.formattedDescription }}</p>
 	</div>
 	<div class='example'>
-		<p class='entry-paragraph'>{{ definition.example }}</p>
+		<p class='entry-paragraph'>{{ definition.formattedExample }}</p>
 	</div>
 	{% set medias = definition.medias.where('status', '=', 2).get() %}
 	{% if medias is not empty %}
