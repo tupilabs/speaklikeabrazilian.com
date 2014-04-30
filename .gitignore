@@ -10,7 +10,6 @@ user_guide/
 database-model/
 vendor/
 composer.phar
-composer.lock
 *.sqlite
 database-schema/
 *.sublime-workspace

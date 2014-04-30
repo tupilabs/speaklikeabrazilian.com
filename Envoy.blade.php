@@ -4,6 +4,6 @@
     cd /var/www/speaklikeabrazilian.com/public_html
     git pull origin master
     composer dump-autoload
-    composer update --no-dev --prefer-dist --profile -vvv
+    composer update --no-dev --prefer-dist --profile -vvv --no-scripts
     php artisan migrate
 @endtask
