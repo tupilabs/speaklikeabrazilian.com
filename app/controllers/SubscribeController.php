@@ -31,10 +31,52 @@ class SubscribeController extends BaseController {
 		if (!Input::get('email'))
 			return Redirect::to('/')
 				->with('message', 'You have to provide a valid e-mail');
-		Subscription::create(array(
-			'email' => Input::get('email'),
-			'ip' => Request::getClientIp()
-		));
+		$existing = Subscription::where('email', '=', Input::get('email'))->count();
+		if ($existing == 0)
+		{
+			Log::info('Yay! We got a new subscription from ' . Request::getClientIp());
+			try 
+			{
+				$subscription = Subscription::create(array(
+					'email' => Input::get('email'),
+					'ip' => Request::getClientIp()
+				));
+				if ($subscription->isValid() && $subscription->isSaved())
+				{
+					$environment = App::environment();
+					if ($environment == 'production')
+					{
+						Log::info('A new user is subscribed! Sending it to the mailing list server, under list ID ' . Config::get('mailchimp::list_id'));
+						$r = MailchimpWrapper::lists()->subscribe(Config::get('mailchimp::list_id'), array('email' => Input::get('email')));
+						Log::debug('MailChimp response: ' . var_export($r, true));
+					}
+					else
+					{
+						Log::info('Mailing list subscription enabled only in production. Current env: ' . $environment);
+					}
+				}
+				else
+				{
+					Log::error('Error subscribing user: ' . var_export($subscription->errors(), true));
+					return Redirect::to('/')
+						->withInput()
+						->withErrors($subscription->errors())
+						->with('message', 'You have to provide a valid e-mail');
+				}
+			}
+			catch (Exception $e)
+			{
+				Log::error('Internal error. Error subscribing user: ' . $e->getMessage());
+				Log::error($e);
+				return Redirect::to('/')
+					->with('message', 'You have to provide a valid e-mail');
+			}
+		}
+		else
+		{
+			Log::debug('User tried to subscribe twice to our mailing list. Yipie!');
+		}
+		
 		return Redirect::to('/')
 			->with('success', 'You have been subscribed to out mailing list!');
 	}

@@ -119,7 +119,8 @@ return array(
 		'Msurguy\Honeypot\HoneypotServiceProvider',
 		'Teepluss\Api\ApiServiceProvider',
 		'Slbr\Api\ApiServiceProvider',
-		'Frozennode\Administrator\AdministratorServiceProvider'
+		'Frozennode\Administrator\AdministratorServiceProvider',
+		'Hugofirth\Mailchimp\MailchimpServiceProvider'
 	),
 
 	/*
@@ -188,7 +189,8 @@ return array(
 
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 		'Theme' => 'Teepluss\Theme\Facades\Theme',
-		'API' => 'Teepluss\Api\Facades\API'
+		'API' => 'Teepluss\Api\Facades\API',
+		'MailchimpWrapper' => 'Hugofirth\Mailchimp\Facades\MailchimpWrapper'
 
 	),
 

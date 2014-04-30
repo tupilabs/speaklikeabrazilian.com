@@ -216,11 +216,45 @@ class ExpressionController extends BaseController {
 
 			if (Input::get('subscribe') === 'checked')
 			{
-				Subscription::create(array(
-					'email' => Input::get('email'),
-					'ip' => Request::getClientIp()
-				));
-				Log::debug('User subscribed!');
+				$existing = Subscription::where('email', '=', Input::get('email'))->count();
+				if ($existing == 0)
+				{
+					Log::info('Yay! We got a new subscription from ' . Request::getClientIp());
+					try 
+					{
+						$subscription = Subscription::create(array(
+							'email' => Input::get('email'),
+							'ip' => Request::getClientIp()
+						));
+						if ($subscription->isValid() && $subscription->isSaved())
+						{
+							$environment = App::environment();
+							if ($environment == 'production')
+							{
+								Log::info('A new user is subscribed! Sending it to the mailing list server, under list ID ' . Config::get('mailchimp::list_id'));
+								$r = MailchimpWrapper::lists()->subscribe(Config::get('mailchimp::list_id'), array('email' => Input::get('email')));
+								Log::debug('MailChimp response: ' . var_export($r, true));
+							}
+							else
+							{
+								Log::info('Mailing list subscription enabled only in production. Current env: ' . $environment);
+							}
+						}
+						else
+						{
+							Log::error('Error subscribing user: ' . var_export($subscription->errors(), true));
+						}
+					}
+					catch (Exception $e)
+					{
+						Log::error('Internal error. Error subscribing user: ' . $e->getMessage());
+						Log::error($e);
+					}
+				}
+				else
+				{
+					Log::debug('User tried to subscribe twice to our mailing list. Yipie!');
+				}
 			}
 
 			if ($definition->isValid() && $definition->isSaved())

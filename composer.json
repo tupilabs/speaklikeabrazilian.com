@@ -10,7 +10,8 @@
 		"msurguy/honeypot": "dev-master",
 		"teepluss/api": "dev-master",
 		"magniloquent/magniloquent": "dev-master",
-		"frozennode/administrator": "dev-master"
+		"frozennode/administrator": "dev-master",
+		"hugofirth/mailchimp": "2.0.*"
 	},
 	"autoload": {
 		"psr-0" : {

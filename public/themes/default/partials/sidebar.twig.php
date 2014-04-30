@@ -3,7 +3,7 @@
     			<hr/>
     			<p><a href="http://www.cafehostel.com.br" title="Cafe Hostel" alt="Cafe Hostel"><img src='{{ URL.to('/themes/default/assets/img/ads/banner-cafehostel.png') }}' class='img-thumbnail' /></a></p>
     			<hr/>
-    			<p class='sidebar-paragraph'>Subscribe to our "word of the day" mailing list</p>
+    			<p class='sidebar-paragraph'>Subscribe to our weekly mailing list</p>
                 {{ Form.open({'url': 'subscribe', 'class': 'form-vertical', 'id': 'subscribeForm'})}}
                     <div class='form-group'>
                         <div class='input-group'>
