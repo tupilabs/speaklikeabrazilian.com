@@ -4,6 +4,7 @@ return array(
 
 	// language constants
 	'en' => 1, 
-	'es' => 2
+	'es' => 2,
+	'it' => 3
 
 );

@@ -58,7 +58,8 @@ return array(
 
 	'languages' => array(
 		'en', 
-		'es'
+		'es',
+		'it'
 	),
 
 	/*
