@@ -7,6 +7,7 @@
     	<a href='{{ URL.to('/en') }}' class=''><img src='/themes/default/assets/img/flags/flag_great_britain.png' width="24px" /></a>
     	<a href='{{ URL.to('/es') }}' class=''><img src='/themes/default/assets/img/flags/flag_spain.png' width="24px" /></a>
     	<a href='{{ URL.to('/it') }}' class=''><img src='/themes/default/assets/img/flags/flag_italy.png' width="24px" /></a>
+    	<a href='{{ URL.to('/pt') }}' class=''><img src='/themes/default/assets/img/flags/flag_portugal.png' width="24px" /></a>
 	</div>
 </nav>
 <section id='header'>
