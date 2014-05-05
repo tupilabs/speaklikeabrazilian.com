@@ -30,6 +30,11 @@ return array(
 			'type' => 'textarea',
 			'sortable' => false
 		),
+		'language' => array(
+			'title' => 'Language',
+			'relationship' => 'language',
+			'select' => "(:table).description"
+		),
 		'tags' => array(
 			'title' => 'Tags',
 			'type' => 'text',
@@ -75,7 +80,7 @@ return array(
 		'status' => array(
 			'title' => 'Status',
 			'type' => 'number'
-		),
+		)
 	),
 
 	/**
@@ -90,6 +95,11 @@ return array(
 			'title' => 'Expression',
 			'type' => 'relationship',
 			'name_field' => "text",
+		),
+		'language' => array(
+			'title' => 'Language',
+			'type' => 'relationship',
+			'name_field' => 'description'
 		),
 		'description' => array(
 			'title' => 'Description',

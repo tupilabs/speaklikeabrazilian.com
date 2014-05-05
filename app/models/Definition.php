@@ -55,6 +55,11 @@ class Definition extends Magniloquent {
 		return $this->belongsTo('Expression', 'expression_id', 'id');
 	}
 
+	public function language()
+	{
+		return $this->belongsTo('Language');
+	}
+
 	public function ratings() 
 	{
 		return $this->hasMany('Rating');
