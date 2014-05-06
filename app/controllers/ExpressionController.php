@@ -31,7 +31,7 @@ class ExpressionController extends BaseController {
 			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('status', '=', 2)
 			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
-			->orderBy('updated_at', 'desc')
+			->orderBy('created_at', 'desc')
 			->select('definitions.*', 
 				'expressions.text',
 				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
