@@ -30,6 +30,11 @@ return array(
 			'type' => 'textarea',
 			'sortable' => false
 		),
+		'example' => array(
+			'title' => 'Example',
+			'type' => 'textarea',
+			'sortable' => false
+		),
 		'language' => array(
 			'title' => 'Language',
 			'relationship' => 'language',
@@ -100,15 +105,20 @@ return array(
 			'type' => 'relationship',
 			'name_field' => "text",
 		),
-		'language' => array(
-			'title' => 'Language',
-			'type' => 'relationship',
-			'name_field' => 'description'
-		),
 		'description' => array(
 			'title' => 'Description',
 			'type' => 'textarea',
 			'sortable' => false
+		),
+		'example' => array(
+			'title' => 'Example',
+			'type' => 'textarea',
+			'sortable' => false
+		),
+		'language' => array(
+			'title' => 'Language',
+			'type' => 'relationship',
+			'name_field' => 'description'
 		),
 		'tags' => array(
 			'title' => 'Tags',
