@@ -196,7 +196,7 @@ class ExpressionController extends BaseController {
 			{
 				$expression = Expression::create(array(
 					'text' => $text,
-					'char' => $letter,
+					'char' => strtoupper($letter),
 					'contributor' => Input::get('pseudonym'),
 					'moderator_id' => NULL
 				));
