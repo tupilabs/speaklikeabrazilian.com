@@ -37,10 +37,10 @@ class Definition extends Magniloquent {
 	  	'expression_id' => 'required|numeric',
 	  	'description' => 'required|min:3|max:1000',
 	  	'example' => 'required|min:3|max:1000',
-	  	'tags' => 'required|min:3|max:100',
+	  	'tags' => 'required|min:2|max:100',
 	    'status' => '',
 	    'email' => 'required|email',
-	    'contributor' => 'required|min:3',
+	    'contributor' => 'required|min:2',
 	    'moderator_id' => '',
 	    'language_id' => 'required|numeric'
 	  ),

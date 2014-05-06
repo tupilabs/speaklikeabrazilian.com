@@ -139,19 +139,27 @@ class ExpressionController extends BaseController {
 
 	public function getAdd()
 	{
-		$lang = App::getLocale();
+		$args = array();
+
 		$expression = Input::get('e');
+		if (isset($expression) && strlen($expression) > 0)
+			$args['expression'] = ucfirst($expression);
+
+		$lang = App::getLocale();
+		$args['lang'] = Config::get("constants.$lang", Config::get('constants.en', 1));
+
 		$languages = Language::all();
 		$languagesArray = array();
 		foreach ($languages as $language)
 		{
 			$languagesArray[$language->id] = $language->description;
+			if ($language->id == $args['lang'])
+			{
+				$args['selectedLanguage'] = $language->description;
+			}
 		}
-		$args = array();
-		if (isset($expression) && strlen($expression) > 0)
-			$args['expression'] = ucfirst($expression);
-		$args['lang'] = Config::get("constants.$lang", Config::get('constants.en', 1));
 		$args['languages'] = $languagesArray;
+	
 		return $this->theme->scope('expression.add', $args)->render();
 	}
 

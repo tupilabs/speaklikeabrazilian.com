@@ -19,7 +19,9 @@
     						<div class="form-group">
                                 {{ Form.label('expression', 'Expression', {'class': 'col-xs-2 control-label'}) }}
             					<div class="col-xs-10">
-                                    {{ Form.input('text', 'text', expression, {'id': 'expression', 'class': 'form-control'}) }}
+                                    {{ Form.input('text', 'text', expression, {'placeholder': 'Expression in Brazilian Portuguese', 'id': 'expression', 'class': 'form-control'}) }}
+                                    <span class="help-block"><small>
+                                        Enter the expression in Brazilian Portuguese</small></span>
                                     {% if errors.has('expression') %}
             						<span>
                                         <div class='alert'>
@@ -32,11 +34,12 @@
             				<div class="form-group">
                                 {{ Form.label('definition', 'Definition', {'class': 'col-xs-2 control-label'}) }}
             					<div class="col-xs-10">
-                                    {{ Form.textarea('definition', definition, {'id': 'definition', 'class': 'form-control', 'rows': 4}) }}
+                                    {{ Form.textarea('definition', definition, {'placeholder': 'Definition', 'id': 'definition', 'class': 'form-control', 'rows': 4}) }}
                                     <br/>
                                     <span class="help-block"><small><span class="" id="definitionCounter"></span> character(s) remaining<br/>
-            							Include as much information about your expression as possible. You can mention 
-            							other expressions with the following syntax: [expression_name]</small></span>
+            							Enter the definition in the corresponding language. Imagine that you are teaching the 
+                                        Brazilian expression/slang to a foreigner. You can mention other expressions with the 
+                                        following syntax: [expression_name]</small></span>
             						{% if errors.has('definition') %}
                                     <span>
                                         <div class='alert'>
@@ -58,7 +61,7 @@
             				<div class="form-group">
                                 {{ Form.label('example', 'Example', {'class': 'col-xs-2 control-label'}) }}
             					<div class="col-xs-10">
-                                    {{ Form.textarea('example', example, {'id': 'example', 'class': 'form-control', 'rows': '4'}) }}
+                                    {{ Form.textarea('example', example, {'placeholder': 'Example', 'id': 'example', 'class': 'form-control', 'rows': '4'}) }}
             						<span class="help-block"><small>
             						List some synonyms, related words, places or misspellings, separated by 
             						commas (e.g.: Sao Paulo City, NSFW, oldie).
@@ -175,11 +178,11 @@ templatecallback = function() {
             },
             tags: {
                 required: true, 
-                rangeLength: [3, 100]
+                rangeLength: [2, 100]
             },
             pseudonym: {
                 required: true, 
-                rangeLength: [1, 50]
+                rangeLength: [2, 50]
             },
             email: {
                 required: true, 
