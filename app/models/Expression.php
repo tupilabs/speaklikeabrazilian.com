@@ -36,7 +36,7 @@ class Expression extends Magniloquent {
 	  "save" => array(
 	    'text' => 'required|min:3',
 	    'char'    => 'required|min:1|max:1',
-	    'contributor' => 'required|min:3'
+	    'contributor' => 'required|min:2'
 	  ),
 	  "create" => array(
 	    'text'              => 'unique:expressions',

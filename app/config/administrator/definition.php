@@ -80,7 +80,11 @@ return array(
 		'status' => array(
 			'title' => 'Status',
 			'type' => 'number'
-		)
+		),
+		'id' => array(
+			'title' => 'ID',
+			'type' => 'key'
+		),
 	),
 
 	/**
