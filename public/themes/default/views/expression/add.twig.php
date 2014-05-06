@@ -61,7 +61,7 @@
             				<div class="form-group">
                                 {{ Form.label('example', 'Example', {'class': 'col-xs-2 control-label'}) }}
             					<div class="col-xs-10">
-                                    {{ Form.textarea('example', example, {'placeholder': 'Example', 'id': 'example', 'class': 'form-control', 'rows': '4'}) }}
+                                    {{ Form.textarea('example', example, {'placeholder': 'Example in Brazilian Portuguese', 'id': 'example', 'class': 'form-control', 'rows': '4'}) }}
             						<span class="help-block"><small>
             						List some synonyms, related words, places or misspellings, separated by 
             						commas (e.g.: Sao Paulo City, NSFW, oldie).
