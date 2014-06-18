@@ -60,7 +60,8 @@ return array(
 		'en', 
 		'es',
 		'it',
-		'pt'
+		'pt',
+		'jp'
 	),
 
 	/*

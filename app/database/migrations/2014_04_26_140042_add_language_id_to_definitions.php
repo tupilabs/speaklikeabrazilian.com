@@ -14,11 +14,10 @@ class AddLanguageIdToDefinitions extends Migration {
 	{
 		Schema::table('definitions', function(Blueprint $table)
 		{
-			$table->integer('language_id')->unsigned();
+			$table->integer('language_id')->unsigned()->default(1); // 1 is en, there is no increments in this table, only constants;
 			$table->foreign('language_id')
 		      ->references('id')->on('languages')
-		      ->onDelete('cascade')
-		      ->default(1); // 1 is en, there is no increments in this table, only constants
+		      ->onDelete('cascade');
 		});
 	}
 
