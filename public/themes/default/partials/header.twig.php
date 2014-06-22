@@ -20,7 +20,7 @@
 	    </div>
 	    <div class='row'>
 	    	<div class='col-xs-6 col-xs-offset-3'>
-				{{ Form.open({'url': '/search', 'class': 'form-horizontal', 'id': 'searchFrom', 'method': 'get', 'role': 'search'}) }}
+				{{ Form.open({'url': URL.action('SearchController@getSearch'), 'class': 'form-horizontal', 'id': 'searchFrom', 'method': 'get', 'role': 'search'}) }}
 					<div class="input-group">
 			            <input type="text" value="{{ Theme.get('q') }}" class="form-control input-sm" placeholder="Search" name="q" id="q">
 			            <div class="input-group-btn">

@@ -270,31 +270,6 @@ class ExpressionController extends BaseController {
 				Log::debug('Committing transaction');
 				DB::commit();
 				Log::info(sprintf('New definition for %s added!', Input::get('text')));
-
-				// Index document into search server
-				$params = array();
-				$params['body']  = array(
-					'expression' => $expression->text,
-					'description' => $definition->description,
-					'example' => $definition->example,
-					'tags' => $definition->tags
-				);
-				$params['index'] = 'slbr_index';
-				$params['type']  = 'definition';
-				$params['id']    = $definition->id;
-
-				// Document will be indexed to slbr_index/definition/id
-				Log::debug('Indexing into search server');
-				$ret = Es::index($params);
-				if (isset($ret['created']) && $ret['created'] == true)
-				{
-					Log::info('Document indexed');
-				}
-				else
-				{
-					Log::warning('Failed to index document');
-				}
-
 				return Redirect::to("/$lang")->with('success', Lang::get('messages.expression_added'));
 			} 
 			else

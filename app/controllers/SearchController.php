@@ -53,8 +53,9 @@ class SearchController extends \BaseController {
 			"query": {
 		    	"fuzzy_like_this" : {
 		    		"like_text":    "' . $q . '", 
-		    		"fields": [ "expression", "description", "example", "tags" ],
-		    		"max_query_terms" : 10
+		    		"fields": [ "expression", "description", "example" ],
+		    		"max_query_terms" : 10,
+		    		"fuzziness": 0.8
 		  		}
 		  	}
 		}
@@ -73,18 +74,25 @@ class SearchController extends \BaseController {
 			$ids[] = $hit['_id'];
 		}
 
-		$definitions = Definition::
-			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-			->where('status', '=', 2)
-			->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
-			->whereIn('definitions.id', $ids)
-			->orderBy('created_at', 'desc')
-			->select('definitions.*', 
-				'expressions.text',
-				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
-				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
-				)
-			->get();
+		if (empty($ids))
+		{
+			$definitions = array();
+		}
+		else
+		{
+			$definitions = Definition::
+				join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+				->where('status', '=', 2)
+				->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+				->whereIn('definitions.id', $ids)
+				->orderBy('created_at', 'desc')
+				->select('definitions.*', 
+					'expressions.text',
+					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+					)
+				->get();
+		}
 
 		Theme::set('q', $q);
 
@@ -98,7 +106,37 @@ class SearchController extends \BaseController {
 	public function recreateSearchIndex()
 	{
 		// FIXME: check if the user is admin
-		
+		$definitions = Definition::get();
+		foreach ($definitions as $definition)
+		{
+			$expression = Expression::where('id', '=', $definition->expression_id)->firstOrFail();
+			// Index document into search server
+			$params = array();
+			$params['body']  = array(
+				'expression' => $expression->text,
+				'description' => $definition->description,
+				'example' => $definition->example,
+				'tags' => $definition->tags,
+				'language_id' => $definition->language_id
+			);
+			$params['index'] = 'slbr_index';
+			$params['type']  = 'definition';
+			$params['id']    = $definition->id;
+
+			// Document will be indexed to slbr_index/definition/id
+			Log::debug('Indexing into search server');
+			$ret = Es::index($params);
+			if (isset($ret['created']) && $ret['created'] == true)
+			{
+				Log::info('Document indexed');
+			}
+			else
+			{
+				Log::error('Failed to index document');
+			}
+		}
+
+		echo "OK!";
 	}
 
 }

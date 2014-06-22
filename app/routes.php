@@ -72,6 +72,7 @@ Route::group(array('prefix' => $locale), function()
     Route::post('/subscribe', 'SubscribeController@postSubscribe');
     // Links
     Route::get('/links', 'LinksController@getLinks');
+    Route::get('/search', 'SearchController@getSearch');
 });
 
 // Users

@@ -71,8 +71,34 @@ class ModeratorController extends BaseController {
 		$user = Sentry::getUser();
 		Log::info(sprintf('User %s approved definition %d', $user->id, $definitionId));
 		$definition = Definition::where('id', '=', $definitionId)->firstOrFail();
-		$definition->status = 2;
-		$definition->save();
+		$expression = Expression::where('id', '=', $definition->expression_id)->firstOrFail();
+
+		// Index document into search server
+		$params = array();
+		$params['body']  = array(
+			'expression' => $expression->text,
+			'description' => $definition->description,
+			'example' => $definition->example,
+			'tags' => $definition->tags,
+			'language_id' => $definition->language_id
+		);
+		$params['index'] = 'slbr_index';
+		$params['type']  = 'definition';
+		$params['id']    = $definition->id;
+
+		// Document will be indexed to slbr_index/definition/id
+		Log::debug('Indexing into search server');
+		$ret = Es::index($params);
+		if (isset($ret['created']) && $ret['created'] == true)
+		{
+			Log::info('Document indexed');
+			$definition->status = 2;
+			$definition->save();
+		}
+		else
+		{
+			Log::error('Failed to index document');
+		}
 
 		try 
 		{
