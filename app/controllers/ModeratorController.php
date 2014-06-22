@@ -90,6 +90,26 @@ class ModeratorController extends BaseController {
 			Log::error($e);
 		}
 
+		Log::info('Auto voting the definition using user\'s IP address');
+		if (isset($definition->user_ip) && strlen($definition->user_ip) > 0)
+		{
+			$expressionId = $definition->expression_id;
+			$definitionId = $definition->id;
+			$rating = 1;
+			$userIp = $definition->user_ip;
+			$rate = API::post(sprintf('api/v1/expressions/%d/definitions/%d/rate', $expressionId, $definitionId), 
+				array(
+					'rating' => $rating,
+					'user_ip' => $userIp
+				)
+			);
+			Log::info('Voted cast successfully!');
+		}
+		else
+		{
+			Log::warning('Missing user IP! Skipping vote.');
+		}
+
 		return Redirect::to('/moderators/pendingExpressions')
 			->with('success', 'Definition approved!');
 	}

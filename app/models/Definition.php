@@ -30,7 +30,7 @@ class Definition extends Magniloquent {
 
     protected $guarded = array();
 
-    protected $fillable = array('expression_id', 'description', 'example', 'tags', 'status', 'email', 'contributor', 'moderator_id', 'language_id');
+    protected $fillable = array('expression_id', 'description', 'example', 'tags', 'status', 'email', 'user_ip', 'contributor', 'moderator_id', 'language_id');
 
     public static $rules = array(
 	  "save" => array(
@@ -42,6 +42,7 @@ class Definition extends Magniloquent {
 	    'email' => 'required|email',
 	    'contributor' => 'required|min:2',
 	    'moderator_id' => '',
+	    'user_ip' => '',
 	    'language_id' => 'required|numeric'
 	  ),
 	  "create" => array(
