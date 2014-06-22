@@ -95,6 +95,8 @@ class SearchController extends \BaseController {
 		}
 
 		Theme::set('q', $q);
+		Theme::set('size', $size);
+		Theme::set('from', $from);
 
 		$args = array();
 		$args['definitions'] = $definitions;
