@@ -19,7 +19,7 @@ $(function() {
 	nav_header_height = $("#nav-header").height();
 	
     // Fixed elements on the screen
-    $(window).scroll(function (event) {
+    /*$(window).scroll(function (event) {
     	// what the y position of the scroll is
         var y = $(this).scrollTop();
         if (y >= (nav_header_height+100)) {
@@ -29,7 +29,7 @@ $(function() {
         	$('#menu').removeClass('menu-fixed');
         	$('#menu').css('top', 30);
         }
-    });
+    });*/
     
     // handy confirmation dialog
     $('.form-delete').submit(function(e) {

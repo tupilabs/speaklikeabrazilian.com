@@ -32,5 +32,6 @@ return array(
 	'footer_header' => 'Speak Like A Brazilian is Open Source!', 
 	'footer_body' => 'Our content is created by users like you, and with software that was created and distributed by great developers! The source code for this web site was created by TupiLabs and open sourced via GitHub, via the MIT License.',
 	'source_code' => 'Source code',
-	'mit_licensed_under' => 'licensed under MIT License' 
+	'mit_licensed_under' => 'licensed under MIT License',
+	'search_results' => 'Search results'
 );

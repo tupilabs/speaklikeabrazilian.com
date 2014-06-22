@@ -123,7 +123,8 @@ return array(
 		'Teepluss\Api\ApiServiceProvider',
 		'Slbr\Api\ApiServiceProvider',
 		'Frozennode\Administrator\AdministratorServiceProvider',
-		'Hugofirth\Mailchimp\MailchimpServiceProvider'
+		'Hugofirth\Mailchimp\MailchimpServiceProvider',
+		'Shift31\LaravelElasticsearch\LaravelElasticsearchServiceProvider'
 	),
 
 	/*

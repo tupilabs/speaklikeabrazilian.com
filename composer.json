@@ -11,7 +11,8 @@
 		"teepluss/api": "dev-master",
 		"magniloquent/magniloquent": "dev-master",
 		"frozennode/administrator": "dev-master",
-		"hugofirth/mailchimp": "2.0.*"
+		"hugofirth/mailchimp": "2.0.*",
+		"shift31/laravel-elasticsearch": "1.0.*@dev"
 	},
 	"autoload": {
 		"psr-0" : {
