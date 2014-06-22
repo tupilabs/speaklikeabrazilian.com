@@ -40,7 +40,7 @@ class SearchController extends \BaseController {
 			$from = 0;
 		}
 
-		if (!isset($q))
+		if (!isset($q) || empty($q))
 		{
 			Log::debug('Invalid search');
 			return Redirect::to('/')
@@ -105,7 +105,18 @@ class SearchController extends \BaseController {
 
 	public function recreateSearchIndex()
 	{
-		// FIXME: check if the user is admin
+		$admin = false;
+		if (Sentry::check())
+		{
+			$user = Sentry::getUser();
+			$admin = $user->hasAccess('admin');
+		}
+
+		if (!$admin)
+		{
+			return Redirect::to('/user/login?from=admin');
+		}
+
 		$definitions = Definition::get();
 		foreach ($definitions as $definition)
 		{
