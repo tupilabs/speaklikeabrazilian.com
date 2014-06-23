@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class='row'>
-                    <div class='col-xs-10 center'>
+                    <div class='col-xs-10 col-xs-offset-2 center'>
                         {{ definitions.links }}
                     </div>
                 </div>

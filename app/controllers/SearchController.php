@@ -27,9 +27,11 @@ class SearchController extends \BaseController {
 	public function getSearch()
 	{
 		$lang = App::getLocale();
+		$languageId = Config::get("constants.$lang", Config::get('constants.en', 1));
 		$q = Input::get('q');
 		$from = Input::get('from');
 		$size = Input::get('size');
+		$page = Input::get('page');
 
 		if (!isset($size) || !is_numeric($size))
 		{
@@ -38,6 +40,14 @@ class SearchController extends \BaseController {
 		if (!isset($from) || !is_numeric($from))
 		{
 			$from = 0;
+		}
+		if (isset($page) && is_numeric($page))
+		{
+			$from = $size * ($page-1);
+		} 
+		else
+		{
+			$page = 1;
 		}
 
 		if (!isset($q) || empty($q))
@@ -51,27 +61,47 @@ class SearchController extends \BaseController {
 		$json = '
 		{
 			"query": {
-		    	"fuzzy_like_this" : {
-		    		"like_text":    "' . $q . '", 
-		    		"fields": [ "expression", "description", "example" ],
-		    		"max_query_terms" : 10,
-		    		"fuzziness": 0.8
-		  		}
-		  	}
+			    "multi_match": {
+			        "query":                "'.$q.'",
+			        "type":                 "best_fields", 
+			        "fields":               [ "expression^3", "description^2", "example", "tags" ],
+			        "tie_breaker":          0.3,
+			        "minimum_should_match": "30%" 
+			    }
+		    },
+		    "filter" : {
+		        "term" : {"language_id":"'.$languageId.'"}
+		    }
 		}
 		';
+		Log::debug($json);
 
 		$searchParams['index'] = 'slbr_index';
 		$searchParams['size'] = $size;
 		$searchParams['from'] = $from;
 		$searchParams['body'] = $json;
-		$result = Es::search($searchParams);
-		$hits = $result['hits'];
+
+		$hits = array();
+		$total = 0;
+
+		try
+		{
+			$result = Es::search($searchParams);
+			$hits = $result['hits'];
+			$total = $hits['total'];
+		} 
+		catch (Exception $e)
+		{
+			Log::error('Search server error: ' . $e->getMessage());
+		}
 
 		$ids = array();
-		foreach ($hits['hits'] as $hit)
+		if (isset($hits['hits']))
 		{
-			$ids[] = $hit['_id'];
+			foreach ($hits['hits'] as $hit)
+			{
+				$ids[] = $hit['_id'];
+			}
 		}
 
 		if (empty($ids))
@@ -92,6 +122,33 @@ class SearchController extends \BaseController {
 					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
 					)
 				->get();
+			$links = '<ul class="pagination">';
+			$pages = ceil($total / $size);
+			if ($page <= 1)
+			{
+				$links .= "<li><a>&laquo;</a></li>";
+			}
+			else
+			{
+				$previous = $page - 1;
+				$links .= "<li><a href='". URL::to("$lang/search?q=$q&page=$previous") ."'>&laquo;</a></li>";
+			}
+			for ($i = 1; $i <= $pages; $i++)
+			{
+				$class = ($i == $page ? "active" : "");
+				$links .= "<li class='$class'><a href='" . URL::to("$lang/search?q=$q&page=$i") . "'>$i</a></li>";
+			}
+			if ($page >= $pages)
+			{
+				$links .= "<li><a>&raquo;</a></li>";
+			}
+			else
+			{
+				$next = $page + 1;
+				$links .= "<li><a href='". URL::to("$lang/search?q=$q&page=$next") ."'>&raquo;</a></li>";
+			}
+			$links .= "</ul>";
+			$definitions->links = $links;
 		}
 
 		Theme::set('q', $q);
