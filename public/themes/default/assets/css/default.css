@@ -42,6 +42,7 @@ body, html {
     background-image: url('../img/dust.png');
     text-align: center;
     height: 150px;
+    z-index: 0;
 }
 
 #header h1 {
@@ -74,21 +75,6 @@ body, html {
     font-size: 60px;
     letter-spacing: -2px;
     font-weight: bold;
-}
-
-@media (max-width: 747px) {
-    #header a {
-        font-size: 200%; 
-        margin: 0px;
-    }
-    
-    #header a img.logo {
-        display: none;
-    }
-    
-    section#main {
-        padding: 0px 10px;
-    }
 }
 
 #header h2 {
@@ -125,7 +111,6 @@ body, html {
     background-color: #87aade;
     border: 0px solid;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-    z-index: 1;
     position: relative;
     top: 30px;
 }
@@ -424,8 +409,44 @@ line-height: 17px;
     white-space: nowrap;
 }
 
-.gsc-search-button {
-    -webkit-box-sizing: inherit !important;
-    -moz-box-sizing: inherit !important;
-    box-sizing: initial !important;
+@media (max-width: 747px) {
+    
+    section#main {
+        padding: 0px 10px;
+    }
+
+    #header {
+        position: relative;
+        top: 50px;
+        margin-bottom: 0px;
+        padding: 10px 0px 5px 0px;
+        background-image: url('../img/dust.png');
+        text-align: center;
+        height: auto;
+        z-index: 0;
+    }
+
+    #header p.title {
+        text-decoration: none;
+        /*color: #36B54A;*/
+        color: #333333;
+        font-family: "Lato", "Helvetica Neue", serif;
+        font-weight: bold;
+        font-size: auto;
+    }
+
+    #menu {
+        padding-left: 20px;
+        padding-right: 20px;
+        background-color: #87aade;
+        border: 0px solid;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+        position: relative;
+        top: 50px;
+    }
+
+    #main {
+        position: relative;
+        top: 50px;
+    }
 }
