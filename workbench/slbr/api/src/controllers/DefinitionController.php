@@ -66,11 +66,20 @@ class DefinitionController extends \BaseController {
 
 	public function getRandom()
 	{
-		$definitions = Definition::with('expression', 'ratings')
+		$lang = App::getLocale();
+		$definitions = Definition::
+			join('expressions', 'definitions.expression_id', '=', 'expressions.id')
 			->where('status', '=', 2)
-			->orderBy(DB::raw('RANDOM()'))
+			->where('language_id', '=', \Config::get("constants.$lang", \Config::get('constants.en', 1)))
+			->select('definitions.*', 
+				'expressions.text',
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+				new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+				)
+			->orderByRaw((\Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+			->take(10)
 			->get();
-		return $definitions;
+		return Response::json($definitions)->setCallback(Input::get('callback'));
 	}
 
 	public function getByLetter($letter)

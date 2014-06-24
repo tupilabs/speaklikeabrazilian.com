@@ -74,8 +74,9 @@ class SearchController extends \BaseController {
 		    }
 		}
 		';
-		Log::debug($json);
+		//Log::debug($json);
 
+		$searchParams = array();
 		$searchParams['index'] = 'slbr_index';
 		$searchParams['size'] = $size;
 		$searchParams['from'] = $from;

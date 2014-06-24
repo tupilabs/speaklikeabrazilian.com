@@ -35,15 +35,74 @@ class ExpressionController extends \BaseController {
 
 	public function searchByText()
 	{
-		$text = Input::get('e');
-		if (!$text)
+		$q = Input::get('q');
+		$json = '
 		{
-			return array();
+			"query": {
+			    "multi_match": {
+			        "query":                "'.$q.'",
+			        "type":                 "best_fields", 
+			        "fields":               [ "expression^3", "description^2", "example", "tags" ],
+			        "tie_breaker":          0.3,
+			        "minimum_should_match": "30%" 
+			    }
+		    },
+		    "filter" : {
+		        "term" : {"language_id":"1"}
+		    }
 		}
-		$expressions = Expression::where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
-			->get();
+		'; // 1 is English // FIXME: constants
 
-		return $expressions;
+		$searchParams = array();
+		$searchParams['index'] = 'slbr_index';
+		$searchParams['size'] = 20;
+		$searchParams['from'] = 0;
+		$searchParams['body'] = $json;
+
+		$hits = array();
+		$total = 0;
+
+		try
+		{
+			$result = \Es::search($searchParams);
+			$hits = $result['hits'];
+			$total = $hits['total'];
+		} 
+		catch (\Exception $e)
+		{
+			\Log::error('Search server error: ' . $e->getMessage());
+		}
+
+		$ids = array();
+		if (isset($hits['hits']))
+		{
+			foreach ($hits['hits'] as $hit)
+			{
+				$ids[] = $hit['_id'];
+			}
+		}
+
+		if (empty($ids))
+		{
+			$definitions = array();
+		}
+		else
+		{
+			$definitions = \Definition::
+				join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+				->where('status', '=', 2)
+				->where('language_id', '=', '1')
+				->whereIn('definitions.id', $ids)
+				->orderBy('created_at', 'desc')
+				->select('definitions.*', 
+					'expressions.text',
+					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+					)
+				->get();
+		}
+
+		return Response::json($definitions)->setCallback(Input::get('callback'));
 	}
 
 	public function findByDefinitionId()
