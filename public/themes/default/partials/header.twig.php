@@ -9,6 +9,7 @@
     	<a href='{{ URL.to('/it') }}' class=''><img src='/themes/default/assets/img/flags/flag_italy.png' width="24px" /></a>
     	<a href='{{ URL.to('/pt') }}' class=''><img src='/themes/default/assets/img/flags/flag_portugal.png' width="24px" /></a>
     	<a href='{{ URL.to('/jp') }}' class=''><img src='/themes/default/assets/img/flags/flag_japan.png' width="24px" /></a>
+        <a href='{{ URL.to('/de') }}' class=''><img src='/themes/default/assets/img/flags/flag_germany.png' width="24px" /></a>
 	</div>
 </nav>
 <section id='header'>
