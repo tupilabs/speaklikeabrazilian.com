@@ -7,6 +7,7 @@ return array(
 	'es' => 2,
 	'it' => 3,
 	'pt' => 4,
-	'jp' => 5
+	'jp' => 5,
+	'de' => 6
 
 );
