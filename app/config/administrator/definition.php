@@ -67,15 +67,19 @@ return array(
 		'moderator_id' => array(
 			'title' => 'Moderator ID',
 			'type' => 'number'
-	    ),
-	    'created_at' => array(
-	    	'title' => 'Created at',
-	    	'type' => 'datetime'
-	    ),
-	    'updated_at' => array(
-	    	'title' => 'Updated at',
-	    	'type' => 'datetime'
-	    )
+		),
+		'user_ip' => array(
+			'title' => 'IP',
+			'type' => 'text'
+		),
+		'created_at' => array(
+			'title' => 'Created at',
+			'type' => 'datetime'
+		),
+		'updated_at' => array(
+			'title' => 'Updated at',
+		    	'type' => 'datetime'
+		)
 	),
 
 	/**
