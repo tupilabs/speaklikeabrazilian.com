@@ -7,6 +7,7 @@ use \Input;
 use \Log;
 use \Request;
 use \Response;
+use \Definition;
 
 class ExpressionController extends \BaseController {
 	
@@ -121,6 +122,24 @@ class ExpressionController extends \BaseController {
 			->get();
 		return (count($expression) == 0 ? Response::json(NULL) : $expression[0]);*/
 		return App::abort(403);
+	}
+
+	public function getDefinition($expressionId, $definitionId)
+	{
+		$definition = Definition::with('expression', 'ratings')
+			->where('status', '=', 2)
+			->where('expression_id', $expressionId)
+			->where('id', $definitionId)
+			->first();
+		return Response::json($definition);
+	}
+
+	public function getPendingCount()
+	{
+		$definition = Definition::with('expression', 'ratings')
+			->where('status', '=', 1)
+			->count();
+		return Response::json($definition);
 	}
 
 }

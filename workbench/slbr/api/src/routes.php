@@ -18,5 +18,6 @@ Route::group(
 			->where('expressionId', '[0-9]+')
 			->where('definitionId', '[0-9]+');
 		Route::post('expressions/{id}/definitions', 'Slbr\Api\DefinitionController@postDefinition')->where('id', '[0-9]+');
+		Route::get('expressions/pendingCount', 'Slbr\Api\ExpressionController@getPendingCount');
 	}
 );
