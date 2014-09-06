@@ -73,6 +73,9 @@ class ModeratorController extends BaseController {
 		$definition = Definition::where('id', '=', $definitionId)->firstOrFail();
 		$expression = Expression::where('id', '=', $definition->expression_id)->firstOrFail();
 
+		$definition->status = 2;
+		$definition->save();
+
 		// Index document into search server
 		$params = array();
 		$params['body']  = array(
@@ -89,14 +92,10 @@ class ModeratorController extends BaseController {
 		// Document will be indexed to slbr_index/definition/id
 		Log::debug('Indexing into search server');
 		$ret = Es::index($params);
-		if (isset($ret['created']) && $ret['created'] == true)
-		{
+		if (isset($ret['created']) && $ret['created'] == true) {
 			Log::info('Document indexed');
-			$definition->status = 2;
-			$definition->save();
-		}
-		else
-		{
+		
+		} else {
 			Log::error('Failed to index document');
 		}
 

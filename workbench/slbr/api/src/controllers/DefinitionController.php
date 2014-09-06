@@ -121,15 +121,19 @@ class DefinitionController extends \BaseController {
 
 	public function postRate($expressionId, $definitionId)
 	{
+		$userIp = Input::get('user_ip');
+		if (!isset($userIp) || !$userIp) {
+			$userIp = Request::getClientIp();
+		}
 		Log::debug(sprintf('User %s rated definition %d with %d', 
-			Request::getClientIp(),
+			$userIp,
 			$definitionId,
 			Input::get('rating')
 		));
 
 		// Check if user already voted up this expression
 		$count = Rating::where('definition_id', '=', $definitionId)
-			->where('user_ip', Request::getClientIp())
+			->where('user_ip', $userIp)
 			->where('rating', Input::get('rating'))
 			->count();
 		if ($count > 0)
@@ -139,7 +143,7 @@ class DefinitionController extends \BaseController {
 
 		// Try to update previous vote
 		$rating = Rating::where('definition_id', '=', $definitionId)
-			->where('user_ip', Request::getClientIp())->first();
+			->where('user_ip', $userIp)->first();
 
 		if ($rating) 
 		{
@@ -151,7 +155,7 @@ class DefinitionController extends \BaseController {
 		Rating::create(array(
 			'definition_id' => $definitionId,
 			'rating' => Input::get('rating'),
-			'user_ip' => Request::getClientIp()
+			'user_ip' => $userIp
 		));
 		
 		return Response::json(array('msg' => 'OK'));
