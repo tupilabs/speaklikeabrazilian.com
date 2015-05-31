@@ -5,12 +5,12 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"teepluss/theme" : "dev-master",
+		"teepluss/theme" : "1.*@dev",
 		"cartalyst/sentry": "2.1.*",
-		"msurguy/honeypot": "dev-master",
-		"teepluss/api": "dev-master",
+		"msurguy/honeypot": "1.0.0",
+		"teepluss/api": "1.0.2",
 		"magniloquent/magniloquent": "dev-master",
-		"frozennode/administrator": "dev-master",
+		"frozennode/administrator": "4.*",
 		"hugofirth/mailchimp": "2.0.*",
 		"shift31/laravel-elasticsearch": "1.0.*@dev"
 	},
