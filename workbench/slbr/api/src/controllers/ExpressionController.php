@@ -97,8 +97,18 @@ class ExpressionController extends \BaseController {
 				->where('language_id', '=', '1')
 				->whereIn('definitions.id', $ids)
 				->orderBy('created_at', 'desc')
-				->select('definitions.*', 
-					'expressions.text',
+				->select('definitions.created_at',
+				'definitions.description',
+				'definitions.contributor',
+				'definitions.example',
+				'definitions.expression_id',
+				'definitions.id',
+				'definitions.language_id',
+				'definitions.status',
+				'definitions.tags',
+				'definitions.updated_at',
+				'definitions.created_at',
+				'expressions.text',
 					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
 					new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
 					)
@@ -126,7 +136,18 @@ class ExpressionController extends \BaseController {
 
 	public function getDefinition($expressionId, $definitionId)
 	{
-		$definition = Definition::with('expression', 'ratings')
+		$definition = Definition::select('definitions.created_at',
+				'definitions.description',
+				'definitions.contributor',
+				'definitions.example',
+				'definitions.expression_id',
+				'definitions.id',
+				'definitions.language_id',
+				'definitions.status',
+				'definitions.tags',
+				'definitions.updated_at',
+				'definitions.created_at')
+			->with('expression', 'ratings')
 			->where('status', '=', 2)
 			->where('expression_id', $expressionId)
 			->where('id', $definitionId)
@@ -136,7 +157,18 @@ class ExpressionController extends \BaseController {
 
 	public function getPendingCount()
 	{
-		$definition = Definition::with('expression', 'ratings')
+		$definition = Definition::select('definitions.created_at',
+				'definitions.description',
+				'definitions.contributor',
+				'definitions.example',
+				'definitions.expression_id',
+				'definitions.id',
+				'definitions.language_id',
+				'definitions.status',
+				'definitions.tags',
+				'definitions.updated_at',
+				'definitions.created_at')
+			->with('expression', 'ratings')
 			->where('status', '=', 1)
 			->count();
 		return Response::json($definition);
