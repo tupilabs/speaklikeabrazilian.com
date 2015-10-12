@@ -10,11 +10,13 @@
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
+                    {% if definitions|length > 5 %}
                     <div class='col-sm-12 col-md-6 col-lg-6'>
                         {% for definition in definitions|slice(5, 10) %}
                             {% include 'partials/expressions/single.twig.php' %}
                         {% endfor %}
                     </div>
+                    {% endif %}
                 </div>
                 <div class='row'>
                     <div class='col-xs-10 col-xs-offset-2 center'>
