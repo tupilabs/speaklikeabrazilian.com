@@ -3,6 +3,7 @@
 	"description": "Speak Like A Brazilian",
 	"keywords": ["slbr", "languages", "education"],
 	"license": "MIT",
+        "version": "1.2",
 	"require": {
 		"laravel/framework": "4.1.*",
 		"teepluss/theme" : "1.*@dev",
