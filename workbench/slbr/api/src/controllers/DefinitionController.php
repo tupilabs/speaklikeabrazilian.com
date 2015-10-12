@@ -30,7 +30,18 @@ class DefinitionController extends \BaseController {
 
 	public function getDefinition($expressionId, $definitionId)
 	{
-		$definition = Definition::with('expression', 'ratings')
+		$definition = Definition::select('definitions.created_at',
+				'definitions.description',
+				'definitions.contributor',
+				'definitions.example',
+				'definitions.expression_id',
+				'definitions.id',
+				'definitions.language_id',
+				'definitions.status',
+				'definitions.tags',
+				'definitions.updated_at',
+				'definitions.created_at')
+			->with('expression', 'ratings')
 			->where('status', '=', 2)
 			->where('expression_id', $expressionId)
 			->where('id', $definitionId)
