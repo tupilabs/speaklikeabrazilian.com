@@ -1,5 +1,5 @@
 <?php
 
-namespace SLBR\Provides;
+namespace SLBR\Models;
 
-class RepositoryServiceProvider 
+class RepositoryServiceProvider
