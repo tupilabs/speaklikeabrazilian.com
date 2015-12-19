@@ -144,6 +144,7 @@ return [
         SLBR\Providers\AuthServiceProvider::class,
         SLBR\Providers\EventServiceProvider::class,
         SLBR\Providers\RouteServiceProvider::class,
+        SLBR\Providers\RepositoryServiceProvider::class,
 
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
 

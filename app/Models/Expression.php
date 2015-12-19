@@ -33,25 +33,11 @@ class Expression extends Model implements Transformable
 
     protected $guarded = [];
 
-    protected $fillable = ['text', 'char', 'contributor', 'moderator_id'];
-
-    public static $rules = array(
-	  "save" => array(
-	    'text' => 'required|min:3',
-	    'char'    => 'required|min:1|max:1',
-	    'contributor' => 'required|min:2'
-	  ),
-	  "create" => array(
-	    'text'              => 'unique:expressions',
-	  ),
-	  "update" => array(
-	  	'text'              => 'unique:expressions',
-	  )
-	);
+    protected $fillable = ['text', 'char', 'contributor'];
 
 	public function definitions()
 	{
-		return $this->hasMany('Definition');
+		return $this->hasMany('SLBR\Models\Definition');
 	}
 
 }

@@ -4,10 +4,10 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use SLBR\Models\Expression;
-use SLBR\Repositories\ExpressionRepository;
+use SLBR\Models\Definition;
+use SLBR\Repositories\DefinitionRepository;
 
-class ExpressionTest extends TestCase
+class DefinitionTest extends TestCase
 {
     use DatabaseMigrations;
 
