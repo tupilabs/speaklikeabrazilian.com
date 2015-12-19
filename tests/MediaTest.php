@@ -102,6 +102,8 @@ class MediaTest extends TestCase
         $this->assertTrue($media['id'] > 0);
 
         $this->assertEquals('Ele bebeu um alambique inteiro!', $definitionFromMedia->toArray()['example']);
+
+        $this->assertEquals('Good image', $media['reason']);
     }
 
 }
