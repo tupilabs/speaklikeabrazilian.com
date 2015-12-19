@@ -70,4 +70,70 @@ class DefinitionTest extends TestCase
         $this->assertEquals('Alambique', $expressionFromDefinition['text']);
     }
 
+    public function testFormattedDescription()
+    {
+        $expression = $this->expressionRepository->create(array(
+            'text' => 'Alambique',
+            'char' => 'a',
+            'contributor' => 'kinow'
+        ))->toArray();
+        $this->assertTrue($expression['id'] > 0);
+
+        $definitionEloquent = $this->definitionRepository->create(array(
+            'expression_id' => $expression['id'],
+            'description' => 'Uma expressao [do natal] do ano passado',
+            'example' => 'Ele bebeu um alambique inteiro!',
+            'tags' => 'bebida, bar',
+            'status' => '',
+            'email' => 'nobody@localhost.localdomain',
+            'user_ip' => '127.0.0.1',
+            'contributor' => 'kinow',
+            'language_id' => 1
+        ));
+
+        $this->assertEquals(
+            'Uma expressao <a href="http://localhost/expression/define?e=do natal">do natal</a> do ano passado'
+            , $definitionEloquent->getFormattedDescription()
+        );
+
+        $definitionEloquent->description = 'Uma expressao do natal do ano passado';
+        $this->assertEquals(
+            'Uma expressao do natal do ano passado'
+            , $definitionEloquent->getFormattedDescription()
+        );
+    }
+
+    public function testFormattedExample()
+    {
+        $expression = $this->expressionRepository->create(array(
+            'text' => 'Alambique',
+            'char' => 'a',
+            'contributor' => 'kinow'
+        ))->toArray();
+        $this->assertTrue($expression['id'] > 0);
+
+        $definitionEloquent = $this->definitionRepository->create(array(
+            'expression_id' => $expression['id'],
+            'description' => 'Uma expressao [do natal] do ano passado',
+            'example' => 'Ele [bebeu] um alambique inteiro!',
+            'tags' => 'bebida, bar',
+            'status' => '',
+            'email' => 'nobody@localhost.localdomain',
+            'user_ip' => '127.0.0.1',
+            'contributor' => 'kinow',
+            'language_id' => 1
+        ));
+
+        $this->assertEquals(
+            'Ele <a href="http://localhost/expression/define?e=bebeu">bebeu</a> um alambique inteiro!'
+            , $definitionEloquent->getFormattedExample()
+        );
+
+        $definitionEloquent->example = 'Ele bebeu um alambique inteiro!';
+        $this->assertEquals(
+            'Ele bebeu um alambique inteiro!'
+            , $definitionEloquent->getFormattedExample()
+        );
+    }
+
 }
