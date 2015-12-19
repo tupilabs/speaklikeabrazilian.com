@@ -1,0 +1,23 @@
+h1#header {
+  text-decoration: none;
+  text-decoration-color: -moz-use-text-color;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  color: #333;
+  font-family: "Lato","Helvetica Neue",serif;
+  line-height: 100px;
+  font-size: 4.0em;
+  letter-spacing: -2px;
+  font-weight: bold;
+}
+
+h1#header img.logo {
+    height: 100px;
+    width: auto;
+    margin: 0px auto;
+    position: relative;
+    min-height: 10px;
+    vertical-align: top;
+    display: inline-table;
+    padding: 0px 0px 5px 5px;
+}

@@ -12,5 +12,17 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+  //mix.sass('app.scss');
+
+  mix.copy(
+     './resources/assets/bower/semantic/dist/themes',
+     './public/css/themes'
+   );
+
+   mix.styles([
+     './resources/assets/bower/semantic/dist/semantic.min.css',
+     './resources/assets/sass/app.css'
+   ],
+   'public/css/slbr.css');
+
 });
