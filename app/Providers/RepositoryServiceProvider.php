@@ -24,6 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         \App::bind('SLBR\Repositories\ExpressionRepository', 'SLBR\Repositories\ExpressionRepositoryEloquent');
+        \App::bind('SLBR\Repositories\LanguageRepository', 'SLBR\Repositories\LanguageRepositoryEloquent');
         \App::bind('SLBR\Repositories\DefinitionRepository', 'SLBR\Repositories\DefinitionRepositoryEloquent');
     }
 }

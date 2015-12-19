@@ -23,7 +23,7 @@ class CreateDefinitionsTable extends Migration
 			$table->string('email');
 			$table->string('contributor', 50);
             $table->string('user_ip', 50)->nullable();
-            $table->integer('language_id')->unsigned()->default(1); // 1 is en, there is no increments in this table, only constants;
+            $table->integer('language_id')->unsigned();
 			$table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
 			$table->timestamps();
         });

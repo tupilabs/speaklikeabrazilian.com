@@ -4,8 +4,6 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-use SLBR\Repositories\ExpressionRepository;
-
 class ExpressionTest extends TestCase
 {
     use DatabaseMigrations;
