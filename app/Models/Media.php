@@ -61,7 +61,10 @@ class Media extends Model implements Transformable
 
     public function getVideoData()
 	{
-		$data = array();
+		$data = array(
+            'video_id' => NULL,
+            't' => NULL
+        );
 		$url = $this->url;
 		if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $this->url, $match))
 		{

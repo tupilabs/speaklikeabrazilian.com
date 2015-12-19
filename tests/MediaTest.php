@@ -106,4 +106,58 @@ class MediaTest extends TestCase
         $this->assertEquals('Good image', $media['reason']);
     }
 
+    /**
+     * Test that the getVideoData method from the media returns the YouTube data used to display
+     * that on the UI.
+     * @return void
+     */
+    public function testVideoData()
+    {
+        $expression = $this->expressionRepository->create(array(
+            'text' => 'Alambique',
+            'char' => 'a',
+            'contributor' => 'kinow'
+        ))->toArray();
+        $this->assertTrue($expression['id'] > 0);
+
+        $definitionEloquent = $this->definitionRepository->create(array(
+            'expression_id' => $expression['id'],
+            'description' => 'A drinking barrel',
+            'example' => 'Ele bebeu um alambique inteiro!',
+            'tags' => 'bebida, bar',
+            'status' => '',
+            'email' => 'nobody@localhost.localdomain',
+            'user_ip' => '127.0.0.1',
+            'contributor' => 'kinow',
+            'language_id' => 1
+        ));
+
+        $definition = $definitionEloquent->toArray();
+
+        $this->assertTrue($definition['id'] > 0);
+        $this->assertEquals('bebida, bar', $definition['tags']);
+
+        $mediaEloquent = $this->mediaRepository->create(array(
+            'definition_id' => $definition['id'],
+            'url' => 'https://youtu.be/p-iHcjpb91s?t=21s',
+            'reason' => 'Test video',
+            'email' => 'test@localhost.localdomain',
+            'status' => 'C',
+            'content_type' => 'image/png',
+            'contributor' => 'kinow'
+        ));
+        $definitionFromMedia = $mediaEloquent->definition()->first();
+
+        $media = $mediaEloquent->toArray();
+
+        $videoData = $mediaEloquent->getVideoData();
+        $this->assertEquals('p-iHcjpb91s', $videoData['video_id']);
+        $this->assertEquals('21', $videoData['t']);
+
+        $mediaEloquent->url = 'https://youtu.be/p-iHcjpb91s';
+        $videoData = $mediaEloquent->getVideoData();
+        $this->assertEquals('p-iHcjpb91s', $videoData['video_id']);
+        $this->assertEquals(NULL, $videoData['t']);
+    }
+
 }
