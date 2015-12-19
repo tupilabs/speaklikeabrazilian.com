@@ -21,7 +21,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
- 
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -36,10 +36,24 @@ class LanguageTest extends TestCase
      */
     protected $languageRepository;
 
+    /**
+     * Expressions repository;
+     * @var SLBR\Repositories\ExpressionRepository
+     */
+    protected $expressionRepository;
+
+    /**
+     * Expressions repository;
+     * @var SLBR\Repositories\DefinitionRepository
+     */
+    protected $definitionRepository;
+
     public function setUp()
     {
         parent::setUp();
         $this->languageRepository = \App::make('SLBR\Repositories\LanguageRepository');
+        $this->expressionRepository = \App::make('SLBR\Repositories\ExpressionRepository');
+        $this->definitionRepository = \App::make('SLBR\Repositories\DefinitionRepository');
     }
 
     /**
@@ -76,6 +90,40 @@ class LanguageTest extends TestCase
         ))->toArray();
         $this->assertTrue($language['id'] > 0);
         $this->assertEquals('Breton', $language['local_description']);
+    }
+
+    public function testDefinitionUsesALanguage()
+    {
+        $expression = $this->expressionRepository->create(array(
+            'text' => 'Alambique',
+            'char' => 'a',
+            'contributor' => 'kinow'
+        ))->toArray();
+        $this->assertTrue($expression['id'] > 0);
+
+        $definitionEloquent = $this->definitionRepository->create(array(
+            'expression_id' => $expression['id'],
+            'description' => 'A drinking barrel',
+            'example' => 'Ele bebeu um alambique inteiro!',
+            'tags' => 'bebida, bar',
+            'status' => 'P',
+            'email' => 'nobody@localhost.localdomain',
+            'user_ip' => '127.0.0.1',
+            'contributor' => 'kinow',
+            'language_id' => 1
+        ));
+
+        $definition = $definitionEloquent->toArray();
+
+        $language = $this->languageRepository->find(1);
+        $definitionsFromLanguage = $language->definitions()->get()->toArray();
+        $found = false;
+        foreach ($definitionsFromLanguage as $definitionFromLanguage)
+        {
+            if (((int) $definitionFromLanguage['id']) === ((int) $definition['id']))
+                $found = true;
+        }
+        $this->assertTrue($found);
     }
 
 }
