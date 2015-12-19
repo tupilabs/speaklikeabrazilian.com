@@ -63,4 +63,18 @@ class ExpressionTest extends TestCase
             'contributor' => 'albuquerque'
         ))->toArray();
     }
+
+    /**
+     * Test that when an expression is created it has no definitions.
+     * @return void
+     */
+    public function testAnExpressionHasNoDefinitionsByDefault()
+    {
+        $definitions = $this->expressionRepository->create(array(
+            'text' => 'Alambique',
+            'char' => 'a',
+            'contributor' => 'kinow'
+        ))->definitions()->get()->toArray();
+        $this->assertTrue(empty($definitions));
+    }
 }

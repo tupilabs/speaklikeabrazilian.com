@@ -70,6 +70,10 @@ class DefinitionTest extends TestCase
         $this->assertEquals('Alambique', $expressionFromDefinition['text']);
     }
 
+    /**
+     * Test the formatted description of a definition.
+     * @return void
+     */
     public function testFormattedDescription()
     {
         $expression = $this->expressionRepository->create(array(
@@ -103,6 +107,10 @@ class DefinitionTest extends TestCase
         );
     }
 
+    /**
+     * Test the formatted example of a definition.
+     * @return void
+     */
     public function testFormattedExample()
     {
         $expression = $this->expressionRepository->create(array(
@@ -134,6 +142,36 @@ class DefinitionTest extends TestCase
             'Ele bebeu um alambique inteiro!'
             , $definitionEloquent->getFormattedExample()
         );
+    }
+
+    /**
+     * Test that the default language (English) is used when language_id = 1
+     * @return void
+     */
+    public function testDefaultEnglishLanguage()
+    {
+        $expression = $this->expressionRepository->create(array(
+            'text' => 'Alambique',
+            'char' => 'a',
+            'contributor' => 'kinow'
+        ))->toArray();
+        $this->assertTrue($expression['id'] > 0);
+
+        $definitionEloquent = $this->definitionRepository->create(array(
+            'expression_id' => $expression['id'],
+            'description' => 'A drinking barrel',
+            'example' => 'Ele bebeu um alambique inteiro!',
+            'tags' => 'bebida, bar',
+            'status' => '',
+            'email' => 'nobody@localhost.localdomain',
+            'user_ip' => '127.0.0.1',
+            'contributor' => 'kinow',
+            'language_id' => 1
+        ));
+
+        $language = $definitionEloquent->language()->first()->toArray();
+
+        $this->assertEquals('en', $language['slug']);
     }
 
 }
