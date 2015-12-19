@@ -22,33 +22,44 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace SLBR\Providers;
+namespace SLBR\Models;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Model;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class RepositoryServiceProvider extends ServiceProvider
+class Rating extends Model implements Transformable
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
+    use TransformableTrait;
 
     /**
-     * Register any application services.
+     * The table associated with the model.
      *
-     * @return void
+     * @var string
      */
-    public function register()
-    {
-        \App::bind('SLBR\Repositories\ExpressionRepository', 'SLBR\Repositories\ExpressionRepositoryEloquent');
-        \App::bind('SLBR\Repositories\LanguageRepository', 'SLBR\Repositories\LanguageRepositoryEloquent');
-        \App::bind('SLBR\Repositories\DefinitionRepository', 'SLBR\Repositories\DefinitionRepositoryEloquent');
-        \App::bind('SLBR\Repositories\MediaRepository', 'SLBR\Repositories\MediaRepositoryEloquent');
-        \App::bind('SLBR\Repositories\RatingRepository', 'SLBR\Repositories\RatingRepositoryEloquent');
-    }
+	protected $table = 'ratings';
+
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
+
+    /**
+     * The storage format of the model's date columns.
+     *
+     * @var string
+     */
+    protected $dateFormat = 'U';
+
+    protected $guarded = [];
+
+    protected $fillable = ['definition_id', 'user_ip', 'rating'];
+
+    public function definition()
+	{
+		return $this->belongsTo('SLBR\Models\Definition');
+	}
+
 }
