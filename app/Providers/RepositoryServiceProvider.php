@@ -21,7 +21,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
- 
+
 namespace SLBR\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -48,5 +48,6 @@ class RepositoryServiceProvider extends ServiceProvider
         \App::bind('SLBR\Repositories\ExpressionRepository', 'SLBR\Repositories\ExpressionRepositoryEloquent');
         \App::bind('SLBR\Repositories\LanguageRepository', 'SLBR\Repositories\LanguageRepositoryEloquent');
         \App::bind('SLBR\Repositories\DefinitionRepository', 'SLBR\Repositories\DefinitionRepositoryEloquent');
+        \App::bind('SLBR\Repositories\MediaRepository', 'SLBR\Repositories\MediaRepositoryEloquent');
     }
 }

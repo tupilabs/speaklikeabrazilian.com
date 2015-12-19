@@ -21,7 +21,7 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
- 
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -77,7 +77,7 @@ class DefinitionTest extends TestCase
             'description' => 'A drinking barrel',
             'example' => 'Ele bebeu um alambique inteiro!',
             'tags' => 'bebida, bar',
-            'status' => '',
+            'status' => 'P',
             'email' => 'nobody@localhost.localdomain',
             'user_ip' => '127.0.0.1',
             'contributor' => 'kinow',
@@ -89,6 +89,7 @@ class DefinitionTest extends TestCase
 
         $this->assertTrue($definition['id'] > 0);
         $this->assertEquals('bebida, bar', $definition['tags']);
+        $this->assertEquals('P', $definition['status']);
         $this->assertEquals('Alambique', $expressionFromDefinition['text']);
     }
 
