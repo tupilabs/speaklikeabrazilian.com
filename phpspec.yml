@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: SLBR
+        psr4_prefix: SLBR
+        src_path: app
