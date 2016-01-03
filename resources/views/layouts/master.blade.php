@@ -11,9 +11,16 @@
 </head>
 <body>
     @section('header')
-    <div class="ui fixed center aligned small menu">
-        <div class="ui">
-            <a href="#" class="small item">Home</a>
+    <div class="ui fixed small" id="top">
+        <div class="ui centered grid">
+            <div class="center aligned column">
+                <div class="ui small compact menu">
+                    <a href="#" class="small item">Home</a>
+                    <a href="#" class="small item">@SpeakLikeABR</a>
+                    <a href="#" class="small item">FaceBook Fan Page</a>
+                    <a href="#" class="small item">Moderators Area</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="ui sizer vertical">
