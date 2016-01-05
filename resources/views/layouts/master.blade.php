@@ -12,13 +12,13 @@
 <body>
     @section('header')
     <div class="ui fixed small" id="top">
-        <div class="ui centered grid">
+        <div class="ui small centered grid">
             <div class="center aligned column">
-                <div class="ui small compact menu">
-                    <a href="#" class="small item">Home</a>
-                    <a href="#" class="small item">@SpeakLikeABR</a>
-                    <a href="#" class="small item">FaceBook Fan Page</a>
-                    <a href="#" class="small item">Moderators Area</a>
+                <div class="ui secondary small compact menu">
+                    <a href="#" class="small item"><i class="home icon"></i> Home</a>
+                    <a href="#" class="small item"><i class="twitter square icon"></i> @SpeakLikeABR</a>
+                    <a href="#" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
+                    <a href="#" class="small item"><i class="privacy icon"></i> Moderators Area</a>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
         <h1 class='ui center aligned header' id="header">Speak Like A Brazilian <img src="{{ URL::asset('images/slbr.png') }}" class="logo" alt="logo" title="logo"></h1>
     </div>
     
-    <div class="ui center aligned vertical basic segment">
+    <div class="ui center aligned vertical basic segment" id='search'>
         <div class="ui large action input">
             <input class="prompt" placeholder="Search..." type="text">
             <button class="ui button">Search</button>
