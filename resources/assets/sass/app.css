@@ -41,3 +41,9 @@ div#menu a {
 color: white;
 font-weight: bold;
 }
+
+div#menu a:hover {
+color: black;
+font-weight: bold;
+background-color: #EEEEEE;
+}
