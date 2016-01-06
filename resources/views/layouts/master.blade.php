@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="{{ URL::asset('css/slbr.css') }}">
 </head>
 <body>
-    @section('header')
+@section('header')
+<section id='header'>
     <div class="ui fixed small" id="top">
         <div class="ui small centered grid">
             <div class="center aligned column">
@@ -19,12 +20,15 @@
                     <a href="#" class="small item"><i class="twitter square icon"></i> @SpeakLikeABR</a>
                     <a href="#" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
                     <a href="#" class="small item"><i class="privacy icon"></i> Moderators Area</a>
+                    <div class="small item">
+                        <a href="#"><img width='24px' src="{{ URL::asset('images/flags/flag_great_britain.png') }}" /></a>&nbsp;&nbsp;
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="ui sizer vertical">
-        <h1 class='ui center aligned header' id="header">Speak Like A Brazilian <img src="{{ URL::asset('images/slbr.png') }}" class="logo" alt="logo" title="logo"></h1>
+        <h1 class='ui center aligned header' id="header-title">Speak Like A Brazilian <img src="{{ URL::asset('images/slbr.png') }}" class="logo" alt="logo" title="logo"></h1>
     </div>
     
     <div class="ui center aligned vertical basic segment" id='search'>
@@ -33,7 +37,8 @@
             <button class="ui button">Search</button>
         </div>
     </div>
-    @show
+</section>
+@show
     
     @section('menu')
     <div class="ui center aligned basic vertical segment" id="menu">
