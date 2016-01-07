@@ -1,2 +1,10 @@
 User-agent: *
-Disallow:
+Disallow: /random
+Disallow: /en/random
+Disallow: /es/random
+Disallow: /jp/random
+Disallow: /it/random
+Disallow: /pt/random
+Disallow: /de/random
+Disallow: /ko/random
+Disallow: /tz/random
