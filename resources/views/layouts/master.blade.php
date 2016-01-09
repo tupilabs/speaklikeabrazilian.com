@@ -29,18 +29,7 @@
     <div class="ui sizer vertical">
         <h1 class='ui center aligned header' id="header-title">Speak Like A Brazilian <img src="{{ URL::asset('images/slbr.png') }}" class="logo" alt="Speak Like A Brazilian Logo" title="Logo"></h1>
     </div>
-    <div class="ui center aligned vertical basic segment" id='search'>
-        <div class='ui stackable grid center aligned container'>
-            <div class='row'>
-                <div class='ten wide column'>
-                    <div class="ui large fluid action input">
-                        <input class="prompt" placeholder="Search..." type="text">
-                        <button class="ui button">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('partials/search')
 </section>
 @show
 @section('menu')
