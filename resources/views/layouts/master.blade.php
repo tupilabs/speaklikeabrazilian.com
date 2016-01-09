@@ -63,7 +63,7 @@
     <script type="text/javascript" src="{{ URL::to('/js/all.js') }}"></script>
     <script>
     $( document ).ready(function() {
-        $('form#search')
+        $('form#search-form')
           .form({
             fields: {
               q: {
@@ -78,7 +78,7 @@
                         prompt: 'Your query must be at least three characters long'
                     },
                     {
-                        type: 'maxLenght[50]',
+                        type: 'maxLength[50]',
                         prompt: 'Your query must not be longer than 50 characters'
                     }
                 ]
