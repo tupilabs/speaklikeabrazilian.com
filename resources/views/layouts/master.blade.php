@@ -69,5 +69,21 @@
     </div>
 </div>
 @show
+<script>
+$( document ).ready(function() {
+    $('form#search')
+      .form({
+        fields: {
+          name     : 'empty',
+          gender   : 'empty',
+          username : 'empty',
+          password : ['minLength[6]', 'empty'],
+          skills   : ['minCount[2]', 'empty'],
+          terms    : 'checked'
+        }
+      })
+    ;
+});
+</script>
 </body>
 </html>
