@@ -73,7 +73,7 @@
             <p>
                 Our content is created by users like you, and with software that was created
                 and distributed by great developers! The source code for this web site was
-                created by TupiLabs and open sourced via GitHub, via the MIT License.
+                created by TupiLabs and open sourced via GitHub, licensed under the MIT License.
             </p>
             <p>&copy; TupiLabs &mdash; Source code licensed under MIT License</p>
         </div>
