@@ -279,7 +279,7 @@
 				</div>
 	    	</div>
 	    	<div class='two wide column'>
-				<button class='ui fluid green large button'><i class='plus icon'></i>Add Your Expression</button>
+				@include('partials/sidebar')
 	    	</div>
 		</div>
 		<div class='row'>
