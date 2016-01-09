@@ -3,5 +3,5 @@
 					</a>
 					<div class='ui divider'></div>
 					<div class='ui center aligned container'>
-						<p><small>Subscribe to our mailing list</small></p>
+						<p class='faded-text'><small>Subscribe to our mailing list</small></p>
 					</div>

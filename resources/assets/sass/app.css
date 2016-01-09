@@ -64,3 +64,9 @@ font-size: 0.9em;
 div#search {
 padding-bottom: 1em;
 }
+
+/* helper classes */
+
+.faded-text {
+color: #bac1c8;
+}
