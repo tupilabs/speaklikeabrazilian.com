@@ -60,17 +60,29 @@
         </div>
     </div>
 @show
+    <script type="text/javascript" src="{{ URL::to('/js/all.js') }}"></script>
     <script>
     $( document ).ready(function() {
         $('form#search')
           .form({
             fields: {
-              name     : 'empty',
-              gender   : 'empty',
-              username : 'empty',
-              password : ['minLength[6]', 'empty'],
-              skills   : ['minCount[2]', 'empty'],
-              terms    : 'checked'
+              q: {
+                identifier: 'q',
+                rules: [
+                    {
+                        type: 'empty',
+                        prompt: 'Please enter your query'
+                    },
+                    {
+                        type: 'minLength[3]',
+                        prompt: 'Your query must be at least three characters long'
+                    },
+                    {
+                        type: 'maxLenght[50]',
+                        prompt: 'Your query must not be longer than 50 characters'
+                    }
+                ]
+              }
             }
           })
         ;

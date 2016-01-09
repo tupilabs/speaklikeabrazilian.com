@@ -25,4 +25,10 @@ elixir(function(mix) {
    ],
    'public/css/slbr.css');
 
+   mix.scripts([
+      './resources/assets/bower/jquery/dist/jquery.js',
+      './resources/assets/bower/semantic/dist/semantic.js',
+      './resources/assets/app.js'
+    ]);
+
 });
