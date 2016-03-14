@@ -81,4 +81,8 @@ padding-bottom: 1em;
 .faded-text {
 color: #bac1c8;
 }
+
+div.meta {
+    clear: both;
+}
 /*# sourceMappingURL=slbr.css.map */
