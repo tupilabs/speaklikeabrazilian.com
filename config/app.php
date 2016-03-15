@@ -163,6 +163,8 @@ return [
 
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
 
+        Frozennode\Administrator\AdministratorServiceProvider::class,
+
     ],
 
     /*
