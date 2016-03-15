@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b93a3c18bcbe18eef98d49d194811c75",
-    "content-hash": "ea472ae28bdb34732938722d558b1149",
+    "hash": "37169b59c5a834aa96914f4afa1f28d2",
+    "content-hash": "d3bd673bad5c5420c3b617fa04308a92",
     "packages": [
         {
             "name": "cartalyst/sentinel",
@@ -164,6 +164,47 @@
                 "support"
             ],
             "time": "2015-06-24 13:00:53"
+        },
+        {
+            "name": "ckeditor/ckeditor",
+            "version": "4.5.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ckeditor/ckeditor-releases.git",
+                "reference": "a55e90c4e4114c40169b054bbeb2190c3a62a055"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/a55e90c4e4114c40169b054bbeb2190c3a62a055",
+                "reference": "a55e90c4e4114c40169b054bbeb2190c3a62a055",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor.",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2016-02-04 17:41:24"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -376,24 +417,25 @@
         },
         {
             "name": "frozennode/administrator",
-            "version": "v4.8.0",
+            "version": "v5.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FrozenNode/Laravel-Administrator.git",
-                "reference": "4ccb47992d26ec078624cbdff104838ea7968756"
+                "reference": "b5b59c41c37f8879ce033fd4744c183484c5ac1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FrozenNode/Laravel-Administrator/zipball/4ccb47992d26ec078624cbdff104838ea7968756",
-                "reference": "4ccb47992d26ec078624cbdff104838ea7968756",
+                "url": "https://api.github.com/repos/FrozenNode/Laravel-Administrator/zipball/b5b59c41c37f8879ce033fd4744c183484c5ac1e",
+                "reference": "b5b59c41c37f8879ce033fd4744c183484c5ac1e",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": ">=4.0.0",
-                "php": ">=5.3.0"
+                "ckeditor/ckeditor": "4.*",
+                "laravel/framework": "5.*",
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "mockery/mockery": "0.8.0"
+                "mockery/mockery": "~0.9"
             },
             "type": "library",
             "autoload": {
@@ -424,7 +466,7 @@
                 "laravel",
                 "laravel-administrator"
             ],
-            "time": "2013-11-24 02:45:50"
+            "time": "2015-12-26 22:22:06"
         },
         {
             "name": "guzzle/guzzle",
