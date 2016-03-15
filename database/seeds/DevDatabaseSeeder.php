@@ -88,7 +88,7 @@ class DevDatabaseSeeder extends Seeder
                     'status' => 1,
                     'email' => 'kinow@slbr.com',
                     'contributor' => 'kinow',
-                    'moderator_id' => null
+                    'language_id' => 1
                 )
             );
             $approvedDefinition = Definition::create(
@@ -100,7 +100,7 @@ class DevDatabaseSeeder extends Seeder
                     'status' => 2,
                     'email' => 'kinow@slbr.com',
                     'contributor' => 'kinow',
-                    'moderator_id' => 1
+                    'language_id' => 1
                 )
             );
             Rating::create(
@@ -140,7 +140,7 @@ class DevDatabaseSeeder extends Seeder
                     'status' => 2,
                     'email' => 'stufi@slbr.com',
                     'contributor' => 'stufi',
-                    'moderator_id' => 2
+                    'language_id' => 1
                 )
             );
             Definition::create(
@@ -152,7 +152,7 @@ class DevDatabaseSeeder extends Seeder
                     'status' => 1,
                     'email' => 'angels@slbr.com',
                     'contributor' => 'angels',
-                    'moderator_id' => 1
+                    'language_id' => 1
                 )
             );
         }
