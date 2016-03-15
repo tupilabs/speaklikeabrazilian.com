@@ -4,6 +4,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Environment
+    |--------------------------------------------------------------------------
+    |
+    | This value determines the "environment" your application is currently
+    | running in. This may determine how you prefer to configure various
+    | services your application utilizes. Set this in your ".env" file.
+    |
+    */
+    'env' => env('APP_ENV', 'production'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -144,7 +156,11 @@ return [
         SLBR\Providers\RouteServiceProvider::class,
         SLBR\Providers\RepositoryServiceProvider::class,
 
+        // repository pattern
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+
+        // auth with sentry
+        Cartalyst\Sentry\SentryServiceProvider::class,
 
         // Old Form:: builder
         Collective\Html\HtmlServiceProvider::class,
@@ -196,6 +212,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        // auth with sentry
+        'Sentry'    => Cartalyst\Sentry\Facades\Laravel\Sentry::class,
 
         // Old Form:: builder
         'Form' => Collective\Html\FormFacade::class,

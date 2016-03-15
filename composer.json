@@ -13,7 +13,7 @@
     	"shift31/laravel-elasticsearch": "1.3.*",
     	"msurguy/honeypot": "1.0.*",
     	"prettus/l5-repository": "^2.1",
-		"cartalyst/sentry": "2.1",
+		"cartalyst/sentry": "2.1.*",
 		"frozennode/administrator": "4.*",
 		"laravelcollective/html": "^5.2"
 	},

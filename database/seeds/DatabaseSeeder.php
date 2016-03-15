@@ -22,9 +22,9 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-use App;
-use Log;
-use Sentry;
+use \App;
+use \Log;
+use \Sentry;
 
 use SLBR\Models\Language;
 
