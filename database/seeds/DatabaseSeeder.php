@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->populateGroups();
+        $this->populateRoles();
         $this->populateUsers();
         $this->populateLanguages();
 
@@ -61,40 +61,22 @@ class DatabaseSeeder extends Seeder
     }
 
     /**
-     * Populates the groups table.
+     * Populates the roles table.
      *
      * @return void
      */
-    public function populateGroups()
+    public function populateRoles()
     {
-        DB::table('groups')->delete();
-        try
-        {
-            // Create the groups
-            $moderators = Sentry::createGroup(array(
-                'name'        => 'Moderators',
-                'permissions' => array(
-                    'admin' => 0,
-                    'moderator' => 1,
-                ),
-            ));
-            $admins = Sentry::createGroup(array(
-                'name'        => 'Administrators',
-                'permissions' => array(
-                    'admin' => 1,
-                    'moderator' => 1,
-                ),
-            ));
-            
-        }
-        catch (Cartalyst\Sentry\Groups\NameRequiredException $e)
-        {
-            echo 'Name field is required';
-        }
-        catch (Cartalyst\Sentry\Groups\GroupExistsException $e)
-        {
-            echo 'Group already exists';
-        }
+        DB::table('roles')->delete();
+        // Create the groups
+        $role = Sentinel::getRoleRepository()->createModel()->create([
+            'name' => 'Moderators',
+            'slug' => 'mods',
+        ]);
+        $role = Sentinel::getRoleRepository()->createModel()->create([
+            'name' => 'Administrators',
+            'slug' => 'admins',
+        ]);
     }
 
     /**
@@ -105,49 +87,21 @@ class DatabaseSeeder extends Seeder
     public function populateUsers()
     {
         DB::table('users')->delete();
-        try
-        {
-            // Create the user
-            $user = Sentry::createUser(array(
-                'first_name' => 'Bruno', 
-                'last_name' => 'Kinoshita',
-                'email'     => 'mod@speaklikeabrazilian.com',
-                'password'  => 'test',
-                'activated' => true
-            ));
-            // Find the group using the group id
-            $moderatorsGroup = Sentry::findGroupByName('Moderators');
-            // Assign the group to the user
-            $user->addGroup($moderatorsGroup);
-            // Create the user
-            $user = Sentry::createUser(array(
-                'first_name' => 'Bruno', 
-                'last_name' => 'Kinoshita',
-                'email'     => 'admin@speaklikeabrazilian.com',
-                'password'  => 'test',
-                'activated' => true
-            ));
-            // Find the group using the group id
-            $adminsGroup = Sentry::findGroupByName('Administrators');
-            // Assign the group to the user
-            $user->addGroup($adminsGroup);
-        }
-        catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
-        {
-            echo 'Login field is required.';
-        }
-        catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
-        {
-            echo 'Password field is required.';
-        }
-        catch (Cartalyst\Sentry\Users\UserExistsException $e)
-        {
-            echo 'User with this login already exists.';
-        }
-        catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
-        {
-            echo 'Group was not found.';
-        }
+        $mod = Sentinel::register(array(
+            'email'    => 'mod@speaklikeabrazilian.com',
+            'password' => 'foobar',
+        ));
+
+        $modRole = Sentinel::findRoleByName('Moderators');
+        $modRole->users()->attach($mod);
+
+        $admin = Sentinel::register(array(
+            'email'    => 'admin@speaklikeabrazilian.com',
+            'password' => 'foobar',
+        ));
+
+        $adminRole = Sentinel::findRoleByName('Administrators');
+        $adminRole->users()->attach($admin);
     }
 
     /**
