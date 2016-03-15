@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+        /*
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
@@ -156,11 +156,7 @@ return [
         SLBR\Providers\RouteServiceProvider::class,
         SLBR\Providers\RepositoryServiceProvider::class,
 
-        // repository pattern
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
-
-        // auth with sentry
-        Cartalyst\Sentry\SentryServiceProvider::class,
 
         // Old Form:: builder
         Collective\Html\HtmlServiceProvider::class,
@@ -212,9 +208,6 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
-        // auth with sentry
-        'Sentry'    => Cartalyst\Sentry\Facades\Laravel\Sentry::class,
 
         // Old Form:: builder
         'Form' => Collective\Html\FormFacade::class,

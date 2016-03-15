@@ -15,7 +15,8 @@
     	"prettus/l5-repository": "^2.1",
 		"cartalyst/sentry": "2.1.*",
 		"frozennode/administrator": "4.*",
-		"laravelcollective/html": "^5.2"
+		"laravelcollective/html": "^5.2",
+		"cartalyst/sentinel": "2.0.*"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "~1.4",
