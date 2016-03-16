@@ -33,8 +33,7 @@
                 <h1 class='ui center aligned header' id="header-title">Speak Like A Brazilian <img src="{{ URL::asset('images/slbr.png') }}" class="logo" alt="Speak Like A Brazilian Logo" title="Logo"></h1>
             </div>
         </div>
-        <br/>
-        <div class="ui container mobile only grid">
+        <div class="ui container mobile only grid" id="mobile-header-wrapper">
             <div class="ui center aligned column">
                 <h2 class='ui'>Speak Like A Brazilian</h2>
             </div>
@@ -57,7 +56,18 @@
 @yield('content')
 @section('footer')
     <div class="ui vertical footer segment" id="footer">
-        <div class="ui two column grid container">
+        <div class="ui two column computer only grid container">
+            <div class="column">
+                <h1>Speak Like A Brazilian is Open Source!</h1>
+                <p>
+                    Our content is created by users like you, and with software that was created
+                    and distributed by great developers! The source code for this web site was
+                    created by TupiLabs and open sourced via GitHub, licensed under the MIT License.
+                </p>
+                <p>&copy; TupiLabs &mdash; Source code licensed under the MIT License</p>
+            </div>
+        </div>
+        <div class="ui one column mobile only grid container">
             <div class="column">
                 <h1>Speak Like A Brazilian is Open Source!</h1>
                 <p>
