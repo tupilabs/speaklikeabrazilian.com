@@ -36,6 +36,10 @@ color: #bac1c8;
 padding-bottom: 8em;
 }
 
+div#footer a {
+color: #AAAAAA;
+}
+
 div#menu {
 background-color: #87aade;
 padding: 5px 0px;
