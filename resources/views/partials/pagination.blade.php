@@ -11,7 +11,7 @@
                             @if ($definitions['current_page'] == $i)
                         <a class="active item">{{ $i }}</a>
                             @else
-                        <a class="item">{{ $i }}</a>
+                        <a class="item" href="{{ Request::url() }}?page={{ $i }}">{{ $i }}</a>
                             @endif
 
                             @if ($i >= 2 and $i < $definitions['last_page'] - 2)
