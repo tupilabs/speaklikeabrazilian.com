@@ -45,7 +45,7 @@
 @show
 @section('menu')
     <div class="ui center aligned vertical segment" id="menu">
-        <a href="{{ URL::to('/') }}" class="item">New</a>
+        <a href="{{ URL::to('/new') }}" class="item">New</a>
 @foreach (range('A', 'Z') as $char)
         <a href="{{ URL::to('/expression/letter/' . strtolower($char)) }}" class="item">{{ $char }}</a>
 @endforeach
