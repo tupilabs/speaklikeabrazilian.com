@@ -49,7 +49,7 @@
 @foreach (range('a', 'z') as $char)
         <a href="{{ action('ExpressionController@getLetter', ['letter' => $char]) }}" class="item">{{ strtoupper($char) }}</a>
 @endforeach
-        <a href="{{ URL::to('/0-9') }}" class="item">0-9</a>
+        <a href="{{ action('ExpressionController@getLetter', ['letter' => '0-9']) }}" class="item">0-9</a>
         <a href="{{ URL::to('/top') }}" class="item">Top</a>
         <a href="{{ URL::to('/random') }}" class="item">Random</a>
     </div>
