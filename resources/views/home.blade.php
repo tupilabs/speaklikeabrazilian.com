@@ -26,20 +26,7 @@
 					@include('partials/sidebar')
 		    	</div>
 			</div>
-            @if (count($definitions['data']) > 0)
-			<div class='row'>
-		    	<div class='sixteen wide center aligned column'>
-					<div class="ui pagination menu">
-						<a class="icon item"><i class="left arrow icon"></i></a>
-						<a class="active item">1</a>
-						<a class="active item">2</a>
-						<div class="disabled item">...</div>
-						<a class="item">11</a>
-						<a class="item">12</a>
-						<a class='icon item'><i class="right arrow icon"></i></a>
-					</div>
-				</div>
-            @endif
+            @include('partials/pagination')
 			</div>
 		</div>
 	</div>
