@@ -1,5 +1,5 @@
 					<div class="ui fluid card">
-					  	<div class="content">{{ var_dump($definition) }}
+					  	<div class="content">
 	   						<a class='right floated'><small>0</small> <i class="thumbs down outline icon"></i></a>
 	   						<a class='right floated'><small>2</small> <i class="right floated thumbs up outline icon"></i></a>
 					    	<div class="header"><a>{{ $definition['text'] }}</a><a><i class="unmute icon"></i></a></div>
