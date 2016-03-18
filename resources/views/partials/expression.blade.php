@@ -2,7 +2,7 @@
 					  	<div class="content">
 	   						<a class='right floated'><small>{{ $definition['dislikes'] or 0 }}</small> <i class="thumbs down outline icon"></i></a>
 	   						<a class='right floated'><small>{{ $definition['likes'] or 0 }}</small> <i class="right floated thumbs up outline icon"></i></a>
-					    	<div class="header"><a href="{{ action('ExpressionController@getDefine') }}?e={{ $definition['text'] }}">{{ $definition['text'] }}</a><a><i class="unmute icon"></i></a></div>
+					    	<div class="header"><a href="{{ action('ExpressionController@getDefine') }}?e={{ urlencode($definition['text']) }}">{{ $definition['text'] }}</a><a><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
 					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
 					    		<span class="category"><small>{{ date('F jS \\a\\t g:ia', $definition['created_at']) }}</small></span>
