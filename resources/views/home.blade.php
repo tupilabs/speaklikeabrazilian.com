@@ -6,31 +6,27 @@
 	<div class='ui vertical segment'>
 		<div class='ui stackable grid container'>
 			<div class='row'>
+            @if (count($definitions) > 0)
 		    	<div class='seven wide column'>
+                @foreach (array_slice($definitions, 0, 4) as $definition)
 					@include('partials/expression')
-
-					@include('partials/expression')
-
-					@include('partials/expression')
-
-					@include('partials/expression')
-
+                @endforeach
 		    	</div>
-		    	<div class='seven wide column'>
-					@include('partials/expression')
-
-					@include('partials/expression')
-
-					@include('partials/expression')
-
-					@include('partials/expression')
-
-		    	</div>
+                <div class='seven wide column'>
+                @foreach (array_slice($definitions, 4, 4) as $definition)
+                    @include('partials/expression')
+                @endforeach
+                </div>
+            @else
+                <div class='fourteen wide column'>
+                    <h2>No expressions found</h2>                    
+                </div>
+            @endif
 		    	<div class='two wide column'>
 					@include('partials/sidebar')
-
 		    	</div>
 			</div>
+            @if (count($definitions) > 0)
 			<div class='row'>
 		    	<div class='sixteen wide center aligned column'>
 					<div class="ui pagination menu">
@@ -43,6 +39,7 @@
 						<a class='icon item'><i class="right arrow icon"></i></a>
 					</div>
 				</div>
+            @endif
 			</div>
 		</div>
 	</div>

@@ -16,7 +16,7 @@ abstract class Controller extends BaseController
         $languageFound = null;
         foreach ($languages as $language)
         {
-            if (strcmp($language['slug'], $slug) > 0)
+            if (strcmp($language['slug'], $slug) == 0)
             {
                 $languageFound = $language;
                 break;

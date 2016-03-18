@@ -47,12 +47,12 @@ class ExpressionController extends Controller {
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
-            ->paginate(10);
+            ->paginate(8)
+            ->toArray();
         $data = array(
             'active' => 'new',
             'languages' => $languages,
-            'definitions' => $definitions,
-            'subtitle' => Lang::get('messages.new_expressions')
+            'definitions' => $definitions
         );
         return view('home', $data);
     }

@@ -16,7 +16,7 @@ class LanguagesMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $languages = Language::all();
+        $languages = Language::all()->toArray();
         $request->attributes->add(['languages' => $languages]);
         return $next($request);
     }
