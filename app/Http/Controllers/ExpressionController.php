@@ -46,9 +46,9 @@ class ExpressionController extends Controller {
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
-            ->orderBy('created_at', 'desc')
-            ->select('definitions.*', 
-                'expressions.text',
+            ->orderBy('definitions.created_at', 'desc')
+            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+                'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
@@ -77,8 +77,8 @@ class ExpressionController extends Controller {
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
-            ->select('definitions.*', 
-                'expressions.text',
+            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+                'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
@@ -108,8 +108,8 @@ class ExpressionController extends Controller {
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
-            ->select('definitions.*', 
-                'expressions.text',
+            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+                'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
@@ -134,8 +134,8 @@ class ExpressionController extends Controller {
             ->where('definitions.status', '=', 2)
             ->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
             ->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
-            ->select('definitions.*', 
-                'expressions.text',
+            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+                'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
@@ -160,8 +160,8 @@ class ExpressionController extends Controller {
             ->where('language_id', '=', $language['id'])
             ->where('expressions.char', '=', $queryLetter)
             ->orderBy('expressions.text', 'asc')
-            ->select('definitions.*', 
-                'expressions.text',
+            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+                'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
