@@ -7,11 +7,18 @@
                         @else
                         <a class="disabled icon item"><i class="left arrow icon"></i></a>
                         @endif
-                        <a class="active item">1</a>
-                        <a class="active item">2</a>
-                        <div class="disabled item">...</div>
-                        <a class="item">11</a>
-                        <a class="item">12</a>
+                        @for ($i = 1; $i <= $definitions['last_page']; $i++)
+                            @if ($definitions['current_page'] == $i)
+                        <a class="active item">{{ $i }}</a>
+                            @else
+                        <a class="item">{{ $i }}</a>
+                            @endif
+
+                            @if ($i >= 2 and $i < $definitions['last_page'] - 2)
+                            <?php $i = ((int) $definitions['last_page']) - 2 ?>
+                        <a class="disabled item">...</a>
+                            @endif
+                        @endfor
                         @if ($definitions['last_page'] <= 1 or $definitions['last_page'] == $definitions['current_page'])
                         <a class='disabled icon item'><i class="right arrow icon"></i></a>
                         @else
