@@ -46,8 +46,8 @@
 @section('menu')
     <div class="ui center aligned vertical segment" id="menu">
         <a href="{{ URL::to('/new') }}" class="item">New</a>
-@foreach (range('A', 'Z') as $char)
-        <a href="{{ URL::to('/expression/letter/' . strtolower($char)) }}" class="item">{{ $char }}</a>
+@foreach (range('a', 'z') as $char)
+        <a href="{{ action('ExpressionController@getLetter', ['letter' => $char]) }}" class="item">{{ strtoupper($char) }}</a>
 @endforeach
         <a href="{{ URL::to('/0-9') }}" class="item">0-9</a>
         <a href="{{ URL::to('/top') }}" class="item">Top</a>
