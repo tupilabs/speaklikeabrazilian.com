@@ -1,6 +1,7 @@
 <?php
-
 namespace SLBR\Http\Controllers;
+
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -10,8 +11,9 @@ class HomeController extends Controller
 
     }
 
-    public function getHome()
+    public function getHome(Request $request)
     {
-        return view('home');
+        $languages = $request->get('languages');
+        return view('home', array('languages' => $languages));
     }
 }
