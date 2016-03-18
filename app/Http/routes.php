@@ -28,9 +28,11 @@ Route::group(array('prefix' => $locale), function()
     // Main app
     Route::get('/', 'ExpressionController@getNew');
     Route::get('/new', 'ExpressionController@getNew');
+    Route::get('/top', 'ExpressionController@getTop');
     Route::controller('/expression', 'ExpressionController');
 });
 
 Route::get('/', 'ExpressionController@getNew');
 Route::get('/new', 'ExpressionController@getNew');
+Route::get('/top', 'ExpressionController@getTop');
 Route::controller('/expression', 'ExpressionController');

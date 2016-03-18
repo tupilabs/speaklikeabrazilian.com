@@ -32,6 +32,11 @@ use Illuminate\Http\Request;
 
 class ExpressionController extends Controller {
 
+    /**
+     * Get new expressions. Also used as landing page.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function getNew(Request $request)
     {
         $languages = $request->get('languages');
@@ -57,26 +62,34 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
-    public function getTop()
+    /**
+     * Get top expressions. The ranking is created summing all the likes, minus the dislikes.
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function getTop(Request $request)
     {
-        $lang = App::getLocale();
+        $languages = $request->get('languages');
+        $currentLanguageSlug = App::getLocale();
+        $language = $this->getLanguage($currentLanguageSlug, $languages);
         $definitions = Definition::
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
-            ->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+            ->where('language_id', '=', $language['id'])
             ->select('definitions.*', 
                 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
             ->orderByRaw('(COALESCE(likes, 0) - COALESCE(dislikes, 0)) DESC')
-            ->paginate(10);
-
-        $args = array();
-        $args['definitions'] = $definitions;
-        $args['subtitle'] = Lang::get('messages.top_expressions');
-        $this->theme->set('active', 'top');
-        return $this->theme->scope('home.index', $args)->render();
+            ->paginate(8)
+            ->toArray();
+        $data = array(
+            'active' => 'top',
+            'languages' => $languages,
+            'definitions' => $definitions
+        );
+        return view('home', $data);
     }
 
     public function getRandom()
@@ -92,7 +105,7 @@ class ExpressionController extends Controller {
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
             ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
-            ->take(10)
+            ->take(8)
             ->get();
         $args = array();
         $args['definitions'] = $definitions;
@@ -115,7 +128,7 @@ class ExpressionController extends Controller {
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
-            ->paginate(10);
+            ->paginate(8);
         $args = array();
         $definitions->appends(array('e' => $text));
         $args['definitions'] = $definitions;
@@ -141,7 +154,7 @@ class ExpressionController extends Controller {
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
-            ->paginate(10)
+            ->paginate(8)
             ->toArray();
         $data = array(
             'active' => $letter,
