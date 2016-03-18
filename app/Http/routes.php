@@ -43,3 +43,8 @@ Route::get('/new', 'ExpressionController@getNew');
 Route::get('/top', 'ExpressionController@getTop');
 Route::get('/random', 'ExpressionController@getRandom');
 Route::controller('/expression', 'ExpressionController');
+
+// Display all SQL executed in Eloquent
+Event::listen('illuminate.query', function ($query) {
+    Log::debug($query);
+});

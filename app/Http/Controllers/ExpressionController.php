@@ -26,6 +26,7 @@ namespace SLBR\Http\Controllers;
 use \App;
 use \Config;
 use \Lang;
+use \Input;
 
 use SLBR\Models\Definition;
 use Illuminate\Http\Request;
@@ -127,25 +128,29 @@ class ExpressionController extends Controller {
 
     public function getDefine(Request $request)
     {
-        $lang = App::getLocale();
+        $languages = $request->get('languages');
+        $currentLanguageSlug = App::getLocale();
+        $language = $this->getLanguage($currentLanguageSlug, $languages);
         $text = Input::get('e');
         $definitions = Definition::
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('definitions.status', '=', 2)
-            ->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+            ->where('language_id', '=', $language['id'])
             ->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
             ->select('definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
-            ->paginate(8);
-        $args = array();
-        $definitions->appends(array('e' => $text));
-        $args['definitions'] = $definitions;
-        $args['subtitle'] = Lang::get('messages.definitions_of', array('definition' => $text));
-        $args['expression'] = $text;
-        return $this->theme->scope('home.index', $args)->render();
+            ->paginate(8)
+            ->toArray();
+        $data = array(
+            'active' => 'random',
+            'languages' => $languages,
+            'definitions' => $definitions['data'],
+            'pagination' => $definitions
+        );
+        return view('home', $data);
     }
 
     public function getLetter(Request $request, $letter)
