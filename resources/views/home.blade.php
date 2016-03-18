@@ -19,7 +19,7 @@
                 </div>
             @else
                 <div class='fourteen wide column'>
-                    <h2>No expressions found</h2>                    
+                    <p>No expressions found. <a href="{{ URL::to('/expression/add') }}">Add yours!</a></p>
                 </div>
             @endif
 		    	<div class='two wide column'>
