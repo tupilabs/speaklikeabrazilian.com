@@ -124,14 +124,16 @@ class ExpressionController extends Controller {
         return $this->theme->scope('home.index', $args)->render();
     }
 
-    public function getLetter($letter)
+    public function getLetter(Request $request, $letter)
     {
-        $lang = App::getLocale();
+        $languages = $request->get('languages');
+        $currentLanguageSlug = App::getLocale();
+        $language = $this->getLanguage($currentLanguageSlug, $languages);
         $queryLetter = $letter === '0-9' ? '0' : strtoupper($letter);
         $definitions = Definition::
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
-            ->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+            ->where('language_id', '=', $language['id'])
             ->where('expressions.char', '=', $queryLetter)
             ->orderBy('expressions.text', 'asc')
             ->select('definitions.*', 
@@ -139,14 +141,14 @@ class ExpressionController extends Controller {
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
-            ->paginate(10);
-        $args = array();
-        $args['definitions'] = $definitions;
-        $args['subtitle'] = Lang::get('messages.letter_expressions', array('letter' => strtoupper($letter)));
-        $letter = strtoupper($letter);
-        $args['letter'] = $letter;
-        $this->theme->set('active', $letter);
-        return $this->theme->scope('home.index', $args)->render();
+            ->paginate(10)
+            ->toArray();
+        $data = array(
+            'active' => $letter,
+            'languages' => $languages,
+            'definitions' => $definitions
+        );
+        return view('home', $data);
     }
 
     public function getAdd()
