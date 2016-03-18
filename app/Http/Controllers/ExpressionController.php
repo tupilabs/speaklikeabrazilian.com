@@ -57,7 +57,8 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => 'new',
             'languages' => $languages,
-            'definitions' => $definitions
+            'definitions' => $definitions['data'],
+            'pagination' => $definitions
         );
         return view('home', $data);
     }
@@ -87,18 +88,26 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => 'top',
             'languages' => $languages,
-            'definitions' => $definitions
+            'definitions' => $definitions['data'],
+            'pagination' => $definitions
         );
         return view('home', $data);
     }
 
-    public function getRandom()
+    /**
+     * Get random expressions. Relies on RAND() when using MySQL and RANDOM() otherwise (sqlite, for example).
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function getRandom(Request $request)
     {
-        $lang = App::getLocale();
+        $languages = $request->get('languages');
+        $currentLanguageSlug = App::getLocale();
+        $language = $this->getLanguage($currentLanguageSlug, $languages);
         $definitions = Definition::
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
-            ->where('language_id', '=', Config::get("constants.$lang", Config::get('constants.en', 1)))
+            ->where('language_id', '=', $language['id'])
             ->select('definitions.*', 
                 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
@@ -106,12 +115,14 @@ class ExpressionController extends Controller {
                 )
             ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
             ->take(8)
-            ->get();
-        $args = array();
-        $args['definitions'] = $definitions;
-        $args['subtitle'] = Lang::get('messages.random_expressions');
-        $this->theme->set('active', 'random');
-        return $this->theme->scope('home.index', $args)->render();
+            ->get()
+            ->toArray();
+        $data = array(
+            'active' => 'top',
+            'languages' => $languages,
+            'definitions' => $definitions
+        );
+        return view('home', $data);
     }
 
     public function getDefine()
@@ -159,7 +170,8 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => $letter,
             'languages' => $languages,
-            'definitions' => $definitions
+            'definitions' => $definitions['data'],
+            'pagination' => $definitions
         );
         return view('home', $data);
     }

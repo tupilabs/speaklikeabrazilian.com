@@ -11,6 +11,8 @@
 |
 */
 
+// Retrieve languages from database
+// TODO: cache
 $languages = \SLBR\Models\Language::all()->toArray();
 $locale = Request::segment(1);
 if(in_array($locale, $languages))
@@ -23,16 +25,21 @@ else
     App::setLocale($locale);
 }
 
+// You repeat routes in the group and outside, to play nice with the prefix language in the URL
+
 Route::group(array('prefix' => $locale), function()
 {
     // Main app
     Route::get('/', 'ExpressionController@getNew');
     Route::get('/new', 'ExpressionController@getNew');
     Route::get('/top', 'ExpressionController@getTop');
+    Route::get('/random', 'ExpressionController@getRandom');
     Route::controller('/expression', 'ExpressionController');
 });
 
+// Main app
 Route::get('/', 'ExpressionController@getNew');
 Route::get('/new', 'ExpressionController@getNew');
 Route::get('/top', 'ExpressionController@getTop');
+Route::get('/random', 'ExpressionController@getRandom');
 Route::controller('/expression', 'ExpressionController');
