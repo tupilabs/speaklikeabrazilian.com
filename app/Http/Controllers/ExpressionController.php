@@ -142,13 +142,15 @@ class ExpressionController extends Controller {
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
-            ->paginate(8)
-            ->toArray();
+            ->paginate(8);
+        $definitions->appends(Input::except('page'));
+        $definitions = $definitions->toArray();
         $data = array(
             'active' => 'random',
             'languages' => $languages,
             'definitions' => $definitions['data'],
-            'pagination' => $definitions
+            'pagination' => $definitions,
+            'query_parameters' => sprintf("&e=%s", urlencode($text))
         );
         return view('home', $data);
     }

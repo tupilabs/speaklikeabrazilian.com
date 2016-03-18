@@ -11,7 +11,7 @@
                             @if ($pagination['current_page'] == $i)
                         <a class="active item">{{ $i }}</a>
                             @else
-                        <a class="item" href="{{ Request::url() }}?page={{ $i }}">{{ $i }}</a>
+                        <a class="item" href="{{ Request::url() }}?page={{ $i }}{{ $query_parameters or '' }}">{{ $i }}</a>
                             @endif
 
                             @if ($i >= 2 and $i < $pagination['last_page'] - 2)
