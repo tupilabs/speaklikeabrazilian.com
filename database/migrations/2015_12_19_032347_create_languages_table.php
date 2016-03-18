@@ -14,7 +14,6 @@ class CreateLanguagesTable extends Migration
      */
     public function up()
     {
-        DB::beginTransaction();
         Schema::create('languages', function (Blueprint $table) {
             $table->integer('id')->unsigned();
             $table->primary(array('id'));
