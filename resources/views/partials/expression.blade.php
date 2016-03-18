@@ -8,11 +8,11 @@
 					    		<span class="category"><small>{{ date('F jS \\a\\t g:ia', $definition['created_at']) }}</small></span>
 					    	</div>
 					    	<div class="description">
-								<p>{{ $definition['description'] }}</p>
+								<p>{!! html_entity_decode($definition['description']) !!}</p>
 
 								<p><i>Examples</i></p>
 								<p style='font-style: italic;'>
-									{{ $definition['example'] }}
+									{!! html_entity_decode($definition['example']) !!}
 								</p>
 								<div class='expression media'>
 									<button class='ui small icon button'><i class="photo icon"></i></button>
