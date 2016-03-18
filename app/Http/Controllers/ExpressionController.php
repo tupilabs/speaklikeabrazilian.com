@@ -125,7 +125,7 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
-    public function getDefine()
+    public function getDefine(Request $request)
     {
         $lang = App::getLocale();
         $text = Input::get('e');
