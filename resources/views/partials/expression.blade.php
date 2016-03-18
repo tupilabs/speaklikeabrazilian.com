@@ -1,20 +1,18 @@
 					<div class="ui fluid card">
-					  	<div class="content">
+					  	<div class="content">{{ var_dump($definition) }}
 	   						<a class='right floated'><small>0</small> <i class="thumbs down outline icon"></i></a>
 	   						<a class='right floated'><small>2</small> <i class="right floated thumbs up outline icon"></i></a>
-					    	<div class="header"><a>Cafune</a><a><i class="unmute icon"></i></a></div>
+					    	<div class="header"><a>{{ $definition['text'] }}</a><a><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
 					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
-					    		<span class="category"><small>January 5th at 1:42am</small></span>
+					    		<span class="category"><small>{{ date('F jS \\a\\t g:ia', $definition['created_at']) }}</small></span>
 					    	</div>
 					    	<div class="description">
-								<p>The act of tenderly running fingers through someone's hair.</p>
+								<p>{{ $definition['description'] }}</p>
 
 								<p><i>Examples</i></p>
 								<p style='font-style: italic;'>
-									1. Eu amo cafuné!
-									<br/>
-									2. Esse cafuné tá me dando sono.
+									{{ $definition['example'] }}
 								</p>
 								<div class='expression media'>
 									<button class='ui small icon button'><i class="photo icon"></i></button>
@@ -24,7 +22,11 @@
 						    </div>
 					  	</div>
 					  	<div class='extra content'>
-					    	<p class='left floated'><small>See also: <a>tag1</a>, <a>tag2</a></small></p>
+					    	<p class='left floated'>
+                                <small>
+                                    See also: {{ $definition['tags'] }}
+                                </small>
+                            </p>
 					    	<span class='right floated'>
 					    		<small>
 					    		<a><i class="plus icon"></i>picture</a>
