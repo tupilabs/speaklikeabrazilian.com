@@ -11,4 +11,24 @@
 |
 */
 
-Route::get('/', 'HomeController@getHome');
+$languages = \SLBR\Models\Language::all()->toArray();
+$locale = Request::segment(1);
+if(in_array($locale, $languages))
+{
+    App::setLocale($locale);
+}
+else
+{
+    $locale = 'en';
+    App::setLocale($locale);
+}
+
+Route::group(array('prefix' => $locale), function()
+{
+    // Main app
+    Route::get('/', 'ExpressionController@getNew');
+    Route::get('/new', 'ExpressionController@getNew');
+});
+
+Route::get('/', 'ExpressionController@getNew');
+Route::get('/new', 'ExpressionController@getNew');
