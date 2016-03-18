@@ -118,7 +118,7 @@ class ExpressionController extends Controller {
             ->get()
             ->toArray();
         $data = array(
-            'active' => 'top',
+            'active' => 'random',
             'languages' => $languages,
             'definitions' => $definitions
         );
