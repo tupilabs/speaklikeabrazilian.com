@@ -4,7 +4,7 @@
 	   						<a class='right floated'><small>2</small> <i class="right floated thumbs up outline icon"></i></a>
 					    	<div class="header"><a>Cafune</a><a><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
-					    		<span class="right floated time"><small>@kinow</small></span>
+					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
 					    		<span class="category"><small>January 5th at 1:42am</small></span>
 					    	</div>
 					    	<div class="description">

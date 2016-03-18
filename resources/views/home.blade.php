@@ -6,14 +6,14 @@
 	<div class='ui vertical segment'>
 		<div class='ui stackable grid container'>
 			<div class='row'>
-            @if (count($definitions) > 0)
+            @if (count($definitions['data']) > 0)
 		    	<div class='seven wide column'>
-                @foreach (array_slice($definitions, 0, 4) as $definition)
+                @foreach (array_slice($definitions['data'], 0, 4) as $definition)
 					@include('partials/expression')
                 @endforeach
 		    	</div>
                 <div class='seven wide column'>
-                @foreach (array_slice($definitions, 4, 4) as $definition)
+                @foreach (array_slice($definitions['data'], 4, 4) as $definition)
                     @include('partials/expression')
                 @endforeach
                 </div>
@@ -26,7 +26,7 @@
 					@include('partials/sidebar')
 		    	</div>
 			</div>
-            @if (count($definitions) > 0)
+            @if (count($definitions['data']) > 0)
 			<div class='row'>
 		    	<div class='sixteen wide center aligned column'>
 					<div class="ui pagination menu">
