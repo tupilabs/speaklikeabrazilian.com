@@ -20,9 +20,9 @@
                             <a href="http://facebook.com/SpeakLikeABrazilian" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
                             <a href="http://speaklikeabrazilian.com/moderators" class="small item"><i class="privacy icon"></i> Moderators Area</a>
                             <div class="small item">
-                                <h1>{{ $languages }}</h1>
-                                <a href="http://speaklikeabrazilian.com/en"><img width='24px' src="{{ URL::asset('images/flags/flag_great_britain.png') }}" /></a>&nbsp;&nbsp;
-                                <a href="http://speaklikeabrazilian.com/es"><img width='24px' src="{{ URL::asset('images/flags/flag_spain.png') }}" /></a>&nbsp;&nbsp;
+                                @foreach ($languages as $language)
+                                <a href="http://speaklikeabrazilian.com/{{ $language->slug }}"><img width='24px' src="{{ URL::asset('images/flags/flag_' . $language->slug . '.png') }}" /></a>&nbsp;&nbsp;
+                                @endforeach
                             </div>
                         </div>
                     </div>
