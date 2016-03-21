@@ -29,6 +29,7 @@ use Illuminate\Database\Seeder;
 use SLBR\Models\Expression;
 use SLBR\Models\Definition;
 use SLBR\Models\Rating;
+use SLBR\Models\Media;
 
 class DevDatabaseSeeder extends Seeder
 {
@@ -101,6 +102,17 @@ class DevDatabaseSeeder extends Seeder
                     'email' => 'kinow@slbr.com',
                     'contributor' => 'kinow',
                     'language_id' => 1
+                )
+            );
+            Media::create(
+                array(
+                    'url' => 'http://i.imgur.com/D1J7DRu.gif',
+                    'reason' => 'Chuaaa',
+                    'email' => 'user@internet.zijjj',
+                    'status' => 2,
+                    'content_type' => 'image/gif',
+                    'contributor' => 'Thom',
+                    'definition_id' => $approvedDefinition->id
                 )
             );
             Rating::create(
