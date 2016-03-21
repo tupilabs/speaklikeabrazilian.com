@@ -102,4 +102,9 @@ class Definition extends Model implements Transformable
         return $this->belongsTo('SLBR\Models\Language');
     }
 
+    public function medias()
+    {
+        return $this->hasMany('SLBR\Models\Media');
+    }
+
 }
