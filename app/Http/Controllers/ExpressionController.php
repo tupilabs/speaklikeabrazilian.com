@@ -48,11 +48,12 @@ class ExpressionController extends Controller {
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
             ->orderBy('definitions.created_at', 'desc')
-            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
+            ->with('medias')
             ->paginate(8)
             ->toArray();
         $data = array(

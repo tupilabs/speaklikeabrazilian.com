@@ -104,7 +104,7 @@ class Definition extends Model implements Transformable
 
     public function medias()
     {
-        return $this->hasMany('SLBR\Models\Media');
+        return $this->hasMany('SLBR\Models\Media', 'definition_id');
     }
 
 }
