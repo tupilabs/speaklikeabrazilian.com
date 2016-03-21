@@ -14,11 +14,17 @@
 								<p style='font-style: italic;'>
 									{!! html_entity_decode($definition['example']) !!}
 								</p>
+                                @if (isset($definition['medias']) and count($definition['medias']) > 0)
 								<div class='expression media'>
-									<button class='ui small icon button'><i class="photo icon"></i></button>
-									<button class='ui small icon button'><i class="photo icon"></i></button>
+                                    @foreach ($definition['medias'] as $media)
+                                    @if ($media['content_type'] == 'video')
 									<button class='ui small icon button'><i class="film icon"></i></button>
+                                    @else
+									<button class='ui small icon button'><i class="photo icon"></i></button>
+                                    @endif
+                                    @endforeach
 								</div>
+                                @endif
 						    </div>
 					  	</div>
 					  	<div class='extra content'>
