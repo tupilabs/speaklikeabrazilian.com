@@ -23,8 +23,6 @@
  */
 namespace SLBR\Http\Controllers;
 
-use \App;
-use \Lang;
 use \Input;
 
 use SLBR\Models\Definition;
@@ -58,8 +56,7 @@ class ExpressionController extends Controller {
     public function getNew(Request $request)
     {
         $languages = $request->get('languages');
-        $currentLanguageSlug = App::getLocale();
-        $language = $this->getLanguage($currentLanguageSlug, $languages);
+        $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->getNew($language);
         $data = array(
             'active' => 'new',
@@ -78,8 +75,7 @@ class ExpressionController extends Controller {
     public function getTop(Request $request)
     {
         $languages = $request->get('languages');
-        $currentLanguageSlug = App::getLocale();
-        $language = $this->getLanguage($currentLanguageSlug, $languages);
+        $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->getTop($language);
         $data = array(
             'active' => 'top',
@@ -98,8 +94,7 @@ class ExpressionController extends Controller {
     public function getRandom(Request $request)
     {
         $languages = $request->get('languages');
-        $currentLanguageSlug = App::getLocale();
-        $language = $this->getLanguage($currentLanguageSlug, $languages);
+        $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->getRandom($language);
         $data = array(
             'active' => 'random',
@@ -112,8 +107,7 @@ class ExpressionController extends Controller {
     public function getDefine(Request $request)
     {
         $languages = $request->get('languages');
-        $currentLanguageSlug = App::getLocale();
-        $language = $this->getLanguage($currentLanguageSlug, $languages);
+        $language = $this->getLanguage($languages, $request);
         $text = Input::get('e');
         $definitions = $this->definitionRepository->getDefinitions($text, $language);
         $definitions->appends(Input::except('page'));
@@ -131,8 +125,7 @@ class ExpressionController extends Controller {
     public function getLetter(Request $request, $letter)
     {
         $languages = $request->get('languages');
-        $currentLanguageSlug = App::getLocale();
-        $language = $this->getLanguage($currentLanguageSlug, $languages);
+        $language = $this->getLanguage($languages, $request);
         $queryLetter = $letter === '0-9' ? '0' : strtoupper($letter);
         $definitions = $this->definitionRepository->getLetter($queryLetter, $language);
         $data = array(
@@ -146,28 +139,17 @@ class ExpressionController extends Controller {
 
     public function getAdd()
     {
-        $args = array();
-
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
         $expression = Input::get('e');
-        if (isset($expression) && strlen($expression) > 0)
-            $args['expression'] = ucfirst($expression);
-
-        $lang = App::getLocale();
-        $args['lang'] = Config::get("constants.$lang", Config::get('constants.en', 1));
-
-        $languages = Language::all();
-        $languagesArray = array();
-        foreach ($languages as $language)
-        {
-            $languagesArray[$language->id] = $language->description;
-            if ($language->id == $args['lang'])
-            {
-                $args['selectedLanguage'] = $language->description;
-            }
-        }
-        $args['languages'] = $languagesArray;
-    
-        return $this->theme->scope('expression.add', $args)->render();
+        $data = array(
+            'languages' => $languages,
+            'lang' => $language['id'],
+            'selected_language' => $language['description'],
+            'expression' => $expression,
+            'pagination' => $definitions
+        );
+        return view('add', $data);
     }
 
     public function postAdd()

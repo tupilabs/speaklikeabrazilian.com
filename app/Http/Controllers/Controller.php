@@ -2,6 +2,8 @@
 
 namespace SLBR\Http\Controllers;
 
+use \App;
+use \Lang;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,8 +13,9 @@ abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function getLanguage($slug, $languages)
+    protected function getLanguage($languages, $request)
     {
+        $slug = App::getLocale();
         $languageFound = null;
         foreach ($languages as $language)
         {
