@@ -2,6 +2,7 @@
   "name": "slbr",
   "dependencies": {
     "jquery": "~2.1.4",
-    "semantic": "semantic-ui#~2.1.6"
+    "semantic": "semantic-ui#~2.1.6",
+    "jquery-colorbox": "^1.6.3"
   }
 }
