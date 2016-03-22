@@ -9,7 +9,7 @@
                 <div class='fourteen wide column'>
                     <h2>Add expression</h2>
 
-                    <form class="ui form">
+                    <form class="ui form" method="post" action="{{ action('ExpressionController@postAdd') }}">
                         <div class="field">
                             <label for="expression-text-input">Expression in Portuguese</label>
                             <input name="expression-text-input" id="expression-text-input" placeholder="Expression in Portuguese" type="text" />
@@ -36,7 +36,7 @@
                                 <input name="expression-email-input" id="expression-email-input" placeholder="Your e-mail" type="text" />
                             </div>
                         </div>
-                        <button class="ui button" type="submit">Add</button>
+                        <button class="ui primary button" type="submit">Send it!</button>
                     </form>
                 </div>
                 <div class='two wide column'>
