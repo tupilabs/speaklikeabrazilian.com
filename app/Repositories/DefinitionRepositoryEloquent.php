@@ -85,7 +85,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         return $definitions;
     }
 
-    public function getDefinition($text, array $language)
+    public function getDefinitions($text, array $language)
     {
         $definitions = Definition::
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
