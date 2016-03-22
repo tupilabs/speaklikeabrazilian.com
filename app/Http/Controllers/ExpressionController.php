@@ -137,7 +137,7 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
-    public function getAdd()
+    public function getAdd(Request $request)
     {
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
@@ -146,8 +146,7 @@ class ExpressionController extends Controller {
             'languages' => $languages,
             'lang' => $language['id'],
             'selected_language' => $language['description'],
-            'expression' => $expression,
-            'pagination' => $definitions
+            'expression' => $expression
         );
         return view('add', $data);
     }
