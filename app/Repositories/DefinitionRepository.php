@@ -10,5 +10,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface DefinitionRepository extends RepositoryInterface
 {
-    //
+    public function getNew(array $language);
 }

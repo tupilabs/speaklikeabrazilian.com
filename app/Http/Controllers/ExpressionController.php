@@ -29,9 +29,27 @@ use \Lang;
 use \Input;
 
 use SLBR\Models\Definition;
+use SLBR\Repositories\DefinitionRepository;
+use SLBR\Repositories\RatingRepository;
 use Illuminate\Http\Request;
 
 class ExpressionController extends Controller {
+
+    /**
+     * SLBR\Repositories\DefinitionRepository
+     */
+    private $definitionRepository;
+
+    /**
+     * SLBR\Repositories\RatingRepository
+     */
+    private $ratingRepository;
+
+    public function __construct(DefinitionRepository $definitionRepository, RatingRepository $ratingRepository)
+    {
+        $this->definitionRepository = $definitionRepository;
+        $this->ratingRepository = $ratingRepository;
+    }
 
     /**
      * Get new expressions. Also used as landing page.
@@ -43,19 +61,7 @@ class ExpressionController extends Controller {
         $languages = $request->get('languages');
         $currentLanguageSlug = App::getLocale();
         $language = $this->getLanguage($currentLanguageSlug, $languages);
-        $definitions = Definition::
-            join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-            ->where('status', '=', 2)
-            ->where('language_id', '=', $language['id'])
-            ->orderBy('definitions.created_at', 'desc')
-            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
-                'definitions.contributor', 'definitions.created_at', 'expressions.text',
-                new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
-                new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
-                )
-            ->with('medias')
-            ->paginate(8)
-            ->toArray();
+        $definitions = $this->definitionRepository->getNew($language);
         $data = array(
             'active' => 'new',
             'languages' => $languages,
