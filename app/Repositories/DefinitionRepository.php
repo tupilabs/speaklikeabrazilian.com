@@ -15,4 +15,6 @@ interface DefinitionRepository extends RepositoryInterface
     public function getTop(array $language);
 
     public function getRandom(array $language);
+
+    public function getDefinition($text, array $language);
 }
