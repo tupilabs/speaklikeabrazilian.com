@@ -18,9 +18,9 @@
 								<div class='expression media'>
                                     @foreach ($definition['medias'] as $media)
                                     @if ($media['content_type'] == 'video/youtube')
-									<button class='ui small icon button'><i class="film icon"></i></button>
+									<a class='ui small icon button video-media'><i class="film icon"></i></a>
                                     @else
-									<button class='ui small icon button'><i class="photo icon"></i></button>
+									<a class='ui small icon button image-media' title="{{ $definition['text'] }}" href="{{ $media['url'] }}"><i class="photo icon"></i></a>
                                     @endif
                                     @endforeach
 								</div>

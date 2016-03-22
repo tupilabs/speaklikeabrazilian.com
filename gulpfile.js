@@ -28,6 +28,7 @@ elixir(function(mix) {
    mix.scripts([
       './resources/assets/bower/jquery/dist/jquery.js',
       './resources/assets/bower/semantic/dist/semantic.js',
+      './resources/assets/bower/jquery-colorbox/jquery.colorbox.js',
       './resources/assets/app.js'
     ]);
 

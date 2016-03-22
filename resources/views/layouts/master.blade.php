@@ -104,6 +104,15 @@
             }
           })
         ;
+
+        $('a.image-media')
+            .colorbox({
+                title: function() {
+                    var title = $(this).attr('title');
+                    return title;
+                }
+            })
+        ;
     });
     </script>
 </body>
