@@ -17,7 +17,7 @@
                                 @if (isset($definition['medias']) and count($definition['medias']) > 0)
 								<div class='expression media'>
                                     @foreach ($definition['medias'] as $media)
-                                    @if ($media['content_type'] == 'video')
+                                    @if ($media['content_type'] == 'video/youtube')
 									<button class='ui small icon button'><i class="film icon"></i></button>
                                     @else
 									<button class='ui small icon button'><i class="photo icon"></i></button>
@@ -30,7 +30,10 @@
 					  	<div class='extra content'>
 					    	<p class='left floated'>
                                 <small>
-                                    See also: {{ $definition['tags'] }}
+                                    See also: 
+                                    @foreach (explode(',', $definition['tags']) as $tag)
+                                    <a href="{{ action('ExpressionController@getDefine') }}?e={{ urlencode(trim($tag)) }}">{{ trim($tag) }}</a>
+                                    @endforeach
                                 </small>
                             </p>
 					    	<span class='right floated'>
