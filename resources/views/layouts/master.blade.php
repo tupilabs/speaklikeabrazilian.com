@@ -45,13 +45,33 @@
 @show
 @section('menu')
     <div class="ui center aligned vertical segment" id="menu">
+        @if (isset($active) and $active == 'new')
+        <a href="{{ URL::to('/new') }}" class="active item">New</a>
+        @else
         <a href="{{ URL::to('/new') }}" class="item">New</a>
+        @endif
 @foreach (range('a', 'z') as $char)
+        @if (isset($active) and $active == $char)
+        <a href="{{ action('ExpressionController@getLetter', ['letter' => $char]) }}" class="active item">{{ strtoupper($char) }}</a>
+        @else
         <a href="{{ action('ExpressionController@getLetter', ['letter' => $char]) }}" class="item">{{ strtoupper($char) }}</a>
+        @endif
 @endforeach
+        @if (isset($active) and $active == '0-9')
+        <a href="{{ action('ExpressionController@getLetter', ['letter' => '0-9']) }}" class="active item">0-9</a>
+        @else
         <a href="{{ action('ExpressionController@getLetter', ['letter' => '0-9']) }}" class="item">0-9</a>
+        @endif
+        @if (isset($active) and $active == 'top')
+        <a href="{{ URL::to('/top') }}" class="active item">Top</a>
+        @else
         <a href="{{ URL::to('/top') }}" class="item">Top</a>
+        @endif
+        @if (isset($active) and $active == 'random')
+        <a href="{{ URL::to('/random') }}" class="active item">Random</a>
+        @else
         <a href="{{ URL::to('/random') }}" class="item">Random</a>
+        @endif
     </div>
 @show
 @yield('content')
