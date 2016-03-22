@@ -27,7 +27,6 @@
 		    	</div>
 			</div>
             @include('partials/pagination')
-			</div>
 		</div>
 	</div>
 @stop
