@@ -113,6 +113,12 @@
                 }
             })
         ;
+
+        $('#form')
+            .parsley({
+                errorClass: 'field error'
+            })
+        ;
     });
     </script>
 </body>

@@ -21,6 +21,7 @@ elixir(function(mix) {
 
    mix.styles([
      './resources/assets/bower/semantic/dist/semantic.min.css',
+     './resources/assets/bower/parsleyjs/src/parsley.css',
      './resources/assets/sass/app.css'
    ],
    'public/css/slbr.css');
@@ -29,6 +30,7 @@ elixir(function(mix) {
       './resources/assets/bower/jquery/dist/jquery.js',
       './resources/assets/bower/semantic/dist/semantic.js',
       './resources/assets/bower/jquery-colorbox/jquery.colorbox.js',
+      './resources/assets/bower/parsleyjs/dist/parsley.js',
       './resources/assets/app.js'
     ]);
 

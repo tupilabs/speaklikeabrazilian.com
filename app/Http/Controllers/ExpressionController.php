@@ -104,6 +104,11 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
+    /**
+     * Get the list of definitions for a given expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function getDefine(Request $request)
     {
         $languages = $request->get('languages');
@@ -122,6 +127,11 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
+    /**
+     * Get a list of definitions for a given letter.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function getLetter(Request $request, $letter)
     {
         $languages = $request->get('languages');
@@ -137,6 +147,11 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
+    /**
+     * Display form to add expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function getAdd(Request $request)
     {
         $languages = $request->get('languages');
@@ -151,6 +166,11 @@ class ExpressionController extends Controller {
         return view('add', $data);
     }
 
+    /**
+     * Handle form submission to add expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function postAdd()
     {
         Log::debug('Starting transaction to add new expression');

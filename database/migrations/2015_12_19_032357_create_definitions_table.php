@@ -20,7 +20,7 @@ class CreateDefinitionsTable extends Migration
 			$table->string('example', 1000);
 			$table->string('tags', 100);
 			$table->char('status', 1);
-			$table->string('email');
+			$table->string('email', 255);
 			$table->string('contributor', 50);
             $table->string('user_ip', 50)->nullable();
             $table->integer('language_id')->unsigned();
