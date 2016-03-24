@@ -31,7 +31,10 @@
 		},
 		"classmap": [
 			"database"
-		]
+		],
+        "files": [
+            "app/utils.php"
+        ]
 	},
 	"autoload-dev": {
 		"classmap": [

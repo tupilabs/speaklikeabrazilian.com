@@ -4,6 +4,8 @@ namespace SLBR\Providers;
 
 use DB;
 use Log;
+use Blade;
+use URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

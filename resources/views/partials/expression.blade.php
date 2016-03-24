@@ -8,11 +8,19 @@
 					    		<span class="category"><small>{{ date('F jS \\a\\t g:ia', $definition['created_at']) }}</small></span>
 					    	</div>
 					    	<div class="description">
-								<p>{!! html_entity_decode($definition['description']) !!}</p>
+								<p>{!! html_entity_decode(
+                                            get_definition_formatted_text(
+                                                $definition['description']
+                                            )
+                                        ) !!}</p>
 
 								<p><i>Examples</i></p>
 								<p style='font-style: italic;'>
-									{!! html_entity_decode($definition['example']) !!}
+									{!! html_entity_decode(
+                                            get_definition_formatted_text(
+                                                $definition['example']
+                                            )
+                                        ) !!}
 								</p>
                                 @if (isset($definition['medias']) and count($definition['medias']) > 0)
 								<div class='expression media'>

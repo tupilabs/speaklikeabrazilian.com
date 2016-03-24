@@ -84,7 +84,7 @@ class DevDatabaseSeeder extends Seeder
                 array(
                     'expression_id' => 1, 
                     'description' => 'A nice car',
-                    'example' => 'O Johnny tem uma bela caranga',
+                    'example' => 'O Johnny tem uma bela [caranga]',
                     'tags' => 'carro, carrao, maquina',
                     'status' => 1,
                     'email' => 'kinow@slbr.com',
@@ -95,7 +95,7 @@ class DevDatabaseSeeder extends Seeder
             $approvedDefinition = Definition::create(
                 array(
                     'expression_id' => 1, 
-                    'description' => 'Someone born in Carangopolis',
+                    'description' => 'Someone born in [Carangopolis]',
                     'example' => 'De onde você &eacute;? <br/>Eu sou Caranga.',
                     'tags' => 'carro, carrao, maquina',
                     'status' => 2,
@@ -147,7 +147,7 @@ class DevDatabaseSeeder extends Seeder
                 array(
                     'expression_id' => 2, 
                     'description' => 'A place in the Northeast',
-                    'example' => 'Vamos para Jo&atilde;o Pessoa?',
+                    'example' => 'Vamos [para] Jo&atilde;o Pessoa?',
                     'tags' => 'cidade, para&iacute;ba',
                     'status' => 2,
                     'email' => 'stufi@slbr.com',
