@@ -36,7 +36,9 @@
                                 <input name="expression-email-input" id="expression-email-input" placeholder="Your e-mail" type="text" />
                             </div>
                         </div>
-                        <button class="ui primary button" type="submit">Send it!</button>
+                        <div class="ui center aligned container">
+                            <button class="ui primary large button" type="submit">Send it!</button>
+                        </div>
                     </form>
                 </div>
                 <div class='two wide column'>

@@ -1,5 +1,5 @@
-					<a class='ui fluid green large icon button' href='{{ URL::to("expression/add") }}'>
-						<i class='plus icon'></i>Add Your Expression
+					<a class='ui fluid compact green large icon button' href='{{ URL::to("expression/add") }}'>
+						<i class='plus icon'></i>Add Expression
 					</a>
 					<div class='ui divider'></div>
 					<!--<div class='ui center aligned container'>
