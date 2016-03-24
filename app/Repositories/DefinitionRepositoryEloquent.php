@@ -2,10 +2,13 @@
 
 namespace SLBR\Repositories;
 
+use \DB;
+use \Log;
 use \Config;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\DefinitionRepository;
+use SLBR\Models\Expression;
 use SLBR\Models\Definition;
 
 /**
@@ -121,6 +124,69 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             ->paginate(8)
             ->toArray();
         return $definitions;
+    }
+
+    public function add(array $input, array $language, $ip)
+    {
+        Log::debug('Starting transaction to add new expression');
+        DB::beginTransaction();
+        try 
+        {
+            $text = urlencode($input['expression-text-input']);
+            // Get existing expressions
+            $expression = Expression::
+                where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
+                ->first();
+
+            $letter = substr($text, 0, 1);
+            if (is_numeric($letter))
+            {
+                $letter = '0';
+            }
+            else
+            {
+                $unwanted_array = array('Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
+                            'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
+                            'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c',
+                            'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o',
+                            'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
+                $text2 = strtr($text, $unwanted_array );
+                $letter = substr($text2, 0, 1);
+            }
+            if (!$expression)
+            {
+                $expression = Expression::create(array(
+                    'text' => $text,
+                    'char' => strtoupper($letter),
+                    'contributor' => $input['expression-pseudonym-input'],
+                    'moderator_id' => NULL
+                ));
+            }
+
+            $definition = Definition::create(array(
+                'expression_id' => $expression->id, 
+                'description' => $input['expression-description-input'],
+                'example' => $input['expression-example-input'],
+                'tags' => $input['expression-tags-input'],
+                'status' => 1,
+                'email' => $input['expression-email-input'],
+                'contributor' => $input['expression-pseudonym-input'],
+                'moderator_id' => NULL,
+                'user_ip' => $ip,
+                'language_id' => $language['id']
+            ));
+
+            Log::debug('Committing transaction');
+            DB::commit();
+            Log::info(sprintf('New definition for %s added!', $text));
+            return $definition;
+        } 
+        catch (\Exception $e) 
+        {
+            Log::debug('Rolling back transaction: ' . $e->getMessage());
+            DB::rollback();
+            throw $e;
+        }
     }
 
 }

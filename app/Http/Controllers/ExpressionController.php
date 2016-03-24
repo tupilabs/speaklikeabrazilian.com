@@ -24,7 +24,7 @@
 namespace SLBR\Http\Controllers;
 
 use \Input;
-
+use \Redirect;
 use SLBR\Models\Definition;
 use SLBR\Repositories\DefinitionRepository;
 use SLBR\Repositories\RatingRepository;
@@ -171,130 +171,12 @@ class ExpressionController extends Controller {
      *
      * @param Illuminate\Http\Request $request
      */
-    public function postAdd()
+    public function postAdd(Request $request)
     {
-        Log::debug('Starting transaction to add new expression');
-        DB::beginTransaction();
-
-        try 
-        {
-            $lang = App::getLocale();
-            $text = Input::get('text');
-            // Get existing expressions
-            $expression = Expression::
-                where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
-                ->first();
-
-            $letter = substr($text, 0, 1);
-            if (is_numeric($letter))
-            {
-                $letter = '0';
-            }
-            else
-            {
-                $unwanted_array = array('Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
-                            'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
-                            'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c',
-                            'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o',
-                            'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
-                $text2 = strtr($text, $unwanted_array );
-                $letter = substr($text2, 0, 1);
-            }
-            if (!$expression)
-            {
-                $expression = Expression::create(array(
-                    'text' => $text,
-                    'char' => strtoupper($letter),
-                    'contributor' => Input::get('pseudonym'),
-                    'moderator_id' => NULL
-                ));
-
-                if (!$expression->isValid() || !$expression->isSaved())
-                {
-                    return Redirect::to("$lang/expression/add")
-                        ->withInput()
-                        ->withErrors($expression->errors());
-                }
-            }
-
-            $definition = Definition::create(array(
-                'expression_id' => $expression->id, 
-                'description' => Input::get('definition'),
-                'example' => Input::get('example'),
-                'tags' => Input::get('tags'),
-                'status' => 1,
-                'email' => Input::get('email'),
-                'contributor' => Input::get('pseudonym'),
-                'moderator_id' => NULL,
-                'user_ip' => Request::getClientIp(),
-                'language_id' => Input::get('language')
-            ));
-
-            if (Input::get('subscribe') === 'checked')
-            {
-                $existing = Subscription::where('email', '=', Input::get('email'))->count();
-                if ($existing == 0)
-                {
-                    Log::info('Yay! We got a new subscription from ' . Request::getClientIp());
-                    try 
-                    {
-                        $subscription = Subscription::create(array(
-                            'email' => Input::get('email'),
-                            'ip' => Request::getClientIp()
-                        ));
-                        if ($subscription->isValid() && $subscription->isSaved())
-                        {
-                            $environment = App::environment();
-                            if ($environment == 'production')
-                            {
-                                Log::info('A new user is subscribed! Sending it to the mailing list server, under list ID ' . Config::get('mailchimp::list_id'));
-                                $r = MailchimpWrapper::lists()->subscribe(Config::get('mailchimp::list_id'), array('email' => Input::get('email')));
-                                Log::debug('MailChimp response: ' . var_export($r, true));
-                            }
-                            else
-                            {
-                                Log::info('Mailing list subscription enabled only in production. Current env: ' . $environment);
-                            }
-                        }
-                        else
-                        {
-                            Log::error('Error subscribing user: ' . var_export($subscription->errors(), true));
-                        }
-                    }
-                    catch (Exception $e)
-                    {
-                        Log::error('Internal error. Error subscribing user: ' . $e->getMessage());
-                        Log::error($e);
-                    }
-                }
-                else
-                {
-                    Log::debug('User tried to subscribe twice to our mailing list. Yipie!');
-                }
-            }
-
-            if ($definition->isValid() && $definition->isSaved())
-            {
-                Log::debug('Committing transaction');
-                DB::commit();
-                Log::info(sprintf('New definition for %s added!', Input::get('text')));
-                return Redirect::to("/$lang")->with('success', Lang::get('messages.expression_added'));
-            } 
-            else
-            {
-                Log::debug('Rolling back transaction');
-                DB::rollback();
-                return Redirect::to("$lang/expression/add")
-                    ->withInput()
-                    ->withErrors($definition->errors());
-            }
-        } 
-        catch (\Exception $e) 
-        {
-            Log::debug('Rolling back transaction: ' . $e->getMessage());
-            DB::rollback();
-            return Redirect::to("/$lang")->with('error', $e->getMessage());
-        }
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
+        $definitions = $this->definitionRepository->add(Input::all(), $language, $request->getClientIp());
+        return Redirect::to('/new');        
     }
 
     public function postRate()

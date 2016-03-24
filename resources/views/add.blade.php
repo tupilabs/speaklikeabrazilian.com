@@ -10,6 +10,7 @@
                     <h2>Add expression</h2>
 
                     <form id="form" class="ui form" method="post" action="{{ action('ExpressionController@postAdd') }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         <div class="field">
                             <label for="expression-text-input">Expression in Portuguese</label>
                             <input name="expression-text-input" id="expression-text-input" placeholder="Expression in Portuguese" type="text" data-parsley-maxlength="255" data-parsley-minlength="1" data-parsley-required="true" />
