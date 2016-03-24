@@ -56,11 +56,12 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
-            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
+            ->with('medias')
             ->orderByRaw('(COALESCE(likes, 0) - COALESCE(dislikes, 0)) DESC')
             ->paginate(8)
             ->toArray();
@@ -73,11 +74,12 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
-            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
+            ->with('medias')
             ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
             ->take(8)
             ->get()
@@ -92,11 +94,12 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             ->where('definitions.status', '=', 2)
             ->where('language_id', '=', $language['id'])
             ->where(new \Illuminate\Database\Query\Expression("lower(expressions.text)"), '=', strtolower($text))
-            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
+            ->with('medias')
             ->paginate(8);
         return $definitions;
     }
@@ -109,11 +112,12 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             ->where('language_id', '=', $language['id'])
             ->where('expressions.char', '=', $letter)
             ->orderBy('expressions.text', 'asc')
-            ->select('definitions.description', 'definitions.example', 'definitions.tags',
+            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
+            ->with('medias')
             ->paginate(8)
             ->toArray();
         return $definitions;
