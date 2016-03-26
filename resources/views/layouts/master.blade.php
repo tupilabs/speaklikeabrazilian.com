@@ -132,8 +132,9 @@
             var ret = jqXHR.responseText;
             try {
                 data = $.parseJSON(jqXHR.responseText);
-                if (/*jqXHR.status != 200 || */data.err != undefined || data.msg != 'OK') {
+                if (/*jqXHR.status != 200 || */data.err != undefined || data.message != 'OK') {
                     console.log(data.message);
+                    alert(data.message);
                     //console.log(data.msg);
                 } else {
                     if(data.message != 'OK') {
