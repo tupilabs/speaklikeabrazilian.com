@@ -163,6 +163,7 @@
 
         $(".like").click(function() {
             var definitionId = $(this).data('definitionid');
+            var self = this;
             $.ajax({
                 type : 'POST', 
                 url : '{{ action('ExpressionController@postLike') }}',
@@ -172,12 +173,12 @@
                 beforeSend : onBeforeSend,
                 success : function(data, textStatus, jqXHR) {
                     if(data.message != undefined && data.message == 'OK') {
-                        var likes = $(this).find('.like_count');
+                        var likes = $(self).find('.like_count');
                         likes.text(parseInt(likes.text())+1);
                         if(data.balance == true) {
-                            var dislikes = $(this).find('.like_count');
+                            var dislikes = $(self).parent().find('.dislike_count');
                             if (dislikes.text() > 0)
-                                dislikes.text(parseInt(likes.text())-1);
+                                dislikes.text(parseInt(dislikes.text())-1);
                         }
                     } else {
                         console.log(data);
@@ -193,6 +194,7 @@
 
         $(".dislike").click(function() {
             var definitionId = $(this).data('definitionid');
+            var self = this;
             $.ajax({
                 type : "post",
                 url : '{{ action('ExpressionController@postDislike') }}',
@@ -202,10 +204,10 @@
                 beforeSend : onBeforeSend,
                 success : function(data, textStatus, jqXHR) {
                     if(data.message != undefined && data.message == 'OK') {
-                        var dislikes = $(this).find('.dislike_count');
+                        var dislikes = $(self).find('.dislike_count');
                         dislikes.text(parseInt(dislikes.text())+1);
                         if(data.balance == true) {
-                            var likes = $(this).find('.like_count');
+                            var likes = $(self).parent().find('.like_count');
                             if (likes.text() > 0)
                                 likes.text(parseInt(likes.text())-1);
                         }

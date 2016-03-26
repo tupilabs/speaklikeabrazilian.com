@@ -193,8 +193,8 @@ class ExpressionController extends Controller {
         $json = NULL;
         try
         {
-            $this->ratingRepository->like($ip, $definitionId);
-            $json = response()->json(['message' => 'OK']);
+            $balance = $this->ratingRepository->like($ip, $definitionId);
+            $json = response()->json(['message' => 'OK', 'balance' => $balance]);
         } 
         catch (Exception $e)
         {
@@ -216,8 +216,8 @@ class ExpressionController extends Controller {
         $json = NULL;
         try
         {
-            $this->ratingRepository->dislike($ip, $definitionId);
-            $json = response()->json(['message' => 'OK']);
+            $balance = $this->ratingRepository->dislike($ip, $definitionId);
+            $json = response()->json(['message' => 'OK', 'balance' => $balance]);
         } 
         catch (Exception $e)
         {

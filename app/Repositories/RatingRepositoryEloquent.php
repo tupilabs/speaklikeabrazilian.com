@@ -41,7 +41,8 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
      */
     public function like($ip, $definitionId)
     {
-        $this->rate($ip, $definitionId, self::LIKE);
+        $balance = $this->rate($ip, $definitionId, self::LIKE);
+        return $balance;
     }
 
     /**
@@ -49,11 +50,13 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
      */
     public function dislike($ip, $definitionId)
     {
-        $this->rate($ip, $definitionId, self::DISLIKE);
+        $balance = $this->rate($ip, $definitionId, self::DISLIKE);
+        return $balance;
     }
 
     private function rate($ip, $definitionId, $rate)
     {
+        $balance = FALSE;
         Log::debug(sprintf('User %s liking definition %d', $ip, $definitionId));
         $inverse = NULL;
         if ($rate === self::LIKE)
@@ -84,6 +87,7 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
             Log::info(sprintf('User %s changed his mind, now likes definition %d', $ip, $definitionId));
             $rating->rating = $rate;
             $rating->save();
+            $balance = TRUE;
         } 
         else 
         {
@@ -95,6 +99,8 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
                 'user_ip' => $ip
             ));
         }
+
+        return $balance;
     }
 
 }
