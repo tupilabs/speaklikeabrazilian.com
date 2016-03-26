@@ -30,12 +30,21 @@
                 </div>
             </div>
         </div>
+        <div class="ui container mobile only grid" id="mobile-header-wrapper">
+            <div class="center aligned column" style='margin: 0px; padding: 0px;'>
+                <div class="small item">
+                    @foreach ($languages as $language)
+                    <a href="{{ URL::to('/' . $language['slug']) }}"><img width='24px' src="{{ URL::asset('images/flags/flag_' . $language['slug'] . '.png') }}" /></a>&nbsp;&nbsp;
+                    @endforeach
+                </div>
+            </div>
+        </div>
         <div class="ui container computer only grid" id="header-wrapper">
             <div class="ui sizer vertical column">
                 <h1 class='ui center aligned header' id="header-title">Speak Like A Brazilian <img src="{{ URL::asset('images/slbr.png') }}" class="logo" alt="Speak Like A Brazilian Logo" title="Logo"></h1>
             </div>
         </div>
-        <div class="ui container mobile only grid" id="mobile-header-wrapper">
+        <div class="ui container mobile only grid" style="margin: 0px">
             <div class="ui center aligned column">
                 <h2 class='ui'>Speak Like A Brazilian</h2>
             </div>
