@@ -21,9 +21,10 @@ $factory->define(SLBR\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(SLBR\Models\Expression::class, function (Faker\Generator $faker) {
+    $word = $faker->unique()->word;
     return [
-        'text' => $faker->unique()->word,
-        'char' => $faker->randomLetter,
+        'text' => $word,
+        'char' => strtoupper($word[0]),
         'contributor' => $faker->name
     ];
 });
