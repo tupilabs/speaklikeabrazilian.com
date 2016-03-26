@@ -25,6 +25,8 @@ namespace SLBR\Http\Controllers;
 
 use \Input;
 use \Redirect;
+use \Log;
+use Exception;
 use SLBR\Models\Definition;
 use SLBR\Repositories\DefinitionRepository;
 use SLBR\Repositories\RatingRepository;
@@ -179,19 +181,49 @@ class ExpressionController extends Controller {
         return Redirect::to('/new');        
     }
 
-    public function postRate()
+    /**
+     * Handle form submission to like expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function postLike(Request $request)
     {
-        $expressionId = Input::get('expressionId');
-        $definitionId = Input::get('definitionId');
-        $rating = Input::get('rating');
-        $userIp = Request::getClientIp();
-        $rate = API::post(sprintf('api/v1/expressions/%d/definitions/%d/rate', $expressionId, $definitionId), 
-            array(
-                'rating' => $rating,
-                'user_ip' => $userIp
-            )
-        );
-        return $rate;
+        $definitionId = $request->get('definition_id');
+        $ip = $request->getClientIp();
+        $json = NULL;
+        try
+        {
+            $this->ratingRepository->like($ip, $definitionId);
+            $json = response()->json(['message' => 'OK']);
+        } 
+        catch (Exception $e)
+        {
+            Log::error($e);
+            $json = response()->json(['message' => $e->getMessage()]);
+        }
+        return $json;
+    }
+
+    /**
+     * Handle form submission to dislike expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function postDislike(Request $request)
+    {
+        $definitionId = $request->get('definition_id');
+        $ip = $request->getClientIp();
+        $json = NULL;
+        try
+        {
+            $this->ratingRepository->dislike($ip, $definitionId);
+            $json = response()->json(['message' => 'OK']);
+        } 
+        catch (Exception $e)
+        {
+            $json = response()->json(['message' => $e->getMessage()]);
+        }
+        return $json;
     }
 
     public function getVideos($definitionId)

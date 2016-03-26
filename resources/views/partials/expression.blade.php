@@ -1,7 +1,7 @@
 					<div class="ui fluid card">
 					  	<div class="content">
-	   						<a class='right floated'><small>{{ $definition['dislikes'] or 0 }}</small> <i class="thumbs down outline icon"></i></a>
-	   						<a class='right floated'><small>{{ $definition['likes'] or 0 }}</small> <i class="right floated thumbs up outline icon"></i></a>
+	   						<a data-definitionid='{{ $definition["id"] }}' class='dislike right floated'><small class='dislike_count'>{{ $definition['dislikes'] or 0 }}</small> <i class="thumbs down outline icon"></i></a>
+	   						<a data-definitionid='{{ $definition["id"] }}' class='like right floated'><small class='like_count'>{{ $definition['likes'] or 0 }}</small> <i class="right floated thumbs up outline icon"></i></a>
 					    	<div class="header"><a href="{{ action('ExpressionController@getDefine') }}?e={{ urlencode($definition['text']) }}">{{ $definition['text'] }}</a><a><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
 					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>

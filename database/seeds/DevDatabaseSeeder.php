@@ -117,7 +117,7 @@ class DevDatabaseSeeder extends Seeder
             );
             Rating::create(
                 array(
-                    'user_ip' => '127.0.0.1',
+                    'user_ip' => '192.168.0.1',
                     'rating' => 1, 
                     'definition_id' => $approvedDefinition->id
                 )

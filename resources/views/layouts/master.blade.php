@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Speak Like A Brazilian</title>
     <link rel="stylesheet" href="{{ URL::asset('css/slbr.css') }}">
 </head>
@@ -114,10 +115,111 @@
             })
         ;
 
-        $('#form')
-            .parsley({
-            })
-        ;
+        var form = $('#form');
+        if (typeof form != 'undefined')
+            $('#form')
+                .parsley({
+                })
+            ;
+
+        /* START: like and dislike buttons */
+        function onError(jqXHR, textStatus, errorThrown) {
+            console.log('Error voting: ' + errorThrown);
+            console.log('Response text: ' + jqXHR.responseText);
+        }
+
+        function onComplete(jqXHR, textStatus) {
+            var ret = jqXHR.responseText;
+            try {
+                data = $.parseJSON(jqXHR.responseText);
+                if (/*jqXHR.status != 200 || */data.err != undefined || data.msg != 'OK') {
+                    console.log(data.message);
+                    //console.log(data.msg);
+                } else {
+                    if(data.message != 'OK') {
+                        console.log(data.message);
+                    }
+                }
+            } catch (e) {
+                console.log('Unkown internal error [9000], please report to the site administrator: ' + e);
+            }
+            $.unblockUI();
+        }
+
+        function onBeforeSend(formData, jqForm, options) {
+            // formd = $.param(formData);
+            $.blockUI({
+                message : '<div style="padding: 10px 0px;"><h3>Processing your vote...</h3></div>'
+            });
+            return true;
+        }
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $(".like").click(function() {
+            var definitionId = $(this).data('definitionid');
+            $.ajax({
+                type : 'POST', 
+                url : '{{ action('ExpressionController@postLike') }}',
+                data: { definition_id: definitionId },
+                dataType : 'json',
+                complete : onComplete,
+                beforeSend : onBeforeSend,
+                success : function(data, textStatus, jqXHR) {
+                    if(data.message != undefined && data.message == 'OK') {
+                        var likes = $(this).find('.like_count');
+                        likes.text(parseInt(likes.text())+1);
+                        if(data.balance == true) {
+                            var dislikes = $(this).find('.like_count');
+                            if (dislikes.text() > 0)
+                                dislikes.text(parseInt(likes.text())-1);
+                        }
+                    } else {
+                        console.log(data);
+                        console.log(textStatus);
+                        console.log(jqXHR);
+                    }
+                },
+                error : onError
+            });
+            return false;
+            // $definition_id = form
+        });
+
+        $(".dislike").click(function() {
+            var definitionId = $(this).data('definitionid');
+            $.ajax({
+                type : "post",
+                url : '{{ action('ExpressionController@postDislike') }}',
+                data: { definition_id: definitionId },
+                dataType : 'json',
+                complete : onComplete,
+                beforeSend : onBeforeSend,
+                success : function(data, textStatus, jqXHR) {
+                    if(data.message != undefined && data.message == 'OK') {
+                        var dislikes = $(this).find('.dislike_count');
+                        dislikes.text(parseInt(dislikes.text())+1);
+                        if(data.balance == true) {
+                            var likes = $(this).find('.like_count');
+                            if (likes.text() > 0)
+                                likes.text(parseInt(likes.text())-1);
+                        }
+                    } else {
+                        console.log(data);
+                        console.log(textStatus);
+                        console.log(jqXHR);
+                    }
+                },
+                error : onError
+            });
+            return false;
+        });
+
+        /* ENDE: like and dislike buttons */
     });
     </script>
 </body>
