@@ -33,6 +33,10 @@ use SLBR\Models\Media;
 
 class DevDatabaseSeeder extends Seeder
 {
+
+    const NUMBER_OF_EXPRESSIONS = 20;
+    const NUMBER_OF_DEFINITIONS = 100;
+
     /**
      * Run the database seeds.
      *
@@ -47,126 +51,44 @@ class DevDatabaseSeeder extends Seeder
     public function runExpressions()
     {
         DB::table('expressions')->delete();
-        Expression::create(
-            array(
-                'text' => 'Caranga',
-                'char' => 'C',
-                'contributor' => 'kinow'
-            )
-        );
-        Expression::create(
-            array(
-                'text' => 'Jo&atilde;o Pessoa',
-                'char' => 'J',
-                'contributor' => 'kinow'
-            )
-        );
-        Expression::create(
-            array(
-                'text' => 'Duro na queda',
-                'char' => 'D',
-                'contributor' => 'kinow'
-            )
-        );
-        Expression::create(
-            array(
-                'text' => 'No definitions',
-                'char' => 'N',
-                'contributor' => 'kinow'
-            )
-        );
+
+        for ($i = 0; $i < self::NUMBER_OF_EXPRESSIONS; $i++)
+        {
+            $expression = factory(Expression::class)->create();
+        }
     }
     public function runDefinitions()
     {
-        for ($i =0; $i < 15; $i++)
+        for ($i =0; $i < self::NUMBER_OF_DEFINITIONS; $i++)
         {
-            Definition::create(
-                array(
-                    'expression_id' => 1, 
-                    'description' => 'A nice car',
-                    'example' => 'O Johnny tem uma bela [caranga]',
-                    'tags' => 'carro, carrao, maquina',
-                    'status' => 1,
-                    'email' => 'kinow@slbr.com',
-                    'contributor' => 'kinow',
-                    'language_id' => 1
-                )
-            );
-            $approvedDefinition = Definition::create(
-                array(
-                    'expression_id' => 1, 
-                    'description' => 'Someone born in [Carangopolis]',
-                    'example' => 'De onde você &eacute;? <br/>Eu sou Caranga.',
-                    'tags' => 'carro, carrao, maquina',
-                    'status' => 2,
-                    'email' => 'kinow@slbr.com',
-                    'contributor' => 'kinow',
-                    'language_id' => 1
-                )
-            );
-            Media::create(
-                array(
-                    'url' => 'http://i.imgur.com/D1J7DRu.gif',
-                    'reason' => 'Chuaaa',
-                    'email' => 'user@internet.zijjj',
-                    'status' => 2,
-                    'content_type' => 'image/gif',
-                    'contributor' => 'Thom',
-                    'definition_id' => $approvedDefinition->id
-                )
-            );
-            Rating::create(
-                array(
-                    'user_ip' => '192.168.0.1',
-                    'rating' => 1, 
-                    'definition_id' => $approvedDefinition->id
-                )
-            );
-            Rating::create(
-                array(
-                    'user_ip' => '192.168.0.1',
-                    'rating' => 1, 
-                    'definition_id' => $approvedDefinition->id
-                )
-            );
-            Rating::create(
-                array(
-                    'user_ip' => '192.168.0.16',
-                    'rating' => 1, 
-                    'definition_id' => $approvedDefinition->id
-                )
-            );
-            Rating::create(
-                array(
-                    'user_ip' => '192.168.0.115',
-                    'rating' => -1, 
-                    'definition_id' => $approvedDefinition->id
-                )
-            );
-            Definition::create(
-                array(
-                    'expression_id' => 2, 
-                    'description' => 'A place in the Northeast',
-                    'example' => 'Vamos [para] Jo&atilde;o Pessoa?',
-                    'tags' => 'cidade, para&iacute;ba',
-                    'status' => 2,
-                    'email' => 'stufi@slbr.com',
-                    'contributor' => 'stufi',
-                    'language_id' => 1
-                )
-            );
-            Definition::create(
-                array(
-                    'expression_id' => 3, 
-                    'description' => 'Hard to beat',
-                    'example' => 'Meu time &eacute; duro na queda',
-                    'tags' => 'duro, bravo, confi&aacute;vel',
-                    'status' => 1,
-                    'email' => 'angels@slbr.com',
-                    'contributor' => 'angels',
-                    'language_id' => 1
-                )
-            );
+            $definition = factory(Definition::class)->create();
+            // randomly assign it to an expression
+            $definition->expression_id = rand(1, self::NUMBER_OF_EXPRESSIONS);
+            // randomly dis/approve it
+            $definition->status = rand(1, 2);
+            
+            // randomly add a media
+            if ((bool)random_int(0, 1))
+            {
+                for ($j = 0; $j < rand(1, 3); $j++)
+                {
+                    $media = factory(Media::class)->create();
+                    $media->status = rand(1, 2);
+                    $media->definition_id = $definition->id;
+                    $media->save();
+                }
+            }
+
+            // add some random votes
+            for ($j = 0; $j < rand(0, 5); $j++)
+            {
+                $rating = factory(Rating::class)->make();
+                $rating->definition_id = $definition->id;
+                $rating->save();
+            }
+
+            // save it again
+            $definition->save();
         }
     }
 }

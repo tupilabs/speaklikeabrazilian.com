@@ -19,3 +19,44 @@ $factory->define(SLBR\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(SLBR\Models\Expression::class, function (Faker\Generator $faker) {
+    return [
+        'text' => $faker->unique()->word,
+        'char' => $faker->randomLetter,
+        'contributor' => $faker->name
+    ];
+});
+
+$factory->define(SLBR\Models\Definition::class, function (Faker\Generator $faker) {
+    return [
+        'expression_id' => 1,
+        'description' => $faker->realText(50),
+        'example' => $faker->realText(25) . ' [testing]',
+        'tags' => sprintf('%s, %s', $faker->word, $faker->word),
+        'status' => 2,
+        'email' => $faker->email,
+        'contributor' => $faker->name,
+        'language_id' => 1
+    ];
+});
+
+$factory->define(SLBR\Models\Media::class, function (Faker\Generator $faker) {
+    return [
+        'url' => 'http://i.imgur.com/D1J7DRu.gif',
+        'reason' => $faker->realText(35),
+        'email' => $faker->email,
+        'status' => $faker->numberBetween(1,2),
+        'content_type' => 'image/gif',
+        'contributor' => $faker->name,
+        'definition_id' => 1
+    ];
+});
+
+$factory->define(SLBR\Models\Rating::class, function (Faker\Generator $faker) {
+    return [
+        'user_ip' => $faker->ipv4,
+        'rating' => array_rand(array(1, -1)),
+        'definition_id' => 1
+    ];
+});
