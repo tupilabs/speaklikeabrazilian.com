@@ -178,7 +178,24 @@ class ExpressionController extends Controller {
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->add(Input::all(), $language, $request->getClientIp());
-        return Redirect::to('/new');        
+        return Redirect::to('/thankyou');        
+    }
+
+    /**
+     * Show thank you screen.
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function getThankYou(Request $request)
+    {
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
+        $data = array(
+            'languages' => $languages,
+            'lang' => $language['id'],
+            'selected_language' => $language['description']
+        );
+        return view('thankyou', $data);
     }
 
     /**
