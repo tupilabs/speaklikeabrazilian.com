@@ -226,31 +226,6 @@ class ExpressionController extends Controller {
         return $json;
     }
 
-    public function getVideos($definitionId)
-    {
-        $expressionId = Input::get('expressionId');
-        $definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
-        $likes = 0;
-        $dislikes = 0;
-        foreach ($definition['ratings'] as $rating)
-        {
-            if ($rating['rating'] == 1)
-            {
-                $likes += 1;
-            }
-            else
-            {
-                $dislikes += 1;
-            }
-        }
-        $args = array();
-        $args['definition'] = $definition;
-        $args['likes'] = $likes;
-        $args['dislikes'] = $dislikes;
-        $this->theme->layout('message');
-        return $this->theme->scope('expression.videos', $args)->render();
-    }
-
     public function postVideos()
     {
         Log::info(sprintf('User %s wants to share a new video %s for definition ID %d', 
@@ -290,31 +265,6 @@ class ExpressionController extends Controller {
             $this->theme->layout('message');
             return $this->theme->scope('message', $args)->render();
         }
-    }
-
-    public function getPictures($definitionId)
-    {
-        $expressionId = Input::get('expressionId');
-        $definition = API::get("api/v1/expressions/$expressionId/definitions/$definitionId");
-        $likes = 0;
-        $dislikes = 0;
-        foreach ($definition['ratings'] as $rating)
-        {
-            if ($rating['rating'] == 1)
-            {
-                $likes += 1;
-            }
-            else
-            {
-                $dislikes += 1;
-            }
-        }
-        $args = array();
-        $args['definition'] = $definition;
-        $args['likes'] = $likes;
-        $args['dislikes'] = $dislikes;
-        $this->theme->layout('message');
-        return $this->theme->scope('expression.pictures', $args)->render();
     }
 
     public function postPictures()
