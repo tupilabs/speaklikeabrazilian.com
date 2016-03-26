@@ -223,6 +223,18 @@
         });
 
         /* ENDE: like and dislike buttons */
+
+        $("a.tts")
+            .colorbox({
+                iframe:true, 
+                onOpen: function() {
+                    // prevent Overlay from being displayed...
+                    $('#cboxOverlay,#colorbox').css('visibility', 'hidden');
+                },
+                width:"300px", 
+                height:"200px"}
+            )
+        ;
     });
     </script>
 </body>

@@ -2,7 +2,7 @@
 					  	<div class="content">
 	   						<a data-definitionid='{{ $definition["id"] }}' class='dislike right floated'><small class='dislike_count'>{{ $definition['dislikes'] or 0 }}</small> <i class="thumbs down outline icon"></i></a>
 	   						<a data-definitionid='{{ $definition["id"] }}' class='like right floated'><small class='like_count'>{{ $definition['likes'] or 0 }}</small> <i class="right floated thumbs up outline icon"></i></a>
-					    	<div class="header"><a href="{{ action('ExpressionController@getDefine') }}?e={{ urlencode($definition['text']) }}">{{ $definition['text'] }}</a><a><i class="unmute icon"></i></a></div>
+					    	<div class="header"><a href="{{ action('ExpressionController@getDefine') }}?e={{ urlencode($definition['text']) }}">{{ $definition['text'] }}</a><a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q={{ $definition['text'] }}&tl=pt-br"><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
 					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
 					    		<span class="category"><small>{{ date('F jS \\a\\t g:ia', $definition['created_at']) }}</small></span>
