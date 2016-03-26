@@ -48,7 +48,12 @@
 					    		<small>
 					    		<a><i class="plus icon"></i>picture</a>
 					    		<a><i class="plus icon"></i>video</a>
-					    		<a class=''><i class="twitter icon"></i>tweet</a>
+                                <a 
+                                    target="_blank" 
+                                    title="Share this expression on Twitter" 
+                                    href="https://twitter.com/share?text=Learn what is '{{ $definition['text'] }}' via @SpeakLikeABR&url={{ action('ExpressionController@getDefine') }}?e={{ urlencode($definition['text']) }}">
+                                    <i class="twitter icon"></i>tweet
+                                </a>
 					    		</small>
 					    	</span>
 					    </div>
