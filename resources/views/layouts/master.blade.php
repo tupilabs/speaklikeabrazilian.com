@@ -116,7 +116,7 @@
         ;
 
         var form = $('#form');
-        if (typeof form != 'undefined')
+        if (typeof form != 'undefined' && form.length > 0)
             $('#form')
                 .parsley({
                 })
