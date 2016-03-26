@@ -31,6 +31,7 @@ elixir(function(mix) {
       './resources/assets/bower/semantic/dist/semantic.js',
       './resources/assets/bower/jquery-colorbox/jquery.colorbox.js',
       './resources/assets/bower/parsleyjs/dist/parsley.js',
+      './resources/assets/bower/blockUI/jquery.blockUI.js',
       './resources/assets/app.js'
     ]);
 
