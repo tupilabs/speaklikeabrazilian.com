@@ -8,8 +8,8 @@
             <div class="row">
                 <div class="eight wide column">
                 <h3 class="ui header">Thank You!</h3>
-                <p>Your expression has been submitted, and will be reviewed by one of our moderators.
-                You will receive an e-mail (only one, no spam) when your expression is published.</p>
+                <p>Your content has been submitted, and will be reviewed by one of our moderators.
+                You will receive an e-mail (only one, no spam) when it is published.</p>
                 <p>Speak Like A Brazilian is maintained by a network of volunters, and we have great
                 content thanks to contributors like you. Muito obrigado por compartilhar! <i class="heart icon"></i></p>
                 <p>Click <a href="{{ URL::to('/new') }}">here</a> to continue navigating the web site.</p>
