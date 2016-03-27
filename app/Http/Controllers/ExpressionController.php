@@ -165,7 +165,7 @@ class ExpressionController extends Controller {
             'selected_language' => $language['description'],
             'expression' => $expression
         );
-        return view('add', $data);
+        return view('add_expression', $data);
     }
 
     /**
