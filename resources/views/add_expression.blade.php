@@ -9,6 +9,15 @@
                 <div class='fourteen wide column'>
                     <h2>Add expression</h2>
 
+                    <div class="ui message">
+                        <div class="header">Content Licensing</div>
+                        <p>
+                            By sharing your content in Speak Like A Brazilian, you are accepting to license it
+                            under the <a href="http://creativecommons.org/licenses/by/4.0/">
+                            Creative Commons Attribution 4.0 International</a>.
+                        </p>
+                    </div>
+
                     <form id="form" class="ui form" method="post" action="{{ action('ExpressionController@postAdd') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         <div class="field">
