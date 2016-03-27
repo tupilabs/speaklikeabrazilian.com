@@ -11,7 +11,7 @@
                 </p>
                 <p>The content of this web site is licensed under the
                 <a href="http://creativecommons.org/licenses/by/4.0/">
-                Creative Commons Attribution 4.0 International</a></p>
+                Creative Commons Attribution 4.0 International</a>.</p>
                 <p>&copy; TupiLabs &mdash; Source code licensed under the MIT License</p>
             </div>
         </div>
