@@ -12,27 +12,33 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-  //mix.sass('app.scss');
+    //mix.sass('app.scss');
 
-  mix.copy(
-     './resources/assets/bower/semantic/dist/themes',
-     './public/css/themes'
-   );
+    mix.copy(
+        './resources/assets/bower/semantic/dist/themes',
+        './public/css/themes'
+    );
 
-   mix.styles([
-     './resources/assets/bower/semantic/dist/semantic.min.css',
-     './resources/assets/bower/parsleyjs/src/parsley.css',
-     './resources/assets/sass/app.css'
-   ],
-   'public/css/slbr.css');
+    mix.copy(
+        './resources/assets/bower/jquery-colorbox/example4/images',
+        './public/css/images'
+    );
 
-   mix.scripts([
-      './resources/assets/bower/jquery/dist/jquery.js',
-      './resources/assets/bower/semantic/dist/semantic.js',
-      './resources/assets/bower/jquery-colorbox/jquery.colorbox.js',
-      './resources/assets/bower/parsleyjs/dist/parsley.js',
-      './resources/assets/bower/blockUI/jquery.blockUI.js',
-      './resources/assets/app.js'
+    mix.styles([
+            './resources/assets/bower/semantic/dist/semantic.min.css',
+            './resources/assets/bower/jquery-colorbox/example4/colorbox.css',
+            './resources/assets/bower/parsleyjs/src/parsley.css',
+            './resources/assets/sass/app.css'
+        ],
+        'public/css/slbr.css');
+
+    mix.scripts([
+        './resources/assets/bower/jquery/dist/jquery.js',
+        './resources/assets/bower/semantic/dist/semantic.js',
+        './resources/assets/bower/jquery-colorbox/jquery.colorbox.js',
+        './resources/assets/bower/parsleyjs/dist/parsley.js',
+        './resources/assets/bower/blockUI/jquery.blockUI.js',
+        './resources/assets/app.js'
     ]);
 
 });

@@ -115,12 +115,27 @@
           })
         ;
 
-        $('a.image-media')
+        $('a.video-colorbox')
             .colorbox({
                 title: function() {
                     var title = $(this).attr('title');
                     return title;
-                }
+                },
+                iframe: true,
+                width: '600px',
+                height: '400px'
+            })
+        ;
+
+        $('a.image-colorbox')
+            .colorbox({
+                title: function() {
+                    var title = $(this).attr('title');
+                    return title;
+                },
+                iframe: false,
+                width: '600px',
+                height: '400px'
             })
         ;
 

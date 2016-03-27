@@ -26,9 +26,19 @@
 								<div class='expression media'>
                                     @foreach ($definition['medias'] as $media)
                                     @if ($media['content_type'] == 'video/youtube')
-									<a class='ui small icon button video-media'><i class="film icon"></i></a>
+                                    <?php $data = get_video_data($media) ?>
+									<a 
+                                        class='ui small icon button video-colorbox' 
+                                        title="{{ $definition['text'] }}" 
+                                        @if (array_has($data, 't'))
+                                        href="http://www.youtube.com/embed/{{ $data['video_id'] }}?wmode=opaque&start={{ $data['t'] }}">
+                                        @else
+                                        href="http://www.youtube.com/embed/{{ $data['video_id'] }}?wmode=opaque">
+                                        @endif
+                                        <i class="film icon"></i>
+                                    </a>
                                     @else
-									<a class='ui small icon button image-media' title="{{ $definition['text'] }}" href="{{ $media['url'] }}"><i class="photo icon"></i></a>
+									<a class='ui small icon button image-colorbox' title="{{ $definition['text'] }}" href="{{ $media['url'] }}"><i class="photo icon"></i></a>
                                     @endif
                                     @endforeach
 								</div>
