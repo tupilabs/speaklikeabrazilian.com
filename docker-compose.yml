@@ -1,0 +1,26 @@
+front:
+  build: .
+  ports:
+    - "8000:80"
+    - "8443:443"
+    - "9000:9000"
+  links:
+    - mysql:mysql
+    - elasticsearch:elasticsearch
+  volumes:
+    - ./:/var/www
+    - ./sites:/etc/nginx/conf.d
+    - ./logs:/var/log/supervisor
+
+mysql:
+  image: mysql
+  ports:
+    - "8306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: cachacaDeJaboticabaNaoTemCheiro
+
+elasticsearch:
+  image: elasticsearch
+  ports:
+    - "8200:9200"
+    - "8300:9300"
