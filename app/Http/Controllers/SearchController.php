@@ -28,12 +28,18 @@ use Exception;
 use Log;
 use Redirect;
 use Illuminate\Http\Request;
+use SLBR\Repositories\DefinitionRepository;
 
 class SearchController extends Controller {
 
-    public function __construct()
-    {
+    /**
+     * SLBR\Repositories\DefinitionRepository
+     */
+    private $definitionRepository;
 
+    public function __construct(DefinitionRepository $definitionRepository)
+    {
+        $this->definitionRepository = $definitionRepository;
     }
 
     /**
@@ -113,7 +119,7 @@ class SearchController extends Controller {
             Log::error('Search server error: ' . $e->getMessage());
             return Redirect::to('/')
                 ->withInput()
-                ->with('search_error', "Search server error: " . $e->getMessage());
+                ->with('search_error', "Search server error. Please report to the site administrator.");
         }
 
         $ids = array();
@@ -141,6 +147,53 @@ class SearchController extends Controller {
             'definitions' => $definitions
         );
         return view('search', $data);
+    }
+
+    public function recreateSearchIndex()
+    {
+        $admin = TRUE;
+        // if (Sentry::check())
+        // {
+        //     $user = Sentry::getUser();
+        //     $admin = $user->hasAccess('admin');
+        // }
+
+        if (!$admin)
+        {
+            return Redirect::to('/user/login?from=admin');
+        }
+
+        $definitions = $this->definitionRepository->with('expression')->all();
+        foreach ($definitions as $definition)
+        {
+            $expression = $definition->expression;
+            // Index document into search server
+            $params = array();
+            $params['body']  = array(
+                'expression' => $expression->text,
+                'description' => $definition->description,
+                'example' => $definition->example,
+                'tags' => $definition->tags,
+                'language_id' => $definition->language_id
+            );
+            $params['index'] = 'slbr_index';
+            $params['type']  = 'definition';
+            $params['id']    = $definition->id;
+
+            // Document will be indexed to slbr_index/definition/id
+            Log::debug('Indexing into search server');
+            $ret = Es::index($params);
+            if (isset($ret['created']) && $ret['created'] == true)
+            {
+                Log::info('Document indexed');
+            }
+            else
+            {
+                Log::error('Failed to index document');
+            }
+        }
+
+        echo "OK!";
     }
 
 }
