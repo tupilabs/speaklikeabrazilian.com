@@ -243,7 +243,39 @@ class ExpressionController extends Controller {
         return $json;
     }
 
-    public function postVideos()
+    public function getAddimage(Request $request)
+    {
+        // FIXME: validate definition ID
+        $definitionId = $request->get('definition_id');
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
+        $data = array(
+            'languages' => $languages,
+            'lang' => $language['id'],
+            'selected_language' => $language['description'],
+            'definition_id' => $definitionId
+        );
+        return view('add_image', $data);
+    }
+
+    public function getAddvideo(Request $request)
+    {
+        // FIXME: validate definition ID
+        $definitionId = $request->get('definition_id');
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
+        $definition = $this->definitionRepository->getOne($definitionId)->toArray();
+        $data = array(
+            'languages' => $languages,
+            'lang' => $language['id'],
+            'selected_language' => $language['description'],
+            'definition_id' => $definitionId,
+            'definition' => $definition
+        );
+        return view('add_video', $data);
+    }
+
+    public function postVideo()
     {
         Log::info(sprintf('User %s wants to share a new video %s for definition ID %d', 
             Request::getClientIp(), Input::get('youtube_url'), Input::get('definitionId')));

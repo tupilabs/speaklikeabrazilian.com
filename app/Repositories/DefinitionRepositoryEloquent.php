@@ -189,4 +189,20 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         }
     }
 
+    public function getOne($definitionId)
+    {
+        $definitions = Definition::
+            join('expressions', 'definitions.expression_id', '=', 'expressions.id')
+            ->where('definitions.status', '=', 2)
+            ->where('definitions.id', '=', $definitionId)
+            ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
+                'definitions.contributor', 'definitions.created_at', 'expressions.text',
+                new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),
+                new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
+                )
+            ->with('expression')
+            ->first();
+        return $definitions;
+    }
+
 }

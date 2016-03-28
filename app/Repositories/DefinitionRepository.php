@@ -21,4 +21,6 @@ interface DefinitionRepository extends RepositoryInterface
     public function getLetter($letter, array $language);
 
     public function add(array $input, array $language, $ip);
+
+    public function getOne($definitionId);
 }

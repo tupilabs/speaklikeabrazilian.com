@@ -32,7 +32,7 @@ $factory->define(SLBR\Models\Expression::class, function (Faker\Generator $faker
 $factory->define(SLBR\Models\Definition::class, function (Faker\Generator $faker) {
     return [
         'expression_id' => 1,
-        'description' => $faker->realText(50),
+        'description' => $faker->realText(50) . ' [testing]',
         'example' => $faker->realText(25) . ' [testing]',
         'tags' => sprintf('%s, %s', $faker->word, $faker->word),
         'status' => 2,

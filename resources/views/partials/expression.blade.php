@@ -56,8 +56,8 @@
                             </p>
 					    	<span class='right floated'>
 					    		<small>
-					    		<a><i class="plus icon"></i>picture</a>
-					    		<a><i class="plus icon"></i>video</a>
+					    		<a href="{{ action('ExpressionController@getAddimage') }}?definition_id={{ $definition['id'] }}"><i class="plus icon"></i>picture</a>
+					    		<a href="{{ action('ExpressionController@getAddvideo') }}?definition_id={{ $definition['id'] }}"><i class="plus icon"></i>video</a>
                                 <a 
                                     target="_blank" 
                                     title="Share this expression on Twitter" 
