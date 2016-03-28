@@ -10,15 +10,15 @@
                     <h2>Add picture</h2>
 
                     @if (count($errors) > 0)
-                        <div class="ui error message">
-                            <div class="header">Validation error</div>
-                            <p>You have the following validation errors:</p>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                    <div class="ui error message">
+                        <div class="header">Validation error</div>
+                        <p>You have the following validation errors:</p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                     @endif
 
                     <div class="ui message">
