@@ -134,7 +134,7 @@ class SearchController extends Controller {
 
         if (!empty($ids))
         {
-
+            $definitions = $this->definitionRepository->retrieve($ids, $language);
         }
 
         $data = array(
@@ -144,9 +144,10 @@ class SearchController extends Controller {
             'q' => $q,
             'size' => $size,
             'from' => $from,
-            'definitions' => $definitions
+            'definitions' => $definitions['data'],
+            'pagination' => $definitions
         );
-        return view('search', $data);
+        return view('home', $data);
     }
 
     public function recreateSearchIndex()
