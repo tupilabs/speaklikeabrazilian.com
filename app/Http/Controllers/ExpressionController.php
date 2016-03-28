@@ -26,6 +26,7 @@ namespace SLBR\Http\Controllers;
 use \Input;
 use \Redirect;
 use \Log;
+use \Validator;
 use Exception;
 use SLBR\Models\Definition;
 use SLBR\Repositories\DefinitionRepository;
@@ -182,6 +183,16 @@ class ExpressionController extends Controller {
      */
     public function postAdd(Request $request)
     {
+        $this->validate($request, array(
+            'expression-text-input'             => 'required|min:1|max:255',
+            'expression-description-input'      => 'required|min:1|max:1000',
+            'expression-example-input'          => 'required|min:1|max:1000',
+            'expression-tags-input'             => 'required|min:1|max:100',
+            'expression-pseudonym-input'        => 'required|min:1|max:50',
+            'expression-email-input'            => 'required|email|min:5|max:255',
+            'username'                          => 'honeypot',
+            'my_time'                           => 'required|honeytime:5'
+        ));
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->add(Input::all(), $language, $request->getClientIp());
@@ -251,7 +262,7 @@ class ExpressionController extends Controller {
     }
 
     /**
-     * Display form to add image.
+     * Display form to add an image.
      *
      * @param Illuminate\Http\Request $request
      */
@@ -293,7 +304,7 @@ class ExpressionController extends Controller {
     }
 
     /**
-     * Display form to add video.
+     * Display form to add a video.
      *
      * @param Illuminate\Http\Request $request
      */

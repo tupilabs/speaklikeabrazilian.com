@@ -165,6 +165,8 @@ return [
 
         Frozennode\Administrator\AdministratorServiceProvider::class,
 
+        Msurguy\Honeypot\HoneypotServiceProvider::class,
+
     ],
 
     /*
@@ -220,6 +222,8 @@ return [
         'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
         'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+
+        'Honeypot'   => Msurguy\Honeypot\HoneypotFacade::class,
 
 
     ],
