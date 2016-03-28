@@ -30,7 +30,7 @@
                         </p>
                     </div>
 
-                    <form id="form" class="ui form" method="post" action="{{ action('ExpressionController@postAdd') }}">
+                    <form id="form" class="ui form" method="post" action="{{ URL::to($selected_language['slug'] . '/expression/add') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                         {!! Honeypot::generate('username', 'expression_time') !!}
                         <div class="field">

@@ -201,7 +201,7 @@ class ExpressionController extends Controller {
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->add(Input::all(), $language, $request->getClientIp());
-        return Redirect::to('/thankyou');
+        return Redirect::to($language['slug'] . '/thankyou');
     }
 
     /**
@@ -216,8 +216,7 @@ class ExpressionController extends Controller {
         $data = array(
             'languages' => $languages,
             'selected_language' => $language,
-            'lang' => $language['id'],
-            'selected_language' => $language['description']
+            'lang' => $language['id']
         );
         return view('thankyou', $data);
     }
@@ -312,7 +311,7 @@ class ExpressionController extends Controller {
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
         $media = $this->mediaRepository->addPicture(Input::all(), $language, $request->getClientIp());
-        return Redirect::to('/thankyou');
+        return Redirect::to($language['slug'] . '/thankyou');
     }
 
     /**
@@ -360,7 +359,7 @@ class ExpressionController extends Controller {
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
         $media = $this->mediaRepository->addVideo(Input::all(), $language, $request->getClientIp());
-        return Redirect::to('/thankyou');
+        return Redirect::to($language['slug'] . '/thankyou');
     }
 
 }
