@@ -62,9 +62,9 @@
         @endif
 @foreach (range('a', 'z') as $char)
         @if (isset($active) and $active == $char)
-        <a href="{{ action('ExpressionController@getLetter', ['letter' => $char]) }}" class="active item">{{ strtoupper($char) }}</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/expression/letter/' . $char) }}" class="active item">{{ strtoupper($char) }}</a>
         @else
-        <a href="{{ action('ExpressionController@getLetter', ['letter' => $char]) }}" class="item">{{ strtoupper($char) }}</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/expression/letter/' . $char) }}" class="item">{{ strtoupper($char) }}</a>
         @endif
 @endforeach
         @if (isset($active) and $active == '0-9')
