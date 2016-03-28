@@ -17,28 +17,31 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        DB::listen(function($queryObj) 
+        if (\Config::get('database.log', false))
         {
+            DB::listen(function($queryObj) 
+            {
 
-            $bindings = $queryObj->bindings;
-            foreach ($bindings as $i => $binding)
-            {   
-                if ($binding instanceof \DateTime)
+                $bindings = $queryObj->bindings;
+                foreach ($bindings as $i => $binding)
                 {   
-                    $bindings[$i] = $binding->format('\'Y-m-d H:i:s\'');
-                }
-                else if (is_string($binding))
-                {   
-                    $bindings[$i] = "'$binding'";
-                }   
-            } 
-            // Insert bindings into query
-            $query = $queryObj->sql;
-            $query = str_replace(array('%', '?'), array('%%', '%s'), $query);
-            $query = vsprintf($query, $bindings); 
+                    if ($binding instanceof \DateTime)
+                    {   
+                        $bindings[$i] = $binding->format('\'Y-m-d H:i:s\'');
+                    }
+                    else if (is_string($binding))
+                    {   
+                        $bindings[$i] = "'$binding'";
+                    }   
+                } 
+                // Insert bindings into query
+                $query = $queryObj->sql;
+                $query = str_replace(array('%', '?'), array('%%', '%s'), $query);
+                $query = vsprintf($query, $bindings); 
 
-            Log::debug($query);
-        });
+                Log::debug($query);
+            });
+        }
     }
 
     /**

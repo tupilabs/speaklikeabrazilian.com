@@ -12,9 +12,11 @@ If you are using sqlite for database, you have to:
 2. In your .env file, set the following entries:
 
 * DB_CONNECTION=sqlite
+* DB_LOG=true
 
 It can be convenient to install Aqua Datastudio or sqlite3, so that you can peek at the schema and
-data if necessary.
+data if necessary. The DB_LOG option enables logging for every query. You probably don't want that
+in production, so turn that on only during development.
 
 ### ElasticSearch
 
