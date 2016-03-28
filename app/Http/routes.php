@@ -15,15 +15,20 @@
 // TODO: cache
 $languages = \SLBR\Models\Language::all()->toArray();
 $locale = Request::segment(1);
-if(in_array($locale, $languages))
+$found = FALSE;
+foreach ($languages as $ids => $language)
 {
-    App::setLocale($locale);
+    if ($locale == $language['slug'])
+    {
+        App::setLocale($locale);
+        $found = TRUE;
+    }
 }
-else
+if (!$found)
 {
     $locale = 'en';
-    App::setLocale($locale);
 }
+App::setLocale($locale);
 
 // You repeat routes in the group and outside, to play nice with the prefix language in the URL
 

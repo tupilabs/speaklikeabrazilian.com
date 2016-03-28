@@ -1,4 +1,4 @@
-					<a class='ui fluid compact green large icon button' href='{{ URL::to("expression/add") }}'>
+					<a class='ui fluid compact green large icon button' href='{{ URL::to($selected_language['slug'] . "/expression/add") }}'>
 						<i class='plus icon'></i>Add Expression
 					</a>
 					<div class='ui divider'></div>

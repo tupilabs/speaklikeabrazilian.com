@@ -38,7 +38,7 @@
                             <input name="expression-text-input" id="expression-text-input" value="{{ old('expression-text-input') }}" placeholder="Expression in Portuguese" type="text" data-parsley-maxlength="255" data-parsley-minlength="1" data-parsley-required="true" />
                         </div>
                         <div class="field">
-                            <label for="expression-description-input">Description in {{ $selected_language }}</label>
+                            <label for="expression-description-input">Description in {{ $selected_language['description'] }}</label>
                             <textarea name="expression-description-input" id="expression-description-input" data-parsley-maxlength="1000" data-parsley-minlength="1" data-parsley-required="true">{{ old('expression-description-input') }}</textarea>
                         </div>
                         <div class="field">

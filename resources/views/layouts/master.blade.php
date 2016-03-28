@@ -56,9 +56,9 @@
 @section('menu')
     <div class="ui center aligned vertical segment" id="menu">
         @if (isset($active) and $active == 'new')
-        <a href="{{ URL::to('/new') }}" class="active item">New</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/new') }}" class="active item">New</a>
         @else
-        <a href="{{ URL::to('/new') }}" class="item">New</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/new') }}" class="item">New</a>
         @endif
 @foreach (range('a', 'z') as $char)
         @if (isset($active) and $active == $char)
@@ -73,14 +73,14 @@
         <a href="{{ action('ExpressionController@getLetter', ['letter' => '0-9']) }}" class="item">0-9</a>
         @endif
         @if (isset($active) and $active == 'top')
-        <a href="{{ URL::to('/top') }}" class="active item">Top</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/top') }}" class="active item">Top</a>
         @else
-        <a href="{{ URL::to('/top') }}" class="item">Top</a>
+        <a href="{{ URL::to($selected_language['slug'] .  '/top') }}" class="item">Top</a>
         @endif
         @if (isset($active) and $active == 'random')
-        <a href="{{ URL::to('/random') }}" class="active item">Random</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/random') }}" class="active item">Random</a>
         @else
-        <a href="{{ URL::to('/random') }}" class="item">Random</a>
+        <a href="{{ URL::to($selected_language['slug'] . '/random') }}" class="item">Random</a>
         @endif
     </div>
 @show

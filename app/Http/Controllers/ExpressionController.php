@@ -71,6 +71,7 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => 'new',
             'languages' => $languages,
+            'selected_language' => $language,
             'definitions' => $definitions['data'],
             'pagination' => $definitions
         );
@@ -90,6 +91,7 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => 'top',
             'languages' => $languages,
+            'selected_language' => $language,
             'definitions' => $definitions['data'],
             'pagination' => $definitions
         );
@@ -109,6 +111,7 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => 'random',
             'languages' => $languages,
+            'selected_language' => $language,
             'definitions' => $definitions
         );
         return view('home', $data);
@@ -130,6 +133,7 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => 'random',
             'languages' => $languages,
+            'selected_language' => $language,
             'definitions' => $definitions['data'],
             'pagination' => $definitions,
             'query_parameters' => sprintf("&e=%s", urlencode($text))
@@ -151,6 +155,7 @@ class ExpressionController extends Controller {
         $data = array(
             'active' => $letter,
             'languages' => $languages,
+            'selected_language' => $language,
             'definitions' => $definitions['data'],
             'pagination' => $definitions
         );
@@ -169,8 +174,8 @@ class ExpressionController extends Controller {
         $expression = Input::get('e');
         $data = array(
             'languages' => $languages,
+            'selected_language' => $language,
             'lang' => $language['id'],
-            'selected_language' => $language['description'],
             'expression' => $expression
         );
         return view('add_expression', $data);
@@ -210,6 +215,7 @@ class ExpressionController extends Controller {
         $language = $this->getLanguage($languages, $request);
         $data = array(
             'languages' => $languages,
+            'selected_language' => $language,
             'lang' => $language['id'],
             'selected_language' => $language['description']
         );
@@ -275,8 +281,8 @@ class ExpressionController extends Controller {
         $definition = $this->definitionRepository->getOne($definitionId)->toArray();
         $data = array(
             'languages' => $languages,
+            'selected_language' => $language,
             'lang' => $language['id'],
-            'selected_language' => $language['description'],
             'definition_id' => $definitionId,
             'definition' => $definition
         );
@@ -323,8 +329,8 @@ class ExpressionController extends Controller {
         $definition = $this->definitionRepository->getOne($definitionId)->toArray();
         $data = array(
             'languages' => $languages,
+            'selected_language' => $language,
             'lang' => $language['id'],
-            'selected_language' => $language['description'],
             'definition_id' => $definitionId,
             'definition' => $definition
         );

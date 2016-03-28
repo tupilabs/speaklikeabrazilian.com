@@ -46,7 +46,7 @@
                             <p>{{ $definition['text'] }}</p>
                         </div>
                         <div class="field">
-                            <label>Description in {{ $selected_language }}</label>
+                            <label>Description in {{ $selected_language['description'] }}</label>
                             <p>{!! html_entity_decode(
                                             get_definition_formatted_text(
                                                 $definition['description']

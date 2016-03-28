@@ -123,6 +123,7 @@ class SearchController extends Controller {
         }
 
         $ids = array();
+        $pagination = array();
         $definitions = array();
         if (isset($hits['hits']))
         {
@@ -134,18 +135,21 @@ class SearchController extends Controller {
 
         if (!empty($ids))
         {
-            $definitions = $this->definitionRepository->retrieve($ids, $language);
+            $pagination = $this->definitionRepository->retrieve($ids, $language);
         }
+
+        if (array_key_exists('data', $pagination))
+            $definitions = $pagination['data'];
 
         $data = array(
             'languages' => $languages,
             'lang' => $language['id'],
-            'selected_language' => $language['description'],
+            'selected_language' => $language,
             'q' => $q,
             'size' => $size,
             'from' => $from,
-            'definitions' => $definitions['data'],
-            'pagination' => $definitions
+            'definitions' => $definitions,
+            'pagination' => $pagination
         );
         return view('home', $data);
     }
