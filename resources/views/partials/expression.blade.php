@@ -10,7 +10,8 @@
 					    	<div class="description">
 								<p>{!! html_entity_decode(
                                             get_definition_formatted_text(
-                                                $definition['description']
+                                                $definition['description'],
+                                                $selected_language
                                             )
                                         ) !!}</p>
 
@@ -18,7 +19,8 @@
 								<p style='font-style: italic;'>
 									{!! html_entity_decode(
                                             get_definition_formatted_text(
-                                                $definition['example']
+                                                $definition['example'],
+                                                $selected_language
                                             )
                                         ) !!}
 								</p>

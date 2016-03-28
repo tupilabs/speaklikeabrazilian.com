@@ -49,7 +49,8 @@
                             <label>Description in {{ $selected_language['description'] }}</label>
                             <p>{!! html_entity_decode(
                                             get_definition_formatted_text(
-                                                $definition['description']
+                                                $definition['description'],
+                                                $selected_language
                                             )
                                         )  !!}</p>
                         </div>

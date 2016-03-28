@@ -8,9 +8,9 @@
  * @param string $text
  * @return string $text
  */
-function get_definition_formatted_text($text)
+function get_definition_formatted_text($text, $language)
 {
-    $url = URL::to("/");
+    $url = URL::to($language['slug'] . "/");
     $formatted = nl2br(urldecode($text));
     $pattern = "/\[([^]]*)\]/i";
     $replace = "<a href=\"{$url}/expression/define?e=$1\">$1</a>";
