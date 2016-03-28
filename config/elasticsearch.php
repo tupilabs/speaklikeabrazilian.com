@@ -2,9 +2,10 @@
 
 use Monolog\Logger;
 
+
 return array(
     'hosts' => array(
-        'localhost:9200'
+        env('ES_SERVER')
     ),
     'logPath' => storage_path() . '/logs/elasticsearch.log',
     'logLevel' => Logger::INFO
