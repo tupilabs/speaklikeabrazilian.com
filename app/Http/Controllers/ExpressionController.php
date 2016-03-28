@@ -191,7 +191,7 @@ class ExpressionController extends Controller {
             'expression-pseudonym-input'        => 'required|min:1|max:50',
             'expression-email-input'            => 'required|email|min:5|max:255',
             'username'                          => 'honeypot',
-            'my_time'                           => 'required|honeytime:30'
+            'expression_time'                   => 'required|honeytime:5'
         ));
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
@@ -290,15 +290,21 @@ class ExpressionController extends Controller {
      */
     public function postPicture(Request $request)
     {
-        $languages = $request->get('languages');
-        $language = $this->getLanguage($languages, $request);
-
+        $this->validate($request, array(
+            'picture-url-input'                 => 'required|url|min:1|max:255',
+            'picture-reason-input'              => 'required|min:1|max:500',
+            'picture-pseudonym-input'           => 'required|min:1|max:50',
+            'picture-email-input'               => 'required|email|min:5|max:255',
+            'username'                          => 'honeypot',
+            'picture_time'                      => 'required|honeytime:5'
+        ));
         $url = $request->get('picture-url-input');
         if (!preg_match('%(?:imgur\.com/)([^"&?/ ]{11})%i', $url, $match))
         {
             return redirect()->back()->withInput()->withErrors(['The picture URL is not valid. Only imgur pictures are allowed at the moment.']);
         }
-
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
         $media = $this->mediaRepository->addPicture(Input::all(), $language, $request->getClientIp());
         return Redirect::to('/thankyou');
     }
@@ -332,15 +338,21 @@ class ExpressionController extends Controller {
      */
     public function postVideo(Request $request)
     {
-        $languages = $request->get('languages');
-        $language = $this->getLanguage($languages, $request);
-
+        $this->validate($request, array(
+            'video-url-input'                 => 'required|url|min:1|max:255',
+            'video-reason-input'              => 'required|min:1|max:500',
+            'video-pseudonym-input'           => 'required|min:1|max:50',
+            'video-email-input'               => 'required|email|min:5|max:255',
+            'username'                        => 'honeypot',
+            'video_time'                      => 'required|honeytime:5'
+        ));
         $url = $request->get('video-url-input');
         if (!preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
         {
             return redirect()->back()->withInput()->withErrors(['The video URL is not valid. Only YouTube videos are allowed at the moment.']);
         }
-
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
         $media = $this->mediaRepository->addVideo(Input::all(), $language, $request->getClientIp());
         return Redirect::to('/thankyou');
     }

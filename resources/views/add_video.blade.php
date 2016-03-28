@@ -40,6 +40,7 @@
                     <form id="form" class="ui form" method="post" action="{{ action('ExpressionController@postVideo') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="definition_id" value="{{ $definition_id }}">
+                        {!! Honeypot::generate('username', 'video_time') !!}
                         <div class="field">
                             <label>Expression in Portuguese</label>
                             <p>{{ $definition['text'] }}</p>
