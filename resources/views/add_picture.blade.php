@@ -37,7 +37,7 @@
                         </p>
                     </div>
 
-                    <form id="form" class="ui form" method="post" action="{{ action('ExpressionController@postPicture') }}">
+                    <form id="form" class="ui form" method="post" action="{{ URL::to($selected_language['slug'] . '/expression/picture') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="definition_id" value="{{ $definition_id }}">
                         {!! Honeypot::generate('username', 'picture_time') !!}

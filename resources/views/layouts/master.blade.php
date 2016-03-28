@@ -16,7 +16,7 @@
                 <div class="ui small centered grid">
                     <div class="center aligned column">
                         <div class="ui secondary small compact menu">
-                            <a href="{{ URL::to('/') }}" class="small item"><i class="home icon"></i> Home</a>
+                            <a href="{{ URL::to($selected_language['slug'] . '/') }}" class="small item"><i class="home icon"></i> Home</a>
                             <a href="http://twitter.com/SpeakLikeABR" class="small item"><i class="twitter square icon"></i> @SpeakLikeABR</a>
                             <a href="http://facebook.com/SpeakLikeABrazilian" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
                             <a href="http://speaklikeabrazilian.com/moderators" class="small item"><i class="privacy icon"></i> Moderators Area</a>
