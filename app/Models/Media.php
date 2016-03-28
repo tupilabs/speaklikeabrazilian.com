@@ -55,7 +55,7 @@ class Media extends Model implements Transformable
 
     protected $guarded = [];
 
-    protected $fillable = ['definition_id', 'url', 'reason', 'email', 'status', 'content_type', 'contributor'];
+    protected $fillable = ['definition_id', 'url', 'reason', 'email', 'status', 'content_type', 'contributor', 'user_ip'];
 
     // --- utility methods
 

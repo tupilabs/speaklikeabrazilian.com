@@ -47,7 +47,30 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
                 'email' => $input['video-email-input'],
                 'status' => 1, 
                 'contributor' => $input['video-pseudonym-input'],
-                'content_type' => 'video/youtube'
+                'content_type' => 'video/youtube',
+                'user_ip' => $ip
+            )
+        );
+        return $media;
+    }
+
+    public function addPicture(array $input, array $language, $ip)
+    {
+        $url = $input['picture-url-input'];
+        $definitionId = $input['definition_id'];
+        
+        Log::info(sprintf('User %s wants to share a new picture %s for definition %d', $ip, $url, $definitionId));
+        // FIXME: image/unknown? Get the mime type with some library found in composer maybe?
+        $media = Media::create(
+            array(
+                'definition_id' => $definitionId,
+                'url' => $url,
+                'reason' => $input['picture-reason-input'],
+                'email' => $input['picture-email-input'],
+                'status' => 1, 
+                'contributor' => $input['picture-pseudonym-input'],
+                'content_type' => 'image/unknown',
+                'user_ip' => $ip
             )
         );
         return $media;

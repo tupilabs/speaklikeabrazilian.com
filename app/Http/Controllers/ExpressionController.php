@@ -261,13 +261,35 @@ class ExpressionController extends Controller {
         $definitionId = $request->get('definition_id');
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
+        $definition = $this->definitionRepository->getOne($definitionId)->toArray();
         $data = array(
             'languages' => $languages,
             'lang' => $language['id'],
             'selected_language' => $language['description'],
-            'definition_id' => $definitionId
+            'definition_id' => $definitionId,
+            'definition' => $definition
         );
-        return view('add_image', $data);
+        return view('add_picture', $data);
+    }
+
+    /**
+     * Handle form submission to add a picture to an expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
+    public function postPicture(Request $request)
+    {
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
+
+        $url = $request->get('picture-url-input');
+        if (!preg_match('%(?:imgur\.com/)([^"&?/ ]{11})%i', $url, $match))
+        {
+            return redirect()->back()->withInput()->withErrors(['The picture URL is not valid. Only imgur pictures are allowed at the moment.']);
+        }
+
+        $media = $this->mediaRepository->addPicture(Input::all(), $language, $request->getClientIp());
+        return Redirect::to('/thankyou');
     }
 
     /**
@@ -292,6 +314,11 @@ class ExpressionController extends Controller {
         return view('add_video', $data);
     }
 
+    /**
+     * Handle form submission to add a video to an expression.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function postVideo(Request $request)
     {
         $languages = $request->get('languages');
@@ -305,45 +332,6 @@ class ExpressionController extends Controller {
 
         $media = $this->mediaRepository->addVideo(Input::all(), $language, $request->getClientIp());
         return Redirect::to('/thankyou');
-    }
-
-    public function postPictures()
-    {
-        Log::info(sprintf('User %s wants to share a new picture %s for definition ID %d', 
-            Request::getClientIp(), Input::get('url'), Input::get('definitionId')));
-        $url = Input::get('url');
-        if (!preg_match('%(?:imgur\.com/)([^"&?/ ]{11})%i', $url, $match))
-        {
-            $args = array();
-            $args['message'] = 'Sorry, only imgur links are allowed at the moment.';
-            Log::error(sprintf('Error uploading picture %s to definition %d', $url, Input::get('definitionId')));
-            $this->theme->layout('message');
-            return $this->theme->scope('message', $args)->render();
-        }
-        $media = Media::create(
-            array(
-                'definition_id' => Input::get('definitionId'),
-                'url' => Input::get('url'),
-                'reason' => Input::get('reason'),
-                'email' => Input::get('email'),
-                'status' => 1, 
-                'contributor' => Input::get('contributor'),
-                'content_type' => 'image/unknown'
-            )
-        );
-        if($media->isValid() && $media->isSaved())
-        {
-            $args = array();
-            $args['message'] = Lang::get('messages.picture_added');
-            $this->theme->layout('message');
-            return $this->theme->scope('message', $args)->render();
-        } 
-        else
-        {
-            return Redirect::to(sprintf('expression/%d/pictures?expressionId=%d', Input::get('definitionid'), Input::get('expressionId')))
-                ->withErrors($media->errors)
-                ->withInput();
-        }
     }
 
 }
