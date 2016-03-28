@@ -22,6 +22,7 @@ class CreateMediasTable extends Migration
 			$table->char('status', 1);
 			$table->string('content_type', 20);
 			$table->string('contributor', 50);
+            $table->string('user_ip', 60)->nullable();
 			$table->timestamps();
         });
     }

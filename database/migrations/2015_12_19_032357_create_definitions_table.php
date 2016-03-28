@@ -22,7 +22,7 @@ class CreateDefinitionsTable extends Migration
 			$table->char('status', 1);
 			$table->string('email', 255);
 			$table->string('contributor', 50);
-            $table->string('user_ip', 50)->nullable();
+            $table->string('user_ip', 60)->nullable();
             $table->integer('language_id')->unsigned();
 			$table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
 			$table->timestamps();

@@ -38,7 +38,8 @@ $factory->define(SLBR\Models\Definition::class, function (Faker\Generator $faker
         'status' => 2,
         'email' => $faker->email,
         'contributor' => $faker->name,
-        'language_id' => 1
+        'language_id' => 1,
+        'user_ip' => $faker->ipv4
     ];
 });
 
@@ -62,7 +63,8 @@ $factory->define(SLBR\Models\Media::class, function (Faker\Generator $faker) {
         'status' => $faker->numberBetween(1,2),
         'content_type' => $type,
         'contributor' => $faker->name,
-        'definition_id' => 1
+        'definition_id' => 1,
+        'user_ip' => $faker->ipv4
     ];
 });
 
