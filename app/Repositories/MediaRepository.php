@@ -10,5 +10,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface MediaRepository extends RepositoryInterface
 {
-    //
+    public function addVideo(array $input, array $language, $ip);
 }

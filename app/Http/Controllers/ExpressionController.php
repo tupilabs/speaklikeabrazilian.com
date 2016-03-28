@@ -30,6 +30,7 @@ use Exception;
 use SLBR\Models\Definition;
 use SLBR\Repositories\DefinitionRepository;
 use SLBR\Repositories\RatingRepository;
+use SLBR\Repositories\MediaRepository;
 use Illuminate\Http\Request;
 
 class ExpressionController extends Controller {
@@ -44,10 +45,16 @@ class ExpressionController extends Controller {
      */
     private $ratingRepository;
 
-    public function __construct(DefinitionRepository $definitionRepository, RatingRepository $ratingRepository)
+    /**
+     * SLBR\Repositories\MediaRepository
+     */
+    private $mediaRepository;
+
+    public function __construct(DefinitionRepository $definitionRepository, RatingRepository $ratingRepository, MediaRepository $mediaRepository)
     {
         $this->definitionRepository = $definitionRepository;
         $this->ratingRepository = $ratingRepository;
+        $this->mediaRepository = $mediaRepository;
     }
 
     /**
@@ -178,7 +185,7 @@ class ExpressionController extends Controller {
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
         $definitions = $this->definitionRepository->add(Input::all(), $language, $request->getClientIp());
-        return Redirect::to('/thankyou');        
+        return Redirect::to('/thankyou');
     }
 
     /**
@@ -243,6 +250,11 @@ class ExpressionController extends Controller {
         return $json;
     }
 
+    /**
+     * Display form to add image.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function getAddimage(Request $request)
     {
         // FIXME: validate definition ID
@@ -258,6 +270,11 @@ class ExpressionController extends Controller {
         return view('add_image', $data);
     }
 
+    /**
+     * Display form to add video.
+     *
+     * @param Illuminate\Http\Request $request
+     */
     public function getAddvideo(Request $request)
     {
         // FIXME: validate definition ID
@@ -275,45 +292,19 @@ class ExpressionController extends Controller {
         return view('add_video', $data);
     }
 
-    public function postVideo()
+    public function postVideo(Request $request)
     {
-        Log::info(sprintf('User %s wants to share a new video %s for definition ID %d', 
-            Request::getClientIp(), Input::get('youtube_url'), Input::get('definitionId')));
-        $url = Input::get('youtube_url');
+        $languages = $request->get('languages');
+        $language = $this->getLanguage($languages, $request);
+
+        $url = $request->get('video-url-input');
         if (!preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
         {
-            $args = array();
-            $args['message'] = 'Sorry, only YouTube videos are allowed at the moment.';
-            Log::error(sprintf('Error uploading video %s to definition %d', $url, Input::get('definitionId')));
-            $this->theme->layout('message');
-            return $this->theme->scope('message', $args)->render();
+            return redirect()->back()->withInput()->withErrors(['The video URL is not valid. Only YouTube videos are allowed at the moment.']);
         }
-        $media = Media::create(
-            array(
-                'definition_id' => Input::get('definitionId'),
-                'url' => $url,
-                'reason' => Input::get('reason'),
-                'email' => Input::get('email'),
-                'status' => 1, 
-                'contributor' => Input::get('contributor'),
-                'content_type' => 'video/youtube'
-            )
-        );
-        if($media->isValid() && $media->isSaved())
-        {
-            $args = array();
-            $args['message'] = Lang::get('messages.video_added');
-            $this->theme->layout('message');
-            return $this->theme->scope('message', $args)->render();
-        } 
-        else
-        {
-            $args = array();
-            $args['message'] = Lang::get('messages.video_not_added');
-            Log::error(sprintf('Error uploading video %s to definition %d', $url, Input::get('definitionId')));
-            $this->theme->layout('message');
-            return $this->theme->scope('message', $args)->render();
-        }
+
+        $media = $this->mediaRepository->addVideo(Input::all(), $language, $request->getClientIp());
+        return Redirect::to('/thankyou');
     }
 
     public function postPictures()
