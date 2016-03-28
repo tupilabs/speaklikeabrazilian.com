@@ -207,7 +207,7 @@
                     } else {
                         console.log(data);
                         console.log(textStatus);
-                        console.log(jqXHR);
+                        //console.log(jqXHR);
                     }
                 },
                 error : onError

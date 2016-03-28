@@ -5,12 +5,19 @@
                         {!! Form::open(array('url' => 'search', 'method' => 'get', 'class' => 'ui form', 'id' => 'search-form')) !!}
                             <div class='field'>
                                 <div class="ui small fluid action input">
-                                    <input class="prompt" name='q' id='q' placeholder="Search..." type="text">
+                                    <input class="prompt" name='q' id='q' value="{{ old('q') }}" placeholder="Search..." type="text">
                                     <button class="ui submit button">Search</button>
                                 </div>
                             </div>
                             <div class="ui error message"></div>
                         {!! Form::close() !!}
+                        @if (session('search_error'))
+                        <div class="ui error message">
+                            <div class="header">Search error</div>
+                            <p>{{ session('search_error') }}</p>
+                        </div>
+                        <br/>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -15,12 +15,12 @@ front:
 mysql:
   image: mysql
   ports:
-    - "8306:3306"
+    - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: cachacaDeJaboticabaNaoTemCheiro
 
 elasticsearch:
   image: elasticsearch
   ports:
-    - "8200:9200"
-    - "8300:9300"
+    - "9200:9200"
+    - "9300:9300"

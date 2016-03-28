@@ -36,6 +36,7 @@ Route::group(array('prefix' => $locale), function()
     Route::get('/random', 'ExpressionController@getRandom');
     Route::get('/thankyou', 'ExpressionController@getThankYou');
     Route::controller('/expression', 'ExpressionController');
+    Route::get('/search', 'SearchController@getSearch');
 });
 
 // Main app
@@ -45,3 +46,4 @@ Route::get('/top', 'ExpressionController@getTop');
 Route::get('/random', 'ExpressionController@getRandom');
 Route::get('/thankyou', 'ExpressionController@getThankYou');
 Route::controller('/expression', 'ExpressionController');
+Route::get('/search', 'SearchController@getSearch');

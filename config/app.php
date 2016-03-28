@@ -167,6 +167,8 @@ return [
 
         Msurguy\Honeypot\HoneypotServiceProvider::class,
 
+        Shift31\LaravelElasticsearch\ElasticsearchServiceProvider::class,
+
     ],
 
     /*
