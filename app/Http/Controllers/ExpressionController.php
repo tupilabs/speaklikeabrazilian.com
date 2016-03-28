@@ -191,7 +191,7 @@ class ExpressionController extends Controller {
             'expression-pseudonym-input'        => 'required|min:1|max:50',
             'expression-email-input'            => 'required|email|min:5|max:255',
             'username'                          => 'honeypot',
-            'my_time'                           => 'required|honeytime:5'
+            'my_time'                           => 'required|honeytime:30'
         ));
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
