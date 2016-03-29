@@ -95,4 +95,49 @@ class ModeratorController extends Controller {
         return redirect('/moderators/');
     }
 
+    public function getExpressions()
+    {
+        $user = Sentinel::getUser();
+        $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
+        $countPendingVideos = $this->mediaRepository->countPendingVideos();
+        $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $data = array(
+            'user' => $user,
+            'count_pending_expressions' => $countPendingExpressions,
+            'count_pending_videos' => $countPendingVideos,
+            'count_pending_pictures' => $countPendingPictures
+        );
+        return view('moderators.home', $data);
+    }
+
+    public function getPictures()
+    {
+        $user = Sentinel::getUser();
+        $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
+        $countPendingVideos = $this->mediaRepository->countPendingVideos();
+        $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $data = array(
+            'user' => $user,
+            'count_pending_expressions' => $countPendingExpressions,
+            'count_pending_videos' => $countPendingVideos,
+            'count_pending_pictures' => $countPendingPictures
+        );
+        return view('moderators.home', $data);
+    }
+
+    public function getVideos()
+    {
+        $user = Sentinel::getUser();
+        $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
+        $countPendingVideos = $this->mediaRepository->countPendingVideos();
+        $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $data = array(
+            'user' => $user,
+            'count_pending_expressions' => $countPendingExpressions,
+            'count_pending_videos' => $countPendingVideos,
+            'count_pending_pictures' => $countPendingPictures
+        );
+        return view('moderators.home', $data);
+    }
+
 }

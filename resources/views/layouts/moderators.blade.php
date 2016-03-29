@@ -282,20 +282,40 @@ ul.doughnut-legend {
     </div>
     <!-- Non-responsive main left menu -->
     <div class="ui left fixed vertical inverted menu">
+        @if (Request::is('moderators'))
         <a class="active gray item" href="{{ URL::to('/moderators/') }}">Dashboard</a>
+        @else
+        <a class="gray item" href="{{ URL::to('/moderators/') }}">Dashboard</a>
+        @endif
+        @if (Request::is('moderators/expressions'))
+        <a class="active item" href="{{ URL::to('/moderators/expressions') }}">
+        @else
         <a class="item" href="{{ URL::to('/moderators/expressions') }}">
+        @endif
             Pending Expressions
             <div class="ui label">{{ $count_pending_expressions }}</div>
         </a>
+        @if (Request::is('moderators/pictures'))
+        <a class="active item" href="{{ URL::to('/moderators/pictures') }}">
+        @else
         <a class="item" href="{{ URL::to('/moderators/pictures') }}">
+        @endif
             Pending Pictures
             <div class="ui label">{{ $count_pending_pictures }}</div>
         </a>
+        @if (Request::is('moderators/videos'))
+        <a class="active item" href="{{ URL::to('/moderators/videos') }}">
+        @else
         <a class="item" href="{{ URL::to('/moderators/videos') }}">
+        @endif
             Pending Videos
             <div class="ui label">{{ $count_pending_videos }}</div>
         </a>
+        @if (Request::is('moderators/blog'))
+        <a class="active item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
+        @else
         <a class="item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
+        @endif
         <a class="item" href="{{ URL::to('/moderators/logout') }}">
             <p>Sign Out</p>
         </a>
