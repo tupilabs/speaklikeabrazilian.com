@@ -31,6 +31,7 @@ use SLBR\Models\Definition;
 use SLBR\Models\Rating;
 use SLBR\Models\Media;
 
+
 class DevDatabaseSeeder extends Seeder
 {
 
@@ -91,4 +92,5 @@ class DevDatabaseSeeder extends Seeder
             $definition->save();
         }
     }
+
 }

@@ -24,7 +24,6 @@
 
 use \App;
 use \Log;
-use \Sentry;
 
 use SLBR\Models\Language;
 
@@ -89,19 +88,20 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->delete();
         $mod = Sentinel::register(array(
             'email'    => 'mod@speaklikeabrazilian.com',
-            'password' => 'foobar',
-        ));
+            'password' => 'bruno',
+        ), /* activate */ TRUE);
 
         $modRole = Sentinel::findRoleByName('Moderators');
         $modRole->users()->attach($mod);
 
         $admin = Sentinel::register(array(
             'email'    => 'admin@speaklikeabrazilian.com',
-            'password' => 'foobar',
-        ));
+            'password' => 'bruno',
+        ), /* activate */ TRUE);
 
         $adminRole = Sentinel::findRoleByName('Administrators');
         $adminRole->users()->attach($admin);
+        $modRole->users()->attach($admin);
     }
 
     /**

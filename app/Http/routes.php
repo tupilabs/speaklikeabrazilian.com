@@ -54,3 +54,6 @@ Route::get('/thankyou', 'ExpressionController@getThankYou');
 Route::controller('/expression', 'ExpressionController');
 Route::get('/search', 'SearchController@getSearch');
 Route::get('/recreateSearchIndex', 'SearchController@recreateSearchIndex');
+
+// Moderators
+Route::controller('/moderators', 'ModeratorController');

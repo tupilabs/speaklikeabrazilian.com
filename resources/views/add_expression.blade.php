@@ -31,7 +31,7 @@
                     </div>
 
                     <form id="form" class="ui form" method="post" action="{{ URL::to($selected_language['slug'] . '/expression/add') }}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         {!! Honeypot::generate('username', 'expression_time') !!}
                         <div class="field">
                             <label for="expression-text-input">Expression in Portuguese</label>

@@ -19,7 +19,7 @@
                             <a href="{{ URL::to($selected_language['slug'] . '/') }}" class="small item"><i class="home icon"></i> Home</a>
                             <a href="http://twitter.com/SpeakLikeABR" class="small item"><i class="twitter square icon"></i> @SpeakLikeABR</a>
                             <a href="http://facebook.com/SpeakLikeABrazilian" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
-                            <a href="http://speaklikeabrazilian.com/moderators" class="small item"><i class="privacy icon"></i> Moderators Area</a>
+                            <a href="{{ URL::to('/moderators') }}" class="small item"><i class="privacy icon"></i> Moderators Area</a>
                             <div class="small item">
                                 @foreach ($languages as $language)
                                 <a href="{{ URL::to('/' . $language['slug']) }}"><img width='24px' src="{{ URL::asset('images/flags/flag_' . $language['slug'] . '.png') }}" /></a>&nbsp;&nbsp;
