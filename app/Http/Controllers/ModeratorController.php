@@ -57,7 +57,8 @@ class ModeratorController extends Controller {
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
-            'count_pending_pictures' => $countPendingPictures
+            'count_pending_pictures' => $countPendingPictures,
+            'title' => 'Moderators Area'
         );
         return view('moderators.home', $data);
     }
@@ -105,7 +106,8 @@ class ModeratorController extends Controller {
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
-            'count_pending_pictures' => $countPendingPictures
+            'count_pending_pictures' => $countPendingPictures,
+            'title' => 'Pending Expressions'
         );
         return view('moderators.home', $data);
     }
@@ -120,7 +122,8 @@ class ModeratorController extends Controller {
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
-            'count_pending_pictures' => $countPendingPictures
+            'count_pending_pictures' => $countPendingPictures,
+            'title' => 'Pending Pictures'
         );
         return view('moderators.home', $data);
     }
@@ -135,7 +138,8 @@ class ModeratorController extends Controller {
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
-            'count_pending_pictures' => $countPendingPictures
+            'count_pending_pictures' => $countPendingPictures,
+            'title' => 'Pending Videos'
         );
         return view('moderators.home', $data);
     }

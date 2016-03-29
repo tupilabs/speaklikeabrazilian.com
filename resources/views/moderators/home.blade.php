@@ -1,7 +1,7 @@
 @extends('layouts.moderators')
 @section('content')
         <!-- I use this to just show a DateTime, remove/replace as you wish -->
-        <h1 class="ui header datetime">Moderators Area</h1>
+        <h1 class="ui header datetime">{{ $title }}</h1>
         <div class="row">
             <div class="column">
                 <div class="ui segments">
