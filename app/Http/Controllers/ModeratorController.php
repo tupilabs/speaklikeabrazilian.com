@@ -35,7 +35,11 @@ class ModeratorController extends Controller {
 
     public function getIndex()
     {
-        return view('moderators.home');
+        $user = Sentinel::getUser();
+        $data = array(
+            'user' => $user
+        );
+        return view('moderators.home', $data);
     }
 
     public function getLogin()
@@ -54,8 +58,7 @@ class ModeratorController extends Controller {
         $this->validate($request, array(
             'moderator-email-input'             => 'required|email|min:5|max:255',
             'moderator-password-input'          => 'required|min:1|max:100',
-            'username'                          => 'honeypot',
-            'mod_time'                          => 'required|honeytime:5'
+            'username'                          => 'honeypot'
         ));
 
         $email      = $request->get('moderator-email-input');

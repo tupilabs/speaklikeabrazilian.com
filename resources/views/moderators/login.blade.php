@@ -1,14 +1,14 @@
-@extends('layouts.moderators')
+@extends('layouts.login')
 
 @section('content')
-    <div class="ui middle aligned center aligned grid">
-        <div class="column">
+    <div class="ui middle aligned center aligned grid" style='height: 100%;'>
+        <div class="column" style='max-width: 450px;'>
             <h2 class="ui teal image header">
                 <div class="content">Moderators area</div>
             </h2>
             <form action='{{ URL::to("/moderators/login") }}' method='post' id='form' class="ui large form">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                {!! Honeypot::generate('username', 'mod_time') !!}
+                {!! Honeypot::generate('username', 'my_time') !!}
                 <div class="ui stacked segment">
                     <div class="field">
                         <div class="ui left icon input"><i class="user icon"></i>

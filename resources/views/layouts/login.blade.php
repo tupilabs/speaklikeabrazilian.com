@@ -8,6 +8,8 @@
     <title>Speak Like A Brazilian</title>
     <link rel="stylesheet" href="{{ URL::asset('css/slbr.css') }}">
     <style>
+/* MAIN STYLES */
+
 * {
   margin: 0;
   padding: 0;
@@ -261,55 +263,7 @@ ul.doughnut-legend {
     </style>
 </head>
 <body>
-<div class="ui grid container">
-    <div class="ui sidebar inverted vertical menu">
-        <a class="active gray item" href="{{ URL::to('/moderators/') }}">Dashboard</a>
-        <a class="item" href="{{ URL::to('/moderators/expressions') }}">
-            Pending Expressions
-            <div class="ui label">11</div>
-        </a>
-        <a class="item" href="{{ URL::to('/moderators/pictures') }}">
-            Pending Pictures
-            <div class="ui label">2</div>
-        </a>
-        <a class="item" href="{{ URL::to('/moderators/videos') }}">
-            Pending Videos
-        </a>
-        <a class="item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
-        <a class="item" href="{{ URL::to('/moderators/logout') }}">
-            <p>Sign Out</p>
-        </a>
-    </div>
-    <!-- Non-responsive main left menu -->
-    <div class="ui left fixed vertical inverted menu">
-        <a class="active gray item" href="{{ URL::to('/moderators/') }}">Dashboard</a>
-        <a class="item" href="{{ URL::to('/moderators/expressions') }}">
-            Pending Expressions
-            <div class="ui label">11</div>
-        </a>
-        <a class="item" href="{{ URL::to('/moderators/pictures') }}">
-            Pending Pictures
-            <div class="ui label">2</div>
-        </a>
-        <a class="item" href="{{ URL::to('/moderators/videos') }}">
-            Pending Videos
-        </a>
-        <a class="item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
-        <a class="item" href="{{ URL::to('/moderators/logout') }}">
-            <p>Sign Out</p>
-        </a>
-    </div>
-    <div class="ui main grid">
-        <!-- Responsive top menu -->
-        <div class="ui fixed inverted main menu">
-            <div class="ui container">
-                <a class="launch icon item sidebar-toggle"> <i class="sidebar icon"></i>
-                </a>
-            </div>
-        </div>
 @yield('content')
-    </div>
-</div>
     <script type="text/javascript" src="{{ URL::to('/js/all.js') }}"></script>
     <script>
     $( document ).ready(function() {
