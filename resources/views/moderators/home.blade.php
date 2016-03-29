@@ -6,7 +6,7 @@
             <div class="column">
                 <div class="ui segments">
                     <div class="ui segment">
-                        <h3 class="ui blue header">Let's create a great community!</h3>
+                        <h3 class="ui blue header">Let's create a great community <i class="heart icon"></i></h3>
                     </div>
                     <div class="ui segment">
                         <p>Speak Like A Brazilian is a web site that receives contribution from several people. These

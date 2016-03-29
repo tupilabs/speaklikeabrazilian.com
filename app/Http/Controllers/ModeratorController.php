@@ -23,21 +23,40 @@
  */
 namespace SLBR\Http\Controllers;
 
+use SLBR\Repositories\DefinitionRepository;
+use SLBR\Repositories\MediaRepository;
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
 
 class ModeratorController extends Controller {
 
-    public function __construct()
+    /**
+     * SLBR\Repositories\DefinitionRepository
+     */
+    private $definitionRepository;
+
+    /**
+     * SLBR\Repositories\MediaRepository
+     */
+    private $mediaRepository;
+
+    public function __construct(DefinitionRepository $definitionRepository, MediaRepository $mediaRepository)
     {
-        //$this->middleware('auth');
+        $this->definitionRepository = $definitionRepository;
+        $this->mediaRepository = $mediaRepository;
     }
 
     public function getIndex()
     {
         $user = Sentinel::getUser();
+        $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
+        $countPendingVideos = $this->mediaRepository->countPendingVideos();
+        $countPendingPictures = $this->mediaRepository->countPendingPictures();
         $data = array(
-            'user' => $user
+            'user' => $user,
+            'count_pending_expressions' => $countPendingExpressions,
+            'count_pending_videos' => $countPendingVideos,
+            'count_pending_pictures' => $countPendingPictures
         );
         return view('moderators.home', $data);
     }

@@ -25,4 +25,6 @@ interface DefinitionRepository extends RepositoryInterface
     public function getOne($definitionId);
 
     public function retrieve($ids, array $language);
+
+    public function countPendingDefinitions();
 }

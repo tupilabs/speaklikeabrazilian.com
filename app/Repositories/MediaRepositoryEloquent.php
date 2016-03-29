@@ -75,4 +75,20 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
         );
         return $media;
     }
+
+    public function countPendingVideos()
+    {
+        $count = Media::where('status', '=', 1)
+            ->where('content_type', '=', 'video/youtube')
+            ->count();
+        return $count;
+    }
+
+    public function countPendingPictures()
+    {
+        $count = Media::where('status', '=', 1)
+            ->where('content_type', '<>', 'video/youtube')
+            ->count();
+        return $count;
+    }
 }

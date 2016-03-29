@@ -285,14 +285,15 @@ ul.doughnut-legend {
         <a class="active gray item" href="{{ URL::to('/moderators/') }}">Dashboard</a>
         <a class="item" href="{{ URL::to('/moderators/expressions') }}">
             Pending Expressions
-            <div class="ui label">11</div>
+            <div class="ui label">{{ $count_pending_expressions }}</div>
         </a>
         <a class="item" href="{{ URL::to('/moderators/pictures') }}">
             Pending Pictures
-            <div class="ui label">2</div>
+            <div class="ui label">{{ $count_pending_pictures }}</div>
         </a>
         <a class="item" href="{{ URL::to('/moderators/videos') }}">
             Pending Videos
+            <div class="ui label">{{ $count_pending_videos }}</div>
         </a>
         <a class="item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
         <a class="item" href="{{ URL::to('/moderators/logout') }}">
