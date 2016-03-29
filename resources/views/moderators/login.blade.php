@@ -34,6 +34,9 @@
                 </ul>
             </div>
             @endif
+            <div class='ui message'>
+                <p><a href="{{ URL::to('/') }}">&lt; Go back</a></p>
+            </div>
         </div>
     </div>
 @stop
