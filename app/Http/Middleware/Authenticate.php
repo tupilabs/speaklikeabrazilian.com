@@ -4,6 +4,7 @@ namespace SLBR\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Cartalyst\Sentinel\Native\Facades\Sentinel;
 
 class Authenticate
 {
@@ -34,11 +35,11 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
+        if (!Sentinel::check()) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('auth/login');
+                return redirect()->guest('/moderators/login');
             }
         }
 

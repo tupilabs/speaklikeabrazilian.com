@@ -42,6 +42,7 @@ class ModeratorController extends Controller {
 
     public function __construct(DefinitionRepository $definitionRepository, MediaRepository $mediaRepository)
     {
+        $this->middleware('auth', ['except' => ['getLogin', 'postLogin']]);
         $this->definitionRepository = $definitionRepository;
         $this->mediaRepository = $mediaRepository;
     }
