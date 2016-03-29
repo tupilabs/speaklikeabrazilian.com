@@ -35,10 +35,21 @@ class ModeratorController extends Controller {
 
     public function getIndex()
     {
+        return view('moderators.home');
+    }
+
+    public function getLogin()
+    {
         return view('moderators.login');
     }
 
-    public function postIndex(Request $request)
+    public function getLogout()
+    {
+        Sentinel::logout(null, /* everywhere */ TRUE);
+        return redirect('/moderators/login');
+    }
+
+    public function postLogin(Request $request)
     {
         $this->validate($request, array(
             'moderator-email-input'             => 'required|email|min:5|max:255',
@@ -58,8 +69,7 @@ class ModeratorController extends Controller {
         $response = Sentinel::authenticate($credentials);
         if (!$response)
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
-        var_dump($response);die();
-        return redirect('/');
+        return redirect('/moderators/');
     }
 
 }
