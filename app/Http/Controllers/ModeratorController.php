@@ -25,6 +25,7 @@ namespace SLBR\Http\Controllers;
 
 use SLBR\Repositories\DefinitionRepository;
 use SLBR\Repositories\MediaRepository;
+use SLBR\Repositories\LanguageRepository;
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
 
@@ -40,11 +41,17 @@ class ModeratorController extends Controller {
      */
     private $mediaRepository;
 
-    public function __construct(DefinitionRepository $definitionRepository, MediaRepository $mediaRepository)
+    /**
+     * SLBR\Repositories\LanguageRepository
+     */
+    private $languageRepository;
+
+    public function __construct(DefinitionRepository $definitionRepository, MediaRepository $mediaRepository, LanguageRepository $languageRepository)
     {
         $this->middleware('auth', ['except' => ['getLogin', 'postLogin']]);
         $this->definitionRepository = $definitionRepository;
         $this->mediaRepository = $mediaRepository;
+        $this->languageRepository = $languageRepository;
     }
 
     public function getIndex()
@@ -102,14 +109,23 @@ class ModeratorController extends Controller {
         $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $randomPendingExpression = $this->definitionRepository->getRandomPendingDefinition();
+        $selectedLanguage = NULL;
+        if ($randomPendingExpression)
+        {
+            $languageId = $randomPendingExpression['language_id'];
+            $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
+        }
         $data = array(
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
             'count_pending_pictures' => $countPendingPictures,
-            'title' => 'Pending Expressions'
+            'title' => 'Pending Expressions',
+            'definition' => $randomPendingExpression,
+            'selected_language' => $selectedLanguage
         );
-        return view('moderators.home', $data);
+        return view('moderators.expression', $data);
     }
 
     public function getPictures()

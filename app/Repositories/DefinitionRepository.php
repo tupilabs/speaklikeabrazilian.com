@@ -27,4 +27,6 @@ interface DefinitionRepository extends RepositoryInterface
     public function retrieve($ids, array $language);
 
     public function countPendingDefinitions();
+
+    public function getRandomPendingDefinition();
 }
