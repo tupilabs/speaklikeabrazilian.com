@@ -58,7 +58,7 @@
                                     @endforeach
                                 </small>
                             </p>
-                            @if (!isset($hide_links) or $hide_links)
+                            @if (!isset($hide_links) or !$hide_links)
 					    	<span class='right floated'>
 					    		<small>
 					    		<a href="{{ action('ExpressionController@getAddimage') }}?definition_id={{ $definition['id'] }}"><i class="plus icon"></i>picture</a>
