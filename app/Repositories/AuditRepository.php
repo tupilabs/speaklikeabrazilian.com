@@ -10,5 +10,5 @@ use Prettus\Repository\Contracts\RepositoryInterface;
  */
 interface AuditRepository extends RepositoryInterface
 {
-    //
+    public function auditModeration($entity, $userIp, $userId);
 }

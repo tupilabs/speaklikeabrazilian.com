@@ -12,6 +12,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\DefinitionRepository;
 use SLBR\Repositories\RatingRepository;
+use SLBR\Repositories\AuditRepository;
 use SLBR\Models\Expression;
 use SLBR\Models\Definition;
 
@@ -27,10 +28,16 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
      */
     private $ratingRepository;
 
-    public function __construct(RatingRepository $ratingRepository)
+    /**
+     * SLBR\Repositories\AuditRepository
+     */
+    private $auditRepository;
+
+    public function __construct(RatingRepository $ratingRepository, AuditRepository $auditRepository)
     {
         parent::__construct(\App::getInstance());
         $this->ratingRepository = $ratingRepository;
+        $this->auditRepository = $auditRepository;
     }
 
     /**
@@ -303,7 +310,11 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         Log::debug('Auto voting the definition using user\'s IP address');
         if (isset($definition->user_ip) && strlen($definition->user_ip) > 0)
         {
-            $votes = $this->ratingRepository->all()->where('user_ip', '=', $definition->user_ip);
+            $votes = $this
+                ->ratingRepository
+                ->all()
+                ->where('user_ip', '=', $definition->user_ip)
+                ->where('definition_id', '=', $definition->id);
             if (!$votes)
             {
                 $this->ratingRepository->like($definition->user_ip, $definition->id);
@@ -339,11 +350,12 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         }
     }
 
-    private function updateStatus($definitionId, $user, $status)
+    private function updateStatus($definitionId, $user, $status, $userIp)
     {
         Log::info(sprintf('User %d (%s) approving definition %d', $user->id, $user->email, $definitionId));
 
         $definition = $this->find($definitionId);
+        $success = FALSE;
 
         DB::beginTransaction();
         try 
@@ -357,11 +369,12 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             {
                 $this->addToSearchIndex($expression, $definition);
                 $this->addAuthorVote($definition);
-                $this->sendApprovalEmail($definition);
+                //$this->sendApprovalEmail($definition);
             }
 
             Log::debug('Committing transaction');
             DB::commit();
+            $success = TRUE;
             return $definition;
         } 
         catch (Exception $e) 
@@ -370,16 +383,23 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             DB::rollback();
             throw $e;
         }
+        finally
+        {
+            if ($success)
+            {
+                $this->auditRepository->auditModeration($definition, $userIp, $user->id);
+            }
+        }
     }
 
-    public function approve($definitionId, $user)
+    public function approve($definitionId, $user, $userIp)
     {
-        return $this->updateStatus($definitionId, $user, 2);
+        return $this->updateStatus($definitionId, $user, 2, $userIp);
     }
 
-    public function reject($definitionId, $user)
+    public function reject($definitionId, $user, $userIp)
     {
-        return $this->updateStatus($definitionId, $user, 3);
+        return $this->updateStatus($definitionId, $user, 3, $userIp);
     }
 
 }

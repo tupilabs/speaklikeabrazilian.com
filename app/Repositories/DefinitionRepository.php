@@ -30,7 +30,7 @@ interface DefinitionRepository extends RepositoryInterface
 
     public function getRandomPendingDefinition();
 
-    public function approve($definitionId, $user);
+    public function approve($definitionId, $user, $userIp);
 
-    public function reject($definitionId, $user);
+    public function reject($definitionId, $user, $userIp);
 }

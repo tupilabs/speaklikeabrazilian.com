@@ -33,4 +33,16 @@ class AuditRepositoryEloquent extends BaseRepository implements AuditRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
+
+    public function auditModeration($entity, $userIp, $userId)
+    {
+        $jsonEntity = $entity->toJson();
+        $datetime = new \DateTime();
+        $body = Audit::getModerationBody($jsonEntity, $userIp, $userId, $datetime);
+        return $this->create(array(
+            'user_ip' => $userIp,
+            'user_id' => $userId,
+            'body'    => $body
+        ));
+    }
 }

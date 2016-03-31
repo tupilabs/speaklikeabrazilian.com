@@ -131,14 +131,14 @@ class ModeratorController extends Controller {
     public function approveExpression(Request $request, $definition_id)
     {
         $user = Sentinel::getUser();
-        $definition = $this->definitionRepository->approve($definition_id, $user);
+        $definition = $this->definitionRepository->approve($definition_id, $user, $request->getClientIp());
         return redirect('/moderators/expressions')->withInput()->with('success', sprintf('Expression %s approved!', $definition->expression()->first()->text));
     }
 
     public function rejectExpression(Request $request, $definition_id)
     {
         $user = Sentinel::getUser();
-        $definition = $this->definitionRepository->reject($definition_id, $user);
+        $definition = $this->definitionRepository->reject($definition_id, $user, $request->getClientIp());
         return redirect('/moderators/expressions')->withInput()->with('success', sprintf('Expression %s approved!', $definition->expression()->first()->text));
     }
 
