@@ -1,5 +1,7 @@
 <?php
 
+use SLBR\Models\Language;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,7 +15,10 @@
 
 // Retrieve languages from database
 // TODO: cache
-$languages = \SLBR\Models\Language::all()->toArray();
+$languages = Cache::rememberForever('languages', function()
+{
+    return Language::all()->toArray();
+});
 $locale = Request::segment(1);
 $found = FALSE;
 foreach ($languages as $ids => $language)

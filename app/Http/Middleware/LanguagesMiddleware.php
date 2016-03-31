@@ -7,6 +7,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Http\Request;
 use Closure;
 use SLBR\Models\Language;
+use \Cache;
 
 class LanguagesMiddleware
 {
@@ -29,7 +30,10 @@ class LanguagesMiddleware
         // Make sure current locale exists.
         $locale = $request->segment(1);
 
-        $languages = \SLBR\Models\Language::all()->toArray();
+        $languages = Cache::rememberForever('languages', function()
+        {
+            return Language::all()->toArray();
+        });
         $locales = array();
         foreach ($languages as $language)
         {
@@ -50,7 +54,6 @@ class LanguagesMiddleware
             $this->app->setLocale($locale);
         }
 
-        $languages = Language::all()->toArray();
         $request->attributes->add(['languages' => $languages]);
         return $next($request);
     }
