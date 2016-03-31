@@ -29,4 +29,8 @@ interface DefinitionRepository extends RepositoryInterface
     public function countPendingDefinitions();
 
     public function getRandomPendingDefinition();
+
+    public function approve($definitionId, $user);
+
+    public function reject($definitionId, $user);
 }

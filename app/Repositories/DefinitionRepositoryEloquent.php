@@ -5,9 +5,12 @@ namespace SLBR\Repositories;
 use \DB;
 use \Log;
 use \Config;
+use \Exception;
+use Es;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\DefinitionRepository;
+use SLBR\Repositories\RatingRepository;
 use SLBR\Models\Expression;
 use SLBR\Models\Definition;
 
@@ -17,6 +20,18 @@ use SLBR\Models\Definition;
  */
 class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionRepository
 {
+
+    /**
+     * SLBR\Repositories\RatingRepository
+     */
+    private $ratingRepository;
+
+    public function __construct(RatingRepository $ratingRepository)
+    {
+        parent::__construct(\App::getInstance());
+        $this->ratingRepository = $ratingRepository;
+    }
+
     /**
      * Specify Model class name
      *
@@ -255,6 +270,103 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         if ($definitions)
             $definitions = $definitions->toArray();
         return $definitions;
+    }
+
+    private function updateStatus($definitionId, $user, $status)
+    {
+        Log::info(sprintf('User %d (%s) approving definition %d', $user->id, $user->email, $definitionId));
+
+        $definition = $this->find($definitionId);
+
+        DB::beginTransaction();
+        try 
+        {
+            Log::debug(sprintf("Updating definition status to %s", ($status == 2 ? 'APPROVED' : 'REJECTED')));
+            $definition->status = $status;
+            $definition->save();
+            $expression = $definition->expression()->first();
+
+            {
+                // Index document into search server
+                $params = array();
+                $params['body']  = array(
+                    'expression' => $expression->text,
+                    'description' => $definition->description,
+                    'example' => $definition->example,
+                    'tags' => $definition->tags,
+                    'language_id' => $definition->language_id
+                );
+                $params['index'] = 'slbr_index';
+                $params['type']  = 'definition';
+                $params['id']    = $definition->id;
+
+                // Document will be indexed to slbr_index/definition/id
+                Log::debug('Indexing into search server');
+                $response = Es::index($params);
+                if (!$response) {
+                    throw new Exception("Failed to index definition");
+                }
+                Log::info("Expression added into search index");
+                Log::info($params);
+            }
+
+            // try 
+            // {
+            //     Log::info('Sending expression approval e-mail.');
+            //     Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
+            //     {                    
+            //         $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+            //         $email->to($definition->email, $definition->contributor);
+            //         $email->subject('Your expression was published in Speak Like A Brazilian');
+            //     });
+            // }
+            // catch (\Exception $e)
+            // {
+            //     Log::error("Error sending approval e-mail: " . $e->getMessage());
+            //     Log::error($e);
+            // }
+
+            {
+                Log::debug('Auto voting the definition using user\'s IP address');
+                if (isset($definition->user_ip) && strlen($definition->user_ip) > 0)
+                {
+                    $votes = $this->ratingRepository->all()->where('user_ip', '=', $definition->user_ip);
+                    if (!$votes)
+                    {
+                        $this->ratingRepository->like($definition->user_ip, $definition->id);
+                        Log::info('Added +1 vote for the expression (author self-voting)');
+                    }
+                    else
+                    {
+                        Log::warning("User already voted for this expression. Skipping that.");
+                    }
+                }
+                else
+                {
+                    Log::warning('Missing user IP! Skipping vote.');
+                }
+            }
+
+            Log::debug('Committing transaction');
+            DB::commit();
+            return $definition;
+        } 
+        catch (Exception $e) 
+        {
+            Log::debug('Rolling back transaction: ' . $e->getMessage());
+            DB::rollback();
+            throw $e;
+        }
+    }
+
+    public function approve($definitionId, $user)
+    {
+        return $this->updateStatus($definitionId, $user, 2);
+    }
+
+    public function reject($definitionId, $user)
+    {
+        return $this->updateStatus($definitionId, $user, 3);
     }
 
 }
