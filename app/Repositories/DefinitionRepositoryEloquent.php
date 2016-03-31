@@ -6,6 +6,7 @@ use \DB;
 use \Log;
 use \Config;
 use \Exception;
+use Mail;
 use Es;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -319,6 +320,25 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         }
     }
 
+    private function sendApprovalEmail($definition)
+    {
+        try 
+        {
+            Log::debug(sprintf('Sending expression approval e-mail to %s', $definition->email));
+            Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
+            {                    
+                $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+                $email->to($definition->email, $definition->contributor);
+                $email->subject('Your expression was published in Speak Like A Brazilian');
+            });
+        }
+        catch (\Exception $e)
+        {
+            Log::warning("Error sending approval e-mail: " . $e->getMessage());
+            Log::error($e);
+        }
+    }
+
     private function updateStatus($definitionId, $user, $status)
     {
         Log::info(sprintf('User %d (%s) approving definition %d', $user->id, $user->email, $definitionId));
@@ -336,25 +356,9 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             if ($status == 2)
             {
                 $this->addToSearchIndex($expression, $definition);
-
                 $this->addAuthorVote($definition);
+                $this->sendApprovalEmail($definition);
             }
-
-            // try 
-            // {
-            //     Log::info('Sending expression approval e-mail.');
-            //     Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
-            //     {                    
-            //         $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
-            //         $email->to($definition->email, $definition->contributor);
-            //         $email->subject('Your expression was published in Speak Like A Brazilian');
-            //     });
-            // }
-            // catch (\Exception $e)
-            // {
-            //     Log::error("Error sending approval e-mail: " . $e->getMessage());
-            //     Log::error($e);
-            // }
 
             Log::debug('Committing transaction');
             DB::commit();

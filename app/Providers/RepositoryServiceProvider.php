@@ -50,5 +50,6 @@ class RepositoryServiceProvider extends ServiceProvider
         \App::bind('SLBR\Repositories\DefinitionRepository', 'SLBR\Repositories\DefinitionRepositoryEloquent');
         \App::bind('SLBR\Repositories\MediaRepository', 'SLBR\Repositories\MediaRepositoryEloquent');
         \App::bind('SLBR\Repositories\RatingRepository', 'SLBR\Repositories\RatingRepositoryEloquent');
+        \App::bind('SLBR\Repositories\AuditRepository', 'SLBR\Repositories\AuditRepositoryEloquent');
     }
 }
