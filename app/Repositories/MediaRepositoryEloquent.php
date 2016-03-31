@@ -154,7 +154,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
 
     private function updateStatus($mediaId, $user, $status, $userIp, $template)
     {
-        Log::info(sprintf('User %d (%s) approving updating media %d with status %d', $user->id, $user->email, $mediaId, $status));
+        Log::info(sprintf('User %d (%s) updating media %d with status %d', $user->id, $user->email, $mediaId, $status));
 
         $media = $this->find($mediaId);
         $success = FALSE;
@@ -186,7 +186,10 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
         {
             if ($success)
             {
-                $this->auditRepository->auditDefinitionModeration($media, $userIp, $user->id);
+                if ($template === 'picture')
+                    $this->auditRepository->auditPictureModeration($media, $userIp, $user->id);
+                elseif ($template === 'video')
+                    $this->auditRepository->auditVideoModeration($media, $userIp, $user->id);
             }
         }
     }

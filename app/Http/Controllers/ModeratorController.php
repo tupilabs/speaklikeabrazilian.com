@@ -153,7 +153,7 @@ class ModeratorController extends Controller {
         $definition = NULL;
         if ($randomPendingPicture)
         {
-            $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'], 1)->toArray();
+            $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'])->toArray();
             $languageId = $definition['language_id'];
             $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
         }

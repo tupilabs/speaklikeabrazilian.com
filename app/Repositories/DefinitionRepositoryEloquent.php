@@ -212,11 +212,11 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         }
     }
 
-    public function getOne($definitionId, $status = 2)
+    public function getOne($definitionId)
     {
         $definitions = Definition::
             join('expressions', 'definitions.expression_id', '=', 'expressions.id')
-            ->where('definitions.status', '=', $status)
+            ->where('definitions.status', '=', 2)
             ->where('definitions.id', '=', $definitionId)
             ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.language_id', 'definitions.created_at', 'expressions.text',

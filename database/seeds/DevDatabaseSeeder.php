@@ -68,24 +68,27 @@ class DevDatabaseSeeder extends Seeder
             // randomly dis/approve it
             $definition->status = rand(1, 2);
             
-            // randomly add a media
-            if ($definition->status == 1 && (bool)random_int(0, 1))
+            if ($definition->status == 2)
             {
-                for ($j = 0; $j < rand(1, 3); $j++)
+                // randomly add a media
+                if ((bool)random_int(0, 1))
                 {
-                    $media = factory(Media::class)->create();
-                    $media->status = $definition->status;
-                    $media->definition_id = $definition->id;
-                    $media->save();
+                    for ($j = 0; $j < rand(1, 3); $j++)
+                    {
+                        $media = factory(Media::class)->create();
+                        $media->status = 1;
+                        $media->definition_id = $definition->id;
+                        $media->save();
+                    }
                 }
-            }
 
-            // add some random votes
-            for ($j = 0; $j < rand(0, 5); $j++)
-            {
-                $rating = factory(Rating::class)->make();
-                $rating->definition_id = $definition->id;
-                $rating->save();
+                // add some random votes
+                for ($j = 0; $j < rand(0, 5); $j++)
+                {
+                    $rating = factory(Rating::class)->make();
+                    $rating->definition_id = $definition->id;
+                    $rating->save();
+                }
             }
 
             // save it again
