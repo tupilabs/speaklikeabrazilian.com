@@ -57,4 +57,5 @@ Route::get('/recreateSearchIndex', 'SearchController@recreateSearchIndex');
 
 // Moderators
 Route::get('/moderators/expressions/{definition_id}/approve', 'ModeratorController@approveExpression');
+Route::get('/moderators/expressions/{definition_id}/reject', 'ModeratorController@rejectExpression');
 Route::controller('/moderators', 'ModeratorController');

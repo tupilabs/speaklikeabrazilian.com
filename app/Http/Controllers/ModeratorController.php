@@ -132,17 +132,14 @@ class ModeratorController extends Controller {
     {
         $user = Sentinel::getUser();
         $definition = $this->definitionRepository->approve($definition_id, $user);
-
         return redirect('/moderators/expressions')->withInput()->with('success', sprintf('Expression %s approved!', $definition->expression()->first()->text));
-        // $credentials = [
-        //     'email'    => $email,
-        //     'password' => $password,
-        // ];
+    }
 
-        // $response = Sentinel::authenticate($credentials);
-        // if (!$response)
-        //     return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
-        // return redirect('/moderators/expressions');
+    public function rejectExpression(Request $request, $definition_id)
+    {
+        $user = Sentinel::getUser();
+        $definition = $this->definitionRepository->reject($definition_id, $user);
+        return redirect('/moderators/expressions')->withInput()->with('success', sprintf('Expression %s approved!', $definition->expression()->first()->text));
     }
 
     public function getPictures()

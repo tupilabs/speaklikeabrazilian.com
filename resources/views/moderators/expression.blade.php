@@ -10,7 +10,7 @@
         <div class="ui two bottom attached buttons">
             <a class="ui primary button" href="{{ URL::to('/moderators/expressions/' . $definition['id'] . '/approve') }}">Approve</a>
             <div class="or"></div>
-            <a class="ui negative button">Reject</a>
+            <a class="ui negative button" href="{{ URL::to('/moderators/expressions/' . $definition['id'] . '/reject') }}">Reject</a>
         </div>
         @else
         <div class="ui segments">

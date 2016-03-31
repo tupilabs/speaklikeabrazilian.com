@@ -272,6 +272,53 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         return $definitions;
     }
 
+    private function addToSearchIndex($expression, $definition)
+    {
+        // Index document into search server
+        $params = array();
+        $params['body']  = array(
+            'expression' => $expression->text,
+            'description' => $definition->description,
+            'example' => $definition->example,
+            'tags' => $definition->tags,
+            'language_id' => $definition->language_id
+        );
+        $params['index'] = 'slbr_index';
+        $params['type']  = 'definition';
+        $params['id']    = $definition->id;
+
+        // Document will be indexed to slbr_index/definition/id
+        Log::debug('Indexing into search server');
+        $response = Es::index($params);
+        if (!$response) {
+            throw new Exception("Failed to index definition");
+        }
+        Log::info("Expression added into search index");
+        Log::info($params);
+    }
+
+    private function addAuthorVote($definition)
+    {
+        Log::debug('Auto voting the definition using user\'s IP address');
+        if (isset($definition->user_ip) && strlen($definition->user_ip) > 0)
+        {
+            $votes = $this->ratingRepository->all()->where('user_ip', '=', $definition->user_ip);
+            if (!$votes)
+            {
+                $this->ratingRepository->like($definition->user_ip, $definition->id);
+                Log::info('Added +1 vote for the expression (author self-voting)');
+            }
+            else
+            {
+                Log::warning("Skipping vote. Reason: User already voted for this expression");
+            }
+        }
+        else
+        {
+            Log::warning('Skipping vote. Reason: Missing user IP');
+        }
+    }
+
     private function updateStatus($definitionId, $user, $status)
     {
         Log::info(sprintf('User %d (%s) approving definition %d', $user->id, $user->email, $definitionId));
@@ -286,28 +333,11 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             $definition->save();
             $expression = $definition->expression()->first();
 
+            if ($status == 2)
             {
-                // Index document into search server
-                $params = array();
-                $params['body']  = array(
-                    'expression' => $expression->text,
-                    'description' => $definition->description,
-                    'example' => $definition->example,
-                    'tags' => $definition->tags,
-                    'language_id' => $definition->language_id
-                );
-                $params['index'] = 'slbr_index';
-                $params['type']  = 'definition';
-                $params['id']    = $definition->id;
+                $this->addToSearchIndex($expression, $definition);
 
-                // Document will be indexed to slbr_index/definition/id
-                Log::debug('Indexing into search server');
-                $response = Es::index($params);
-                if (!$response) {
-                    throw new Exception("Failed to index definition");
-                }
-                Log::info("Expression added into search index");
-                Log::info($params);
+                $this->addAuthorVote($definition);
             }
 
             // try 
@@ -325,27 +355,6 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             //     Log::error("Error sending approval e-mail: " . $e->getMessage());
             //     Log::error($e);
             // }
-
-            {
-                Log::debug('Auto voting the definition using user\'s IP address');
-                if (isset($definition->user_ip) && strlen($definition->user_ip) > 0)
-                {
-                    $votes = $this->ratingRepository->all()->where('user_ip', '=', $definition->user_ip);
-                    if (!$votes)
-                    {
-                        $this->ratingRepository->like($definition->user_ip, $definition->id);
-                        Log::info('Added +1 vote for the expression (author self-voting)');
-                    }
-                    else
-                    {
-                        Log::warning("User already voted for this expression. Skipping that.");
-                    }
-                }
-                else
-                {
-                    Log::warning('Missing user IP! Skipping vote.');
-                }
-            }
 
             Log::debug('Committing transaction');
             DB::commit();
