@@ -2,7 +2,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2013 TupiLabs
+ * Copyright (c) 2013-2016 TupiLabs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -56,26 +56,6 @@ class Media extends Model implements Transformable
     protected $guarded = [];
 
     protected $fillable = ['definition_id', 'url', 'reason', 'email', 'status', 'content_type', 'contributor', 'user_ip'];
-
-    // --- utility methods
-
-    public function getVideoData()
-	{
-		$data = array(
-            'video_id' => NULL,
-            't' => NULL
-        );
-		$url = $this->url;
-		if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $this->url, $match))
-		{
-			$data['video_id'] = $match[1];
-		}
-		if (preg_match('%(?:t=)([0-9]+)%i', $this->url, $match))
-		{
-			$data['t'] = $match[1];
-		}
-		return $data;
-	}
 
     // --- relationships
 
