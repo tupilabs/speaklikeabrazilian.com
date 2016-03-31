@@ -34,11 +34,35 @@ class AuditRepositoryEloquent extends BaseRepository implements AuditRepository
         $this->pushCriteria(app(RequestCriteria::class));
     }
 
-    public function auditModeration($entity, $userIp, $userId)
+    public function auditDefinitionModeration($entity, $userIp, $userId)
     {
         $jsonEntity = $entity->toJson();
         $datetime = new \DateTime();
-        $body = Audit::getModerationBody($jsonEntity, $userIp, $userId, $datetime);
+        $body = Audit::getDefinitionModerationBody($jsonEntity, $userIp, $userId, $datetime);
+        return $this->create(array(
+            'user_ip' => $userIp,
+            'user_id' => $userId,
+            'body'    => $body
+        ));
+    }
+
+    public function auditPictureModeration($entity, $userIp, $userId)
+    {
+        $jsonEntity = $entity->toJson();
+        $datetime = new \DateTime();
+        $body = Audit::getPictureModerationBody($jsonEntity, $userIp, $userId, $datetime);
+        return $this->create(array(
+            'user_ip' => $userIp,
+            'user_id' => $userId,
+            'body'    => $body
+        ));
+    }
+
+    public function auditVideoModeration($entity, $userIp, $userId)
+    {
+        $jsonEntity = $entity->toJson();
+        $datetime = new \DateTime();
+        $body = Audit::getVideoModerationBody($jsonEntity, $userIp, $userId, $datetime);
         return $this->create(array(
             'user_ip' => $userIp,
             'user_id' => $userId,

@@ -58,4 +58,8 @@ Route::get('/recreateSearchIndex', 'SearchController@recreateSearchIndex');
 // Moderators
 Route::get('/moderators/expressions/{definition_id}/approve', 'ModeratorController@approveExpression');
 Route::get('/moderators/expressions/{definition_id}/reject', 'ModeratorController@rejectExpression');
+Route::get('/moderators/pictures/{picture_id}/approve', 'ModeratorController@approvePicture');
+Route::get('/moderators/pictures/{picture_id}/reject', 'ModeratorController@rejectPicture');
+Route::get('/moderators/videos/{video_id}/approve', 'ModeratorController@approveVideo');
+Route::get('/moderators/videos/{video_id}/reject', 'ModeratorController@rejectVideo');
 Route::controller('/moderators', 'ModeratorController');

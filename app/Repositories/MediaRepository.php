@@ -18,4 +18,8 @@ interface MediaRepository extends RepositoryInterface
 
     public function countPendingPictures();
 
+    public function getRandomPendingPicture();
+
+    public function getRandomPendingVideo();
+
 }

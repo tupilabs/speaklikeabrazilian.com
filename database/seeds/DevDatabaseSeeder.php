@@ -74,7 +74,7 @@ class DevDatabaseSeeder extends Seeder
                 for ($j = 0; $j < rand(1, 3); $j++)
                 {
                     $media = factory(Media::class)->create();
-                    $media->status = rand(1, 2);
+                    $media->status = $definition->status;
                     $media->definition_id = $definition->id;
                     $media->save();
                 }

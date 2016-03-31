@@ -3,6 +3,7 @@
 namespace SLBR\Repositories;
 
 use \Log;
+use \Config;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\MediaRepository;
@@ -90,5 +91,31 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             ->where('content_type', '<>', 'video/youtube')
             ->count();
         return $count;
+    }
+
+    public function getRandomPendingPicture()
+    {
+        $picture = Media::
+            where('status', '=', 1)
+            ->where('content_type', '<>', 'video/youtube')
+            ->with('definition')
+            ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+            ->first();
+        if ($picture)
+            $picture = $picture->toArray();
+        return $picture;
+    }
+
+    public function getRandomPendingVideo()
+    {
+        $video = Media::
+            where('status', '=', 1)
+            ->where('content_type', '=', 'video/youtube')
+            ->with('definition')
+            ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+            ->first();
+        if ($video)
+            $video = $video->toArray();
+        return $video;
     }
 }

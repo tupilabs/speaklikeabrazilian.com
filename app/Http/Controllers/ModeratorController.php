@@ -148,14 +148,35 @@ class ModeratorController extends Controller {
         $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $randomPendingPicture = $this->mediaRepository->getRandomPendingPicture();
+        $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'], 1);
+        $languageId = $definition['language_id'];
+        $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
         $data = array(
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
             'count_pending_pictures' => $countPendingPictures,
-            'title' => 'Pending Pictures'
+            'title' => 'Pending Pictures',
+            'picture' => $randomPendingPicture,
+            'definition' => $definition,
+            'selected_language' => $selectedLanguage
         );
-        return view('moderators.home', $data);
+        return view('moderators.picture', $data);
+    }
+
+    public function approvePicture(Request $request, $picture_id)
+    {
+        $user = Sentinel::getUser();
+        $definition = $this->definitionRepository->approvePicture($picture_id, $user, $request->getClientIp());
+        return redirect('/moderators/pictures')->withInput()->with('success', sprintf('Picture %s approved!', $definition->expression()->first()->text));
+    }
+
+    public function rejectPicture(Request $request, $picture_id)
+    {
+        $user = Sentinel::getUser();
+        $definition = $this->mediaRepository->rejectPicture($picture_id, $user, $request->getClientIp());
+        return redirect('/moderators/pictures')->withInput()->with('success', sprintf('Picture %s approved!', $definition->expression()->first()->text));
     }
 
     public function getVideos()
