@@ -69,7 +69,7 @@ class DevDatabaseSeeder extends Seeder
             $definition->status = rand(1, 2);
             
             // randomly add a media
-            if ((bool)random_int(0, 1))
+            if ($definition->status == 1 && (bool)random_int(0, 1))
             {
                 for ($j = 0; $j < rand(1, 3); $j++)
                 {

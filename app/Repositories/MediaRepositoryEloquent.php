@@ -2,11 +2,13 @@
 
 namespace SLBR\Repositories;
 
+use \DB;
 use \Log;
 use \Config;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\MediaRepository;
+use SLBR\Repositories\AuditRepository;
 use SLBR\Models\Media;
 
 /**
@@ -15,6 +17,18 @@ use SLBR\Models\Media;
  */
 class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
 {
+
+    /**
+     * SLBR\Repositories\AuditRepository
+     */
+    private $auditRepository;
+
+    public function __construct(AuditRepository $auditRepository)
+    {
+        parent::__construct(\App::getInstance());
+        $this->auditRepository = $auditRepository;
+    }
+
     /**
      * Specify Model class name
      *
@@ -117,5 +131,83 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
         if ($video)
             $video = $video->toArray();
         return $video;
+    }
+
+    private function sendApprovalEmail($definition, $template)
+    {
+        // try 
+        // {
+        //     Log::debug(sprintf('Sending expression approval e-mail to %s', $definition->email));
+        //     Mail::send('emails.' . $template . 'Approved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
+        //     {                    
+        //         $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+        //         $email->to($definition->email, $definition->contributor);
+        //         $email->subject('Your expression was published in Speak Like A Brazilian');
+        //     });
+        // }
+        // catch (\Exception $e)
+        // {
+        //     Log::warning("Error sending approval e-mail: " . $e->getMessage());
+        //     Log::error($e);
+        // }
+    }
+
+    private function updateStatus($mediaId, $user, $status, $userIp, $template)
+    {
+        Log::info(sprintf('User %d (%s) approving updating media %d with status %d', $user->id, $user->email, $mediaId, $status));
+
+        $media = $this->find($mediaId);
+        $success = FALSE;
+
+        DB::beginTransaction();
+        try 
+        {
+            Log::debug(sprintf("Updating media status to %s", ($status == 2 ? 'APPROVED' : 'REJECTED')));
+            $media->status = $status;
+            $media->save();
+
+            if ($status == 2)
+            {
+                //$this->sendApprovalEmail($media, $template);
+            }
+
+            Log::debug('Committing transaction');
+            DB::commit();
+            $success = TRUE;
+            return $media;
+        } 
+        catch (Exception $e) 
+        {
+            Log::debug('Rolling back transaction: ' . $e->getMessage());
+            DB::rollback();
+            throw $e;
+        }
+        finally
+        {
+            if ($success)
+            {
+                $this->auditRepository->auditDefinitionModeration($media, $userIp, $user->id);
+            }
+        }
+    }
+
+    public function approvePicture($mediaId, $user, $userIp)
+    {
+        return $this->updateStatus($mediaId, $user, 2, $userIp, 'picture');
+    }
+
+    public function rejectPicture($mediaId, $user, $userIp)
+    {
+        return $this->updateStatus($mediaId, $user, 3, $userIp, 'picture');
+    }
+
+    public function approveVideo($mediaId, $user, $userIp)
+    {
+        return $this->updateStatus($mediaId, $user, 2, $userIp, 'video');
+    }
+
+    public function rejectVideo($mediaId, $user, $userIp)
+    {
+        return $this->updateStatus($mediaId, $user, 3, $userIp, 'video');
     }
 }

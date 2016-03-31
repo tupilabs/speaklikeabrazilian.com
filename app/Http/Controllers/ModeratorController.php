@@ -149,9 +149,14 @@ class ModeratorController extends Controller {
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
         $randomPendingPicture = $this->mediaRepository->getRandomPendingPicture();
-        $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'], 1);
-        $languageId = $definition['language_id'];
-        $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
+        $selectedLanguage = NULL;
+        $definition = NULL;
+        if ($randomPendingPicture)
+        {
+            $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'], 1)->toArray();
+            $languageId = $definition['language_id'];
+            $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
+        }
         $data = array(
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
@@ -168,15 +173,15 @@ class ModeratorController extends Controller {
     public function approvePicture(Request $request, $picture_id)
     {
         $user = Sentinel::getUser();
-        $definition = $this->definitionRepository->approvePicture($picture_id, $user, $request->getClientIp());
-        return redirect('/moderators/pictures')->withInput()->with('success', sprintf('Picture %s approved!', $definition->expression()->first()->text));
+        $definition = $this->mediaRepository->approvePicture($picture_id, $user, $request->getClientIp());
+        return redirect('/moderators/pictures')->withInput()->with('success', 'Picture %s approved!');
     }
 
     public function rejectPicture(Request $request, $picture_id)
     {
         $user = Sentinel::getUser();
         $definition = $this->mediaRepository->rejectPicture($picture_id, $user, $request->getClientIp());
-        return redirect('/moderators/pictures')->withInput()->with('success', sprintf('Picture %s approved!', $definition->expression()->first()->text));
+        return redirect('/moderators/pictures')->withInput()->with('success', 'Picture %s approved!');
     }
 
     public function getVideos()
