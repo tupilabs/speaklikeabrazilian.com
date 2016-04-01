@@ -311,11 +311,6 @@ ul.doughnut-legend {
             Pending Videos
             <div class="ui label">{{ $count_pending_videos }}</div>
         </a>
-        @if (Request::is('moderators/blog'))
-        <a class="active item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
-        @else
-        <a class="item" href="{{ URL::to('/moderators/blog') }}">Blog</a>
-        @endif
         <a class="item" href="{{ URL::to('/moderators/logout') }}">
             <p>Sign Out</p>
         </a>
