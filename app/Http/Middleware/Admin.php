@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 
-class Authenticate
+class Admin
 {
     /**
      * The Guard implementation.
@@ -35,11 +35,11 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (!Sentinel::check() || !Sentinel::inRole('mods')) {
+        if (!Sentinel::check() || !Sentinel::inRole('admins')) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
-                return redirect()->guest('/moderators/login');
+                return redirect()->guest('/admin/login');
             }
         }
 

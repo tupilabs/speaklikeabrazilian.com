@@ -100,6 +100,8 @@ class ModeratorController extends Controller {
         $response = Sentinel::authenticate($credentials);
         if (!$response)
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
+        if (!Sentinel::inRole('mods'))
+            return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
         return redirect('/moderators/');
     }
 

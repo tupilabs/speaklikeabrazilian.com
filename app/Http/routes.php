@@ -68,3 +68,6 @@ Route::get('/moderators/pictures/{picture_id}/reject', 'ModeratorController@reje
 Route::get('/moderators/videos/{video_id}/approve', 'ModeratorController@approveVideo');
 Route::get('/moderators/videos/{video_id}/reject', 'ModeratorController@rejectVideo');
 Route::controller('/moderators', 'ModeratorController');
+
+Route::get('/auth/login', 'AdministratorController@getLogin');
+Route::post('/auth/login', 'AdministratorController@postLogin');

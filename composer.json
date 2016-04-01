@@ -44,13 +44,15 @@
 	"scripts": {
 		"post-install-cmd": [
 				"php artisan clear-compiled",
-				"php artisan optimize"
+				"php artisan optimize",
+                "php artisan asset:publish frozennode/administrator"
 		],
 		"pre-update-cmd": [
 				"php artisan clear-compiled"
 		],
 		"post-update-cmd": [
-				"php artisan optimize"
+				"php artisan optimize",
+                "php artisan asset:publish frozennode/administrator"
 		],
 		"post-root-package-install": [
 				"php -r \"copy('.env.example', '.env');\""

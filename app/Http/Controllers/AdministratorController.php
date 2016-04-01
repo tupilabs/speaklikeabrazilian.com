@@ -28,11 +28,6 @@ use Illuminate\Http\Request;
 
 class AdministratorController extends Controller {
 
-    public function __construct()
-    {
-        $this->middleware('admin', ['except' => ['getLogin', 'postLogin']]);
-    }
-
     public function getLogin()
     {
         return view('administrators.login');
@@ -62,6 +57,8 @@ class AdministratorController extends Controller {
 
         $response = Sentinel::authenticate($credentials);
         if (!$response)
+            return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
+        if (!Sentinel::inRole('admins'))
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
         return redirect('/admin/');
     }
