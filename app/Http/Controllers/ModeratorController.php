@@ -170,17 +170,17 @@ class ModeratorController extends Controller {
         return view('moderators.picture', $data);
     }
 
-    public function approvePicture(Request $request, $picture_id)
+    public function approvePicture(Request $request, $pictureId)
     {
         $user = Sentinel::getUser();
-        $definition = $this->mediaRepository->approvePicture($picture_id, $user, $request->getClientIp());
+        $definition = $this->mediaRepository->approvePicture($pictureId, $user, $request->getClientIp());
         return redirect('/moderators/pictures')->withInput()->with('success', 'Picture %s approved!');
     }
 
-    public function rejectPicture(Request $request, $picture_id)
+    public function rejectPicture(Request $request, $pictureId)
     {
         $user = Sentinel::getUser();
-        $definition = $this->mediaRepository->rejectPicture($picture_id, $user, $request->getClientIp());
+        $definition = $this->mediaRepository->rejectPicture($pictureId, $user, $request->getClientIp());
         return redirect('/moderators/pictures')->withInput()->with('success', 'Picture %s approved!');
     }
 
@@ -190,14 +190,40 @@ class ModeratorController extends Controller {
         $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $randomPendingVideo = $this->mediaRepository->getRandomPendingVideo();
+        $selectedLanguage = NULL;
+        $definition = NULL;
+        if ($randomPendingVideo)
+        {
+            $definition = $this->definitionRepository->getOne($randomPendingVideo['definition']['id'])->toArray();
+            $languageId = $definition['language_id'];
+            $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
+        }
         $data = array(
             'user' => $user,
             'count_pending_expressions' => $countPendingExpressions,
             'count_pending_videos' => $countPendingVideos,
             'count_pending_pictures' => $countPendingPictures,
-            'title' => 'Pending Videos'
+            'title' => 'Pending Videos',
+            'video' => $randomPendingVideo,
+            'definition' => $definition,
+            'selected_language' => $selectedLanguage
         );
-        return view('moderators.home', $data);
+        return view('moderators.video', $data);
+    }
+
+    public function approveVideo(Request $request, $videoId)
+    {
+        $user = Sentinel::getUser();
+        $definition = $this->mediaRepository->approveVideo($videoId, $user, $request->getClientIp());
+        return redirect('/moderators/videos')->withInput()->with('success', 'Video %s approved!');
+    }
+
+    public function rejectVideo(Request $request, $videoId)
+    {
+        $user = Sentinel::getUser();
+        $definition = $this->mediaRepository->rejectPicture($videoId, $user, $request->getClientIp());
+        return redirect('/moderators/videos')->withInput()->with('success', 'Video %s approved!');
     }
 
 }
