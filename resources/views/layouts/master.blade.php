@@ -102,8 +102,8 @@
                         prompt: 'Please enter your query'
                     },
                     {
-                        type: 'minLength[3]',
-                        prompt: 'Your query must be at least three characters long'
+                        type: 'minLength[2]',
+                        prompt: 'Your query must be at least two characters long'
                     },
                     {
                         type: 'maxLength[50]',
