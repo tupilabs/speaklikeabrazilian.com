@@ -312,10 +312,11 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         {
             $votes = $this
                 ->ratingRepository
-                ->all()
-                ->where('user_ip', '=', $definition->user_ip)
-                ->where('definition_id', '=', $definition->id);
-            if (!$votes)
+                ->findWhere([
+                    ['user_ip', '=', $definition->user_ip],
+                    ['definition_id', '=', $definition->id]
+                ]);
+            if ($votes->isEmpty())
             {
                 $this->ratingRepository->like($definition->user_ip, $definition->id);
                 Log::info('Added +1 vote for the expression (author self-voting)');
