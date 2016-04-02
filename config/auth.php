@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => SLBR\User::class,
+            'model' => SLBR\Models\User::class,
         ],
 
         // 'users' => [

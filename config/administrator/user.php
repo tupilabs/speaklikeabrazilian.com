@@ -10,7 +10,7 @@ return array(
 
     'single' => 'user',
 
-    'model' => '\Cartalyst\Sentinel\Users\EloquentUser',
+    'model' => 'SLBR\Models\User',
 
     /**
      * The display columns
@@ -95,7 +95,8 @@ return array(
         ),
         'password' => array(
             'title' => 'Password',
-            'type' => 'password'
+            'type' => 'text',
+            'setter' => true
         ),
         
     ),
