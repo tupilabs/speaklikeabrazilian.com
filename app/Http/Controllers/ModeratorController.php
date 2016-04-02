@@ -228,4 +228,33 @@ class ModeratorController extends Controller {
         return redirect('/moderators/videos')->withInput()->with('success', 'Video %s approved!');
     }
 
+    public function getEdit(Request $request)
+    {
+        $user = Sentinel::getUser();
+        $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
+        $countPendingVideos = $this->mediaRepository->countPendingVideos();
+        $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        
+        $definitionId = $request->get('definition_id', 0);
+        $definition = NULL;
+        $selectedLanguage = NULL;
+        if ($definitionId)
+        {
+            $definition = $this->definitionRepository->getOne($definitionId);
+            $languages = $request->get('languages');
+            $selectedLanguage = $this->getLanguageByID($languages, $definition->language_id);
+        }
+        $data = array(
+            'user' => $user,
+            'count_pending_expressions' => $countPendingExpressions,
+            'count_pending_videos' => $countPendingVideos,
+            'count_pending_pictures' => $countPendingPictures,
+            'title' => 'Edit Expression',
+            'definition_id' => $definitionId,
+            'definition' => $definition,
+            'selected_language' => $selectedLanguage
+        );
+        return view('moderators.edit', $data);
+    }
+
 }

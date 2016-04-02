@@ -41,4 +41,18 @@ abstract class Controller extends BaseController
         }
         return $languageFound;
     }
+
+    protected function getLanguageByID($languages, $languageId)
+    {
+        $languageFound = null;
+        foreach ($languages as $language)
+        {
+            if ($language['id'] == $languageId)
+            {
+                $languageFound = $language;
+                break;
+            }
+        }
+        return $languageFound;
+    }
 }
