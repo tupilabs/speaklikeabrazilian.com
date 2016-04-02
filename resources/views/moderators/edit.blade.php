@@ -22,8 +22,9 @@
                             </div>
                             @endif
 
-                            <form id="form" class="ui form" method="post" action="{{ URL::to('/moderatores/edit') }}">
+                            <form id="form" class="ui form" method="post" action="{{ URL::to('/moderators/edit') }}">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="definition_id" value="{{ $definition_id }}">
                                 <div class="field">
                                     <label for="expression-text-input">Expression in Portuguese</label>
                                     <input name="expression-text-input" id="expression-text-input" value="{{ $definition['text'] }}" type="text" readonly="readonly" disabled="disabled" />

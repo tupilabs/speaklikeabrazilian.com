@@ -403,4 +403,36 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         return $this->updateStatus($definitionId, $user, 3, $userIp);
     }
 
+    public function edit(array $input, $ip)
+    {
+        Log::debug('Starting transaction to update definition');
+        DB::beginTransaction();
+        try 
+        {
+            // Get existing expressions
+            $definition = $this->find($input['definition_id']);
+
+            $definition->description = $input['expression-description-input'];
+            $definition->example     = $input['expression-example-input'];
+            $definition->tags        = $input['expression-tags-input'];
+
+            $definition->save();
+
+            $expression = $definition->expression()->first();
+
+            $this->addToSearchIndex($expression, $definition);
+
+            Log::debug('Committing transaction');
+            DB::commit();
+            Log::info(sprintf('Definition %s updated!', $definition['text']));
+            return $definition;
+        } 
+        catch (\Exception $e) 
+        {
+            Log::debug('Rolling back transaction: ' . $e->getMessage());
+            DB::rollback();
+            throw $e;
+        }
+    }
+
 }
