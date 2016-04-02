@@ -68,9 +68,9 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-        'Users' => array('user', 'group', 'users_groups'),
+        'Users' => array('user'),
         'Expressions' => array('expression', 'definition', 'rating', 'media'),
-        'Settings' => array('settings.site', 'subscription', 'language'),
+        'Settings' => array('settings.site', 'language'),
     ),
 
 	/**
