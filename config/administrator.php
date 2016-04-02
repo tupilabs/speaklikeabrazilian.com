@@ -68,7 +68,7 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-        'Users' => array('user', 'group', 'users_groups', 'subscription'),
+        'Users' => array('user', 'group', 'users_groups'),
         'Expressions' => array('expression', 'definition', 'rating', 'media'),
         'Settings' => array('settings.site', 'subscription', 'language'),
     ),

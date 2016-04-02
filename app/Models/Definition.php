@@ -75,4 +75,9 @@ class Definition extends Model implements Transformable
         return $this->hasMany('SLBR\Models\Media', 'definition_id')->where('medias.status', '=', 2);
     }
 
+    public function ratings()
+    {
+        return $this->hasMany('SLBR\Models\Rating');
+    }
+
 }
