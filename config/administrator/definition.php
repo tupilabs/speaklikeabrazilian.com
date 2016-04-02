@@ -74,7 +74,7 @@ return array(
         ),
         'updated_at' => array(
             'title' => 'Updated at',
-                'type' => 'datetime'
+            'type' => 'datetime'
         )
     ),
 
