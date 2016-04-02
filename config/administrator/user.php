@@ -16,7 +16,7 @@ return array(
      * The display columns
      */
     'columns' => array(
-        'user_id' => array(
+        'id' => array(
             'title' => 'ID',
             'type' => 'key'
         ),
@@ -88,16 +88,16 @@ return array(
             'title' => 'Last Name',
             'type' => 'text'
         ),
-        'activations' => array(
-            'title' => 'Activations',
-            'type' => 'relationship',
-            'name_field' => 'code'
-        ),
         'roles' => array(
             'title' => 'Roles',
             'type' => 'relationship',
             'name_field' => 'name'
-        )
+        ),
+        'password' => array(
+            'title' => 'Password',
+            'type' => 'password'
+        ),
+        
     ),
 
 );

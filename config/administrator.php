@@ -68,7 +68,7 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-        'Users' => array('user'),
+        'Users' => array('user', 'activation'),
         'Expressions' => array('expression', 'definition', 'rating', 'media'),
         'Settings' => array('settings.site', 'language'),
     ),
