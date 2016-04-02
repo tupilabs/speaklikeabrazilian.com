@@ -318,6 +318,13 @@ ul.doughnut-legend {
         @endif
             Edit Expressions
         </a>
+        @if (Request::is('moderators/password'))
+        <a class="active item" href="{{ URL::to('/moderators/password') }}">
+        @else
+        <a class="item" href="{{ URL::to('/moderators/password') }}">
+        @endif
+            Change password
+        </a>
         <a class="item" href="{{ URL::to('/moderators/logout') }}">
             <p>Sign Out</p>
         </a>

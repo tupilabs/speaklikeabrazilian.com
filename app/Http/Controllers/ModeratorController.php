@@ -28,6 +28,7 @@ use SLBR\Repositories\MediaRepository;
 use SLBR\Repositories\LanguageRepository;
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
+use Cartalyst\Sentinel\Hashing\NativeHasher;
 
 class ModeratorController extends Controller {
 
@@ -267,6 +268,50 @@ class ModeratorController extends Controller {
         ));
         $definition = $this->definitionRepository->edit($request->all(), $request->getClientIp());
         return redirect('/moderators/edit?definition_id=' . $definition['id']);
+    }
+
+    public function getPassword(Request $request)
+    {
+        $user = Sentinel::getUser();
+        $countPendingExpressions = $this->definitionRepository->countPendingDefinitions();
+        $countPendingVideos = $this->mediaRepository->countPendingVideos();
+        $countPendingPictures = $this->mediaRepository->countPendingPictures();
+        $data = array(
+            'user' => $user,
+            'count_pending_expressions' => $countPendingExpressions,
+            'count_pending_videos' => $countPendingVideos,
+            'count_pending_pictures' => $countPendingPictures,
+            'title' => 'Change Password'
+        );
+        return view('moderators.password', $data);
+    }
+
+    public function postPassword(Request $request)
+    {
+        $this->validate($request, array(
+            'password-current-input'      => 'required|min:1|max:255',
+            'password-repeat-input'       => 'required|min:1|max:255|same:password-current-input',
+            'password-new-input'          => 'required|min:1|max:255'
+        ));
+        $user = Sentinel::getUser();
+        $current = $request->get('password-current-input');
+        $newPass = $request->get('password-new-input');
+
+        $hasher = new NativeHasher();
+
+        if (!$hasher->check($current, $user->password))
+        {
+            return redirect()->back()->withInput()->withErrors(['Your password did not match']);
+        }
+
+        $user->password = $hasher->hash($newPass);
+        $user->save();
+
+        unset($user);
+        unset($current);
+        unset($newPass);
+
+        return redirect('/moderators/logout');
     }
 
 }
