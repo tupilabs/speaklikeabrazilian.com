@@ -27,4 +27,18 @@ abstract class Controller extends BaseController
         }
         return $languageFound;
     }
+
+    protected function getLanguageBySlug($languages, $slug)
+    {
+        $languageFound = null;
+        foreach ($languages as $language)
+        {
+            if (strcmp($language['slug'], $slug) == 0)
+            {
+                $languageFound = $language;
+                break;
+            }
+        }
+        return $languageFound;
+    }
 }

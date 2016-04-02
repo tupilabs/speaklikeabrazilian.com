@@ -98,6 +98,14 @@ class ExpressionController extends Controller {
         return view('home', $data);
     }
 
+    public function getRandomJson(Request $request)
+    {
+        $languages = $request->get('languages');
+        $language = $this->getLanguageBySlug($languages, 'en');
+        $definitions = $this->definitionRepository->getRandom($language);
+        return response()->json($definitions);
+    }
+
     /**
      * Get random expressions. Relies on RAND() when using MySQL and RANDOM() otherwise (sqlite, for example).
      *

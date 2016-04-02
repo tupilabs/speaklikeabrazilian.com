@@ -154,6 +154,78 @@ class SearchController extends Controller {
         return view('home', $data);
     }
 
+    public function getSearchJson(Request $request)
+    {
+        $q = $request->get('q');
+        $definitions = array();
+        if (isset($q) && !empty($q))
+        {
+            $languages = $request->get('languages');
+            $language = $this->getLanguageBySlug($languages, 'en');
+            $definitions = $this->definitionRepository->getRandom($language);
+
+            $json = '
+            {
+                "query": {
+                    "multi_match": {
+                        "query":                "'.$q.'",
+                        "type":                 "best_fields", 
+                        "fields":               [ "expression^3", "description^2", "example", "tags" ],
+                        "tie_breaker":          0.3,
+                        "minimum_should_match": "30%" 
+                    }
+                },
+                "filter" : {
+                    "term" : {"language_id":"'.$language['id'].'"}
+                }
+            }
+            ';
+
+            $searchParams = array();
+            $searchParams['index'] = 'slbr_index';
+            $searchParams['size'] = 20;
+            $searchParams['from'] = 0;
+            $searchParams['body'] = $json;
+
+            $hits = array();
+            $total = 0;
+
+            try
+            {
+                $result = Es::search($searchParams);
+                $hits = $result['hits'];
+                $total = $hits['total'];
+            } 
+            catch (Exception $e)
+            {
+                Log::error('Search server error: ' . $e->getMessage());
+                return Redirect::to('/')
+                    ->withInput()
+                    ->with('search_error', "Search server error. Please report to the site administrator.");
+            }
+
+            $ids = array();
+            $pagination = array();
+            $definitions = array();
+            if (isset($hits['hits']))
+            {
+                foreach ($hits['hits'] as $hit)
+                {
+                    $ids[] = $hit['_id'];
+                }
+            }
+
+            if (!empty($ids))
+            {
+                $pagination = $this->definitionRepository->retrieve($ids, $language);
+            }
+
+            if (array_key_exists('data', $pagination))
+                $definitions = $pagination['data'];
+        }
+        return response()->json($definitions);
+    }
+
     public function recreateSearchIndex()
     {
         $admin = TRUE;

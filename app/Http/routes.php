@@ -71,3 +71,7 @@ Route::controller('/moderators', 'ModeratorController');
 
 Route::get('/auth/login', 'AdministratorController@getLogin');
 Route::post('/auth/login', 'AdministratorController@postLogin');
+
+// mobile app
+Route::get('/api/v1/expressions/random', 'ExpressionController@getRandomJson');
+Route::get('/api/v1/expressions/search', 'SearchController@getSearchJson'); 
