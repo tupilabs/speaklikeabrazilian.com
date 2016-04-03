@@ -2,7 +2,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2013 TupiLabs
+ * Copyright (c) 2013-2016 TupiLabs
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -21,14 +21,12 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class DefinitionTest extends TestCase
 {
     use DatabaseMigrations;
+
 
     /**
      * Expressions repository;
@@ -45,8 +43,8 @@ class DefinitionTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->expressionRepository = \App::make('SLBR\Repositories\ExpressionRepository');
-        $this->definitionRepository = \App::make('SLBR\Repositories\DefinitionRepository');
+        $this->expressionRepository = $this->app->make('SLBR\Repositories\ExpressionRepository');
+        $this->definitionRepository = $this->app->make('SLBR\Repositories\DefinitionRepository');
     }
 
     /**
@@ -119,14 +117,14 @@ class DefinitionTest extends TestCase
         ));
 
         $this->assertEquals(
-            'Uma expressao <a href="http://localhost/expression/define?e=do natal">do natal</a> do ano passado'
-            , $definitionEloquent->getFormattedDescription()
+            'Uma expressao <a href="http://localhost/en/expression/define?e=do natal">do natal</a> do ano passado'
+            , get_definition_formatted_text($definitionEloquent['description'], ['slug' => 'en'])
         );
 
         $definitionEloquent->description = 'Uma expressao do natal do ano passado';
         $this->assertEquals(
             'Uma expressao do natal do ano passado'
-            , $definitionEloquent->getFormattedDescription()
+            , get_definition_formatted_text($definitionEloquent['description'], ['slug' => 'en'])
         );
     }
 
@@ -156,14 +154,14 @@ class DefinitionTest extends TestCase
         ));
 
         $this->assertEquals(
-            'Ele <a href="http://localhost/expression/define?e=bebeu">bebeu</a> um alambique inteiro!'
-            , $definitionEloquent->getFormattedExample()
+            'Ele <a href="http://localhost/en/expression/define?e=bebeu">bebeu</a> um alambique inteiro!'
+            , get_definition_formatted_text($definitionEloquent['example'], ['slug' => 'en'])
         );
 
         $definitionEloquent->example = 'Ele bebeu um alambique inteiro!';
         $this->assertEquals(
             'Ele bebeu um alambique inteiro!'
-            , $definitionEloquent->getFormattedExample()
+            , get_definition_formatted_text($definitionEloquent['example'], ['slug' => 'en'])
         );
     }
 

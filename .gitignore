@@ -4,3 +4,8 @@ Homestead.yaml
 Homestead.json
 .env
 /report
+.project
+.settings/
+.buildpath
+.idea/
+artisan.php

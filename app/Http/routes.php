@@ -1,6 +1,7 @@
 <?php
 
 use SLBR\Models\Language;
+use \Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,23 @@ use SLBR\Models\Language;
 
 // Retrieve languages from database
 // TODO: cache
-$languages = Cache::rememberForever('languages', function()
+$languages = Cache::get('languages');
+if (!$languages)
 {
-    return Language::all()->toArray();
-});
+    try 
+    {
+        $languages = Cache::rememberForever('languages', function()
+        {
+            return Language::all()->toArray();
+        });
+    } 
+    catch (\Exception $e)
+    {
+        Log::warning(sprintf("Error warming up cache: %s", $e->getMessage()));
+        Log::error($e);
+        $languages = [];
+    }
+}
 $locale = Request::segment(1);
 $found = FALSE;
 foreach ($languages as $ids => $language)
