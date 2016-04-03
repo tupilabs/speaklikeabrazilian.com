@@ -148,14 +148,14 @@ class MediaTest extends TestCase
 
         $media = $mediaEloquent->toArray();
 
-        $videoData = $mediaEloquent->getVideoData();
+        $videoData = get_video_data($mediaEloquent);
         $this->assertEquals('p-iHcjpb91s', $videoData['video_id']);
         $this->assertEquals('21', $videoData['t']);
 
         $mediaEloquent->url = 'https://youtu.be/p-iHcjpb91s';
-        $videoData = $mediaEloquent->getVideoData();
+        $videoData = get_video_data($mediaEloquent);
         $this->assertEquals('p-iHcjpb91s', $videoData['video_id']);
-        $this->assertEquals(NULL, $videoData['t']);
+        $this->assertEquals(false, isset($videoData['t']));
     }
 
 }
