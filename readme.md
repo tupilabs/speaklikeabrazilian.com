@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/tupilabs/speaklikeabrazilian.com.svg?branch=master)](https://travis-ci.org/tupilabs/speaklikeabrazilian.com)
 
-
+Community where people can share Brazilian Portuguese expressions, slangs, sayings, etc. Teaching
+foreigners things that are not on dictionaries, and sometimes may be hard to guess or understand
+what they mean.
 
 ### License
 
