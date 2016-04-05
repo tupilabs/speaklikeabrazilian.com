@@ -344,7 +344,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
                 $email->subject('Your expression was published in Speak Like A Brazilian');
             });
         }
-        catch (\Exception $e)
+        catch (Exception $e)
         {
             Log::warning("Error sending approval e-mail: " . $e->getMessage());
             Log::error($e);
@@ -370,7 +370,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             {
                 $this->addToSearchIndex($expression, $definition);
                 $this->addAuthorVote($definition);
-                //$this->sendApprovalEmail($definition);
+                $this->sendApprovalEmail($definition);
             }
 
             Log::debug('Committing transaction');
@@ -427,7 +427,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             Log::info(sprintf('Definition %s updated!', $definition['text']));
             return $definition;
         } 
-        catch (\Exception $e) 
+        catch (Exception $e) 
         {
             Log::debug('Rolling back transaction: ' . $e->getMessage());
             DB::rollback();
