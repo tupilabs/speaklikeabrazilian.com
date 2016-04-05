@@ -22,9 +22,6 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-use \App;
-use \Log;
-
 use SLBR\Models\Language;
 
 use Illuminate\Database\Seeder;

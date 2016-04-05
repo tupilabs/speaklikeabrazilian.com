@@ -55,7 +55,7 @@ class Language extends Model implements Transformable
 
     protected $guarded = [];
 
-    protected $fillable = ['slug', 'description', 'local_description'];
+    protected $fillable = ['id', 'slug', 'description', 'local_description'];
 
 	public function definitions()
 	{
