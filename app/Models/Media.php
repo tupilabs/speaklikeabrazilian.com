@@ -51,7 +51,7 @@ class Media extends Model implements Transformable
      *
      * @var string
      */
-    protected $dateFormat = 'U';
+    //protected $dateFormat = 'U';
 
     protected $guarded = [];
 

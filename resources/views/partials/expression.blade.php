@@ -7,7 +7,7 @@
 					    	<div class="header"><a href="{{ URL::to($selected_language['slug'] . '/expression/define') }}?e={{ urlencode($definition['text']) }}">{{ urldecode($definition['text']) }}</a><a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q={{ $definition['text'] }}&tl=pt-br"><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
 					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
-					    		<span class="category"><small>{{ date('F jS \\a\\t g:ia', $definition['created_at']) }}</small></span>
+					    		<span class="category"><small>{{ $definition['created_at'] }}</small></span>
 					    	</div>
 					    	<div class="description">
 								<p>{!! html_entity_decode(
