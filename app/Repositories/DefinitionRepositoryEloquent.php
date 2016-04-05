@@ -106,7 +106,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) * -1 FROM ratings where ratings.definition_id = definitions.id and ratings.rating = -1) as dislikes")
                 )
             ->with('medias')
-            ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') > 0 ? 'RAND()' : 'RANDOM()'))
             ->take(8)
             ->get()
             ->toArray();
