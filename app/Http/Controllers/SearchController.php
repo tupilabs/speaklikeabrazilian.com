@@ -29,6 +29,7 @@ use Log;
 use Redirect;
 use Illuminate\Http\Request;
 use SLBR\Repositories\DefinitionRepository;
+use Cartalyst\Sentinel\Native\Facades\Sentinel;
 
 class SearchController extends Controller {
 
@@ -226,18 +227,19 @@ class SearchController extends Controller {
         return response()->json($definitions);
     }
 
-    public function recreateSearchIndex()
+    public function recreateSearchIndex(Request $request)
     {
-        $admin = TRUE;
-        // if (Sentry::check())
-        // {
-        //     $user = Sentry::getUser();
-        //     $admin = $user->hasAccess('admin');
-        // }
+        $admin = FALSE;
+        if (Sentinel::check())
+        {
+            $user = Sentinel::getUser();
+            $admin = $user->inRole('admins');
+        }
 
         if (!$admin)
         {
-            return Redirect::to('/user/login?from=admin');
+            Log::warn(sprintf("Invalid user %s trying to recreate search index!", $request->getClientIp()));
+            return Redirect::to('/admin/');
         }
 
         $definitions = $this->definitionRepository->with('expression')->all();
