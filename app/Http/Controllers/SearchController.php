@@ -150,7 +150,8 @@ class SearchController extends Controller {
             'size' => $size,
             'from' => $from,
             'definitions' => $definitions,
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'query_parameters' => "&q=${q}"
         );
         return view('home', $data);
     }
