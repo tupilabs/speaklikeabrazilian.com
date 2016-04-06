@@ -17,10 +17,8 @@ abstract class Controller extends BaseController
     {
         $slug = App::getLocale();
         $languageFound = null;
-        foreach ($languages as $language)
-        {
-            if (strcmp($language['slug'], $slug) == 0)
-            {
+        foreach ($languages as $language) {
+            if (strcmp($language['slug'], $slug) == 0) {
                 $languageFound = $language;
                 break;
             }
@@ -31,10 +29,8 @@ abstract class Controller extends BaseController
     protected function getLanguageBySlug($languages, $slug)
     {
         $languageFound = null;
-        foreach ($languages as $language)
-        {
-            if (strcmp($language['slug'], $slug) == 0)
-            {
+        foreach ($languages as $language) {
+            if (strcmp($language['slug'], $slug) == 0) {
                 $languageFound = $language;
                 break;
             }
@@ -45,10 +41,8 @@ abstract class Controller extends BaseController
     protected function getLanguageByID($languages, $languageId)
     {
         $languageFound = null;
-        foreach ($languages as $language)
-        {
-            if ($language['id'] == $languageId)
-            {
+        foreach ($languages as $language) {
+            if ($language['id'] == $languageId) {
                 $languageFound = $language;
                 break;
             }

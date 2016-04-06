@@ -30,7 +30,8 @@ use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
 use Cartalyst\Sentinel\Hashing\NativeHasher;
 
-class ModeratorController extends Controller {
+class ModeratorController extends Controller
+{
 
     /**
      * SLBR\Repositories\DefinitionRepository
@@ -78,7 +79,7 @@ class ModeratorController extends Controller {
 
     public function getLogout()
     {
-        Sentinel::logout(null, /* everywhere */ TRUE);
+        Sentinel::logout(null, /* everywhere */ true);
         return redirect('/moderators/login');
     }
 
@@ -99,10 +100,12 @@ class ModeratorController extends Controller {
         ];
 
         $response = Sentinel::authenticate($credentials);
-        if (!$response)
+        if (!$response) {
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
-        if (!Sentinel::inRole('mods'))
+        }
+        if (!Sentinel::inRole('mods')) {
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
+        }
         return redirect('/moderators/');
     }
 
@@ -113,9 +116,8 @@ class ModeratorController extends Controller {
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
         $randomPendingExpression = $this->definitionRepository->getRandomPendingDefinition();
-        $selectedLanguage = NULL;
-        if ($randomPendingExpression)
-        {
+        $selectedLanguage = null;
+        if ($randomPendingExpression) {
             $languageId = $randomPendingExpression['language_id'];
             $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
         }
@@ -152,10 +154,9 @@ class ModeratorController extends Controller {
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
         $randomPendingPicture = $this->mediaRepository->getRandomPendingPicture();
-        $selectedLanguage = NULL;
-        $definition = NULL;
-        if ($randomPendingPicture)
-        {
+        $selectedLanguage = null;
+        $definition = nullnull;
+        if ($randomPendingPicture) {
             $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'])->toArray();
             $languageId = $definition['language_id'];
             $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
@@ -194,10 +195,9 @@ class ModeratorController extends Controller {
         $countPendingVideos = $this->mediaRepository->countPendingVideos();
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
         $randomPendingVideo = $this->mediaRepository->getRandomPendingVideo();
-        $selectedLanguage = NULL;
-        $definition = NULL;
-        if ($randomPendingVideo)
-        {
+        $selectedLanguage = null;
+        $definition = null;
+        if ($randomPendingVideo) {
             $definition = $this->definitionRepository->getOne($randomPendingVideo['definition']['id'])->toArray();
             $languageId = $definition['language_id'];
             $selectedLanguage = $this->languageRepository->find($languageId)->toArray();
@@ -237,10 +237,9 @@ class ModeratorController extends Controller {
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
         
         $definitionId = $request->get('definition_id', 0);
-        $definition = NULL;
-        $selectedLanguage = NULL;
-        if ($definitionId)
-        {
+        $definition = null;
+        $selectedLanguage = null;
+        if ($definitionId) {
             $definition = $this->definitionRepository->getOne($definitionId);
             $languages = $request->get('languages');
             $selectedLanguage = $this->getLanguageByID($languages, $definition->language_id);
@@ -300,8 +299,7 @@ class ModeratorController extends Controller {
 
         $hasher = new NativeHasher();
 
-        if (!$hasher->check($current, $user->password))
-        {
+        if (!$hasher->check($current, $user->password)) {
             return redirect()->back()->withInput()->withErrors(['Your password did not match']);
         }
 
@@ -314,5 +312,4 @@ class ModeratorController extends Controller {
 
         return redirect('/moderators/logout');
     }
-
 }

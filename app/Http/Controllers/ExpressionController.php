@@ -34,7 +34,8 @@ use SLBR\Repositories\RatingRepository;
 use SLBR\Repositories\MediaRepository;
 use Illuminate\Http\Request;
 
-class ExpressionController extends Controller {
+class ExpressionController extends Controller
+{
 
     /**
      * SLBR\Repositories\DefinitionRepository
@@ -238,14 +239,11 @@ class ExpressionController extends Controller {
     {
         $definitionId = $request->get('definition_id');
         $ip = $request->getClientIp();
-        $json = NULL;
-        try
-        {
+        $json = null;
+        try {
             $balance = $this->ratingRepository->like($ip, $definitionId);
             $json = response()->json(['message' => 'OK', 'balance' => $balance]);
-        } 
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             Log::error($e);
             $json = response()->json(['message' => $e->getMessage()]);
         }
@@ -261,14 +259,11 @@ class ExpressionController extends Controller {
     {
         $definitionId = $request->get('definition_id');
         $ip = $request->getClientIp();
-        $json = NULL;
-        try
-        {
+        $json = null;
+        try {
             $balance = $this->ratingRepository->dislike($ip, $definitionId);
             $json = response()->json(['message' => 'OK', 'balance' => $balance]);
-        } 
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $json = response()->json(['message' => $e->getMessage()]);
         }
         return $json;
@@ -312,8 +307,7 @@ class ExpressionController extends Controller {
             'picture_time'                      => 'required|honeytime:5'
         ));
         $url = $request->get('picture-url-input');
-        if (!preg_match('%(?:imgur\.com/)([^"&?/ ]{11})%i', $url, $match))
-        {
+        if (!preg_match('%(?:imgur\.com/)([^"&?/ ]{11})%i', $url, $match)) {
             return redirect()->back()->withInput()->withErrors(['The picture URL is not valid. Only imgur pictures are allowed at the moment.']);
         }
         $languages = $request->get('languages');
@@ -360,8 +354,7 @@ class ExpressionController extends Controller {
             'video_time'                      => 'required|honeytime:5'
         ));
         $url = $request->get('video-url-input');
-        if (!preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
-        {
+        if (!preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
             return redirect()->back()->withInput()->withErrors(['The video URL is not valid. Only YouTube videos are allowed at the moment.']);
         }
         $languages = $request->get('languages');
@@ -369,5 +362,4 @@ class ExpressionController extends Controller {
         $media = $this->mediaRepository->addVideo(Input::all(), $language, $request->getClientIp());
         return Redirect::to($language['slug'] . '/thankyou');
     }
-
 }

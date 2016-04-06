@@ -31,7 +31,8 @@ use Illuminate\Http\Request;
 use SLBR\Repositories\DefinitionRepository;
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 
-class SearchController extends Controller {
+class SearchController extends Controller
+{
 
     /**
      * SLBR\Repositories\DefinitionRepository
@@ -58,25 +59,19 @@ class SearchController extends Controller {
         $size = $request->get('size');
         $page = $request->get('page');
 
-        if (!isset($size) || !is_numeric($size))
-        {
+        if (!isset($size) || !is_numeric($size)) {
             $size = 10;
         }
-        if (!isset($from) || !is_numeric($from))
-        {
+        if (!isset($from) || !is_numeric($from)) {
             $from = 0;
         }
-        if (isset($page) && is_numeric($page))
-        {
+        if (isset($page) && is_numeric($page)) {
             $from = $size * ($page-1);
-        } 
-        else
-        {
+        } else {
             $page = 1;
         }
 
-        if (!isset($q) || empty($q))
-        {
+        if (!isset($q) || empty($q)) {
             Log::warning('Invalid search params');
             return Redirect::to('/')
                 ->withInput()
@@ -109,14 +104,11 @@ class SearchController extends Controller {
         $hits = array();
         $total = 0;
 
-        try
-        {
+        try {
             $result = Es::search($searchParams);
             $hits = $result['hits'];
             $total = $hits['total'];
-        } 
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             Log::error('Search server error: ' . $e->getMessage());
             return Redirect::to('/')
                 ->withInput()
@@ -126,21 +118,19 @@ class SearchController extends Controller {
         $ids = array();
         $pagination = array();
         $definitions = array();
-        if (isset($hits['hits']))
-        {
-            foreach ($hits['hits'] as $hit)
-            {
+        if (isset($hits['hits'])) {
+            foreach ($hits['hits'] as $hit) {
                 $ids[] = $hit['_id'];
             }
         }
 
-        if (!empty($ids))
-        {
+        if (!empty($ids)) {
             $pagination = $this->definitionRepository->retrieve($ids, $language);
         }
 
-        if (array_key_exists('data', $pagination))
+        if (array_key_exists('data', $pagination)) {
             $definitions = $pagination['data'];
+        }
 
         $data = array(
             'languages' => $languages,
@@ -160,8 +150,7 @@ class SearchController extends Controller {
     {
         $q = $request->get('q');
         $definitions = array();
-        if (isset($q) && !empty($q))
-        {
+        if (isset($q) && !empty($q)) {
             $languages = $request->get('languages');
             $language = $this->getLanguageBySlug($languages, 'en');
             $definitions = $this->definitionRepository->getRandom($language);
@@ -192,14 +181,11 @@ class SearchController extends Controller {
             $hits = array();
             $total = 0;
 
-            try
-            {
+            try {
                 $result = Es::search($searchParams);
                 $hits = $result['hits'];
                 $total = $hits['total'];
-            } 
-            catch (Exception $e)
-            {
+            } catch (Exception $e) {
                 Log::error('Search server error: ' . $e->getMessage());
                 return Redirect::to('/')
                     ->withInput()
@@ -209,43 +195,38 @@ class SearchController extends Controller {
             $ids = array();
             $pagination = array();
             $definitions = array();
-            if (isset($hits['hits']))
-            {
-                foreach ($hits['hits'] as $hit)
-                {
+            if (isset($hits['hits'])) {
+                foreach ($hits['hits'] as $hit) {
                     $ids[] = $hit['_id'];
                 }
             }
 
-            if (!empty($ids))
-            {
+            if (!empty($ids)) {
                 $pagination = $this->definitionRepository->retrieve($ids, $language);
             }
 
-            if (array_key_exists('data', $pagination))
+            if (array_key_exists('data', $pagination)) {
                 $definitions = $pagination['data'];
+            }
         }
         return response()->json($definitions);
     }
 
     public function recreateSearchIndex(Request $request)
     {
-        $admin = FALSE;
-        if (Sentinel::check())
-        {
+        $admin = false;
+        if (Sentinel::check()) {
             $user = Sentinel::getUser();
             $admin = $user->inRole('admins');
         }
 
-        if (!$admin)
-        {
+        if (!$admin) {
             Log::warning(sprintf("Invalid user %s trying to recreate search index!", $request->getClientIp()));
             return Redirect::to('/admin/');
         }
 
         $definitions = $this->definitionRepository->with('expression')->all();
-        foreach ($definitions as $definition)
-        {
+        foreach ($definitions as $definition) {
             $expression = $definition->expression;
             // Index document into search server
             $params = array();
@@ -263,17 +244,13 @@ class SearchController extends Controller {
             // Document will be indexed to slbr_index/definition/id
             Log::debug('Indexing into search server');
             $ret = Es::index($params);
-            if (isset($ret['created']) && $ret['created'] == true)
-            {
+            if (isset($ret['created']) && $ret['created'] == true) {
                 Log::info('Document indexed');
-            }
-            else
-            {
+            } else {
                 Log::error('Failed to index document');
             }
         }
 
         echo "OK!";
     }
-
 }

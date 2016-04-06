@@ -26,7 +26,8 @@ namespace SLBR\Http\Controllers;
 use Cartalyst\Sentinel\Native\Facades\Sentinel;
 use Illuminate\Http\Request;
 
-class AdministratorController extends Controller {
+class AdministratorController extends Controller
+{
 
     public function getLogin()
     {
@@ -35,7 +36,7 @@ class AdministratorController extends Controller {
 
     public function getLogout()
     {
-        Sentinel::logout(null, /* everywhere */ TRUE);
+        Sentinel::logout(null, /* everywhere */ true);
         return redirect('/admin/login');
     }
 
@@ -56,11 +57,12 @@ class AdministratorController extends Controller {
         ];
 
         $response = Sentinel::authenticate($credentials);
-        if (!$response)
+        if (!$response) {
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
-        if (!Sentinel::inRole('admins'))
+        }
+        if (!Sentinel::inRole('admins')) {
             return redirect()->back()->withInput()->withErrors(['Invalid credentials!']);
+        }
         return redirect('/admin/');
     }
-
 }
