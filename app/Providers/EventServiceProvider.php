@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'SLBR\Events\DefinitionApprovedEvent' => [
             'SLBR\Listeners\DefinitionApprovedEventListener',
         ],
+        'SLBR\Events\MediaApprovedEvent' => [
+            'SLBR\Listeners\MediaApprovedEventListener',
+        ]
     ];
 
     /**

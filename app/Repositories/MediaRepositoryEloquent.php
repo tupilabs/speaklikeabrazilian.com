@@ -5,11 +5,13 @@ namespace SLBR\Repositories;
 use \DB;
 use \Log;
 use \Config;
+use Event;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\MediaRepository;
 use SLBR\Repositories\AuditRepository;
 use SLBR\Models\Media;
+use SLBR\Events\MediaApprovedEvent;
 
 /**
  * Class MediaRepositoryEloquent
@@ -133,25 +135,6 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
         return $video;
     }
 
-    private function sendApprovalEmail($definition, $template)
-    {
-        // try 
-        // {
-        //     Log::debug(sprintf('Sending expression approval e-mail to %s', $definition->email));
-        //     Mail::send('emails.' . $template . 'Approved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
-        //     {                    
-        //         $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
-        //         $email->to($definition->email, $definition->contributor);
-        //         $email->subject('Your expression was published in Speak Like A Brazilian');
-        //     });
-        // }
-        // catch (\Exception $e)
-        // {
-        //     Log::warning("Error sending approval e-mail: " . $e->getMessage());
-        //     Log::error($e);
-        // }
-    }
-
     private function updateStatus($mediaId, $user, $status, $userIp, $template)
     {
         Log::info(sprintf('User %d (%s) updating media %d with status %d', $user->id, $user->email, $mediaId, $status));
@@ -168,7 +151,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
 
             if ($status == 2)
             {
-                //$this->sendApprovalEmail($media, $template);
+                Event::fire(new MediaApprovedEvent($definition, $template));
             }
 
             Log::debug('Committing transaction');
