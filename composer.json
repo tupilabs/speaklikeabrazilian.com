@@ -3,7 +3,7 @@
 	"description": "Speak Like A Brazilian",
 	"keywords": ["slbr", "languages", "education", "brazilian portuguese"],
 	"license": "MIT",
-  	"version": "1.3",
+  	"version": "2.2",
 	"type": "project",
 	"minimum-stability": "stable",
 	"require": {
