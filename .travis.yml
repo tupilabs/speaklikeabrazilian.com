@@ -9,7 +9,7 @@ before_script:
   - cp .env.travis .env
   - composer self-update
   - rm -rf composer.lock
-  - composer install --no-interaction --dev
+  - composer install --prefer-source --no-interaction --dev
 
 script:
   - vendor/bin/phpunit
