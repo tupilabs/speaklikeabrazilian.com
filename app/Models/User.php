@@ -47,5 +47,4 @@ class User extends EloquentUser
         $this->attributes['password'] = $this->hasher->hash($value);
         $this->save();
     }
-
 }

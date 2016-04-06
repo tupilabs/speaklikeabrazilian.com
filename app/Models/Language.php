@@ -37,7 +37,7 @@ class Language extends Model implements Transformable
      *
      * @var string
      */
-	protected $table = 'languages';
+    protected $table = 'languages';
 
     /**
      * Indicates if the model should be timestamped.
@@ -57,8 +57,8 @@ class Language extends Model implements Transformable
 
     protected $fillable = ['id', 'slug', 'description', 'local_description'];
 
-	public function definitions()
-	{
-		return $this->hasMany('SLBR\Models\Definition');
-	}
+    public function definitions()
+    {
+        return $this->hasMany('SLBR\Models\Definition');
+    }
 }

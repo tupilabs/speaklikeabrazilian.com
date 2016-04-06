@@ -37,7 +37,7 @@ class Expression extends Model implements Transformable
      *
      * @var string
      */
-	protected $table = 'expressions';
+    protected $table = 'expressions';
 
     /**
      * Indicates if the model should be timestamped.
@@ -57,9 +57,8 @@ class Expression extends Model implements Transformable
 
     protected $fillable = ['text', 'char', 'contributor'];
 
-	public function definitions()
-	{
-		return $this->hasMany('SLBR\Models\Definition');
-	}
-
+    public function definitions()
+    {
+        return $this->hasMany('SLBR\Models\Definition');
+    }
 }

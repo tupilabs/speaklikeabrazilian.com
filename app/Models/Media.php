@@ -37,7 +37,7 @@ class Media extends Model implements Transformable
      *
      * @var string
      */
-	protected $table = 'medias';
+    protected $table = 'medias';
 
     /**
      * Indicates if the model should be timestamped.
@@ -60,8 +60,7 @@ class Media extends Model implements Transformable
     // --- relationships
 
     public function definition()
-	{
-		return $this->belongsTo('SLBR\Models\Definition');
-	}
-
+    {
+        return $this->belongsTo('SLBR\Models\Definition');
+    }
 }

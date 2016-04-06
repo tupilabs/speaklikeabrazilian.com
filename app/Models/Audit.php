@@ -62,5 +62,4 @@ class Audit extends Model implements Transformable
     {
         return self::getModerationBody('audit.definition.edit', $jsonEntity, $userIp, $userId, $datetime);
     }
-
 }

@@ -37,7 +37,7 @@ class Rating extends Model implements Transformable
      *
      * @var string
      */
-	protected $table = 'ratings';
+    protected $table = 'ratings';
 
     /**
      * Indicates if the model should be timestamped.
@@ -58,8 +58,7 @@ class Rating extends Model implements Transformable
     protected $fillable = ['definition_id', 'user_ip', 'rating'];
 
     public function definition()
-	{
-		return $this->belongsTo('SLBR\Models\Definition');
-	}
-
+    {
+        return $this->belongsTo('SLBR\Models\Definition');
+    }
 }

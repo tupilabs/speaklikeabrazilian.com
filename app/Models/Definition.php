@@ -37,7 +37,7 @@ class Definition extends Model implements Transformable
      *
      * @var string
      */
-	protected $table = 'definitions';
+    protected $table = 'definitions';
 
     /**
      * Indicates if the model should be timestamped.
@@ -60,10 +60,10 @@ class Definition extends Model implements Transformable
 
     // --- relationships
 
-	public function expression()
-	{
-		return $this->belongsTo('SLBR\Models\Expression');
-	}
+    public function expression()
+    {
+        return $this->belongsTo('SLBR\Models\Expression');
+    }
 
     public function language()
     {
@@ -79,5 +79,4 @@ class Definition extends Model implements Transformable
     {
         return $this->hasMany('SLBR\Models\Rating');
     }
-
 }
