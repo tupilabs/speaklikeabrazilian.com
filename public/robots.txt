@@ -8,3 +8,5 @@ Disallow: /pt/random
 Disallow: /de/random
 Disallow: /ko/random
 Disallow: /tz/random
+Disallow: /moderators
+Disallow: /admin
