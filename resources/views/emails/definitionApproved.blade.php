@@ -6,7 +6,7 @@
     <body>
     <p>Hi {{ $contributor }}!</p>
     <br/>
-    <p>Your definition of "{{ urlencode($text) }}" was approved by our moderators. Yay!</p>
+    <p>Your definition of "{{ urldecode($text) }}" was approved by our moderators. Yay!</p>
     <br/>
     <p>Thank you for sharing your expression with us!</p>
     <br/>
