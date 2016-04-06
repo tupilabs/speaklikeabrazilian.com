@@ -42,7 +42,7 @@ class MediaApprovedEventListener
             {                    
                 $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
                 $email->to($to, $contributor);
-                $email->subject('Your expression was published in Speak Like A Brazilian');
+                $email->subject('Your media was published in Speak Like A Brazilian');
             });
         }
         catch (Exception $e)
