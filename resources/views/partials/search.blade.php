@@ -5,7 +5,7 @@
                         {!! Form::open(array('url' => $selected_language['slug'] . '/search', 'method' => 'get', 'class' => 'ui form', 'id' => 'search-form')) !!}
                             <div class='field'>
                                 <div class="ui small fluid action input">
-                                    <input class="prompt" name='q' id='q' value="{{ old('q') }}" placeholder="Search..." type="text">
+                                    <input class="prompt" name='q' id='q' value="{{ $q or old('q') }}" placeholder="Search..." type="text">
                                     <button class="ui submit button">Search</button>
                                 </div>
                             </div>

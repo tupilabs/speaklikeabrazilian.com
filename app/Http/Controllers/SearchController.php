@@ -88,8 +88,9 @@ class SearchController extends Controller {
             "query": {
                 "multi_match": {
                     "query":                "'.$q.'",
-                    "type":                 "best_fields", 
-                    "fields":               [ "expression^3", "description^2", "example", "tags" ],
+                    "type":                 "cross_fields", 
+                    "analyzer":   "standard",
+                    "fields":               [ "expression^10", "description^5", "example^1", "tags" ],
                     "tie_breaker":          0.3,
                     "minimum_should_match": "30%" 
                 }
