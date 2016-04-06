@@ -77,7 +77,7 @@ class SearchController extends Controller {
 
         if (!isset($q) || empty($q))
         {
-            Log::warn('Invalid search params');
+            Log::warning('Invalid search params');
             return Redirect::to('/')
                 ->withInput()
                 ->with('search_error', "Missing search parameters");
@@ -238,7 +238,7 @@ class SearchController extends Controller {
 
         if (!$admin)
         {
-            Log::warn(sprintf("Invalid user %s trying to recreate search index!", $request->getClientIp()));
+            Log::warning(sprintf("Invalid user %s trying to recreate search index!", $request->getClientIp()));
             return Redirect::to('/admin/');
         }
 
