@@ -34,5 +34,5 @@ interface DefinitionRepository extends RepositoryInterface
 
     public function reject($definitionId, $user, $userIp);
 
-    public function edit(array $input, $ip);
+    public function edit(array $input, $user, $userIp);
 }

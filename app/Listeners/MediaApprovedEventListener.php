@@ -31,16 +31,17 @@ class MediaApprovedEventListener
      */
     public function handle(MediaApprovedEvent $event)
     {
-        $definition = $event->definition;
-        $template = $event->template;
+        $text = $event->text;
+        $to = $event->email;
+        $contributor = $event->contributor;
 
         try 
         {
-            Log::debug(sprintf('Sending media approval e-mail to %s', $definition->email));
-            Mail::send('emails.' . $template . 'Approved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
+            Log::debug(sprintf('Sending media approval e-mail to %s', $to));
+            Mail::send('emails.mediaApproved', array('contributor' => $contributor, 'text' => $text), function($email) use($to, $contributor)
             {                    
                 $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
-                $email->to($definition->email, $definition->contributor);
+                $email->to($to, $contributor);
                 $email->subject('Your expression was published in Speak Like A Brazilian');
             });
         }

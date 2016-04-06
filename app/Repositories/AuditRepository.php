@@ -12,7 +12,7 @@ interface AuditRepository extends RepositoryInterface
 {
     public function auditDefinitionModeration($entity, $userIp, $userId);
 
-    public function auditPictureModeration($entity, $userIp, $userId);
+    public function auditMediaModeration($entity, $userIp, $userId);
 
-    public function auditVideoModeration($entity, $userIp, $userId);
+    public function auditDefinitionUpdated($definition, $userIp, $userId);
 }

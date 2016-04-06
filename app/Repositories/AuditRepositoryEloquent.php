@@ -46,11 +46,11 @@ class AuditRepositoryEloquent extends BaseRepository implements AuditRepository
         ));
     }
 
-    public function auditPictureModeration($entity, $userIp, $userId)
+    public function auditMediaModeration($entity, $userIp, $userId)
     {
         $jsonEntity = $entity->toJson();
         $datetime = new \DateTime();
-        $body = Audit::getPictureModerationBody($jsonEntity, $userIp, $userId, $datetime);
+        $body = Audit::getMediaModerationBody($jsonEntity, $userIp, $userId, $datetime);
         return $this->create(array(
             'user_ip' => $userIp,
             'user_id' => $userId,
@@ -58,11 +58,11 @@ class AuditRepositoryEloquent extends BaseRepository implements AuditRepository
         ));
     }
 
-    public function auditVideoModeration($entity, $userIp, $userId)
+    public function auditDefinitionUpdated($entity, $userIp, $userId)
     {
         $jsonEntity = $entity->toJson();
         $datetime = new \DateTime();
-        $body = Audit::getVideoModerationBody($jsonEntity, $userIp, $userId, $datetime);
+        $body = Audit::getDefinitionEditBody($jsonEntity, $userIp, $userId, $datetime);
         return $this->create(array(
             'user_ip' => $userIp,
             'user_id' => $userId,

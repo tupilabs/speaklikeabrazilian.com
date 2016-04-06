@@ -25,10 +25,16 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
      */
     private $auditRepository;
 
-    public function __construct(AuditRepository $auditRepository)
+    /**
+     * SLBR\Repositories\DefinitionRepository
+     */
+    private $definitionRepository;
+
+    public function __construct(AuditRepository $auditRepository, DefinitionRepository $definitionRepository)
     {
         parent::__construct(\App::getInstance());
         $this->auditRepository = $auditRepository;
+        $this->definitionRepository = $definitionRepository;
     }
 
     /**
@@ -115,7 +121,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             where('status', '=', 1)
             ->where('content_type', '<>', 'video/youtube')
             ->with('definition')
-            ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') > 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
         if ($picture)
             $picture = $picture->toArray();
@@ -128,14 +134,14 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             where('status', '=', 1)
             ->where('content_type', '=', 'video/youtube')
             ->with('definition')
-            ->orderByRaw((Config::get('database.default') =='mysql' ? 'RAND()' : 'RANDOM()'))
+            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') > 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
         if ($video)
             $video = $video->toArray();
         return $video;
     }
 
-    private function updateStatus($mediaId, $user, $status, $userIp, $template)
+    private function updateStatus($mediaId, $user, $status, $userIp)
     {
         Log::info(sprintf('User %d (%s) updating media %d with status %d', $user->id, $user->email, $mediaId, $status));
 
@@ -149,9 +155,12 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             $media->status = $status;
             $media->save();
 
+            $definitionId = $media->definition_id;
+            $definition = $this->definitionRepository->find($definitionId);
+
             if ($status == 2)
             {
-                Event::fire(new MediaApprovedEvent($definition, $template));
+                Event::fire(new MediaApprovedEvent($media->email, $definition->expression()->first()->text, $media->contributor));
             }
 
             Log::debug('Committing transaction');
@@ -169,10 +178,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
         {
             if ($success)
             {
-                if ($template === 'picture')
-                    $this->auditRepository->auditPictureModeration($media, $userIp, $user->id);
-                elseif ($template === 'video')
-                    $this->auditRepository->auditVideoModeration($media, $userIp, $user->id);
+                $this->auditRepository->auditMediaModeration($media, $userIp, $user->id);
             }
         }
     }

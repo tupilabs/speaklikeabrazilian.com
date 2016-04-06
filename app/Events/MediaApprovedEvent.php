@@ -11,19 +11,20 @@ class MediaApprovedEvent extends Event
 {
     use SerializesModels;
 
-    public $definition;
-
-    public $template;
+    public $email;
+    public $text;
+    public $contributor;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Definition $definition, string $template)
+    public function __construct($email, $text, $contributor)
     {
-        $this->definition = $definition;
-        $this->template = $template;
+        $this->email = $email;
+        $this->text = $text;
+        $this->contributor = $contributor;
     }
 
     /**

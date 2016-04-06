@@ -6,7 +6,7 @@
     <body>
     <p>Hi {{ $contributor }}!</p>
     <br/>
-    <p>Your video for "{{ urlencode($text) }}" was approved by our moderators. Yay!</p>
+    <p>Your media for "{{ urlencode($text) }}" was approved by our moderators. Yay!</p>
     <br/>
     <p>Thank you!</p>
     <br/>

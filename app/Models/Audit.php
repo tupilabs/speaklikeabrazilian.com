@@ -53,14 +53,14 @@ class Audit extends Model implements Transformable
         return self::getModerationBody('audit.definition.moderation', $jsonEntity, $userIp, $userId, $datetime);
     }
 
-    public static function getPictureModerationBody($jsonEntity, $userIp, $userId, $datetime)
+    public static function getMediaModerationBody($jsonEntity, $userIp, $userId, $datetime)
     {
-        return self::getModerationBody('audit.picture.moderation', $jsonEntity, $userIp, $userId, $datetime);
+        return self::getModerationBody('audit.media.moderation', $jsonEntity, $userIp, $userId, $datetime);
     }
 
-    public static function getVideoModerationBody($jsonEntity, $userIp, $userId, $datetime)
+    public static function getDefinitionEditBody($jsonEntity, $userIp, $userId, $datetime)
     {
-        return self::getModerationBody('audit.video.moderation', $jsonEntity, $userIp, $userId, $datetime);
+        return self::getModerationBody('audit.definition.edit', $jsonEntity, $userIp, $userId, $datetime);
     }
 
 }

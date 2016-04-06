@@ -385,10 +385,13 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         return $this->updateStatus($definitionId, $user, 3, $userIp);
     }
 
-    public function edit(array $input, $ip)
+    public function edit(array $input, $user, $userIp)
     {
+        Log::info(sprintf('User %d (%s) editing definition %d', $user->id, $user->email, $input['definition_id']));
         Log::debug('Starting transaction to update definition');
         DB::beginTransaction();
+        $success = FALSE;
+        $definition = NULL;
         try 
         {
             // Get existing expressions
@@ -406,6 +409,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
 
             Log::debug('Committing transaction');
             DB::commit();
+            $success = TRUE;
             Log::info(sprintf('Definition %s updated!', $definition['text']));
             return $definition;
         } 
@@ -414,6 +418,13 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             Log::debug('Rolling back transaction: ' . $e->getMessage());
             DB::rollback();
             throw $e;
+        }
+        finally
+        {
+            if ($success)
+            {
+                $this->auditRepository->auditDefinitionUpdated($definition, $userIp, $user->id);
+            }
         }
     }
 

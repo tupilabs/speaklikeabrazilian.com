@@ -260,13 +260,14 @@ class ModeratorController extends Controller {
 
     public function postEdit(Request $request)
     {
+        $user = Sentinel::getUser();
         $this->validate($request, array(
             'definition_id'                     => 'required|integer|min:1',
             'expression-description-input'      => 'required|min:1|max:1000',
             'expression-example-input'          => 'required|min:1|max:1000',
             'expression-tags-input'             => 'required|min:1|max:100'
         ));
-        $definition = $this->definitionRepository->edit($request->all(), $request->getClientIp());
+        $definition = $this->definitionRepository->edit($request->all(), $user, $request->getClientIp());
         return redirect('/moderators/edit?definition_id=' . $definition['id']);
     }
 
