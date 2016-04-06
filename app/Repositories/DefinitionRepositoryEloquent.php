@@ -6,7 +6,7 @@ use \DB;
 use \Log;
 use \Config;
 use \Exception;
-use Mail;
+use Event;
 use Es;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -15,6 +15,7 @@ use SLBR\Repositories\RatingRepository;
 use SLBR\Repositories\AuditRepository;
 use SLBR\Models\Expression;
 use SLBR\Models\Definition;
+use SLBR\Events\DefinitionApprovedEvent;
 
 /**
  * Class DefinitionRepositoryEloquent
@@ -332,26 +333,6 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         }
     }
 
-    private function sendApprovalEmail($definition)
-    {
-        try 
-        {
-            // FIXME: a repository may not be the best place to send e-mails. Move it to event listeners.
-            Log::debug(sprintf('Sending expression approval e-mail to %s', $definition->email));
-            Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
-            {                    
-                $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
-                $email->to($definition->email, $definition->contributor);
-                $email->subject('Your expression was published in Speak Like A Brazilian');
-            });
-        }
-        catch (Exception $e)
-        {
-            Log::warning("Error sending approval e-mail: " . $e->getMessage());
-            Log::error($e);
-        }
-    }
-
     private function updateStatus($definitionId, $user, $status, $userIp)
     {
         Log::info(sprintf('User %d (%s) approving definition %d', $user->id, $user->email, $definitionId));
@@ -371,7 +352,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             {
                 $this->addToSearchIndex($expression, $definition);
                 $this->addAuthorVote($definition);
-                $this->sendApprovalEmail($definition);
+                Event::fire(new DefinitionApprovedEvent($definition));
             }
 
             Log::debug('Committing transaction');

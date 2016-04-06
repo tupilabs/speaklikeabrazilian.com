@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'SLBR\Events\SomeEvent' => [
-            'SLBR\Listeners\EventListener',
+        'SLBR\Events\DefinitionApprovedEvent' => [
+            'SLBR\Listeners\DefinitionApprovedEventListener',
         ],
     ];
 
