@@ -28,12 +28,10 @@ function get_video_data($media)
 {
     $data = array();
     $url = $media['url'];
-    if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
-    {
+    if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
         $data['video_id'] = $match[1];
     }
-    if (preg_match('%(?:t=)([0-9]+)%i', $url, $match)) 
-    {
+    if (preg_match('%(?:t=)([0-9]+)%i', $url, $match)) {
         $data['t'] = $match[1];
     }
     return $data;

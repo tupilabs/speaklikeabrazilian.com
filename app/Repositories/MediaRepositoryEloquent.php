@@ -68,7 +68,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
                 'url' => $url,
                 'reason' => $input['video-reason-input'],
                 'email' => $input['video-email-input'],
-                'status' => 1, 
+                'status' => 1,
                 'contributor' => $input['video-pseudonym-input'],
                 'content_type' => 'video/youtube',
                 'user_ip' => $ip
@@ -90,7 +90,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
                 'url' => $url,
                 'reason' => $input['picture-reason-input'],
                 'email' => $input['picture-email-input'],
-                'status' => 1, 
+                'status' => 1,
                 'contributor' => $input['picture-pseudonym-input'],
                 'content_type' => 'image/unknown',
                 'user_ip' => $ip
@@ -123,8 +123,9 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             ->with('definition')
             ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') >= 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
-        if ($picture)
+        if ($picture) {
             $picture = $picture->toArray();
+        }
         return $picture;
     }
 
@@ -136,8 +137,9 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             ->with('definition')
             ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') >= 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
-        if ($video)
+        if ($video) {
             $video = $video->toArray();
+        }
         return $video;
     }
 
@@ -146,11 +148,10 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
         Log::info(sprintf('User %d (%s) updating media %d with status %d', $user->id, $user->email, $mediaId, $status));
 
         $media = $this->find($mediaId);
-        $success = FALSE;
+        $success = false;
 
         DB::beginTransaction();
-        try 
-        {
+        try {
             Log::debug(sprintf("Updating media status to %s", ($status == 2 ? 'APPROVED' : 'REJECTED')));
             $media->status = $status;
             $media->save();
@@ -158,26 +159,20 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             $definitionId = $media->definition_id;
             $definition = $this->definitionRepository->find($definitionId);
 
-            if ($status == 2)
-            {
+            if ($status == 2) {
                 Event::fire(new MediaApprovedEvent($media->email, $definition->expression()->first()->text, $media->contributor));
             }
 
             Log::debug('Committing transaction');
             DB::commit();
-            $success = TRUE;
+            $success = true;
             return $media;
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             Log::debug('Rolling back transaction: ' . $e->getMessage());
             DB::rollback();
             throw $e;
-        }
-        finally
-        {
-            if ($success)
-            {
+        } finally {
+            if ($success) {
                 $this->auditRepository->auditMediaModeration($media, $userIp, $user->id);
             }
         }

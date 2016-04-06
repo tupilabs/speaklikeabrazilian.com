@@ -21,5 +21,4 @@ interface MediaRepository extends RepositoryInterface
     public function getRandomPendingPicture();
 
     public function getRandomPendingVideo();
-
 }

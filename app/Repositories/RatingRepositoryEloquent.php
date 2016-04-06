@@ -56,21 +56,21 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
 
     private function rate($ip, $definitionId, $rate)
     {
-        $balance = FALSE;
+        $balance = false;
         Log::debug(sprintf('User %s liking definition %d', $ip, $definitionId));
-        $inverse = NULL;
-        if ($rate === self::LIKE)
+        $inverse = null;
+        if ($rate === self::LIKE) {
             $inverse = self::DISLIKE;
-        else
+        } else {
             $inverse = self::LIKE;
+        }
 
         // Check if user already voted up this expression
         $count = Rating::where('definition_id', '=', $definitionId)
             ->where('user_ip', $ip)
             ->where('rating', $rate)
             ->count();
-        if ($count > 0)
-        {
+        if ($count > 0) {
             Log::info(sprintf('User %s tried to like definition %d twice!', $ip, $definitionId));
             throw new Exception("Sorry, you already liked this expression.");
         }
@@ -81,16 +81,13 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
             ->where('rating', '=', $inverse)
             ->first();
 
-        if ($rating) 
-        {
+        if ($rating) {
             // then if the user disliked but changed his mind, we update his vote
             Log::info(sprintf('User %s changed his mind, now likes definition %d', $ip, $definitionId));
             $rating->rating = $rate;
             $rating->save();
-            $balance = TRUE;
-        } 
-        else 
-        {
+            $balance = true;
+        } else {
             // otherwise we just save the new vote
             Log::info(sprintf('User %s liked definition %d', $ip, $definitionId));
             Rating::create(array(
@@ -102,5 +99,4 @@ class RatingRepositoryEloquent extends BaseRepository implements RatingRepositor
 
         return $balance;
     }
-
 }

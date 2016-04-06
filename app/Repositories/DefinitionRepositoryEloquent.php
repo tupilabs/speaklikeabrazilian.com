@@ -154,8 +154,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
     {
         Log::debug('Starting transaction to add new expression');
         DB::beginTransaction();
-        try 
-        {
+        try {
             $text = urlencode($input['expression-text-input']);
             // Get existing expressions
             $expression = Expression::
@@ -163,39 +162,35 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
                 ->first();
 
             $letter = substr($text, 0, 1);
-            if (is_numeric($letter))
-            {
+            if (is_numeric($letter)) {
                 $letter = '0';
-            }
-            else
-            {
+            } else {
                 $unwanted_array = array('Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
                             'Ê'=>'E', 'Ë'=>'E', 'Ì'=>'I', 'Í'=>'I', 'Î'=>'I', 'Ï'=>'I', 'Ñ'=>'N', 'Ò'=>'O', 'Ó'=>'O', 'Ô'=>'O', 'Õ'=>'O', 'Ö'=>'O', 'Ø'=>'O', 'Ù'=>'U',
                             'Ú'=>'U', 'Û'=>'U', 'Ü'=>'U', 'Ý'=>'Y', 'Þ'=>'B', 'ß'=>'Ss', 'à'=>'a', 'á'=>'a', 'â'=>'a', 'ã'=>'a', 'ä'=>'a', 'å'=>'a', 'æ'=>'a', 'ç'=>'c',
                             'è'=>'e', 'é'=>'e', 'ê'=>'e', 'ë'=>'e', 'ì'=>'i', 'í'=>'i', 'î'=>'i', 'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o',
                             'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y' );
-                $text2 = strtr($text, $unwanted_array );
+                $text2 = strtr($text, $unwanted_array);
                 $letter = substr($text2, 0, 1);
             }
-            if (!$expression)
-            {
+            if (!$expression) {
                 $expression = Expression::create(array(
                     'text' => $text,
                     'char' => strtoupper($letter),
                     'contributor' => $input['expression-pseudonym-input'],
-                    'moderator_id' => NULL
+                    'moderator_id' => null
                 ));
             }
 
             $definition = Definition::create(array(
-                'expression_id' => $expression->id, 
+                'expression_id' => $expression->id,
                 'description' => $input['expression-description-input'],
                 'example' => $input['expression-example-input'],
                 'tags' => $input['expression-tags-input'],
                 'status' => 1,
                 'email' => $input['expression-email-input'],
                 'contributor' => $input['expression-pseudonym-input'],
-                'moderator_id' => NULL,
+                'moderator_id' => null,
                 'user_ip' => $ip,
                 'language_id' => $language['id']
             ));
@@ -204,9 +199,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             DB::commit();
             Log::info(sprintf('New definition for %s added!', $text));
             return $definition;
-        } 
-        catch (\Exception $e) 
-        {
+        } catch (\Exception $e) {
             Log::debug('Rolling back transaction: ' . $e->getMessage());
             DB::rollback();
             throw $e;
@@ -276,8 +269,9 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             ->with('medias')
             ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') >= 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
-        if ($definitions)
+        if ($definitions) {
             $definitions = $definitions->toArray();
+        }
         return $definitions;
     }
 
@@ -309,26 +303,20 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
     private function addAuthorVote($definition)
     {
         Log::debug('Auto voting the definition using user\'s IP address');
-        if (isset($definition->user_ip) && strlen($definition->user_ip) > 0)
-        {
+        if (isset($definition->user_ip) && strlen($definition->user_ip) > 0) {
             $votes = $this
                 ->ratingRepository
                 ->findWhere([
                     ['user_ip', '=', $definition->user_ip],
                     ['definition_id', '=', $definition->id]
                 ]);
-            if ($votes->isEmpty())
-            {
+            if ($votes->isEmpty()) {
                 $this->ratingRepository->like($definition->user_ip, $definition->id);
                 Log::info('Added +1 vote for the expression (author self-voting)');
-            }
-            else
-            {
+            } else {
                 Log::warning("Skipping vote. Reason: User already voted for this expression");
             }
-        }
-        else
-        {
+        } else {
             Log::warning('Skipping vote. Reason: Missing user IP');
         }
     }
@@ -338,18 +326,16 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         Log::info(sprintf('User %d (%s) approving definition %d', $user->id, $user->email, $definitionId));
 
         $definition = $this->find($definitionId);
-        $success = FALSE;
+        $success = false;
 
         DB::beginTransaction();
-        try 
-        {
+        try {
             Log::debug(sprintf("Updating definition status to %s", ($status == 2 ? 'APPROVED' : 'REJECTED')));
             $definition->status = $status;
             $definition->save();
             $expression = $definition->expression()->first();
 
-            if ($status == 2)
-            {
+            if ($status == 2) {
                 $this->addToSearchIndex($expression, $definition);
                 $this->addAuthorVote($definition);
                 Event::fire(new DefinitionApprovedEvent($definition));
@@ -357,19 +343,14 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
 
             Log::debug('Committing transaction');
             DB::commit();
-            $success = TRUE;
+            $success = true;
             return $definition;
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             Log::debug('Rolling back transaction: ' . $e->getMessage());
             DB::rollback();
             throw $e;
-        }
-        finally
-        {
-            if ($success)
-            {
+        } finally {
+            if ($success) {
                 $this->auditRepository->auditDefinitionModeration($definition, $userIp, $user->id);
             }
         }
@@ -390,10 +371,9 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
         Log::info(sprintf('User %d (%s) editing definition %d', $user->id, $user->email, $input['definition_id']));
         Log::debug('Starting transaction to update definition');
         DB::beginTransaction();
-        $success = FALSE;
-        $definition = NULL;
-        try 
-        {
+        $success = false;
+        $definition = null;
+        try {
             // Get existing expressions
             $definition = $this->find($input['definition_id']);
 
@@ -409,23 +389,17 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
 
             Log::debug('Committing transaction');
             DB::commit();
-            $success = TRUE;
+            $success = true;
             Log::info(sprintf('Definition %s updated!', $definition['text']));
             return $definition;
-        } 
-        catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             Log::debug('Rolling back transaction: ' . $e->getMessage());
             DB::rollback();
             throw $e;
-        }
-        finally
-        {
-            if ($success)
-            {
+        } finally {
+            if ($success) {
                 $this->auditRepository->auditDefinitionUpdated($definition, $userIp, $user->id);
             }
         }
     }
-
 }

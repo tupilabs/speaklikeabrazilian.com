@@ -6,7 +6,7 @@ use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use SLBR\Repositories\AuditRepository;
 use SLBR\Models\Audit;
-use SLBR\Validators\AuditValidator;;
+use SLBR\Validators\AuditValidator;
 
 /**
  * Class AuditRepositoryEloquent
