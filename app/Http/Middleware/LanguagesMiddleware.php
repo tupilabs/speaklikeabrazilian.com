@@ -12,7 +12,8 @@ use \Cache;
 class LanguagesMiddleware
 {
 
-    public function __construct(Application $app, Redirector $redirector, Request $request) {
+    public function __construct(Application $app, Redirector $redirector, Request $request)
+    {
         $this->app = $app;
         $this->redirector = $redirector;
         $this->request = $request;
@@ -30,13 +31,11 @@ class LanguagesMiddleware
         // Make sure current locale exists.
         $locale = $request->segment(1);
 
-        $languages = Cache::rememberForever('languages', function()
-        {
+        $languages = Cache::rememberForever('languages', function () {
             return Language::all()->toArray();
         });
         $locales = array();
-        foreach ($languages as $language)
-        {
+        foreach ($languages as $language) {
             $locales[] = $language['slug'];
         }
 
@@ -49,8 +48,7 @@ class LanguagesMiddleware
         //     return $this->redirector->to($newUrl);
         // }
 
-        if (in_array($locale, $locales))
-        {
+        if (in_array($locale, $locales)) {
             $this->app->setLocale($locale);
         }
 

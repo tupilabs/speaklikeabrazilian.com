@@ -16,42 +16,34 @@ use SLBR\Models\Language;
 // Retrieve languages from database
 // TODO: cache
 $languages = Cache::get('languages');
-if (!$languages)
-{
-    try 
-    {
-        $languages = Cache::rememberForever('languages', function()
-        {
+if (!$languages) {
+    try {
+        $languages = Cache::rememberForever('languages', function () {
             return Language::all()->toArray();
         });
-    } 
-    catch (\Exception $e)
-    {
+    } catch (\Exception $e) {
         Log::warning(sprintf("Error warming up cache: %s", $e->getMessage()));
         Log::error($e);
         $languages = [];
     }
 }
+
 $locale = Request::segment(1);
-$found = FALSE;
-foreach ($languages as $ids => $language)
-{
-    if ($locale == $language['slug'])
-    {
+$found = false;
+foreach ($languages as $ids => $language) {
+    if ($locale == $language['slug']) {
         App::setLocale($locale);
-        $found = TRUE;
+        $found = true;
     }
 }
-if (!$found)
-{
+if (!$found) {
     $locale = 'en';
 }
 App::setLocale($locale);
 
 // You repeat routes in the group and outside, to play nice with the prefix language in the URL
 
-Route::group(array('prefix' => $locale), function()
-{
+Route::group(array('prefix' => $locale), function () {
     // Main app
     Route::get('/', 'ExpressionController@getNew');
     Route::get('/new', 'ExpressionController@getNew');
@@ -88,4 +80,4 @@ Route::get('/auth/logout', 'AdministratorController@getLogout');
 
 // mobile app
 Route::get('/api/v1/expressions/random', 'ExpressionController@getRandomJson');
-Route::get('/api/v1/expressions/search', 'SearchController@getSearchJson'); 
+Route::get('/api/v1/expressions/search', 'SearchController@getSearchJson');
