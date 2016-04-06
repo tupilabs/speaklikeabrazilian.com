@@ -33,18 +33,14 @@ class DefinitionApprovedEventListener
     {
         $definition = $event->definition;
 
-        try 
-        {
+        try {
             Log::debug(sprintf('Sending expression approval e-mail to %s', $definition->email));
-            Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
-            {                    
-                $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+            Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function ($email) use ($definition) {
+                $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');
                 $email->to($definition->email, $definition->contributor);
                 $email->subject('Your expression was published in Speak Like A Brazilian');
             });
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             Log::warning("Error sending approval e-mail: " . $e->getMessage());
             Log::error($e);
         }

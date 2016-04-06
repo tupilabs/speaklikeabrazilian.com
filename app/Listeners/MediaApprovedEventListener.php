@@ -35,18 +35,14 @@ class MediaApprovedEventListener
         $to = $event->email;
         $contributor = $event->contributor;
 
-        try 
-        {
+        try {
             Log::debug(sprintf('Sending media approval e-mail to %s', $to));
-            Mail::send('emails.mediaApproved', array('contributor' => $contributor, 'text' => $text), function($email) use($to, $contributor)
-            {                    
-                $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');   
+            Mail::send('emails.mediaApproved', array('contributor' => $contributor, 'text' => $text), function ($email) use ($to, $contributor) {
+                $email->from('no-reply@speaklikeabrazilian.com', 'Speak Like A Brazilian');
                 $email->to($to, $contributor);
                 $email->subject('Your media was published in Speak Like A Brazilian');
             });
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             Log::warning("Error sending approval e-mail: " . $e->getMessage());
             Log::error($e);
         }
