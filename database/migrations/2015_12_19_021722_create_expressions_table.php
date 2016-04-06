@@ -15,8 +15,8 @@ class CreateExpressionsTable extends Migration
         Schema::create('expressions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('text', 255)->unique();
-			$table->char('char', 1);
-			$table->string('contributor', 50);
+            $table->char('char', 1);
+            $table->string('contributor', 50);
             $table->timestamps();
         });
     }

@@ -46,13 +46,10 @@ $factory->define(SLBR\Models\Definition::class, function (Faker\Generator $faker
 $factory->define(SLBR\Models\Media::class, function (Faker\Generator $faker) {
     $url = '';
     $type = '';
-    if ((bool)random_int(0, 1))
-    {
+    if ((bool)random_int(0, 1)) {
         $url = 'http://i.imgur.com/D1J7DRu.gif';
         $type = 'image/gif';
-    }
-    else
-    {
+    } else {
         $url = 'http://www.youtube.com/watch?v=Zma5l0_2HAY';
         $type = 'video/youtube';
     }
@@ -60,7 +57,7 @@ $factory->define(SLBR\Models\Media::class, function (Faker\Generator $faker) {
         'url' => $url,
         'reason' => $faker->realText(35),
         'email' => $faker->email,
-        'status' => $faker->numberBetween(1,2),
+        'status' => $faker->numberBetween(1, 2),
         'content_type' => $type,
         'contributor' => $faker->name,
         'definition_id' => 1,

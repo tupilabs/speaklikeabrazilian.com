@@ -47,8 +47,7 @@ class DatabaseSeeder extends Seeder
         $this->populateLanguages();
 
         // Calls the DevDatabaseSeeder only for the development environments
-        if (App::environment('dev', 'test', 'local'))
-        {
+        if (App::environment('dev', 'test', 'local')) {
             Log::info("Seeding DEVELOPMENT data");
             $this->call(DevDatabaseSeeder::class);
         }
@@ -86,7 +85,7 @@ class DatabaseSeeder extends Seeder
         $mod = Sentinel::register(array(
             'email'    => 'mod@speaklikeabrazilian.com',
             'password' => 'bruno',
-        ), /* activate */ TRUE);
+        ), /* activate */ true);
 
         $modRole = Sentinel::findRoleByName('Moderators');
         $modRole->users()->attach($mod);
@@ -94,7 +93,7 @@ class DatabaseSeeder extends Seeder
         $admin = Sentinel::register(array(
             'email'    => 'admin@speaklikeabrazilian.com',
             'password' => 'bruno',
-        ), /* activate */ TRUE);
+        ), /* activate */ true);
 
         $adminRole = Sentinel::findRoleByName('Administrators');
         $adminRole->users()->attach($admin);
@@ -111,7 +110,7 @@ class DatabaseSeeder extends Seeder
         DB::table('languages')->delete();
         Language::create(
             array(
-                'id' => 1, 
+                'id' => 1,
                 'slug' => 'en',
                 'description' => 'English',
                 'local_description' => 'English'
@@ -119,7 +118,7 @@ class DatabaseSeeder extends Seeder
         );
         Language::create(
             array(
-                'id' => 2, 
+                'id' => 2,
                 'slug' => 'es',
                 'description' => 'Spanish',
                 'local_description' => 'Espa&ntilde;ol'
@@ -127,7 +126,7 @@ class DatabaseSeeder extends Seeder
         );
         Language::create(
             array(
-                'id' => 3, 
+                'id' => 3,
                 'slug' => 'it',
                 'description' => 'Italian',
                 'local_description' => 'Italiano'
@@ -135,7 +134,7 @@ class DatabaseSeeder extends Seeder
         );
         Language::create(
             array(
-                'id' => 4, 
+                'id' => 4,
                 'slug' => 'pt',
                 'description' => 'Portuguese',
                 'local_description' => 'Portugu&ecirc;s'
@@ -143,7 +142,7 @@ class DatabaseSeeder extends Seeder
         );
         Language::create(
             array(
-                'id' => 5, 
+                'id' => 5,
                 'slug' => 'jp',
                 'description' => 'Japanese',
                 'local_description' => 'Nihongo'
@@ -151,7 +150,7 @@ class DatabaseSeeder extends Seeder
         );
         Language::create(
             array(
-                'id' => 6, 
+                'id' => 6,
                 'slug' => 'de',
                 'description' => 'German',
                 'local_description' => 'Deutsch'

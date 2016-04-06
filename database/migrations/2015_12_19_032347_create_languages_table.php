@@ -17,29 +17,29 @@ class CreateLanguagesTable extends Migration
         Schema::create('languages', function (Blueprint $table) {
             $table->integer('id')->unsigned();
             $table->primary(array('id'));
-			$table->string('slug', 2);
-			$table->string('description', 30)->nullable();
-			$table->string('local_description', 30)->nullable();
-			$table->timestamps();
+            $table->string('slug', 2);
+            $table->string('description', 30)->nullable();
+            $table->string('local_description', 30)->nullable();
+            $table->timestamps();
         });
 
-		Language::create(
-			array(
-				'id' => 1,
-				'slug' => 'en',
-				'description' => 'English',
-				'local_description' => 'English'
-			)
-		);
+        Language::create(
+            array(
+                'id' => 1,
+                'slug' => 'en',
+                'description' => 'English',
+                'local_description' => 'English'
+            )
+        );
 
-		Language::create(
-			array(
-				'id' => 2,
-				'slug' => 'es',
-				'description' => 'Spanish',
-				'local_description' => 'Espa&ntilde;ol'
-			)
-		);
+        Language::create(
+            array(
+                'id' => 2,
+                'slug' => 'es',
+                'description' => 'Spanish',
+                'local_description' => 'Espa&ntilde;ol'
+            )
+        );
     }
 
     /**

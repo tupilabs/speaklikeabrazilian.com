@@ -23,12 +23,10 @@
  */
 
 use Illuminate\Database\Seeder;
-
 use SLBR\Models\Expression;
 use SLBR\Models\Definition;
 use SLBR\Models\Rating;
 use SLBR\Models\Media;
-
 
 class DevDatabaseSeeder extends Seeder
 {
@@ -51,28 +49,23 @@ class DevDatabaseSeeder extends Seeder
     {
         DB::table('expressions')->delete();
 
-        for ($i = 0; $i < self::NUMBER_OF_EXPRESSIONS; $i++)
-        {
+        for ($i = 0; $i < self::NUMBER_OF_EXPRESSIONS; $i++) {
             $expression = factory(Expression::class)->create();
         }
     }
     public function runDefinitions()
     {
-        for ($i =0; $i < self::NUMBER_OF_DEFINITIONS; $i++)
-        {
+        for ($i =0; $i < self::NUMBER_OF_DEFINITIONS; $i++) {
             $definition = factory(Definition::class)->create();
             // randomly assign it to an expression
             $definition->expression_id = rand(1, self::NUMBER_OF_EXPRESSIONS);
             // randomly dis/approve it
             $definition->status = rand(1, 2);
             
-            if ($definition->status == 2)
-            {
+            if ($definition->status == 2) {
                 // randomly add a media
-                if ((bool)random_int(0, 1))
-                {
-                    for ($j = 0; $j < rand(1, 3); $j++)
-                    {
+                if ((bool)random_int(0, 1)) {
+                    for ($j = 0; $j < rand(1, 3); $j++) {
                         $media = factory(Media::class)->create();
                         $media->status = 1;
                         $media->definition_id = $definition->id;
@@ -81,8 +74,7 @@ class DevDatabaseSeeder extends Seeder
                 }
 
                 // add some random votes
-                for ($j = 0; $j < rand(0, 5); $j++)
-                {
+                for ($j = 0; $j < rand(0, 5); $j++) {
                     $rating = factory(Rating::class)->make();
                     $rating->definition_id = $definition->id;
                     $rating->save();
@@ -93,5 +85,4 @@ class DevDatabaseSeeder extends Seeder
             $definition->save();
         }
     }
-
 }
