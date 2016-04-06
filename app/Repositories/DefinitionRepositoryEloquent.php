@@ -236,7 +236,7 @@ class DefinitionRepositoryEloquent extends BaseRepository implements DefinitionR
             ->where('status', '=', 2)
             ->where('language_id', '=', $language['id'])
             ->whereIn('definitions.id', $ids)
-            ->orderBy('expressions.text', 'asc')
+            ->orderByRaw(DB::raw("FIELD(`definitions`.`id`, ".implode(',', $ids).")"))
             ->select('definitions.id', 'definitions.description', 'definitions.example', 'definitions.tags',
                 'definitions.contributor', 'definitions.created_at', 'expressions.text',
                 new \Illuminate\Database\Query\Expression("(SELECT sum(ratings.rating) FROM ratings where ratings.definition_id = definitions.id and ratings.rating = 1) as likes"),

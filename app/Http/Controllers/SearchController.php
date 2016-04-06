@@ -87,10 +87,9 @@ class SearchController extends Controller {
         {
             "query": {
                 "multi_match": {
-                    "query":                "'.$q.'",
-                    "type":                 "cross_fields", 
-                    "analyzer":   "standard",
-                    "fields":               [ "expression^10", "description^5", "example^1", "tags" ],
+                    "query":                "'.urlencode($q).'",
+                    "type":                 "best_fields", 
+                    "fields":               [ "expression^30", "description^2", "example", "tags" ],
                     "tie_breaker":          0.3,
                     "minimum_should_match": "30%" 
                 }
@@ -104,7 +103,7 @@ class SearchController extends Controller {
         $searchParams = array();
         $searchParams['index'] = 'slbr_index';
         $searchParams['size'] = $size;
-        $searchParams['from'] = $from;
+        $searchParams['from'] = 0;
         $searchParams['body'] = $json;
 
         $hits = array();
