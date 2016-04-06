@@ -121,7 +121,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             where('status', '=', 1)
             ->where('content_type', '<>', 'video/youtube')
             ->with('definition')
-            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') > 0 ? 'RAND()' : 'RANDOM()'))
+            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') >= 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
         if ($picture)
             $picture = $picture->toArray();
@@ -134,7 +134,7 @@ class MediaRepositoryEloquent extends BaseRepository implements MediaRepository
             where('status', '=', 1)
             ->where('content_type', '=', 'video/youtube')
             ->with('definition')
-            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') > 0 ? 'RAND()' : 'RANDOM()'))
+            ->orderByRaw((strcmp(Config::get('database.default'), 'mysql') >= 0 ? 'RAND()' : 'RANDOM()'))
             ->first();
         if ($video)
             $video = $video->toArray();
