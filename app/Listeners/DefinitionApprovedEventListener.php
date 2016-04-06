@@ -35,7 +35,6 @@ class DefinitionApprovedEventListener
 
         try 
         {
-            // FIXME: a repository may not be the best place to send e-mails. Move it to event listeners.
             Log::debug(sprintf('Sending expression approval e-mail to %s', $definition->email));
             Mail::send('emails.definitionApproved', array('contributor' => $definition->contributor, 'text' => $definition->expression()->first()->text), function($email) use($definition)
             {                    
