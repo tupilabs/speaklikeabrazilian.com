@@ -3,7 +3,7 @@
                 <div class='sixteen wide center aligned column'>
                     <div class="ui pagination menu">
                         @if ($pagination['last_page'] > 1 and $pagination['current_page'] != 1)
-                        <a class="icon item" href="{{ $pagination['prev_page_url'] }}"><i class="left arrow icon"></i></a>
+                        <a class="icon item" rel="prev" href="{{ $pagination['prev_page_url'] }}"><i class="left arrow icon"></i></a>
                         @else
                         <a class="disabled icon item"><i class="left arrow icon"></i></a>
                         @endif
@@ -22,7 +22,7 @@
                         @if ($pagination['last_page'] <= 1 or $pagination['last_page'] == $pagination['current_page'])
                         <a class='disabled icon item'><i class="right arrow icon"></i></a>
                         @else
-                        <a class='icon item' href="{{ $pagination['next_page_url'] }}"><i class="right arrow icon"></i></a>
+                        <a class='icon item' rel="next" href="{{ $pagination['next_page_url'] }}"><i class="right arrow icon"></i></a>
                         @endif
                     </div>
                 </div>
