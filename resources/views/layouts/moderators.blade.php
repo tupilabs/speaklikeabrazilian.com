@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta id="page_favicon" href="{{ URL::asset('images/favicon.ico') }}" rel="icon" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ URL::asset('images/favicon.ico') }}" type="image/x-icon" />
     <title>Speak Like A Brazilian</title>
     <link rel="stylesheet" href="{{ URL::asset('css/slbr.css') }}">
     <style>
