@@ -133,14 +133,16 @@ class ExpressionController extends Controller
      */
     public function getDefine(Request $request)
     {
+        $input = array_map('trim', $request->all());
         $languages = $request->get('languages');
         $language = $this->getLanguage($languages, $request);
-        $text = Input::get('e');
+        $text = $input['e'];
+        $letter = count(trim($text)) > 0 ? $text[0] : '';
         $definitions = $this->definitionRepository->getDefinitions($text, $language);
         $definitions->appends(Input::except('page'));
         $definitions = $definitions->toArray();
         $data = array(
-            'active' => 'random',
+            'active' => strtolower($letter),
             'languages' => $languages,
             'selected_language' => $language,
             'definitions' => $definitions['data'],
