@@ -4,7 +4,7 @@
 	   						<a data-definitionid='{{ $definition["id"] }}' class='dislike right floated'><small class='dislike_count'>{{ $definition['dislikes'] or 0 }}</small> <i class="thumbs down outline icon"></i></a>
 	   						<a data-definitionid='{{ $definition["id"] }}' class='like right floated'><small class='like_count'>{{ $definition['likes'] or 0 }}</small> <i class="right floated thumbs up outline icon"></i></a>
                             @endif
-					    	<div class="header"><a href="{{ URL::to($selected_language['slug'] . '/expression/define') }}?e={{ urlencode($definition['text']) }}">{{ urldecode($definition['text']) }}</a><a class='tts' href="http://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q={{ $definition['text'] }}&tl=pt-br"><i class="unmute icon"></i></a></div>
+					    	<div class="header"><a href="{{ URL::to($selected_language['slug'] . '/expression/define') }}?e={{ urlencode($definition['text']) }}">{{ urldecode($definition['text']) }}</a><a class='tts' href="https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q={{ $definition['text'] }}&tl=pt-br"><i class="unmute icon"></i></a></div>
 					    	<div class="meta">
 					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
 					    		<span class="category"><small>{{ $definition['created_at'] }}</small></span>
@@ -35,9 +35,9 @@
                                         class='ui small icon button video-colorbox' 
                                         title="{{ $definition['text'] }}" 
                                         @if (array_has($data, 't'))
-                                        href="http://www.youtube.com/embed/{{ $data['video_id'] }}?wmode=opaque&start={{ $data['t'] }}">
+                                        href="https://www.youtube.com/embed/{{ $data['video_id'] }}?wmode=opaque&start={{ $data['t'] }}">
                                         @else
-                                        href="http://www.youtube.com/embed/{{ $data['video_id'] }}?wmode=opaque">
+                                        href="https://www.youtube.com/embed/{{ $data['video_id'] }}?wmode=opaque">
                                         @endif
                                         <i class="film icon"></i>
                                     </a>

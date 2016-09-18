@@ -19,8 +19,8 @@
                     <div class="center aligned column">
                         <div class="ui secondary small compact menu">
                             <a href="{{ URL::to($selected_language['slug'] . '/') }}" class="small item"><i class="home icon"></i> Home</a>
-                            <a href="http://twitter.com/SpeakLikeABR" class="small item"><i class="twitter square icon"></i> @SpeakLikeABR</a>
-                            <a href="http://facebook.com/SpeakLikeABrazilian" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
+                            <a href="https://twitter.com/SpeakLikeABR" class="small item"><i class="twitter square icon"></i> @SpeakLikeABR</a>
+                            <a href="https://facebook.com/SpeakLikeABrazilian" class="small item"><i class="facebook square icon"></i> FaceBook Fan Page</a>
                             <a href="{{ URL::to('/moderators') }}" class="small item"><i class="privacy icon"></i> Moderators Area</a>
                             <div class="small item">
                                 @foreach ($languages as $language)

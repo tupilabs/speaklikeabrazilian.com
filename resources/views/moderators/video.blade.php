@@ -16,11 +16,11 @@
                         if(array_has($data, 't'))
                         {
                             $time = $data['t'];
-                            $url = "http://www.youtube.com/embed/${videoId}?wmode=opaque&start=$time";
+                            $url = "https://www.youtube.com/embed/${videoId}?wmode=opaque&start=$time";
                         }
                         else
                         {
-                            $url="http://www.youtube.com/embed/${videoId}?wmode=opaque";
+                            $url="https://www.youtube.com/embed/${videoId}?wmode=opaque";
                         }
                     ?>
                     <iframe width="600" height="400" src="{{ $url }}"></iframe>
