@@ -9,19 +9,16 @@
         <div class="ui fluid card">
             <div class="center aligned content">
                 <div class='video'>
-                    <?php 
+                    <?php
                         $data = get_video_data($video);
                         $url = "";
                         $videoId = $data['video_id'];
-                        if(array_has($data, 't'))
-                        {
-                            $time = $data['t'];
-                            $url = "https://www.youtube.com/embed/${videoId}?wmode=opaque&start=$time";
-                        }
-                        else
-                        {
-                            $url="https://www.youtube.com/embed/${videoId}?wmode=opaque";
-                        }
+                    if (array_has($data, 't')) {
+                        $time = $data['t'];
+                        $url = "https://www.youtube.com/embed/${videoId}?wmode=opaque&start=$time";
+                    } else {
+                        $url="https://www.youtube.com/embed/${videoId}?wmode=opaque";
+                    }
                     ?>
                     <iframe width="600" height="400" src="{{ $url }}"></iframe>
                 </div>
