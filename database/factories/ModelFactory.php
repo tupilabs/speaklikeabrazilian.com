@@ -47,10 +47,10 @@ $factory->define(SLBR\Models\Media::class, function (Faker\Generator $faker) {
     $url = '';
     $type = '';
     if ((bool)random_int(0, 1)) {
-        $url = 'http://i.imgur.com/D1J7DRu.gif';
+        $url = 'https://i.imgur.com/D1J7DRu.gif';
         $type = 'image/gif';
     } else {
-        $url = 'http://www.youtube.com/watch?v=Zma5l0_2HAY';
+        $url = 'https://www.youtube.com/watch?v=Zma5l0_2HAY';
         $type = 'video/youtube';
     }
     return [
