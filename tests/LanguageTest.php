@@ -63,10 +63,8 @@ class LanguageTest extends TestCase
         $languages = $this->languageRepository->all()->toArray();
         $this->assertNotEquals(0, count($languages));
         $found = false;
-        foreach ($languages as $language)
-        {
-            if ($language['slug'] === 'en')
-            {
+        foreach ($languages as $language) {
+            if ($language['slug'] === 'en') {
                 $found = true;
                 break;
             }
@@ -116,10 +114,10 @@ class LanguageTest extends TestCase
         $language = $this->languageRepository->find(1);
         $definitionsFromLanguage = $language->definitions()->get()->toArray();
         $found = false;
-        foreach ($definitionsFromLanguage as $definitionFromLanguage)
-        {
-            if (((int) $definitionFromLanguage['id']) === ((int) $definition['id']))
+        foreach ($definitionsFromLanguage as $definitionFromLanguage) {
+            if (((int) $definitionFromLanguage['id']) === ((int) $definition['id'])) {
                 $found = true;
+            }
         }
         $this->assertTrue($found);
     }

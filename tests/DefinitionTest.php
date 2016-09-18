@@ -117,14 +117,14 @@ class DefinitionTest extends TestCase
         ));
 
         $this->assertEquals(
-            'Uma expressao <a href="http://localhost/en/expression/define?e=do natal">do natal</a> do ano passado'
-            , get_definition_formatted_text($definitionEloquent['description'], ['slug' => 'en'])
+            'Uma expressao <a href="http://localhost/en/expression/define?e=do natal">do natal</a> do ano passado',
+            get_definition_formatted_text($definitionEloquent['description'], ['slug' => 'en'])
         );
 
         $definitionEloquent->description = 'Uma expressao do natal do ano passado';
         $this->assertEquals(
-            'Uma expressao do natal do ano passado'
-            , get_definition_formatted_text($definitionEloquent['description'], ['slug' => 'en'])
+            'Uma expressao do natal do ano passado',
+            get_definition_formatted_text($definitionEloquent['description'], ['slug' => 'en'])
         );
     }
 
@@ -154,14 +154,14 @@ class DefinitionTest extends TestCase
         ));
 
         $this->assertEquals(
-            'Ele <a href="http://localhost/en/expression/define?e=bebeu">bebeu</a> um alambique inteiro!'
-            , get_definition_formatted_text($definitionEloquent['example'], ['slug' => 'en'])
+            'Ele <a href="http://localhost/en/expression/define?e=bebeu">bebeu</a> um alambique inteiro!',
+            get_definition_formatted_text($definitionEloquent['example'], ['slug' => 'en'])
         );
 
         $definitionEloquent->example = 'Ele bebeu um alambique inteiro!';
         $this->assertEquals(
-            'Ele bebeu um alambique inteiro!'
-            , get_definition_formatted_text($definitionEloquent['example'], ['slug' => 'en'])
+            'Ele bebeu um alambique inteiro!',
+            get_definition_formatted_text($definitionEloquent['example'], ['slug' => 'en'])
         );
     }
 
@@ -194,5 +194,4 @@ class DefinitionTest extends TestCase
 
         $this->assertEquals('en', $language['slug']);
     }
-
 }

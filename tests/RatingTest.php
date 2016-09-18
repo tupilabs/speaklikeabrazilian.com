@@ -99,5 +99,4 @@ class RatingTest extends TestCase
 
         $this->assertEquals(1, $rating['rating']);
     }
-
 }

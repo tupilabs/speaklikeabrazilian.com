@@ -157,5 +157,4 @@ class MediaTest extends TestCase
         $this->assertEquals('p-iHcjpb91s', $videoData['video_id']);
         $this->assertEquals(false, isset($videoData['t']));
     }
-
 }
