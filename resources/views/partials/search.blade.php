@@ -3,7 +3,7 @@
                 <div class='row'>
                     <div class='ten wide column'>
                         {!! Form::open(array('url' => $selected_language['slug'] . '/search', 'method' => 'get', 'class' => 'ui form', 'id' => 'search-form', 'itemprop' => 'potentialAction', 'itemscope' => '', 'itemtype' => 'http://schema.org/SearchAction')) !!}
-                            <meta itemprop="target" content="{{ $selected_language['slug'] . '/search' }}?q={query}"/>
+                            <meta itemprop="target" content="{{ $selected_language['slug'] . '/search' }}?q={q}"/>
                             <div class='field'>
                                 <div class="ui small fluid action input">
                                     <input itemprop="query-input" class="prompt" name='q' id='q' value="{{ $q or old('q') }}" placeholder="Search..." type="text">
