@@ -10,7 +10,8 @@
     <title>Speak Like A Brazilian</title>
     <link rel="stylesheet" href="{{ URL::asset('css/slbr.css') }}" />
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebSite">
+    <meta itemprop="url" content="https://speaklikeabrazilian.com/"/>
 @section('header')
     <section id='header'>
         <div class="ui container computer only grid">
