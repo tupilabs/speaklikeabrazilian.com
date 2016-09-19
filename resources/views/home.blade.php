@@ -4,7 +4,7 @@
 
 @section('content')
 	<div class='ui vertical segment'>
-		<div class='ui stackable grid container'>
+		<div class='ui stackable grid container' itemscope itemtype="http://schema.org/Collection">
 			<div class='row'>
             @if (count($definitions) > 0)
 		    	<div class='seven wide column'>

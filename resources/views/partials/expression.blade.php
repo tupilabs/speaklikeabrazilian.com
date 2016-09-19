@@ -1,16 +1,24 @@
-					<div class="ui fluid card">
+					<div class="ui fluid card" itemscope itemtype="http://schema.org/CreativeWork">
 					  	<div class="content">
                             @if (!isset($hide_votes) or !$hide_votes)
 	   						<a data-definitionid='{{ $definition["id"] }}' class='dislike right floated'><small class='dislike_count'>{{ $definition['dislikes'] or 0 }}</small> <i class="thumbs down outline icon"></i></a>
 	   						<a data-definitionid='{{ $definition["id"] }}' class='like right floated'><small class='like_count'>{{ $definition['likes'] or 0 }}</small> <i class="right floated thumbs up outline icon"></i></a>
                             @endif
-					    	<div class="header"><a href="{{ URL::to($selected_language['slug'] . '/expression/define') }}?e={{ urlencode($definition['text']) }}">{{ urldecode($definition['text']) }}</a><a class='tts' href="https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q={{ $definition['text'] }}&tl=pt-br"><i class="unmute icon"></i></a></div>
+					    	<div class="header">
+                                <meta itemprop="url" content="{{ URL::to($selected_language['slug'] . '/expression/define') }}?e={{ urlencode($definition['text']) }}" />
+                                <a href="{{ URL::to($selected_language['slug'] . '/expression/define') }}?e={{ urlencode($definition['text']) }}">
+                                    <span itemprop="name">{{ urldecode($definition['text']) }}</span>
+                                </a>
+                                <a class='tts' href="https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q={{ $definition['text'] }}&tl=pt-br">
+                                    <i class="unmute icon"></i>
+                                </a>
+                            </div>
 					    	<div class="meta">
-					    		<span class="right floated time"><small>{{ '@'.$definition['contributor'] }}</small></span>
+					    		<span class="right floated time"><small><span itemprop="contributor">{{ '@'.$definition['contributor'] }}</span></small></span>
 					    		<span class="category"><small>{{ $definition['created_at'] }}</small></span>
 					    	</div>
-					    	<div class="description">
-								<p>{!! html_entity_decode(
+					    	<div class="description" itemprop="description">
+								<p itemprop="comment">{!! html_entity_decode(
                                             get_definition_formatted_text(
                                                 $definition['description'],
                                                 $selected_language
