@@ -72,7 +72,8 @@
 					    		<a href="{{ action('ExpressionController@getAddimage') }}?definition_id={{ $definition['id'] }}"><i class="plus icon"></i>picture</a>
 					    		<a href="{{ action('ExpressionController@getAddvideo') }}?definition_id={{ $definition['id'] }}"><i class="plus icon"></i>video</a>
                                 <a 
-                                    target="_blank" 
+                                    target="_blank"
+                                    rel="noopener noreferrer" 
                                     title="Share this expression on Twitter" 
                                     href="https://twitter.com/share?text=Learn what is '{{ $definition['text'] }}' via @SpeakLikeABR&url={{ action('ExpressionController@getDefine') }}?e={{ urlencode($definition['text']) }}">
                                     <i class="twitter icon"></i>tweet
