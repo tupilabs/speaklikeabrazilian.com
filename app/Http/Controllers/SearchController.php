@@ -143,7 +143,7 @@ class SearchController extends Controller
             'pagination' => $pagination,
             'query_parameters' => "&q=${q}"
         );
-        return view('home', $data);
+        return view('search_results', $data);
     }
 
     public function getSearchJson(Request $request)
