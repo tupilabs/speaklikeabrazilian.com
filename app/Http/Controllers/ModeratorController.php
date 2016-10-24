@@ -155,7 +155,7 @@ class ModeratorController extends Controller
         $countPendingPictures = $this->mediaRepository->countPendingPictures();
         $randomPendingPicture = $this->mediaRepository->getRandomPendingPicture();
         $selectedLanguage = null;
-        $definition = nullnull;
+        $definition = null;
         if ($randomPendingPicture) {
             $definition = $this->definitionRepository->getOne($randomPendingPicture['definition']['id'])->toArray();
             $languageId = $definition['language_id'];
