@@ -8,4 +8,5 @@
     composer dump-autoload
     composer update --no-dev --prefer-dist --profile -vvv --no-scripts
     php artisan migrate --force
+    chown www-data: /var/www/speaklikeabrazilian.com -R
 @endtask
