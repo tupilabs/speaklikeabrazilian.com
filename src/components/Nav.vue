@@ -5,6 +5,8 @@
 
         <b-collapse is-nav id="nav_collapse">
 
+            <b-navbar-brand href="#">Speak Like A Brazilian</b-navbar-brand>
+
             <b-navbar-nav>
                 <b-nav-item href="#">Home</b-nav-item>
                 <b-nav-item href="#">FaceBook</b-nav-item>
