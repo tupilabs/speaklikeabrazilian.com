@@ -1,8 +1,11 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <b-container>
+    <b-row>
+      <b-col cols="12">
+        <h1>Speak Like A Brazilian</h1>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
