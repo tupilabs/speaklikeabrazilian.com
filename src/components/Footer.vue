@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <b-container>Speak Like A Brazilian &copy; 2010-{{ new Date().getFullYear() }}</b-container>
+        <b-container>&copy; Speak Like A Brazilian 2010-{{ new Date().getFullYear() }}</b-container>
     </footer>
 </template>
 
