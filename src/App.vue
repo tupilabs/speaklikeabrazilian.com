@@ -3,6 +3,7 @@
     <Nav />
     <LetterNav />
     <router-view/>
+    <Footer />
   </div>
 </template>
 
