@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Nav />
+    <LetterNav />
     <router-view/>
   </div>
 </template>
