@@ -5,13 +5,13 @@
 
         <b-collapse is-nav id="nav_collapse">
 
-            <b-navbar-brand href="#">Speak Like A Brazilian</b-navbar-brand>
-
-            <b-navbar-nav>
+            <b-navbar-nav class="mr-auto">
                 <b-nav-item href="#">Home</b-nav-item>
                 <b-nav-item href="#">FaceBook</b-nav-item>
                 <b-nav-item href="#">Twitter</b-nav-item>
             </b-navbar-nav>
+
+            <b-navbar-brand href="#" class="mx-auto">Speak Like A Brazilian</b-navbar-brand>
 
             <!-- Right aligned nav items -->
             <b-navbar-nav class="ml-auto">
