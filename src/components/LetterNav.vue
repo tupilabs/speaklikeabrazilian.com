@@ -1,11 +1,11 @@
 <template>
-    <b-navbar toggleable="md" type="dark" variant="info" fixed="top" sticky>
+    <b-navbar toggleable="md" type="dark" variant="dark" fixed="top" sticky>
 
         <b-navbar-toggle target="nav_collapse_letters"></b-navbar-toggle>
 
         <b-collapse is-nav id="nav_collapse_letters">
 
-            <b-navbar-nav>
+            <b-navbar-nav class="mx-auto">
                 <b-nav-item v-for="letter in letters" :key="letter" href="#">{{ letter }}</b-nav-item>
             </b-navbar-nav>
 
