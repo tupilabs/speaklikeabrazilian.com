@@ -3,7 +3,7 @@
 ## Running MySQL with Docker
 
 ```bash
-$ docker run --name slbr-mysql -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=slbr -d mysql:5.5.62
+$ docker run --user 1000:1000 --name slbr-mysql -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=slbr -d mysql:5.5.62
 Unable to find image 'mysql:5.5.62' locally
 5.5.62: Pulling from library/mysql
 5e6ec7f28fb7: Pull complete 
@@ -30,3 +30,13 @@ $ ls ~/databases/slbr
 3f53aaa796ca.pid  ibdata1  ib_logfile0  ib_logfile1  mysql  performance_schema
 ```
 
+## Restoring the latest backup
+
+Copy the old backup somewhere, decompressing it, there should be a file called `slbr.sql`.
+
+```bash
+$ ls -lah ~/databases/slbr/slbr.sql
+-rw-r--r-- 1 kinow kinow 395K Aug 21  2017 /home/kinow/Downloads/slbrv2/slbr.sql
+```
+
+Then load it into the running MySQL database.
