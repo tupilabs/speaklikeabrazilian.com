@@ -3,7 +3,7 @@
 ## Running MySQL with Docker
 
 ```bash
-$ docker run --user 1000:1000 --name slbr-mysql -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=slbr -d mysql:5.5.62
+$ docker run --user 1000:1000 --name slbr-mysql -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=slbr -e MYSQL_DATABASE=slbr -d mysql:5.5.62
 Unable to find image 'mysql:5.5.62' locally
 5.5.62: Pulling from library/mysql
 5e6ec7f28fb7: Pull complete 
@@ -17,9 +17,9 @@ ab7c1c7d8dd6: Pull complete
 bb9fcaf41441: Pull complete 
 0c4bda3739a6: Pull complete 
 e22ee1bc1b20: Pull complete 
-Digest: sha256:0510ece613362e5d91ee9eb28db30a588c04117ae8c59ec31a5981f83e8e9d13
+Digest: sha256:dc0af7798e7a634f42418c09b94f03bdf18de0531fb02ef8c2ee7db29d152402
 Status: Downloaded newer image for mysql:5.5.62
-3f53aaa796ca56509976ac4e0f7967c32f410c28a6950a3d1b2ccf40828d8881
+dc0af7798e7a634f42418c09b94f03bdf18de0531fb02ef8c2ee7db29d152402
 
 
 $ docker ps -a
@@ -27,7 +27,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 3f53aaa796ca        mysql:5.5.62        "docker-entrypoint.s…"   9 seconds ago       Up 7 seconds        3306/tcp            slbr-mysql
 
 $ ls ~/databases/slbr
-3f53aaa796ca.pid  ibdata1  ib_logfile0  ib_logfile1  mysql  performance_schema
+dc0af7798e7a.pid  ibdata1  ib_logfile0  ib_logfile1  mysql  performance_schema  slbr
 ```
 
 ## Restoring the latest backup
@@ -40,3 +40,9 @@ $ ls -lah ~/databases/slbr/slbr.sql
 ```
 
 Then load it into the running MySQL database.
+
+```bash
+$ docker exec -i slbr-mysql mysql -uroot -pslbr slbr < ~/databases/slbr/slbr.sql
+$ echo $?
+0
+```
