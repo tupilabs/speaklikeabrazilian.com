@@ -1,5 +1,5 @@
 from sqlalchemy import Column, DateTime, String, Integer, CHAR, create_engine
-from sqlalchemy.ext.declarative import declarative_base,declared_attr
+from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy.orm import scoped_session, sessionmaker, Query
 
 
@@ -10,7 +10,9 @@ class Base(object):
 
     __table_args__ = {'mysql_engine': 'InnoDB'}
 
-    id =  Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
+    created_at = Column(DateTime())
+    updated_at = Column(DateTime())
 
     def dump(self):
         return dict(
@@ -21,12 +23,9 @@ Base = declarative_base(cls=Base)
 
 
 class Languages(Base):
-    id = Column(Integer(), primary_key=True)
     slug = Column(String())
     description = Column(String())
     local_description = Column(String())
-    created_at = Column(DateTime())
-    updated_at = Column(DateTime())
 
 
 class LanguageRepository(object):
@@ -39,13 +38,37 @@ class LanguageRepository(object):
         return q.all()
 
 
+class Definitions(Base):
+    expression_id = Column(Integer())
+    description = Column(String(1000))
+    example = Column(String(1000))
+    tags = Column(String(100))
+    status = Column(CHAR)
+    email = Column(String(255))
+    contributor = Column(String(50))
+    user_ip = Column(String(60))
+    language_id = Column(Integer())
+
+
+class DefinitionRepository(object):
+
+    def __init__(self, session):
+        self._session = session
+
+    def get_all(self):
+        q = self._session.query(Definitions)  # type: Query
+        return q.all()
+
+    def find_by_language(self, language_id):
+        q = self._session.query(Definitions)  # type: Query
+        q = q.filter(Definitions.language_id == language_id)
+        return q.all()
+
+
 class Expressions(Base):
-    id = Column(Integer(), primary_key=True)
     text = Column(String())
     char = Column(CHAR())
     contributor = Column(String())
-    created_at = Column(DateTime())
-    updated_at = Column(DateTime())
 
 
 class ExpressionRepository(object):
