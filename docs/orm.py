@@ -1,23 +1,51 @@
 from sqlalchemy import Column, DateTime, String, Integer, CHAR, create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.declarative import declarative_base,declared_attr
 from sqlalchemy.orm import scoped_session, sessionmaker, Query
 
-Base = declarative_base()
+
+class Base(object):
+    @declared_attr
+    def __tablename__(cls):
+        return cls.__name__.lower()
+
+    __table_args__ = {'mysql_engine': 'InnoDB'}
+
+    id =  Column(Integer, primary_key=True)
+
+    def dump(self):
+        return dict(
+            [(k, v) for k, v in vars(self).items() if not k.startswith('_')])
 
 
-class Expression(Base):
+Base = declarative_base(cls=Base)
 
-    __tablename__ = "expressions"
+
+class Languages(Base):
+    id = Column(Integer(), primary_key=True)
+    slug = Column(String())
+    description = Column(String())
+    local_description = Column(String())
+    created_at = Column(DateTime())
+    updated_at = Column(DateTime())
+
+
+class LanguageRepository(object):
+
+    def __init__(self, session):
+        self._session = session
+
+    def get_all(self):
+        q = self._session.query(Languages)  # type: Query
+        return q.all()
+
+
+class Expressions(Base):
     id = Column(Integer(), primary_key=True)
     text = Column(String())
     char = Column(CHAR())
     contributor = Column(String())
     created_at = Column(DateTime())
     updated_at = Column(DateTime())
-
-    def dump(self):
-        return dict(
-            [(k, v) for k, v in vars(self).items() if not k.startswith('_')])
 
 
 class ExpressionRepository(object):
@@ -26,7 +54,7 @@ class ExpressionRepository(object):
         self._session = session
 
     def get_all(self):
-        q = self._session.query(Expression)  # type: Query
+        q = self._session.query(Expressions)  # type: Query
         return q.all()
 
 
