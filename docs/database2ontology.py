@@ -1,4 +1,4 @@
-from orm import ExpressionRepository, Expression, init_db
+from orm import ExpressionRepository, Expressions, init_db, LanguageRepository
 import logging
 
 
@@ -9,8 +9,9 @@ def main():
     global db_session
     logging.basicConfig(level=logging.INFO)
     db_session = init_db('mysql://root:slbr@0.0.0.0:3306/slbr')
-    expression_repository = ExpressionRepository(db_session)
-    print([expression.dump() for expression in expression_repository.get_all()])
+    languages = LanguageRepository(db_session).get_all()
+    for language in languages:
+        logging.info("Language %s", language.description)
 
 
 if __name__ == '__main__':
