@@ -80,6 +80,11 @@ class ExpressionRepository(object):
         q = self._session.query(Expressions)  # type: Query
         return q.all()
 
+    def find(self, expression_id):
+        q = self._session.query(Expressions)  # type: Query
+        q = q.filter(Expressions.id == expression_id)
+        return q.one_or_none()
+
 
 def init_db(uri):
     engine = create_engine(uri, convert_unicode=True)
