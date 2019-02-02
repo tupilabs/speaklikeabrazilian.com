@@ -3,7 +3,7 @@
 ## Running MySQL with Docker
 
 ```bash
-$ docker run --user 1000:1000 --name slbr-mysql -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=slbr -e MYSQL_DATABASE=slbr -d mysql:5.5.62
+$ docker run --user 1000:1000 --name slbr-mysql -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=slbr -e MYSQL_DATABASE=slbr -d mysql:5.5.62
 Unable to find image 'mysql:5.5.62' locally
 5.5.62: Pulling from library/mysql
 5e6ec7f28fb7: Pull complete 
@@ -20,7 +20,6 @@ e22ee1bc1b20: Pull complete
 Digest: sha256:dc0af7798e7a634f42418c09b94f03bdf18de0531fb02ef8c2ee7db29d152402
 Status: Downloaded newer image for mysql:5.5.62
 dc0af7798e7a634f42418c09b94f03bdf18de0531fb02ef8c2ee7db29d152402
-
 
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
