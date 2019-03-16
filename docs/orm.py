@@ -68,6 +68,11 @@ class DefinitionRepository(object):
         q = q.filter(Definitions.language_id == language_id)
         return q.all()
 
+    def find_by_expression(self, expression_id):
+        q = self._session.query(Definitions)  # type: Query
+        q = q.filter(Definitions.expression_id == expression_id)
+        return q.all()
+
 
 class Expressions(Base, BaseMixin):
     _text = Column('text', UnicodeText(convert_unicode=False))
@@ -96,6 +101,7 @@ class ExpressionRepository(object):
 
     def get_all(self):
         q = self._session.query(Expressions)  # type: Query
+        q = q.order_by(Expressions.text.asc())
         return q.all()
 
     def find(self, expression_id):

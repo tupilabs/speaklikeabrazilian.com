@@ -17,20 +17,32 @@ def main():
     values = []
     for language in languages:
         logging.info("Language %s", language.description)
-        definitions = definition_repository.find_by_language(language.id)
-        logging.info("Found %d definitions", len(definitions))
-        for definition in definitions:
-            if definition.status != '2':
-                continue
-            expression = expression_repository.find(definition.expression_id)
-            logging.info("Expression: (%s) - [%s] = [%s]", definition.status, expression.text, definition.description)
+        # For now we will compromise in having only English, for ease of Jekyll set-up
+        if language.slug == "en":
+            expressions = expression_repository.get_all()
+            for expression in expressions:
+                definitions = definition_repository.find_by_expression(expression.id)
+                logging.info("Found %d definitions", len(definitions))
+                expression_dict = {
+                    "expression": expression.text,
+                    "definitions": []
+                }
+                for definition in definitions:
+                    if definition.status != '2':
+                        continue
+                    expression = expression_repository.find(definition.expression_id)
+                    logging.info("Expression: (%s) - [%s] = [%s]", definition.status, expression.text, definition.description)
 
-            values.append({
-                "language": language.slug,
-                "expression": expression.text,
-                "definition": definition.description,
-                "example": definition.example
-            })
+                    definition_dict = {
+                        "definition": definition.description,
+                        "author": definition.contributor,
+                        "example": definition.example,
+                        "created": definition.created_at.isoformat()
+                    }
+                    expression_dict["definitions"].append(definition_dict)
+
+                if expression_dict["definitions"]:
+                    values.append(expression_dict)
 
     with open("slbr.json", "w+") as f:
         json.dump(values, f, indent=4, sort_keys=True)
