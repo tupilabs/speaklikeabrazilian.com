@@ -3,7 +3,7 @@
 ## Running MySQL with Docker
 
 ```bash
-$ docker run --user 1000:1000 --name slbr-mysql -p3306:3306 -v ~/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=slbr -e MYSQL_DATABASE=slbr -d mysql:5.5.62
+$ docker run --user 1000:1000 --name slbr-mysql -p3306:3306 -v ~/Development/databases/slbr:/var/lib/mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=slbr -e MYSQL_DATABASE=slbr -d mysql:5.5.62
 Unable to find image 'mysql:5.5.62' locally
 5.5.62: Pulling from library/mysql
 5e6ec7f28fb7: Pull complete 
@@ -25,7 +25,7 @@ $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 3f53aaa796ca        mysql:5.5.62        "docker-entrypoint.s…"   9 seconds ago       Up 7 seconds        3306/tcp            slbr-mysql
 
-$ ls ~/databases/slbr
+$ ls ~/Development/databases/slbr
 dc0af7798e7a.pid  ibdata1  ib_logfile0  ib_logfile1  mysql  performance_schema  slbr
 ```
 
@@ -34,14 +34,14 @@ dc0af7798e7a.pid  ibdata1  ib_logfile0  ib_logfile1  mysql  performance_schema  
 Copy the old backup somewhere, decompressing it, there should be a file called `slbr.sql`.
 
 ```bash
-$ ls -lah ~/databases/slbr/slbr.sql
+$ ls -lah ~/Development/databases/slbr/slbr.sql
 -rw-r--r-- 1 kinow kinow 395K Aug 21  2017 /home/kinow/Downloads/slbrv2/slbr.sql
 ```
 
 Then load it into the running MySQL database.
 
 ```bash
-$ docker exec -i slbr-mysql mysql -uroot -pslbr slbr < ~/databases/slbr/slbr.sql
+$ docker exec -i slbr-mysql mysql -uroot -pslbr slbr < ~/Development/databases/slbr/slbr.sql
 $ echo $?
 0
 ```
