@@ -88,6 +88,17 @@ class ExpressionRepository(object):
         return q.one_or_none()
 
 
+class Media(Base, BaseMixin):
+    definition_id = Column(Integer())
+    url = Column(String(255))
+    reason = Column(String(500))
+    email = Column(String(500))
+    status = Column(CHAR)
+    content_type = Column(String(20))
+    contributor = Column(String(50))
+    user_ip = Column(String(60))
+
+
 def init_db(uri):
     engine = create_engine(uri, convert_unicode=True)
     db_session = scoped_session(
