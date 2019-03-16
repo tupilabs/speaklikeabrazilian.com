@@ -1,8 +1,10 @@
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, String, Integer, CHAR, create_engine
+from sqlalchemy import Column, DateTime, String, Integer, CHAR, create_engine, UnicodeText
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy.orm import scoped_session, sessionmaker, synonym, Query
+
+from urllib.parse import unquote
 
 Base = declarative_base()
 
@@ -68,12 +70,16 @@ class DefinitionRepository(object):
 
 
 class Expressions(Base, BaseMixin):
-    _text = Column('text', String())
+    _text = Column('text', UnicodeText(convert_unicode=False))
     char = Column(CHAR())
     contributor = Column(String())
 
     def get_text(self):
-        return self._text.replace('+', ' ')
+        # replace + by space
+        value = self._text.replace('+', ' ')
+        # url decode
+        value = unquote(value)
+        return value
 
     def set_text(self, value):
         self._text = value
