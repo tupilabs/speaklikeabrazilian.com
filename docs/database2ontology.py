@@ -1,5 +1,7 @@
+from urllib.parse import unquote
 from orm import DefinitionRepository, ExpressionRepository, init_db, LanguageRepository
 import logging
+import html
 
 
 db_session = None
@@ -8,7 +10,7 @@ db_session = None
 def main():
     global db_session
     logging.basicConfig(level=logging.INFO)
-    db_session = init_db('mysql://root:slbr@0.0.0.0:3306/slbr')
+    db_session = init_db('mysql://root:slbr@0.0.0.0:3306/slbr?charset=utf8')
     language_repository = LanguageRepository(db_session)
     definition_repository = DefinitionRepository(db_session)
     expression_repository = ExpressionRepository(db_session)
@@ -21,7 +23,7 @@ def main():
             if definition.status != '2':
                 continue
             expression = expression_repository.find(definition.expression_id)
-            logging.info("Expression: (%s) - [%s] = [%s]", definition.status, expression.text, definition.description)
+            logging.info("Expression: (%s) - [%s] = [%s]", definition.status, unquote(expression.text), definition.description)
 
 
 if __name__ == '__main__':

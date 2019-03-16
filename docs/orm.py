@@ -2,7 +2,7 @@ from datetime import datetime
 
 from sqlalchemy import Column, DateTime, String, Integer, CHAR, create_engine
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
-from sqlalchemy.orm import scoped_session, sessionmaker, Query
+from sqlalchemy.orm import scoped_session, sessionmaker, synonym, Query
 
 Base = declarative_base()
 
@@ -68,9 +68,19 @@ class DefinitionRepository(object):
 
 
 class Expressions(Base, BaseMixin):
-    text = Column(String())
+    _text = Column('text', String())
     char = Column(CHAR())
     contributor = Column(String())
+
+    def get_text(self):
+        return self._text.replace('+', ' ')
+
+    def set_text(self, value):
+        self._text = value
+
+    @declared_attr
+    def text(cls):
+        return synonym('_text', descriptor=property(cls.get_text, cls.set_text))
 
 
 class ExpressionRepository(object):
