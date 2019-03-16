@@ -1,9 +1,14 @@
+from datetime import datetime
+
 from sqlalchemy import Column, DateTime, String, Integer, CHAR, create_engine
 from sqlalchemy.ext.declarative import declarative_base, declared_attr
 from sqlalchemy.orm import scoped_session, sessionmaker, Query
 
+Base = declarative_base()
 
-class Base(object):
+
+class BaseMixin(object):
+    # noinspection PyMethodParameters
     @declared_attr
     def __tablename__(cls):
         return cls.__name__.lower()
@@ -11,18 +16,15 @@ class Base(object):
     __table_args__ = {'mysql_engine': 'InnoDB'}
 
     id = Column(Integer, primary_key=True)
-    created_at = Column(DateTime())
-    updated_at = Column(DateTime())
+    created_at = Column(DateTime(), nullable=False, default=datetime.utcnow)
+    updated_at = Column(DateTime(), nullable=True, default=None)
 
     def dump(self):
         return dict(
             [(k, v) for k, v in vars(self).items() if not k.startswith('_')])
 
 
-Base = declarative_base(cls=Base)
-
-
-class Languages(Base):
+class Languages(Base, BaseMixin):
     slug = Column(String())
     description = Column(String())
     local_description = Column(String())
@@ -38,7 +40,7 @@ class LanguageRepository(object):
         return q.all()
 
 
-class Definitions(Base):
+class Definitions(Base, BaseMixin):
     expression_id = Column(Integer())
     description = Column(String(1000))
     example = Column(String(1000))
@@ -65,7 +67,7 @@ class DefinitionRepository(object):
         return q.all()
 
 
-class Expressions(Base):
+class Expressions(Base, BaseMixin):
     text = Column(String())
     char = Column(CHAR())
     contributor = Column(String())
