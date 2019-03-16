@@ -1,7 +1,6 @@
-from urllib.parse import unquote
 from orm import DefinitionRepository, ExpressionRepository, init_db, LanguageRepository
 import logging
-import html
+import json
 
 
 db_session = None
@@ -15,6 +14,7 @@ def main():
     definition_repository = DefinitionRepository(db_session)
     expression_repository = ExpressionRepository(db_session)
     languages = language_repository.get_all()
+    values = []
     for language in languages:
         logging.info("Language %s", language.description)
         definitions = definition_repository.find_by_language(language.id)
@@ -23,7 +23,17 @@ def main():
             if definition.status != '2':
                 continue
             expression = expression_repository.find(definition.expression_id)
-            logging.info("Expression: (%s) - [%s] = [%s]", definition.status, unquote(expression.text), definition.description)
+            logging.info("Expression: (%s) - [%s] = [%s]", definition.status, expression.text, definition.description)
+
+            values.append({
+                "language": language.slug,
+                "expression": expression.text,
+                "definition": definition.description,
+                "example": definition.example
+            })
+
+    with open("slbr.json", "w+") as f:
+        json.dump(values, f)
 
 
 if __name__ == '__main__':
