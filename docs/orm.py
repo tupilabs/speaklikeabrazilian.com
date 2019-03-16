@@ -99,6 +99,21 @@ class Media(Base, BaseMixin):
     user_ip = Column(String(60))
 
 
+class MediaRepository(object):
+
+    def __init__(self, session):
+        self._session = session
+
+    def get_all(self):
+        q = self._session.query(Media)  # type: Query
+        return q.all()
+
+    def find(self, media_id):
+        q = self._session.query(Media)  # type: Query
+        q = q.filter(Media.id == media_id)
+        return q.one_or_none()
+
+
 def init_db(uri):
     engine = create_engine(uri, convert_unicode=True)
     db_session = scoped_session(
