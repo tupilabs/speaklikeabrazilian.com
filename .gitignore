@@ -136,6 +136,12 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Jekyll files
+
+_site
+.sass-cache
+.jekyll-metadata
+
 # slbr files
 
 slbr.json
