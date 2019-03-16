@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Abraço de urso
+expression: Abraço de urso
 definitions:
   - definition: "A super tight hug, that you give to someone you've been missing, or to someone that you simply love."
     example: "- Oh, que beb\u00ea lindo. D\u00e1 vontade de esmagar! Vou dar um super abra\u00e7o de urso, pode?"
@@ -12,8 +12,9 @@ definitions:
     author: "kinow"
 ---
 
-{% for entry in page.definitions %}
+# {{ page.expression }}
 
+{% for entry in page.definitions %}
 
 {{ index }} {{ entry.definition }}
 
