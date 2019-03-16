@@ -12,12 +12,13 @@ definitions:
     author: "kinow"
 ---
 
-## Definitions
-
 {% for entry in page.definitions %}
 
-{{ forloop.index + 1 }} {{ entry.definition }}
 
+{{ index }} {{ entry.definition }}
+
+<span class="example">
 _{{ entry.example }}_
+</span>
 
 {% endfor %}
