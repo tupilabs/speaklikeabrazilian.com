@@ -1,20 +1,18 @@
 ---
 layout: page
-title: Expressions starting with A
-pagination: 
+pagination:
   enabled: true
   collection: expressions
   debug: true
   sort_field: 'title'
   sort_reverse: false
 permalink: "/a/"
+title: A
 ---
 
 {% for post in paginator.posts %}
   <h1>{{ post.expression }}</h1>
 {% endfor %}
-
-Pages:
 
 {% if paginator.total_pages > 1 %}
 <ul>
