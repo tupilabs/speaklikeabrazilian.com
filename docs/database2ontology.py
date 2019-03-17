@@ -61,12 +61,13 @@ def main():
                         f.write(f"""---
 layout: expression
 category: {letter}
-expression: {expression.text}
+expression: {json.dumps(expression.text)}
+expression_url: "{letter}/{url_filename}/"
 definitions:
 """)
                         for definition in expression_dict["definitions"]:
-                            f.write(f"""  - definition: "{definition['definition']}"
-    example: "{definition['example']}"
+                            f.write(f"""  - definition: {json.dumps(definition['definition'])}
+    example: {json.dumps(definition['example'])}
     created: "{definition['created']}"
     author: "{definition['author']}"
 """)
