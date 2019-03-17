@@ -22,6 +22,38 @@ def main():
     shutil.rmtree("dist", ignore_errors=True)
     os.mkdir("dist")
 
+    os.makedirs("dist/expressions/0", exist_ok=True)
+    with open("dist/expressions/0/index.html", "w+")as f:
+        f.write("""---
+layout: letter
+pagination:
+  enabled: true
+  collection: expressions
+  category: "0"
+  debug: false
+  sort_field: 'title'
+  sort_reverse: false
+permalink: "/0/"
+title: "Expressions with 0-9"
+---""")
+
+    for expression_letter in range(ord("a"), ord("z")+1):
+        l = chr(expression_letter)
+        os.makedirs(f"dist/expressions/{l}", exist_ok=True)
+        with open(f"dist/expressions/{l}/index.html", "w+")as f:
+            f.write(f"""---
+layout: letter
+pagination:
+  enabled: true
+  collection: expressions
+  category: {l}
+  debug: false
+  sort_field: 'title'
+  sort_reverse: false
+permalink: "/{l}/"
+title: "Expressions with {l.upper()}"
+---""")
+
     for language in languages:
         logging.info("Language %s", language.description)
         # For now we will compromise in having only English, for ease of Jekyll set-up
@@ -56,8 +88,8 @@ def main():
                     values.append(expression_dict)
                     url_filename = quote_plus(expression.text.lower())
                     letter = expression.char.lower()
-                    os.makedirs(f"dist/{letter}", exist_ok=True)
-                    with open(f"dist/{letter}/{url_filename}.md", "w+") as f:
+                    os.makedirs(f"dist/_expressions/{letter}", exist_ok=True)
+                    with open(f"dist/_expressions/{letter}/{url_filename}.md", "w+") as f:
                         f.write(f"""---
 layout: expression
 category: {letter}
