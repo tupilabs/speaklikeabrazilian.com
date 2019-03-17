@@ -23,3 +23,27 @@ exclude:
  - vendor/ruby/
  - docs/
  - .idea/
+
+collections:
+ expressions:
+  output: true
+  permalink: /:path/
+
+pagination:
+ enabled: true
+ debug: false
+ collection: 'posts'
+ per_page: 10
+ permalink: '/page/:num/'
+ title: ':title - page :num'
+ limit: 0
+ sort_field: 'date'
+ sort_reverse: true
+ category: 'posts'
+ tag: ''
+ locale: ''
+ trail:
+  before: 2
+  after: 2
+ extension: html
+ indexpage: 'index'

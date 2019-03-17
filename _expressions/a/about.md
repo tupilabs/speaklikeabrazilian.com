@@ -1,5 +1,6 @@
 ---
-layout: page
+layout: default
+category: a
 expression: Abraço de urso
 definitions:
   - definition: "A super tight hug, that you give to someone you've been missing, or to someone that you simply love."
