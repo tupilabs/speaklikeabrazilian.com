@@ -58,7 +58,20 @@ def main():
                     letter = expression.char.lower()
                     os.makedirs(f"dist/{letter}", exist_ok=True)
                     with open(f"dist/{letter}/{url_filename}.md", "w+") as f:
-                        f.write("Soon!")
+                        f.write(f"""---
+layout: expression
+category: {letter}
+expression: {expression.text}
+definitions:
+""")
+                        for definition in expression_dict["definitions"]:
+                            f.write(f"""  - definition: "{definition['definition']}"
+    example: "{definition['example']}"
+    created: "{definition['created']}"
+    author: "{definition['author']}"
+""")
+
+                        f.write("---\n")
 
     # produce a JSON for inspection
     # this file already is free of private info, i.e. no user IP or e-mail
