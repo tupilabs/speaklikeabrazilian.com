@@ -4,12 +4,17 @@ title: Expressions starting with A
 pagination: 
   enabled: true
   collection: expressions
-  category: a
+  debug: true
+  sort_field: 'title'
+  sort_reverse: false
+permalink: "/a/"
 ---
 
 {% for post in paginator.posts %}
-  <h1>{{ post.title }}</h1>
+  <h1>{{ post.expression }}</h1>
 {% endfor %}
+
+Pages:
 
 {% if paginator.total_pages > 1 %}
 <ul>
