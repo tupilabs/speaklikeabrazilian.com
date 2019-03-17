@@ -61,8 +61,9 @@ def main():
                         f.write(f"""---
 layout: expression
 category: {letter}
+title: "{expression.text}"
 expression: {json.dumps(expression.text)}
-expression_url: "{letter}/{url_filename}/"
+permalink: "/{letter}/{url_filename}/"
 definitions:
 """)
                         for definition in expression_dict["definitions"]:
