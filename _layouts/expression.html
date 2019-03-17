@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<h1 id="expression-text">{{ page.expression }}</h1>
+
+{% for entry in page.definitions %}
+
+<div id="expression-definition">
+    <p>{{ forloop.index }} - {{ entry.definition }}</p>
+</div>
+
+<div id="expression-example">
+    {{ entry.example }}
+</div>
+
+<br/>
+
+{% endfor %}
