@@ -7,7 +7,9 @@ layout: default
 {% for entry in page.definitions %}
 
 <div id="expression-definition">
-    <p>{{ forloop.index }} - {{ entry.definition | markdownify }}</p>
+    <p style="float: left; padding-right: 1em;color: #9e9e9e;">{{ forloop.index }}</p>
+
+    {{ entry.definition | markdownify }}
 </div>
 
 <div id="expression-example">
