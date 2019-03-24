@@ -7,6 +7,8 @@ twitter_username: speaklikeabr
 github_username:  tupilabs
 author: Bruno P. Kinoshita
 
+show_excerpts: true
+
 markdown: kramdown
 theme: minima
 
