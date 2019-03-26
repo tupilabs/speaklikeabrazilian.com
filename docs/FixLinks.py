@@ -1,6 +1,7 @@
 from pathlib import Path, PosixPath
 import re
 from typing import Generator
+from urllib.parse import quote_plus, unquote
 
 
 LETTERS_RANGE = [chr(x) for x in range(ord('a'), ord('z')+1)]
@@ -13,10 +14,20 @@ def get_letter(expression: str) -> str:
 	return '0'
 
 
-def expression_exists(expressions_path, expression) -> bool:
+def get_expression_filename(expression: str) -> str:
+	expression = expression.lower()
+	expression = unquote(expression)
+	expression = quote_plus(expression)
+	expression = expression.replace(' ', '+')
+	return f"{expression}.md"
+
+
+def expression_exists(expressions_path, expression, tmp_file) -> bool:
 	letter = get_letter(expression)
-	expression_path = f"{expressions_path}/{letter}/{expression}.md".lower()
-	print(expression_path)
+	expression_filename = get_expression_filename(expression)
+	expression_path = f"{expressions_path}/{letter}/{expression_filename}"
+	if not Path(expression_path).exists():
+		print(f"For [{tmp_file}] : {expression_path}")
 	return Path(expression_path).exists()
 
 
@@ -39,8 +50,9 @@ def main():
 			for line in expressions_file:
 				links = re.findall(r'\[([^\]]*)\][^\(]', line)
 				for link in links:
-					if expression_exists(expressions_path, link):
-						print(f"{path.name}: We need to link [{link}] !")
+					if expression_exists(expressions_path, link, path.name):
+						# print(f"{path.name}: We need to link [{link}] !")
+						pass
 
 
 if __name__ == '__main__':
