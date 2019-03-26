@@ -3,8 +3,21 @@ import re
 from typing import Generator
 
 
-def expression_exists(expressions_folder, expression) -> bool:
-	return Path("").exists()
+LETTERS_RANGE = [chr(x) for x in range(ord('a'), ord('z')+1)]
+
+
+def get_letter(expression: str) -> str:
+	first_char = expression[0].lower()
+	if first_char in LETTERS_RANGE:
+		return first_char
+	return '0'
+
+
+def expression_exists(expressions_path, expression) -> bool:
+	letter = get_letter(expression)
+	expression_path = f"{expressions_path}/{letter}/{expression}.md".lower()
+	print(expression_path)
+	return Path(expression_path).exists()
 
 
 def walk_expressions_path(expressions_path : Path) -> Generator[PosixPath, None, None]:
