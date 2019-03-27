@@ -19,7 +19,7 @@ def get_expression_filename(expression: str) -> str:
 	expression = expression.lower().strip()
 	expression = quote(expression)
 	expression = expression.replace(' ', '+')
-	return f"{expression}.md"
+	return f"{expression}"
 
 
 def walk_expressions_path(expressions_path: Path) -> Generator[PosixPath, None, None]:
@@ -33,20 +33,26 @@ def get_expressions_folder() -> Path:
 
 def main():
 	expressions_path = get_expressions_folder()
-	# print(f"Expressions folder: {expressions_path}")
-	
 	for path in walk_expressions_path(expressions_path):
-		# print(f"Expressions file {file}")
-		with path.open() as expressions_file:
-			for line in expressions_file:
+		with open(path.absolute(), 'r+') as expressions_file:
+			text = expressions_file.readlines()
+			content = []
+			for line in text:
 				links = re.findall(r'\[([^\]]*)\][^\(]', line)
 				for link in links:
 					expression_filename = get_expression_filename(link)
 					letter = get_letter(link)
-					expression_path = Path(f"{expressions_path}/{letter}/{expression_filename}")
+					expression_path = Path(f"{expressions_path}/{letter}/{expression_filename}.md")
 					if expression_path.exists():
-						permalink = f"/{letter}/{expression_filename}"
-						print(f"{path.name}: We need to link [permalink]({permalink}) !")
+						permalink = f"/{letter}/{expression_filename}/"
+						# print(f"{path.name}: We need to link [permalink]({permalink}) !")
+						line = line.replace(f"[{link}]", f"[{link}]({permalink})")
+					else:
+						line = line.replace(f"[{link}]", f"{link}")
+				content.append(line)
+			expressions_file.seek(0)
+			expressions_file.write("".join(content))
+			expressions_file.truncate()
 
 
 if __name__ == '__main__':
