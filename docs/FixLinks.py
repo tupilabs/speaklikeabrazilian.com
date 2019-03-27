@@ -1,7 +1,7 @@
 from pathlib import Path, PosixPath
 import re
 from typing import Generator
-from urllib.parse import quote_plus, unquote
+from urllib.parse import quote_plus, quote
 
 
 LETTERS_RANGE = [chr(x) for x in range(ord('a'), ord('z')+1)]
@@ -15,9 +15,9 @@ def get_letter(expression: str) -> str:
 
 
 def get_expression_filename(expression: str) -> str:
-	expression = expression.lower()
-	expression = unquote(expression)
-	expression = quote_plus(expression)
+	expression = expression.encode('utf-8').decode('unicode-escape')
+	expression = expression.lower().strip()
+	expression = quote(expression)
 	expression = expression.replace(' ', '+')
 	return f"{expression}.md"
 
