@@ -6,7 +6,7 @@ expression: "Pacas"
 permalink: "/p/pacas/"
 definitions:
   - definition: "A lot, very. Never used alone."
-    example: "- [Meu], eu gosto pacas de voc\u00ea meu."
+    example: "- [Meu](/m/meu/), eu gosto pacas de voc\u00ea meu."
     created: "2012-08-27T00:49:34"
     author: "kinow"
 ---

@@ -6,7 +6,7 @@ expression: "Legal"
 permalink: "/l/legal/"
 definitions:
   - definition: "Cool, awesome, sweet as."
-    example: "- Vamos no parque? [T\u00e1] tendo shows [ao vivo]!\n- Puxa, que legal!"
+    example: "- Vamos no parque? [T\u00e1](/t/t%C3%A1/) tendo shows ao vivo!\n- Puxa, que legal!"
     created: "2013-04-30T02:36:29"
     author: "kinow"
   - definition: "Fixe"

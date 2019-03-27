@@ -6,7 +6,7 @@ expression: "Opa"
 permalink: "/o/opa/"
 definitions:
   - definition: "\"Opa\" is usually used in the beginning of sentences. It can mean ''Sorry'', if you use it after you have bumped in somebody. Or it can also be a compliment, like \"Hello\"."
-    example: "- Opa, [beleza]?"
+    example: "- Opa, [beleza](/b/beleza/)?"
     created: "2012-08-26T23:49:38"
     author: "kinow"
 ---
