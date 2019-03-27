@@ -22,13 +22,6 @@ def get_expression_filename(expression: str) -> str:
 	return f"{expression}.md"
 
 
-def expression_exists(expressions_path, expression) -> bool:
-	letter = get_letter(expression)
-	expression_filename = get_expression_filename(expression)
-	expression_path = f"{expressions_path}/{letter}/{expression_filename}"
-	return Path(expression_path).exists()
-
-
 def walk_expressions_path(expressions_path: Path) -> Generator[PosixPath, None, None]:
 	for file in expressions_path.glob("**/*.md"):
 		yield file
@@ -48,8 +41,12 @@ def main():
 			for line in expressions_file:
 				links = re.findall(r'\[([^\]]*)\][^\(]', line)
 				for link in links:
-					if expression_exists(expressions_path, link):
-						print(f"{path.name}: We need to link [{link}] !")
+					expression_filename = get_expression_filename(link)
+					letter = get_letter(link)
+					expression_path = Path(f"{expressions_path}/{letter}/{expression_filename}")
+					if expression_path.exists():
+						permalink = f"/{letter}/{expression_filename}"
+						print(f"{path.name}: We need to link [permalink]({permalink}) !")
 
 
 if __name__ == '__main__':
