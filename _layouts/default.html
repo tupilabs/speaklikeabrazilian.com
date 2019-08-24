@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+{%- include head.html -%}
+<body>
+
+{%- include header.html -%}
+
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    {{ content }}
+  </div>
+</main>
+
+{%- include footer.html -%}
+
+</body>
+
+<script src="{{ site.url }}/assets/js/jquery-3.4.1.min.js" type="application/javascript"></script>
+{%- if page.scripts -%}
+{%- for script in page.scripts -%}
+<script src="{{ site.url }}/{{ script }}" type="application/javascript"></script>
+{%- endfor -%}
+{%- endif -%}
+
+</html>
