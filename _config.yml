@@ -52,3 +52,16 @@ pagination:
   after: 2
  extension: html
  indexpage: 'index'
+
+# _config.yml
+
+algolia:
+ application_id: FGTZFTNRCI
+ index_name:     slbr
+ files_to_exclude:
+   - '_posts/**/*'
+   - index.html
+ nodes_to_index: 'expression'
+ extensions_to_index:
+  - md
+  - html
