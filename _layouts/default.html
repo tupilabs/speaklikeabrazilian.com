@@ -14,13 +14,13 @@
 
 {%- include footer.html -%}
 
-</body>
-
 <script src="{{ site.url }}/assets/js/jquery-3.4.1.min.js" type="application/javascript"></script>
 {%- if page.scripts -%}
 {%- for script in page.scripts -%}
 <script src="{{ site.url }}/{{ script }}" type="application/javascript"></script>
 {%- endfor -%}
 {%- endif -%}
+
+</body>
 
 </html>
