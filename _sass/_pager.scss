@@ -1,0 +1,16 @@
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pager > li {
+  margin-right: 5px;
+  margin-left: 5px;
+  list-style: none;
+}
+
+.pager > li.selected a {
+  color: lightgray;
+}
