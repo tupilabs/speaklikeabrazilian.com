@@ -1,6 +1,6 @@
 <div class="share-page">
     Share this on &rarr;
     {% assign twitter_url = site.url | append: page.url  %}
-    <a href="https://twitter.com/intent/tweet?text=%22{{ page.title }}&url={{ twitter_url | url_encode }}&hashtags=BrazilianPortuguese&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter <i class="fa fa-twitter share-button"> twitter</i></a>
+    <a href="https://twitter.com/intent/tweet?text=%22{{ page.title }}%22&url={{ twitter_url | url_encode }}&hashtags=BrazilianPortuguese&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter">Twitter <i class="fa fa-twitter share-button"> twitter</i></a>
     <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">Facebook</a>
 </div>
