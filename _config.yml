@@ -2,7 +2,7 @@ title: Speak Like A Brazilian
 description: >- # this means to ignore newlines until "baseurl:"
   Learn how to speak like a Brazilian, using local expressions! Licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://speaklikeabrazilian.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: speaklikeabr
 github_username:  tupilabs
 author: Bruno P. Kinoshita
