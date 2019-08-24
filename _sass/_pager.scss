@@ -14,3 +14,10 @@
 .pager > li.selected a {
   color: lightgray;
 }
+
+#pagination {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
