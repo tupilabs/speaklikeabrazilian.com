@@ -145,3 +145,5 @@ _site
 # slbr files
 
 slbr.json
+deploy.sh
+
