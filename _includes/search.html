@@ -1,7 +1,8 @@
 <form method="get" action="{{ site.url }}/search" id="search-form">
   <div id="search-box">
     <div class="ais-search-box">
-      <input name="query" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Search for expressions" role="textbox" spellcheck="false" type="text" value="" class="ais-search-box--input" />
+      <label for="query"></label>
+      <input id="query" name="query" autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="Search for expressions" role="textbox" spellcheck="false" type="text" value="" class="ais-search-box--input" />
       <span class="ais-search-box--magnifier-wrapper">
         <div class="ais-search-box--magnifier">
           <svg xmlns="http://www.w3.org/2000/svg" id="sbx-icon-search-13" viewBox="0 0 40 40" width="100%" height="100%">
