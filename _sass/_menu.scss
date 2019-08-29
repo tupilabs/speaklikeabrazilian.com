@@ -1,0 +1,37 @@
+.site-nav {
+  float: none;
+
+  .site-nav .page-link:not(:last-child) {
+    margin: inherit;
+  }
+
+  .page-link {
+    display: inline;
+    width: 34px;
+    margin: 0 auto;
+    padding: 8px 0;
+    text-align: center;
+
+    &:not(:last-child) {
+      margin: 0 auto;
+    }
+  }
+
+  input ~ .trigger {
+    clear: both;
+    display: none;
+  }
+
+  input:checked ~ .trigger {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+  }
+
+  @media screen and (min-width: $on-medium) {
+    input ~ .trigger {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
