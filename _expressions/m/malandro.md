@@ -14,7 +14,7 @@ definitions:
       
       - Malandro é o gato, que já nasce de bigode.
       
-      - Malandro é malandro, mané é mané.
+      - Malandro é malandro mané é mané.
     created: "2019-09-01T10:19:19"
     author: "kinow"
 ---
