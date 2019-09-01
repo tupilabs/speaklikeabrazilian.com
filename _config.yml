@@ -18,6 +18,9 @@ include:
 exclude:
  - .idea/
  - .git/
+ - .gitignore
+ - .jekyll-metadata
+ - .sass-cache/
  - deploy.sh
  - docs/
  - Gemfile
