@@ -34,8 +34,8 @@ You will be understood using any of the versions used in this post to answer _Ho
 
 Google and other machine translation services perform an excellent service for the textbook versions, but for text with local expressions it still fails to translate and sometimes may give different values depending on other expressions or punctuation used. Compare the results of searching just for the expression, with searching for the expression combined with Opa (which is another local expression).
 
-![Expression]({{"/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-25-51.png" | absolute_url}})
+![Expression]({{"/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-25-51.png" | absolute_url}})
 
-![Combining two expressions]({{"/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
+![Combining two expressions]({{"/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
 
 We hope you will find some of the expressions listed here helpful. So start browsing our Brazilian Portuguese expressions, and Que a força esteja com você!
