@@ -16,15 +16,19 @@ include:
   - expressions
 
 exclude:
+ - .idea/
+ - .git/
+ - deploy.sh
+ - docs/
  - Gemfile
  - Gemfile.lock
+ - LICENSE.txt
  - node_modules
+ - README.md
  - vendor/bundle/
  - vendor/cache/
  - vendor/gems/
  - vendor/ruby/
- - docs/
- - .idea/
 
 plugins:
 - jekyll-paginate-v2
