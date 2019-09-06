@@ -4,22 +4,23 @@ layout: default
 
 {%- include search.html -%}
 
-<h1 id="expression-text">{{ page.expression }}</h1>
+<h1 class="expression-text">{{ page.expression }}</h1>
 
 {% for entry in page.definitions %}
 
-<div id="expression-definition">
-    <p style="float: left; padding-right: 1em;color: #9e9e9e;">{{ forloop.index }}</p>
+<div class="expression-definition-wrapper">
+    <div class="expression-definition">
+        <div class="expression-entry-number">{{ forloop.index }}</div>
+        <div class="expression-definition-text">{{ entry.definition | markdownify }}</div>
+    </div>
 
-    {{ entry.definition | markdownify }}
-</div>
+    <div class="expression-example">
+        <em>{{ entry.example | markdownify }}</em>
+    </div>
 
-<div id="expression-example">
-    <em>{{ entry.example | markdownify }}</em>
-</div>
-
-<div id="expression-metadata" style="text-align: right;">
-	<em><small>by {{ entry.author }} - {{ entry.created }}</small></em>
+    <div class="expression-metadata" style="text-align: right;">
+        <em><small>by {{ entry.author }} - {{ entry.created }}</small></em>
+    </div>
 </div>
 
 <br/>
