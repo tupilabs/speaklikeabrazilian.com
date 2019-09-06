@@ -1,0 +1,32 @@
+.expression-definition-wrapper {
+
+  $margin-right: 5px;
+  $margin-left: 20px;
+  $gray-text: #828282;
+
+  @mixin apply-margins() {
+    margin-left: $margin-left;
+    margin-right: $margin-right;
+  }
+
+  .expression-definition {
+    display: flex;
+    flex-wrap: nowrap;
+    .expression-entry-number {
+      color: $gray-text;
+    }
+
+    .expression-definition-text {
+      @include apply-margins();
+    }
+  }
+
+  .expression-example {
+    @include apply-margins();
+  }
+
+  .expression-metadata {
+    @include apply-margins();
+    color: $gray-text;
+  }
+}
