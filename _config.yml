@@ -72,3 +72,8 @@ algolia:
  extensions_to_index:
   - md
   - html
+ settings:
+     searchableAttributes:
+       - title
+       - definitions.definition
+       - collection,categories,tags
