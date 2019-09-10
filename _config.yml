@@ -73,7 +73,8 @@ algolia:
   - md
   - html
  settings:
-     searchableAttributes:
-       - title
-       - definitions.definition
-       - collection,categories,tags
+   searchableAttributes:
+     - title
+     - definitions.definition
+     - collection,categories,tags
+
