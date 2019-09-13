@@ -5,7 +5,7 @@ title: "Tirar sardinha com mão do gato"
 expression: "Tirar sardinha com mão do gato"
 permalink: "/t/tirar+sardinha+com+mão+do+gato/"
 definitions:
-  - definition: "To do something sneakily. Like when a cat tries to steal a sardine / fish without anyone noticing it."
+  - definition: "To act sneakily. Like a cat when it tries to steal a fish."
     example: |
         From "[Triste Fim de Policarpo Quaresma](https://en.wikipedia.org/wiki/Triste_Fim_de_Policarpo_Quaresma)", by Lima Barreto:
         
