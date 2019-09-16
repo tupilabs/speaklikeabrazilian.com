@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: t
-title: "trocar uma ideia"
-expression: "trocar uma ideia"
+title: "Trocar uma ideia"
+expression: "Trocar uma ideia"
 permalink: "/t/trocar+uma+ideia/"
 definitions:
   - definition: "kind of like \"chit-chat\", but nicer.\n\"trocar uma ideia\" - to exchange some ideas with someone, about anything you feel like.\nGenerally the conversation is about deep questions of \"life, the universe and everything\". However, \"trocar uma ideia\" can also be a nice way to get to know someone, like when you discuss about musical preferences, and things like that.\nIt works better when one or both of the speakers are drunk."
