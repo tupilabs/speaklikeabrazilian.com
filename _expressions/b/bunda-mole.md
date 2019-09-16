@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: b
-title: "bunda-mole"
-expression: "bunda-mole"
+title: "Bunda-mole"
+expression: "Bunda-mole"
 permalink: "/b/bunda-mole/"
 definitions:
   - definition: "A coward person."
