@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: d
-title: "da hora"
-expression: "da hora"
+title: "Da hora"
+expression: "Da hora"
 permalink: "/d/da+hora/"
 definitions:
   - definition: "Something that is cool. Usually a reply to some good idea or commentary."
