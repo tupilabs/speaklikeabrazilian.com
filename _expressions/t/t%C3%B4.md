@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: t
-title: "tô"
-expression: "t\u00f4"
+title: "Tô"
+expression: "T\u00f4"
 permalink: "/t/t%C3%B4/"
 definitions:
   - definition: "Shortened version of estou, verb estar."
