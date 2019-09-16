@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: x
-title: "x-tudo"
-expression: "x-tudo"
+title: "X-tudo"
+expression: "X-tudo"
 permalink: "/x/x-tudo/"
 definitions:
   - definition: "A large hamburger with everything on it."
