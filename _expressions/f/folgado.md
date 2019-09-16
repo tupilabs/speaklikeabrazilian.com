@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: f
-title: "folgado"
-expression: "folgado"
+title: "Folgado"
+expression: "Folgado"
 permalink: "/f/folgado/"
 definitions:
   - definition: "Folgado can be defined as a lazy person and a jerk at the same time. Folgados do not respect nor consider other people around them due to their selfish attitude. \nAn example of folgado is the character Charlie Harper (Two and a Half Man)."
