@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: c
-title: "cheiro de queimado"
-expression: "cheiro de queimado"
+title: "Cheiro de queimado"
+expression: "Cheiro de queimado"
 permalink: "/c/cheiro+de+queimado/"
 definitions:
   - definition: "Burning smell"
