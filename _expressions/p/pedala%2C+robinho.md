@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: p
-title: "pedala, Robinho"
-expression: "pedala, Robinho"
+title: "Pedala, Robinho"
+expression: "Pedala, Robinho"
 permalink: "/p/pedala%2C+robinho/"
 definitions:
   - definition: "A quick hit on someone's head (using the hand)."
