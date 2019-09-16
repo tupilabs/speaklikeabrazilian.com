@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: t
-title: "tão"
-expression: "t\u00e3o"
+title: "Tão"
+expression: "T\u00e3o"
 permalink: "/t/t%C3%A3o/"
 definitions:
   - definition: "Shortened version of est\u00e3o, verb estar."
