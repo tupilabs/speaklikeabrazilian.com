@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: f
-title: "fio"
-expression: "fio"
+title: "Fio"
+expression: "Fio"
 permalink: "/f/fio/"
 definitions:
   - definition: "Same as [fii](/f/fii/), an abbreviation of filho (son)."
