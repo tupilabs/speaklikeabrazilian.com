@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: t
-title: "tá"
-expression: "t\u00e1"
+title: "Tá"
+expression: "T\u00e1"
 permalink: "/t/t%C3%A1/"
 definitions:
   - definition: "Shortened version of est\u00e1, of estar (to be) verb."
