@@ -3,7 +3,7 @@ layout: expression
 category: p
 title: "Pode crer"
 expression: "Pode crer"
-permalink: "/q/pode+crer/"
+permalink: "/p/pode+crer/"
 definitions:
   - definition: |
       "True".
