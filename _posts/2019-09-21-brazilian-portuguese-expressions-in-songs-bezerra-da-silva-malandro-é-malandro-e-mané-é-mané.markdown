@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Brazilian Portuguese expressions in songs: Bezerra da Silva, \"Malandro é Malandro e Mané é Mané\""
+title:  "Brazilian Portuguese expressions in songs: “Bezerra da Silva, Malandro é Malandro e Mané é Mané”"
 date:   2019-09-21 13:30:26 +1300
 categories: blog
 note: Lyrics from [Letras.mus.br](https://www.letras.mus.br/bezerra-da-silva/44558/)
