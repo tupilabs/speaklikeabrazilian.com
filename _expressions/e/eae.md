@@ -4,6 +4,9 @@ category: e
 title: "Eae"
 expression: "Eae"
 permalink: "/e/eae/"
+alternate_spellings:
+  - eaí
+  - iai
 definitions:
   - definition: "Has a similar meaning to English ''Yo''. In an informal conversation, it is easier to hear a Brazilian saying ''Eae'' rather than ''Oi'' or ''Ol\u00e1''."
     example: "- Eae, [beleza](/b/beleza/)?\n- [Opa](/o/opa/), beleza, e voc\u00ea?"
