@@ -1,5 +1,8 @@
 # speaklikeabrazilian.com
 
+A website with Brazilian Portuguese expressions. Content licensed under the
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](LICENSE.txt).
+
 ## Build
 
 ```bash
