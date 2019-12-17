@@ -4,7 +4,9 @@ category: g
 title: "Gato"
 expression: "Gato"
 permalink: "/g/gato/"
-similar:
+alternate_spellings:
+  - gatu
+variations:
   - gatinho
   - gata
   - gatinha
