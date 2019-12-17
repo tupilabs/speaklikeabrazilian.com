@@ -14,6 +14,14 @@ layout: default
     {%- endfor -%}
 </div>
 {%- endif -%}
+{%- if page.variations -%}
+<div class="expression-variations">
+    Expression variations:
+    {%- for variation in page.variations -%}
+    <span class="chip">&ldquo;{{ variation }}&rdquo;{% unless forloop.last %}, {% endunless %}</span>
+    {%- endfor -%}
+</div>
+{%- endif -%}
 
 {% for entry in page.definitions %}
 
