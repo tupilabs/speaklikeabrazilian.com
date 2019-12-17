@@ -78,4 +78,5 @@ algolia:
      - definitions.definition
      - collection,categories,tags
      - alternate_spellings
+     - variations
 
