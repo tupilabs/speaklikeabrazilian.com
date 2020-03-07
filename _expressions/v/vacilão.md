@@ -6,7 +6,7 @@ expression: "Vacilão"
 permalink: "/v/vacilão/"
 definitions:
   - definition: |
-      Related to **[vacilar]**. It is a noun, used to designate people who have made a major
+      Related to **[vacilar](/v/vacilar/)**. It is a noun, used to designate people who have made a major
       blooper, or who are constantly making mistakes or missing good opportunities. 
     example: |
       - Vai chamar o Rodrigo pro seu casamento?
