@@ -8,4 +8,18 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
   {%- include google-analytics.html -%}
   {%- endif -%}
+  <!-- schema.org search -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://www.speaklikeabrazilian.com.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://speaklikeabrazilian.com/search?query={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
 </head>
