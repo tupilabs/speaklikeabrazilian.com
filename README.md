@@ -15,6 +15,8 @@ category: a # This is the letter collection name, values are a-z, and 0 for nume
 title: "A gente chamando siri de meu bife" # This is the page title
 expression: "A gente chamando siri de meu bife" # This is the expression display name
 permalink: "/a/a+gente+chamando+siri+de+meu+bife/" # This is the expression permanent link
+alternate_spellings: # An array of other (mis)spellings for this expression
+  - agente chamando siri de meu bife
 definitions: # An array of definitions for this expression
   - definition: | # Definition value, here is a multi-line YAML entry
       Its translation would be "We calling crab of my steak". It is used when you are in a situation
