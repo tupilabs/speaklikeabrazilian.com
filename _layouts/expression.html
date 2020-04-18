@@ -32,8 +32,20 @@ layout: default
     </div>
 
     <div class="expression-example">
+        <p class="title">Examples</p>
         <em>{{ entry.example | markdownify }}</em>
     </div>
+
+    {%- if entry.videos and entry.videos.size > 0 -%}
+    <div class="expression-videos">
+        <p class="title">Videos</p>
+        <ul>
+        {%- for video in entry.videos -%}
+            <li><a href="{{ video.link }}">{{ video.title }}</a></li>
+        {%- endfor -%}
+        </ul>
+    </div>
+    {%- endif -%}
 
     <div class="expression-metadata" style="text-align: right;">
         <em><small>by {{ entry.author }} - {{ entry.created }}</small></em>

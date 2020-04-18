@@ -12,7 +12,7 @@
 
   $margin-right: 5px;
   $margin-left: 20px;
-  $gray-text: #828282;
+  $gray-text: #5A5A5A;
 
   @mixin apply-margins() {
     margin-left: $margin-left;
@@ -48,5 +48,15 @@
   .expression-metadata {
     @include apply-margins();
     color: $gray-text;
+  }
+
+  .expression-videos {
+    @include apply-margins();
+  }
+
+  p.title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.85);
   }
 }
