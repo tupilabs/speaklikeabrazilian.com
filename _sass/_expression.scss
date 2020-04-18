@@ -33,6 +33,16 @@
 
   .expression-example {
     @include apply-margins();
+    ul {
+      list-style: none;
+      li {
+        text-indent: -5px;
+      }
+      li:before {
+        content: "- ";
+        text-indent: -5px;
+      }
+    }
   }
 
   .expression-metadata {
