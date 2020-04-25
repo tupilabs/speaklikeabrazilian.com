@@ -1,0 +1,11 @@
+ul.post-list {
+  li {
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: 0.3s;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  li:hover {
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
+  }
+}
