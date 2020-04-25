@@ -4,6 +4,8 @@ layout: default
 
 <h1>{{ page.title }}</h1>
 
+{%-include letter-pagination.html -%}
+
 {%- if paginator.posts.size > 0 -%}
 <ul class="post-list">
 {% for post in paginator.posts %}
@@ -18,59 +20,4 @@ layout: default
 </ul>
 {%- endif -%}
 
-{% if paginator.total_pages > 1 %}
-<div id="pagination">
-  <div>
-    <ul class="ais-pagination">
-      <!-- first -->
-      {% if paginator.first_page %}
-      <li class="ais-pagination--item ais-pagination--item__first">
-        <a class="ais-pagination--link" aria-label="First" href="{{ paginator.first_page_path | prepend: site.baseurl | replace: '//', '/' }}">«</a>
-      </li>
-      {% else %}
-      <li class="ais-pagination--item ais-pagination--item__first ais-pagination--item__disabled">
-        <span class="ais-pagination--link">«</span>
-      </li>
-      {% endif %}
-      <!-- previous -->
-      {% if paginator.previous_page %}
-      <li class="ais-pagination--item ais-pagination--item__previous">
-        <a class="ais-pagination--link" aria-label="Previous" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">‹</a>
-      </li>
-      {% else %}
-      <li class="ais-pagination--item ais-pagination--item__previous ais-pagination--item__disabled">
-        <span class="ais-pagination--link">‹</span>
-      </li>
-      {% endif %}
-      <!-- page -->
-      {% if paginator.page_trail %}
-        {% for trail in paginator.page_trail %}
-      <li class="ais-pagination--item ais-pagination--item__page{% if page.url == trail.path %} ais-pagination--item__active{% endif %}">
-        <a class="ais-pagination--link" aria-label="1" href="{{ trail.path | prepend: site.baseurl | replace: '//', '/' }}" title="{{trail.title}}">{{ trail.num }}</a>
-      </li>
-        {% endfor %}
-      {% endif %}
-      <!-- next -->
-      {% if paginator.next_page %}
-      <li class="ais-pagination--item ais-pagination--item__next">
-        <a class="ais-pagination--link" aria-label="Next" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">›</a>
-      </li>
-      {% else %}
-      <li class="ais-pagination--item ais-pagination--item__next ais-pagination--item__disabled">
-        <span class="ais-pagination--link">›</span>
-      </li>
-      {% endif %}
-      <!-- last -->
-      {% if paginator.last_page %}
-      <li class="ais-pagination--item ais-pagination--item__last">
-        <a class="ais-pagination--link" aria-label="Last" href="{{ paginator.last_page_path | prepend: site.baseurl | replace: '//', '/' }}">»</a>
-      </li>
-      {% else %}
-      <li class="ais-pagination--item ais-pagination--item__last ais-pagination--item__disabled">
-        <span class="ais-pagination--link">»</span>
-      </li>
-      {% endif %}
-    </ul>
-  </div>
-</div>
-{% endif %}
+{%-include letter-pagination.html -%}
