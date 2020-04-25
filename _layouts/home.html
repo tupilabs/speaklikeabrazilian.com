@@ -33,6 +33,11 @@ layout: default
       </h3>
       {%- if site.show_excerpts -%}
       {{ post.excerpt }}
+      {%- if post.content contains site.excerpt_separator -%}
+      <p class="more-link">
+        <a href="{{ post.url | relative_url }}">&hellip; continue reading &rarr;</a>
+      </p>
+      {%- endif -%}
       {%- endif -%}
     </li>
     {%- endfor -%}
