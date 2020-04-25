@@ -42,7 +42,7 @@ $(function () {
       templates: {
         empty: '<h2>No results</h2>',
         item: hit => `
-                <h2><a href="${hit.permalink}">${hit.expression}</a></h2>
+                <li><h2><a href="${hit.permalink}">${hit.expression}</a></h2></li>
             `
       }
     })
