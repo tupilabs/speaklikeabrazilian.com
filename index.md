@@ -5,5 +5,3 @@
 layout: home
 list_title:  ' '
 ---
-
-{%- include search.html -%}
