@@ -11,7 +11,7 @@ layout: default
 {% for post in paginator.posts %}
 <li>
   <h2><a href="{{ post.permalink }}">{{ post.expression }}</a></h2>
-  <p>{{ post.definitions[0].definition | truncatewords: 10 }}</p>
+  <p>{{ post.definitions[0].definition | truncatewords: 10 | markdownify }}</p>
   <p class="more-link">
     <a href="{{ post.url | relative_url }}">Definitions and examples &rarr;</a>
   </p>
