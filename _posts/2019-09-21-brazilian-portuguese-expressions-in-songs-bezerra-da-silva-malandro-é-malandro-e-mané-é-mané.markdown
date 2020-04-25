@@ -10,6 +10,8 @@ Songs are a great place to learn Brazilian Portuguese expressions. In today's po
 see some of the expressions from [Bezerra da Silva](https://pt.wikipedia.org/wiki/Bezerra_da_Silva)'s
 famous "Malandro é Malandro e Mané é Mané".
 
+<!--more-->
+
 <p markdown="1">
 E [malandro](/m/malandro/) é [malandro](/m/malandro/)<br/>
 [Mané](/m/mané/) é [mané](/m/mané/)<br/>

@@ -7,6 +7,8 @@ categories: blog
 
 After attending classes of some foreign language, speaking with native speakers you may realize they are not always able to understand what you want to say. And if you have ever met an exchange student trying to speak in your native  language, you may have noticed too that perhaps s/he doesn't sound very natural.
 
+<!--more-->
+
 Besides pronunciation, vocabulary, and being able to conjugate verbs, another thing that helps us to sound more natural in another language are local expressions. This includes slang, colloquialisms, regional expressions, and local jokes. Take the following example.
 
 - _Como está o café? (How's the coffee?)_

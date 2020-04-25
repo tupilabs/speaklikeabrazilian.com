@@ -8,6 +8,7 @@ github_username:  tupilabs
 author: Bruno P. Kinoshita
 
 show_excerpts: true
+excerpt_separator: "<!--more-->"
 
 markdown: kramdown
 theme: minima
