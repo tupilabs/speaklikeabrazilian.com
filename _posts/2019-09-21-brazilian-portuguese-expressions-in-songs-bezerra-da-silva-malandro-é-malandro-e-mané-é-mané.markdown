@@ -6,11 +6,13 @@ categories: blog
 note: Lyrics from [Letras.mus.br](https://www.letras.mus.br/bezerra-da-silva/44558/)
 ---
 
-Songs are a great place to learn Brazilian Portuguese expressions. In today's post, we will
-see some of the expressions from [Bezerra da Silva](https://pt.wikipedia.org/wiki/Bezerra_da_Silva)'s
-famous "Malandro é Malandro e Mané é Mané".
+Songs are a great way to learn Brazilian Portuguese expressions. In today's post, we will
+see some expressions from [Bezerra da Silva](https://pt.wikipedia.org/wiki/Bezerra_da_Silva)'s
+famous <span lang="pt-BR">"Malandro é Malandro e Mané é Mané"</span>.
 
 <!--more-->
+
+<div lang="pt-BR">
 
 <p markdown="1">
 E [malandro](/m/malandro/) é [malandro](/m/malandro/)<br/>
@@ -145,3 +147,5 @@ E [malandro](/m/malandro/) é [malandro](/m/malandro/)<br/>
 Olha aí!<br/>
 [Podes crer](/p/pode+crer/) que é!
 </p>
+
+</div>
