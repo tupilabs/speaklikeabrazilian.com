@@ -4,6 +4,10 @@ category: a
 title: "A gente chamando siri de meu bife"
 expression: "A gente chamando siri de meu bife"
 permalink: "/a/a+gente+chamando+siri+de+meu+bife/"
+variations:
+  - no aperto siri é bife
+alternate_spellings: # An array of other (mis)spellings for this expression
+  - agente chamando siri de meu bife
 definitions:
   - definition: |
       Its translation would be "We calling crab of my steak". It is used when you are in a situation
