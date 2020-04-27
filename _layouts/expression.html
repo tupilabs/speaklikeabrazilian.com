@@ -10,7 +10,7 @@ layout: default
 <div class="alternate-expressions">
     Alternate spellings:
     {%- for alternate_spelling in page.alternate_spellings -%}
-    <span class="chip">&ldquo;{{ alternate_spelling }}&rdquo;{% unless forloop.last %}, {% endunless %}</span>
+    <span class="chip" lang="pt-BR">&ldquo;{{ alternate_spelling }}&rdquo;{% unless forloop.last %}, {% endunless %}</span>
     {%- endfor -%}
 </div>
 {%- endif -%}
@@ -18,7 +18,7 @@ layout: default
 <div class="expression-variations">
     Expression variations:
     {%- for variation in page.variations -%}
-    <span class="chip">&ldquo;{{ variation }}&rdquo;{% unless forloop.last %}, {% endunless %}</span>
+    <span class="chip" lang="pt-BR">&ldquo;{{ variation }}&rdquo;{% unless forloop.last %}, {% endunless %}</span>
     {%- endfor -%}
 </div>
 {%- endif -%}
@@ -33,7 +33,7 @@ layout: default
 
     <div class="expression-example">
         <p class="title">Examples</p>
-        <em>{{ entry.example | markdownify }}</em>
+        <em lang="pt-BR">{{ entry.example | markdownify }}</em>
     </div>
 
     {%- if entry.videos and entry.videos.size > 0 -%}
