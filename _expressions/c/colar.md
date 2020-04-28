@@ -33,4 +33,12 @@ definitions:
       a professora.
     created: "2020-04-28T18:58:00"
     author: "kinow"
+  - definition: |
+      When used with a _vehicle_, it has the same meaning as _to tailgate_.
+    example: |
+      - Tem um imbecil **colado** na minha traseira.
+      
+      - Esse carro de trás deve estar com pressa, não pára de **colar** em mim.
+    created: "2020-04-28T19:02:00"
+    author: "kinow"
 ---
