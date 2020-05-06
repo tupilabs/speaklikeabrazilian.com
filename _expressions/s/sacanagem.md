@@ -7,7 +7,7 @@ permalink: "/s/sacanagem/"
 definitions:
   - definition: |
       A negative action, such as a dishonest one, especially if it affects someone, can be called a "sacanagem". The
-      person doing it is called a "sacana".
+      person doing it is called a "[sacana](/s/sacana/)".
     example: |
       - E daí ele puxou a cadeira bem na hora que ela ia sentar pra comer.
       - Mas que **sacanagem**!
