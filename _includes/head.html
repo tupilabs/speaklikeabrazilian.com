@@ -8,6 +8,8 @@
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
   {%- include google-analytics.html -%}
   {%- endif -%}
+  <!-- opensearch -->
+  <link rel="search" type="application/opensearchdescription+xml" title="Speak Like A Brazilian" href="/opensearch.xml">
   <!-- schema.org search -->
   <script type="application/ld+json">
     {
@@ -21,5 +23,6 @@
       }
     }
   </script>
+
 
 </head>
