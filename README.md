@@ -15,6 +15,8 @@ category: a # This is the letter collection name, values are a-z, and 0 for nume
 title: "A gente chamando siri de meu bife" # This is the page title
 expression: "A gente chamando siri de meu bife" # This is the expression display name
 permalink: "/a/a+gente+chamando+siri+de+meu+bife/" # This is the expression permanent link
+synonyms:
+  - urubu em guerra é frango
 variations:
   - no aperto siri é bife
 alternate_spellings: # An array of other (mis)spellings for this expression
