@@ -6,6 +6,14 @@ layout: default
 
 <h1 class="expression-text">{{ page.expression }}</h1>
 
+{%- if page.synonyms -%}
+<div class="synonyms">
+    Synonyms:
+    {%- for synonym in page.synonyms -%}
+    <span class="chip" lang="pt-BR">&ldquo;{{ synonym }}&rdquo;{% unless forloop.last %}, {% endunless %}</span>
+    {%- endfor -%}
+</div>
+{%- endif -%}
 {%- if page.alternate_spellings -%}
 <div class="alternate-expressions">
     Alternate spellings:
