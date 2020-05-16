@@ -1,4 +1,4 @@
-.alternate-expressions, .expression-variations, .synonyms {
+.alternate-expressions, .expression-variations, .expression-synonyms {
   margin-bottom: 10px;
   color: #444444;
 
@@ -32,6 +32,10 @@
   }
 
   .expression-example {
+    @include apply-margins();
+  }
+
+  .expression-synonyms {
     @include apply-margins();
   }
 

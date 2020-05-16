@@ -4,8 +4,6 @@ category: s
 title: "Sacana"
 expression: "Sacana"
 permalink: "/s/sacana/"
-synonyms:
-  - malandro
 definitions:
   - definition: |
       A person that does a "[sacanagem](/s/sacanagem/)".
@@ -17,5 +15,7 @@ definitions:
     example: |
       - Cuidado que ele é o maior **sacana**.
     created: "2020-05-06T17:19:00"
+    synonyms:
+      - Malandro
     author: "kinow"
 ---

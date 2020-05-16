@@ -18,6 +18,8 @@ definitions:
       - Se vocês ganharem do Flamengo tem um bichinho por fora...
       - **A gente chamando siri de meu bife**, uma fase ruim....
     created: "2020-04-18T18:56:00"
+    synonyms:
+      - Urubu em guerra é frango
     author: "kinow"
     videos:
       - title: Soccer program "Boleiragem", where Zé do Carmo uses this expression
