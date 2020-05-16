@@ -4,6 +4,8 @@ category: s
 title: "Sacana"
 expression: "Sacana"
 permalink: "/s/sacana/"
+synonyms:
+  - malandro
 definitions:
   - definition: |
       A person that does a "[sacanagem](/s/sacanagem/)".

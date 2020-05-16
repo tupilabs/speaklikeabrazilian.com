@@ -4,6 +4,8 @@ category: m
 title: "Malandro"
 expression: "Malandro"
 permalink: "/m/malandro/"
+synonyms:
+  - sacana
 definitions:
   - definition: |
       Someone who does not work, who is involved with crimes such as pickpocketing, drug selling, illegal gambling.
