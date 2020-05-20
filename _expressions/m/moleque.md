@@ -16,11 +16,11 @@ definitions:
       - pirralho
     author: "kinow"
   - definition: |
-        A prick. Normally used to address an adult who is irresponsible, or behaves like a child. 
-      example: |
-        - Aqui não tem **moleque** não!
-        
-        - Ai amiga, mas você foi se envolver com aquele **moleque**. Ele não é um homem de verdade.
-      created: "2020-05-20T19:41:00"
-      author: "kinow"
+      A prick. Normally used to address an adult who is irresponsible, or behaves like a child. 
+    example: |
+      - Aqui não tem **moleque** não!
+      
+      - Ai amiga, mas você foi se envolver com aquele **moleque**. Ele não é um homem de verdade.
+    created: "2020-05-20T19:41:00"
+    author: "kinow"
 ---
