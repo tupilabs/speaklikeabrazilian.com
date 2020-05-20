@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/sverrirs/jekyll-paginate-v2.git
+  revision: dfe6746d8329b382b74065086215be15ea367bd3
+  ref: v2.1.0
+  specs:
+    jekyll-paginate-v2 (2.1.0)
+      jekyll (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,8 +61,6 @@ GEM
       verbal_expressions (~> 0.1.5)
     jekyll-feed (0.11.0)
       jekyll (~> 3.3)
-    jekyll-paginate-v2 (2.1.0)
-      jekyll (~> 3.0)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
     jekyll-seo-tag (2.6.0)
@@ -114,9 +120,9 @@ DEPENDENCIES
   jekyll (~> 3.8.5)
   jekyll-algolia
   jekyll-feed (~> 0.6)
-  jekyll-paginate-v2 (~> 2.1)
+  jekyll-paginate-v2!
   minima (~> 2.0)
   tzinfo-data
 
 BUNDLED WITH
-   2.0.1
+   2.1.4
