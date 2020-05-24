@@ -10,7 +10,7 @@ jobs:
       - name: SCM
         uses: actions/checkout@v2
       - name: Build
-        uses: kinow/jekyll-builder-for-github-pages-action@master
+        uses: kinow/jekyll-builder-for-github-pages-action@e5ba93bb7fc7a86b7e1e8d02ff035fb1985ef27c
         env:
           JEKYLL_UID: 0
           JEKYLL_GID: 0
