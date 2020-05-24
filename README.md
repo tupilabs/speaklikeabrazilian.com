@@ -48,9 +48,11 @@ $ bundle exec jekyll serve -w --incremental
 
 ## Deploy
 
-Pushing to GitHub is the only requirement to update the site.
+Pushing to GitHub is the only requirement to update the site. We have a GitHub action that publishes
+the site when a commit is pushed to the `master` branch. It also takes care to update the Algolia
+search index.
 
-To update the search index, it needs a command similar to the following example:
+To update the search index locally, the following example command can be used:
 
 ```bash
 $ bundle exec jekyll build && ghp-import -p -r origin -b gh-pages _site/ && ALGOLIA_API_KEY=$ALGOLIA_KEY bundle exec jekyll algolia
