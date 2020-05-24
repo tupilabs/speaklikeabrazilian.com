@@ -10,12 +10,11 @@ jobs:
       - name: SCM
         uses: actions/checkout@v2
       - name: Build
-        uses: fabacab/jekyll-builder-for-github-pages-action@builder/3.8
+        uses: fabacab/jekyll-builder-for-github-pages-action@builder-3.8
         env:
           JEKYLL_UID: 0
           JEKYLL_GID: 0
           ALGOLIA_KEY: "${{ secrets.TEST_KEY }}"
-          DEBUG: "true"
         with:
           pre_build_commands: |
             gem install bundler
