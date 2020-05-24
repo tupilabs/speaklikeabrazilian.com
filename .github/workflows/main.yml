@@ -18,8 +18,9 @@ jobs:
           DEBUG: "true"
         with:
           pre_build_commands: |
+            gem install bundler
             gem install nokogiri
-            bundle install
+            bundle install && true
           post_build_commands: |
             echo "Updating Algolia index"
             ALGOLIA_API_KEY=${ALGOLIA_KEY} bundle exec jekyll algolia
