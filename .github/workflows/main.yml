@@ -18,6 +18,7 @@ jobs:
           DEBUG: "true"
         with:
           pre_build_commands: |
+            gem install nokogiri
             bundle install
           post_build_commands: |
             echo "Updating Algolia index"
