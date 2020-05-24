@@ -1,10 +1,10 @@
-name: Testing the GitHub Pages publication
+name: Build and deploy site to GitHub Pages
 on:
   push:
     branches:
       - master
 jobs:
-  jekyll:
+  gh-pages:
     runs-on: ubuntu-16.04
     steps:
       - uses: actions/checkout@v2
