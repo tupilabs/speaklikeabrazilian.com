@@ -10,7 +10,7 @@ jobs:
       - name: SCM
         uses: actions/checkout@v2
       - name: Build
-        uses: fabacab/jekyll-builder-for-github-pages-action@builder-3.8
+        uses: kinow/jekyll-builder-for-github-pages-action@master
         env:
           JEKYLL_UID: 0
           JEKYLL_GID: 0
