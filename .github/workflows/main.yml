@@ -1,0 +1,28 @@
+name: GitHub Pages
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCM
+        uses: actions/checkout@v2
+      - name: Build
+        uses: fabacab/jekyll-builder-for-github-pages-action@builder/3.8
+        env:
+          JEKYLL_UID: 0
+          JEKYLL_GID: 0
+          ALGOLIA_KEY: "${{ secrets.TEST_KEY }}"
+        with:
+          pre_build_commands: |
+            echo "Packaged bundler version: $(bundle --version)"
+            echo "Updating bundler..."
+            gem install bundler
+          post_build_commands: |
+            echo "Updating Algolia index"
+            ALGOLIA_API_KEY=${ALGOLIA_KEY} bundle exec jekyll algolia
+          secret_gh_pages_api_token: ${{ secrets.ACCESS_TOKEN }}
+          algolia_key: ${{ secrets.ALGOLIA_KEY }}
+          gh_pages_publishing_source: gh-pages
