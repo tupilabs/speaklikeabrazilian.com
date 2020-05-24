@@ -15,6 +15,7 @@ jobs:
           JEKYLL_UID: 0
           JEKYLL_GID: 0
           ALGOLIA_KEY: "${{ secrets.TEST_KEY }}"
+          DEBUG: "true"
         with:
           post_build_commands: |
             echo "Updating Algolia index"
