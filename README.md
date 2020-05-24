@@ -1,6 +1,7 @@
 # speaklikeabrazilian.com
 
 ![Build and deploy site to GitHub Pages](https://github.com/tupilabs/speaklikeabrazilian.com/workflows/Build%20and%20deploy%20site%20to%20GitHub%20Pages/badge.svg)
+[![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 A website with Brazilian Portuguese expressions. Content licensed under the
 [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](LICENSE.txt).
