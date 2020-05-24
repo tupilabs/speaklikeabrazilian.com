@@ -17,6 +17,8 @@ jobs:
           ALGOLIA_KEY: "${{ secrets.TEST_KEY }}"
           DEBUG: "true"
         with:
+          pre_build_commands: |
+            bundle install
           post_build_commands: |
             echo "Updating Algolia index"
             ALGOLIA_API_KEY=${ALGOLIA_KEY} bundle exec jekyll algolia
