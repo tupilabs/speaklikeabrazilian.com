@@ -20,8 +20,5 @@ jobs:
             gem install bundler
             gem install nokogiri
             bundle install && true
-          post_build_commands: |
-            echo "Updating Algolia index"
-            ALGOLIA_API_KEY=${ALGOLIA_KEY} bundle exec jekyll algolia
           secret_gh_pages_api_token: ${{ secrets.ACCESS_TOKEN }}
           gh_pages_publishing_source: gh-pages
