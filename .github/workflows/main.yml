@@ -18,6 +18,7 @@ jobs:
             ${{ runner.os }}-gems-
 
       # Standard usage
-      - uses:  helaili/jekyll-action@2.0.3
+      - uses:  ./github-action/
         env:
           JEKYLL_PAT: ${{ secrets.ACCESS_TOKEN }}
+          ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
