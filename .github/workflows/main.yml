@@ -18,7 +18,19 @@ jobs:
             ${{ runner.os }}-gems-
 
       # Standard usage
-      - uses:  ./github-action/
+      - uses:  helaili/jekyll-action@2.0.1
         env:
           JEKYLL_PAT: ${{ secrets.ACCESS_TOKEN }}
-          ALGOLIA_KEY: ${{ secrets.ALGOLIA_KEY }}
+
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.x
+      # Algolia search index
+      - name: Update Algolia index
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bundle exec jekyll algolia
+        env:
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_KEY }}
