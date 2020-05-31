@@ -2,6 +2,7 @@
 layout: post
 title: "We are redirecting you to the expression page"
 permalink: "/expression/define"
+nosocial: true
 ---
 
 You have reached this page because you have an old link to one of our Brazilian
