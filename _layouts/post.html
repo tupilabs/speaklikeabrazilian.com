@@ -25,5 +25,7 @@ layout: default
 
     <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 
+    {% if page.nosocial == false %}
     {% include social-page.html url=page.url title=page.title %}
+    {% endif %}
 </article>
