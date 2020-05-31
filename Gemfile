@@ -23,6 +23,8 @@ group :jekyll_plugins do
   gem "jekyll-paginate-v2", github: "sverrirs/jekyll-paginate-v2", :ref => "v2.1.0"
   gem 'jekyll-algolia'
   gem 'twitter_cldr'
+  gem 'jekyll-sitemap'
+  gem 'jekyll-last-modified-at'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

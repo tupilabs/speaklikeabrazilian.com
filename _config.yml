@@ -36,6 +36,11 @@ exclude:
 
 plugins:
 - jekyll-paginate-v2
+- jekyll-sitemap
+- jekyll-last-modified-at
+
+last-modified-at:
+  date-format: '%d-%b-%y'
 
 collections:
  expressions:
