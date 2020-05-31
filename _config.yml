@@ -15,6 +15,7 @@ theme: minima
 
 include:
   - expressions
+  - _pages
 
 exclude:
  - .idea/
