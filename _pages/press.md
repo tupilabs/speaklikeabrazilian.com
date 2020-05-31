@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Press information"
+title: "Press Information"
 date: 2020-05-31
 author: "Bruno P. Kinoshita"
 permalink: "/press"
