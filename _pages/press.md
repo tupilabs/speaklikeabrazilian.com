@@ -28,7 +28,8 @@ providing resources such as data that can be imported by users to create
 dictionaries, machine translation tools, or perform other natural language
 processing work.
 
-The website name can be abbreviated to SLBR.
+The website name can be abbreviated to SLBR. At the moment we are serving
+{{ site.expressions.size }} expressions.
 
 ## Press Contacts
 
