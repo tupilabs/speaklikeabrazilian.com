@@ -48,7 +48,7 @@ in the media, blogs, social media, and academia.
   * [link](https://forum.duolingo.com/comment/4523933/Funniest-Portuguese-language-sites)—**Duolingo** forum comment
   * [link](https://forum.duolingo.com/comment/14344552/It-would-be-nice-to-see-a-section-on-here-for-slang)—**Duolingo** forum comment
   * [link](https://www.italki.com/question/214568?hl=en-us)—**italki** forum comment
-  * **Really Learn Portuguese RLP** flashcard using SLBR data—[link](https://reallylearnportuguese.com/brazilian-flashcards/intermediate-and-advanced/)
+  * [link](https://reallylearnportuguese.com/brazilian-flashcards/intermediate-and-advanced/)—**Really Learn Portuguese RLP** flashcard using SLBR data
 - Twitter
   * [link](https://twitter.com/NASASpaceflight/status/847492209175707651)—Tweet from the **managing editor of NASASpaceFlight.com**
 - Hacker News
