@@ -46,6 +46,7 @@ in the media, blogs, social media, and academia.
 - Language learning websites
   * [link](https://www.fluentu.com/blog/portuguese/learn-portuguese-websites/)—**FluentU** post listing SLBR in "10 Websites That Make Learning Portuguese a Walk in the Park"
   * [link](https://forum.duolingo.com/comment/4523933/Funniest-Portuguese-language-sites)—**Duolingo** forum comment
+  * [link](https://forum.duolingo.com/comment/14344552/It-would-be-nice-to-see-a-section-on-here-for-slang)—**Duolingo** forum comment
   * [link](https://www.italki.com/question/214568?hl=en-us)—**italki** forum comment
   * **Really Learn Portuguese RLP** flashcard using SLBR data—[link](https://reallylearnportuguese.com/brazilian-flashcards/intermediate-and-advanced/)
 - Twitter
