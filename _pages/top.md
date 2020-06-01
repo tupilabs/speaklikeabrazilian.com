@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "We are redirecting you to the expression page"
+title: "We are redirecting you to our landing page"
 permalink: "/en/top"
 nosocial: true
 ---
