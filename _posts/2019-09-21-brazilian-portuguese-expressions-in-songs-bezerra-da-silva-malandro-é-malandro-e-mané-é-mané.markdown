@@ -6,6 +6,8 @@ categories: blog
 note: Lyrics from [Letras.mus.br](https://www.letras.mus.br/bezerra-da-silva/44558/)
 ---
 
+![](/assets/posts/{{ page.date | date: "%Y-%m-%d" }}-{{ page.title | slugify }}/bezerra.png)
+
 Songs are a great way to learn Brazilian Portuguese expressions. In today's post, we will
 see some expressions from [Bezerra da Silva](https://pt.wikipedia.org/wiki/Bezerra_da_Silva)'s
 famous <span lang="pt-BR">"Malandro é Malandro e Mané é Mané"</span>.
