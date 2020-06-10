@@ -36,6 +36,8 @@ definitions: # An array of definitions for this expression
       - urubu em guerra é frango
     created: "2020-04-18T18:56:00" # Date of the creation of the entry
     author: "kinow" # Author nickname
+    images: # An array of images for this expression
+      - urubu1.gif # This file must exist at /assets/images/expressions/{expression.permalink}/urubu1.gif
     videos: # An array of videos for this expression
       - title: Soccer program "Boleiragem", where Zé do Carmo uses this expression # Video display name
         link: https://youtu.be/S1H4Y8alLmo?t=1269 # Video link (in this case the link has the time parameter)
