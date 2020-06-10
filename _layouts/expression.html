@@ -45,6 +45,19 @@ layout: default
     </div>
     {%- endif -%}
 
+    {%- if entry.images and entry.images.size > 0 -%}
+    <div class="expression-images">
+        <p class="title">Images</p>
+        <ul>
+        {%- for image in entry.images -%}
+        <li>
+            <img src="/assets/images/expressions{{ page.permalink }}{{ image }}" alt="Image entered for expression {{ page.expression }}" />
+        </li>
+        {%- endfor -%}
+        </ul>
+    </div>
+    {%- endif -%}
+
     {%- if entry.videos and entry.videos.size > 0 -%}
     <div class="expression-videos">
         <p class="title">Videos</p>

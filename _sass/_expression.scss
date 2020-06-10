@@ -44,6 +44,21 @@
     color: $gray-text;
   }
 
+  .expression-images {
+    @include apply-margins();
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        img {
+          width: auto;
+          height: 100%;
+        }
+      }
+    }
+  }
+
   .expression-videos {
     @include apply-margins();
   }

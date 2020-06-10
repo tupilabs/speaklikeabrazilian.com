@@ -13,7 +13,9 @@ definitions:
       Used by both men and women.
     example: |
       - O Johnny não vem hoje de novo.
-      - [Caralho](/c/caralho/)! Estou de **saco cheio** dele e das faltas dele."
+      - [Caralho](/c/caralho/)! Estou de **saco cheio** dele e das faltas dele.
     created: "2012-09-04T18:34:56"
+    images:
+      - 'sacocheio1.gif'
     author: "kinow"
 ---
