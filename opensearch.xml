@@ -1,14 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
-                       xmlns:moz="http:/www.mozilla.org/2006/browser/search/">
-    <ShortName>Speak Like A Brazilian</ShortName>
-    <Description>Search Speak Like A Brazilian</Description>
-    <InputEncoding>UTF-8</InputEncoding>
-    <Url type="text/html" method="get" template="https://speaklikeabrazilian.com/search">
-        <Param name="query" value="{searchTerms}"/>
-    </Url>
-    <Url type="application/opensearchdescription+xml"
-         rel="self"
-         template="https://speaklikeabrazilian.com/opensearch.xml"/>
-    <moz:SearchForm>https://speaklikeabrazilian.com/search</moz:SearchForm>
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+<ShortName>Speak Like A Brazilian</ShortName>
+<Description>Search Speak Like A Brazilian</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Url type="text/html" method="get" template="https://speaklikeabrazilian.com/search?query={searchTerms}" />
 </OpenSearchDescription>
