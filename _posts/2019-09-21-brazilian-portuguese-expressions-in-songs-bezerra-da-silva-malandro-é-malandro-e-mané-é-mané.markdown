@@ -4,9 +4,10 @@ title:  "Brazilian Portuguese expressions in songs: “Bezerra da Silva, Malandr
 date:   2019-09-21 13:30:26 +1300
 categories: blog
 note: Lyrics from [Letras.mus.br](https://www.letras.mus.br/bezerra-da-silva/44558/)
+image: /assets/posts/2019-09-21-brazilian-portuguese-expressions-in-songs-bezerra-da-silva-malandro-é-malandro-e-mané-é-mané/bezerra.png
 ---
 
-![](/assets/posts/{{ page.date | date: "%Y-%m-%d" }}-{{ page.title | slugify }}/bezerra.png)
+![](/assets/posts/2019-09-21-brazilian-portuguese-expressions-in-songs-bezerra-da-silva-malandro-é-malandro-e-mané-é-mané/bezerra.png)
 
 Songs are a great way to learn Brazilian Portuguese expressions. In today's post, we will
 see some expressions from [Bezerra da Silva](https://pt.wikipedia.org/wiki/Bezerra_da_Silva)'s

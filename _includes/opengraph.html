@@ -1,0 +1,12 @@
+{%- if page.definitions and page.definitions.size > 0 -%}
+  {%- assign first_definition_with_image = nil -%}
+  {%- for definition in page.definitions -%}
+    {%- if definition.images and definition.images.size > 0 -%}
+      {%- assign first_definition_with_image = definition.images[0] -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if first_definition_with_image -%}
+<meta property="og:image" content="{{ site.url }}/assets/images/expressions{{ page.permalink }}{{ first_definition_with_image }}" />
+  {%- endif -%}
+{%- endif -%}
