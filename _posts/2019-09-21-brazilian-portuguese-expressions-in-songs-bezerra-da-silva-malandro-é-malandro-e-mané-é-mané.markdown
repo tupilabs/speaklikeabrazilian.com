@@ -11,7 +11,7 @@ note: Lyrics from [Letras.mus.br](https://www.letras.mus.br/bezerra-da-silva/445
   src="/assets/posts/2019-09-21-brazilian-portuguese-expressions-in-songs-bezerra-da-silva-malandro-é-malandro-e-mané-é-mané/bezerra.png"
   alt="Two illustrations of Bezerra da Silva"
   aria-label="Two illustrations of Bezerra da Silva"
-  style="max-width: 600px;"
+  style="max-width: 80%;"
   />
 </p>
 
