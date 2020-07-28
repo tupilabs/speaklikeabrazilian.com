@@ -22,6 +22,8 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem "jekyll-paginate-v2", github: "sverrirs/jekyll-paginate-v2", :ref => "v2.1.0"
   gem 'jekyll-algolia'
+  # security, used in algolia is 2.0, CVE-2020-10663
+  gem "json", ">= 2.3.0"
   gem 'twitter_cldr'
   gem 'jekyll-sitemap'
   gem 'jekyll-last-modified-at'

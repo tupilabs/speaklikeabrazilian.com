@@ -133,6 +133,7 @@ DEPENDENCIES
   jekyll-last-modified-at
   jekyll-paginate-v2!
   jekyll-sitemap
+  json (>= 2.3.0)
   minima (~> 2.0)
   twitter_cldr
   tzinfo-data
