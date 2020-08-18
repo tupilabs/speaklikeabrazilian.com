@@ -9,4 +9,6 @@ definitions:
     example: "- Olha o avi\u00e3ozinho de papel que eu fiz, \u00f3!\n- Orra [meu](/m/meu/), da hora!"
     created: "2012-09-04T16:09:21"
     author: "kinow"
+synonyms:
+  - daora
 ---
