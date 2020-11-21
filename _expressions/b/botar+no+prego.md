@@ -19,4 +19,7 @@ definitions:
       - **Bota no prego** Tião. Recebo na sexta-feira e venho pagar.
     created: "2020-11-22T11:43:15"
     author: "kinow"
+    videos:
+      - title: "Põe no prego"
+        link: https://www.youtube.com/watch?v=wSmYMBR9qUo
 ---
