@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Falar como um papagaio"
-expression: "Falar como um papagaio"
 permalink: "/f/falar+como+um+papagaio/"
 definitions:
   - definition: "To talk like a parrot, talk too much."

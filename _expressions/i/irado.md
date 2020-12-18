@@ -2,7 +2,6 @@
 layout: expression
 category: i
 title: "Irado"
-expression: "Irado"
 permalink: "/i/irado/"
 definitions:
   - definition: "When you are surprised about something that is cool or interesting (When you like something and you are excited about it). In addition, \"irado\" can be used when you are angry at someone else. However, when using the word \"Iradoo\" you do need to change your intonation as if you were really happy and surprised!"

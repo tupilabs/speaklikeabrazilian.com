@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Caixa prego"
-expression: "Caixa prego"
 permalink: "/c/caixa+prego/"
 definitions:
   - definition: "Expression common in the South of Brazil, meaning a distant place. There literal translation is nail box, and makes no sense syntactic or morphologically."

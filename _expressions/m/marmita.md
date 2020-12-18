@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Marmita"
-expression: "Marmita"
 permalink: "/m/marmita/"
 definitions:
   - definition: |

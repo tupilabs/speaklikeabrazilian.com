@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "Jogar bola"
-expression: "Jogar bola"
 permalink: "/j/jogar+bola/"
 definitions:
   - definition: "Play soccer."

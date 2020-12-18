@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bola fora"
-expression: "Bola fora"
 permalink: "/b/bola+fora/"
 definitions:
   - definition: "To put your foot in it. When you say or do something tactless, or that (will/can) embarrass you."

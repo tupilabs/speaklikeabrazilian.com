@@ -2,7 +2,6 @@
 layout: expression
 category: q
 title: "Quebrada"
-expression: "Quebrada"
 permalink: "/q/quebrada/"
 definitions:
   - definition: "a rough neighborhood, slum, favela, hood"

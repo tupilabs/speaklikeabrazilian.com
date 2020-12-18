@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Meia boca"
-expression: "Meia boca"
 permalink: "/m/meia+boca/"
 definitions:
   - definition: "The meaning has nothing to do with the translation. The translation is \"half mouth\" and the meaning is \"more or less\", but in a pejorative way."

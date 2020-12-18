@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cafuné"
-expression: "Cafun\u00e9"
 permalink: "/c/cafun%C3%A9/"
 definitions:
   - definition: "The act of tenderly running fingers through someone's hair."

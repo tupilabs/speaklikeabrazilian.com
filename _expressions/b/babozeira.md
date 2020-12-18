@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Babozeira"
-expression: "Babozeira"
 permalink: "/b/babozeira/"
 definitions:
   - definition: "Bullshit. Although both have same meaning, babozeira has a slightly more okay use. You could use babozeira when talking to your mom, for example."

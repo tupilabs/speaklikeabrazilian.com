@@ -2,7 +2,6 @@
 layout: expression
 category: q
 title: "Quatro olho"
-expression: "Quatro olho"
 permalink: "/q/quatro+olho/"
 definitions:
   - definition: "Someone that it needs glasses to see well"

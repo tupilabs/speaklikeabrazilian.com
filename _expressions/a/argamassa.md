@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Argamassa"
-expression: "Argamassa"
 permalink: "/a/argamassa/"
 definitions:
   - definition: "\"Argamassa\" is a civil construction material. In English its name is mortar, or grout."

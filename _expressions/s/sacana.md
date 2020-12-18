@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sacana"
-expression: "Sacana"
 permalink: "/s/sacana/"
 definitions:
   - definition: |

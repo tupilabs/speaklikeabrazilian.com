@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Abraça"
-expression: "Abraça"
 permalink: "/a/abraça/"
 definitions:
   - definition: |

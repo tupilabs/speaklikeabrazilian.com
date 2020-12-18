@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pulo do gato"
-expression: "Pulo do gato"
 permalink: "/p/pulo+do+gato/"
 definitions:
   - definition: |

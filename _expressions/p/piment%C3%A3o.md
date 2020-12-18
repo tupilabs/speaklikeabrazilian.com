@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pimentão"
-expression: "Piment\u00e3o"
 permalink: "/p/piment%C3%A3o/"
 definitions:
   - definition: "Peperoni"

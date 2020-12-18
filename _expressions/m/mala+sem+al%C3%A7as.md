@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mala sem alças"
-expression: "Mala sem al\u00e7as"
 permalink: "/m/mala+sem+al%C3%A7as/"
 definitions:
   - definition: "Mala sem al\u00e7as (suitcase without handles) is someone that is very annoying (you can imagine how annoying is a suitcase without handles, right?)."

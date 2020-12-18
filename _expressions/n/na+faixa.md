@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Na faixa"
-expression: "Na faixa"
 permalink: "/n/na+faixa/"
 definitions:
   - definition: "Free. You can use it to replace \"de gra\u00e7a\" (for free), in an expression."

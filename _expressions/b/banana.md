@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Banana"
-expression: "Banana"
 permalink: "/b/banana/"
 definitions:
   - definition: "A foolish person, that doesn't react when is bullied. Ned Flanders is the perfect example of a \"banana\". A \"banana\" is sometimes too good to someone, even when this person doesn't deserve."

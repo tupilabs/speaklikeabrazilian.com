@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Deitar cabelo"
-expression: "Deitar cabelo"
 permalink: "/d/deitar+cabelo/"
 definitions:
   - definition: "\"Lay down your hair\". Means to go really fast."

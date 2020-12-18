@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "BV"
-expression: "BV"
 permalink: "/b/bv/"
 definitions:
   - definition: |

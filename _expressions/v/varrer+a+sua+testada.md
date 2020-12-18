@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Varrer a sua testada"
-expression: "Varrer a sua testada"
 permalink: "/v/varrer+a+sua+testada/"
 definitions:
   - definition: "To find excuses in order to avoid chores, responsibilities. Find a way to avoid being blamed for something."

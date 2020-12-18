@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Perrengue"
-expression: "Perrengue"
 permalink: "/p/perrengue/"
 definitions:
   - definition: "A complicated situation."

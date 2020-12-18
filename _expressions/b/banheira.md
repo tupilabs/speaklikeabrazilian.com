@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Banheira"
-expression: "Banheira"
 permalink: "/b/banheira/"
 definitions:
   - definition: "\"Banheiras\" are soccer players, usually strikers, that don't help the team defending, and usually linger around the opponents' penalty area. The meaning of \"banheira\" is \"tub\", or \"bath\"."

@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Comer Água"
-expression: "Comer \u00c1gua"
 permalink: "/c/comer+%C3%A1gua/"
 definitions:
   - definition: "Drinking a lot! Is a common slang known in northeast."

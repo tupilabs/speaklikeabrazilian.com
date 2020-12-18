@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Âncora"
-expression: "\u00c2ncora"
 permalink: "/a/%C3%A2ncora/"
 definitions:
   - definition: "The worst player in a team. He is the one responsible for \"sinking the team\" ([afundar o time](/a/afundar+o+time/))."

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Prima"
-expression: "Prima"
 permalink: "/p/prima/"
 definitions:
   - definition: "A slut or hooker. Only the feminine has this meaning, i.e. primo is just a cousin."

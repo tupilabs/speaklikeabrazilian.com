@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Encucado"
-expression: "Encucado"
 permalink: "/e/encucado/"
 definitions:
   - definition: "Worried. It is not really formal, but can be used at work, with friends, family, superiors."

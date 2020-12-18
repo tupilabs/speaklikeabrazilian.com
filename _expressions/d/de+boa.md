@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "De boa"
-expression: "De boa"
 permalink: "/d/de+boa/"
 definitions:
   - definition: "\"De boa\" can be used as answer for \"Beleza?\". Or you can use it to refer to someone who is in a good situation."

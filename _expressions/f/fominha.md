@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fominha"
-expression: "Fominha"
 permalink: "/f/fominha/"
 definitions:
   - definition: "A soccer player that doesn't pass the ball."

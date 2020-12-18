@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pé no saco"
-expression: "P\u00e9 no saco"
 permalink: "/p/p%C3%A9+no+saco/"
 definitions:
   - definition: "An annoying person. The translation is \"feet on your balls\"."

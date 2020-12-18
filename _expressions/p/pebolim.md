@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pebolim"
-expression: "Pebolim"
 permalink: "/p/pebolim/"
 definitions:
   - definition: "Table soccer, table football, foosball."

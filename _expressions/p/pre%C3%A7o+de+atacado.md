@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Preço de atacado"
-expression: "Pre\u00e7o de atacado"
 permalink: "/p/pre%C3%A7o+de+atacado/"
 definitions:
   - definition: "Wholesale price."

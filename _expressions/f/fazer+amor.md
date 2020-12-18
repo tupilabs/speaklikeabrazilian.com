@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer amor"
-expression: "Fazer amor"
 permalink: "/f/fazer+amor/"
 definitions:
   - definition: "Make love."

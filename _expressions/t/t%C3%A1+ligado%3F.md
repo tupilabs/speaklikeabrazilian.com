@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tá ligado?"
-expression: "T\u00e1 ligado?"
 permalink: "/t/t%C3%A1+ligado%3F/"
 definitions:
   - definition: "Did you get it? You know what I mean?"

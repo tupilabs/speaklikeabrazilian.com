@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "À risca"
-expression: "À risca"
 permalink: "/a/à+risca/"
 definitions:
   - definition: "Literally, exactly, precisely, without any changes to instructions."

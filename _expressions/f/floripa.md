@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Floripa"
-expression: "Floripa"
 permalink: "/f/floripa/"
 definitions:
   - definition: "Florian\u00f3polis City, located in Santa Catarina State."

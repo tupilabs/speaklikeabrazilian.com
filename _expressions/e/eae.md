@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Eae"
-expression: "Eae"
 permalink: "/e/eae/"
 alternate_spellings:
   - eaí

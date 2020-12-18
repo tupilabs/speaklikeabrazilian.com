@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fulano"
-expression: "Fulano"
 permalink: "/f/fulano/"
 definitions:
   - definition: |

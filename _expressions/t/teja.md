@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Teja"
-expression: "Teja"
 permalink: "/t/teja/"
 definitions:
   - definition: "Shortened version of \"Esteja\" (verb to be)."

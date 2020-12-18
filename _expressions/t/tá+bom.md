@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tá bom"
-expression: "Tá bom"
 permalink: "/t/tá+bom/"
 definitions:
   - definition: |

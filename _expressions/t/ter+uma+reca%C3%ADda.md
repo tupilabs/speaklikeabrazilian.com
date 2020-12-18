@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Ter uma recaída"
-expression: "Ter uma reca\u00edda"
 permalink: "/t/ter+uma+reca%C3%ADda/"
 definitions:
   - definition: "Fall off the wagon"

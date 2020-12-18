@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Baranga"
-expression: "Baranga"
 permalink: "/b/baranga/"
 definitions:
   - definition: "An ugly woman."

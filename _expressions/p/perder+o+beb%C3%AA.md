@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Perder o bebê"
-expression: "Perder o beb\u00ea"
 permalink: "/p/perder+o+beb%C3%AA/"
 definitions:
   - definition: "Same as have a miscarriage."

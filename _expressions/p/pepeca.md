@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pepeca"
-expression: "Pepeca"
 permalink: "/p/pepeca/"
 definitions:
   - definition: "Something small. Used more with kids."

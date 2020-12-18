@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cadinho"
-expression: "Cadinho"
 permalink: "/c/cadinho/"
 alternate_spellings:
   - bocadinho

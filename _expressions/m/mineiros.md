@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mineiros"
-expression: "Mineiros"
 permalink: "/m/mineiros/"
 definitions:
   - definition: "People from Minas Gerais."

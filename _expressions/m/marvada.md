@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Marvada"
-expression: "Marvada"
 permalink: "/m/marvada/"
 definitions:
   - definition: |

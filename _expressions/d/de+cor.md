@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "De cor"
-expression: "De cor"
 permalink: "/d/de+cor/"
 definitions:
   - definition: |

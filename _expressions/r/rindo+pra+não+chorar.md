@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rindo pra não chorar"
-expression: "Rindo pra não chorar"
 permalink: "/r/rindo+pra+não+chorar/"
 definitions:
   - definition: |

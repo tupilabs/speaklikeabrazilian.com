@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Escuta"
-expression: "Escuta"
 permalink: "/e/escuta/"
 definitions:
   - definition: |

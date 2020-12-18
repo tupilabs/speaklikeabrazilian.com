@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Embaçado"
-expression: "Emba\u00e7ado"
 permalink: "/e/emba%C3%A7ado/"
 definitions:
   - definition: "\"Emba\u00e7ar\" is a verb that means \"to blur\". However, both \"embassado\" and \"emba\u00e7ado\" can also mean that something is hard, or complicated."

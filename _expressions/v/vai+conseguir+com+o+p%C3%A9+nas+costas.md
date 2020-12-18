@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vai conseguir com o pé nas costas"
-expression: "Vai conseguir com o p\u00e9 nas costas"
 permalink: "/v/vai+conseguir+com+o+p%C3%A9+nas+costas/"
 definitions:
   - definition: "S/he will win hands down. \n\nThe literal translation would be something like s/he will win with his/her foot on his/her back."

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mala"
-expression: "Mala"
 permalink: "/m/mala/"
 definitions:
   - definition: "An annoying person."

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pé de meia"
-expression: "Pé de meia"
 permalink: "/p/pé+de+meia/"
 definitions:
   - definition: |

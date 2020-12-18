@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pograma"
-expression: "Pograma"
 permalink: "/p/pograma/"
 definitions:
   - definition: "Mispronunciation of programa (program)."

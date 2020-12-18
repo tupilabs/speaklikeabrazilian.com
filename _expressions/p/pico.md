@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pico"
-expression: "Pico"
 permalink: "/p/pico/"
 definitions:
   - definition: "A place."

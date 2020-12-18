@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rolinho"
-expression: "Rolinho"
 permalink: "/r/rolinho/"
 synonyms:
   - caneta

@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar curso a algo"
-expression: "Dar curso a algo"
 permalink: "/d/dar+curso+a+algo/"
 definitions:
   - definition: "To proceed with something. To carry out something."

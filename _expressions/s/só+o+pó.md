@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Só o pó"
-expression: "Só o pó"
 permalink: "/s/só+o+pó/"
 definitions:
   - definition: |

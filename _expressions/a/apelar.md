@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Apelar"
-expression: "Apelar"
 permalink: "/a/apelar/"
 definitions:
   - definition: "Apelar has several meanings, but when used to describe TV shows, it has similar meaning to \"jump the shark\". "

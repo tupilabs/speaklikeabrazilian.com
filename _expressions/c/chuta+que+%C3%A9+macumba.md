@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chuta que é macumba"
-expression: "Chuta que \u00e9 macumba"
 permalink: "/c/chuta+que+%C3%A9+macumba/"
 definitions:
   - definition: "This is a very funny expression. It means \"Kick it, it is witchcraft!\". Macumba is a ritual in some religions where food, dead chicken, candles and other things are offered to gods or spirits. \n\nThis expression is used to show disagreement with bad luck, or to show that something is ugly or must be avoided."

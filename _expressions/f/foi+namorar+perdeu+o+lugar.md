@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Foi namorar perdeu o lugar"
-expression: "Foi namorar perdeu o lugar"
 permalink: "/f/foi+namorar+perdeu+o+lugar/"
 definitions:
   - definition: |

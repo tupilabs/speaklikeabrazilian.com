@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Saudade"
-expression: "Saudade"
 permalink: "/s/saudade/"
 definitions:
   - definition: |

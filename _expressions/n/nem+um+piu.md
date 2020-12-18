@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Nem um piu"
-expression: "Nem um piu"
 permalink: "/n/nem+um+piu/"
 definitions:
   - definition: "Not a sound. What sometimes your mother tells you when she's on the phone and doesn't want to listen another sound."

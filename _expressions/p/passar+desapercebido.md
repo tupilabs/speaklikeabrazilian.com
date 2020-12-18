@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Passar desapercebido"
-expression: "Passar desapercebido"
 permalink: "/p/passar+desapercebido/"
 definitions:
   - definition: "Fly under the radar, to go unnoticed."

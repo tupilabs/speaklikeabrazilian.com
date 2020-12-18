@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chá de bebê"
-expression: "Ch\u00e1 de beb\u00ea"
 permalink: "/c/ch%C3%A1+de+beb%C3%AA/"
 definitions:
   - definition: "A baby shower."

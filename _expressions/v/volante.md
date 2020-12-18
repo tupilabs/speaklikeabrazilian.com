@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Volante"
-expression: "Volante"
 permalink: "/v/volante/"
 definitions:
   - definition: "A lottery ticket. One of those tickets that you can fill your numbers in. "

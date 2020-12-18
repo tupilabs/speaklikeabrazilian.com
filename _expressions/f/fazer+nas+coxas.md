@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer nas coxas"
-expression: "Fazer nas coxas"
 permalink: "/f/fazer+nas+coxas/"
 definitions:
   - definition: "To make something with poor quality."

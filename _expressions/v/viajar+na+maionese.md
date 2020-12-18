@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Viajar na maionese"
-expression: "Viajar na maionese"
 permalink: "/v/viajar+na+maionese/"
 definitions:
   - definition: "To space out, or daydream."

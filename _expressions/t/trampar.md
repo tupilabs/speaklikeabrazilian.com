@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Trampar"
-expression: "Trampar"
 permalink: "/t/trampar/"
 definitions:
   - definition: "To work, to labour."

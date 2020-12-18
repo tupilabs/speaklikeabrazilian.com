@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mané"
-expression: "Mané"
 permalink: "/m/mané/"
 definitions:
   - definition: "A stupid person or someone that is easy to be tricked."

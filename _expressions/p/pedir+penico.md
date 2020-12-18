@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pedir penico"
-expression: "Pedir penico"
 permalink: "/p/pedir+penico/"
 definitions:
   - definition: "To give up. It translates as \"ask for the chamber-pot\". That's also what most older brothers force the younger ones to say when they are bullying them."

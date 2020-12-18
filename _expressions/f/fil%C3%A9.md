@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Filé"
-expression: "Fil\u00e9"
 permalink: "/f/fil%C3%A9/"
 definitions:
   - definition: "A beautiful woman. Probably it has some relation to a fillet (fil\u00e9) being tasty ([gostosa](/g/gostosa/) (o))."

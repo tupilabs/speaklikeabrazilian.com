@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Viado"
-expression: "Viado"
 permalink: "/v/viado/"
 definitions:
   - definition: "An offensive word for a gay male. It also can be used among friends."

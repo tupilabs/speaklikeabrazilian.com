@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bufunfa"
-expression: "Bufunfa"
 permalink: "/b/bufunfa/"
 definitions:
   - definition: "Slang for money."

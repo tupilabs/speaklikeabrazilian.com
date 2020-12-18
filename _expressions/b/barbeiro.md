@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Barbeiro"
-expression: "Barbeiro"
 permalink: "/b/barbeiro/"
 definitions:
   - definition: "A bad driver. The translation is \"barber\", and it also the name of an insect. Take care with the context when using this word."

@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tempestade em copo d'água"
-expression: "Tempestade em copo d'\u00e1gua"
 permalink: "/t/tempestade+em+copo+d%27%C3%A1gua/"
 definitions:
   - definition: "Tempest in a teacup, means to make a big deal about something that's not a huge deal."

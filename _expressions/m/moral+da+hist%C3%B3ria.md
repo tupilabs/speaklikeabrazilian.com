@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Moral da história"
-expression: "Moral da hist\u00f3ria"
 permalink: "/m/moral+da+hist%C3%B3ria/"
 definitions:
   - definition: "Moral of the story"

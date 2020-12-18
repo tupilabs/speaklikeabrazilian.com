@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tirar a água do joelho"
-expression: "Tirar a \u00e1gua do joelho"
 permalink: "/t/tirar+a+%C3%A1gua+do+joelho/"
 definitions:
   - definition: "To pee.\nTo urinate."

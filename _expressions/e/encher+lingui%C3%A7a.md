@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Encher linguiça"
-expression: "Encher lingui\u00e7a"
 permalink: "/e/encher+lingui%C3%A7a/"
 definitions:
   - definition: "To ramble, talk jiberish just to fill space with meaningless stuff."

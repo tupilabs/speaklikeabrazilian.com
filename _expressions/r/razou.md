@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Razou"
-expression: "Razou"
 permalink: "/r/razou/"
 definitions:
   - definition: |

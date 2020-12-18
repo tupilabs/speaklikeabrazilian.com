@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Toma que o filho é teu!"
-expression: "Toma que o filho \u00e9 teu!"
 permalink: "/t/toma+que+o+filho+%C3%A9+teu%21/"
 definitions:
   - definition: "\"Take him, because it is your son!\". The opposite of holding the hot potato (Segurar uma batata quente): giving the bad situation back to the person that is responsible for that."

@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Casa de ferreiro, espeto de pau"
-expression: "Casa de ferreiro, espeto de pau"
 permalink: "/c/casa+de+ferreiro%2C+espeto+de+pau/"
 definitions:
   - definition: "Same meaning as 'the shoemaker's kids go barefoot', as when someone is a very talented chef at some restaurant, but only cooks noodles at home."

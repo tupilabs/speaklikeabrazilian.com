@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Reta final"
-expression: "Reta final"
 permalink: "/r/reta+final/"
 definitions:
   - definition: "Homestretch, or in the home straight."

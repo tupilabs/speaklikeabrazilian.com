@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vamo que vamo"
-expression: "Vamo que vamo"
 permalink: "/v/vamo+que+vamo/"
 definitions:
   - definition: |

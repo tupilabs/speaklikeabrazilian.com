@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Ficar gagá"
-expression: "Ficar gag\u00e1"
 permalink: "/f/ficar+gag%C3%A1/"
 definitions:
   - definition: "Lose your marbles, start to forget things because you are getting old, or start acting weird due to some mental illness."

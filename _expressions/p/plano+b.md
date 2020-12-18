@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Plano B"
-expression: "Plano B"
 permalink: "/p/plano+b/"
 definitions:
   - definition: "Plan B."

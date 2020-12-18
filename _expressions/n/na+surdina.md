@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Na surdina"
-expression: "Na surdina"
 permalink: "/n/na+surdina/"
 definitions:
   - definition: |

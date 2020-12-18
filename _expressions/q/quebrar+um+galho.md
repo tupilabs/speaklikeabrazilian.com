@@ -2,7 +2,6 @@
 layout: expression
 category: q
 title: "Quebrar um galho"
-expression: "Quebrar um galho"
 permalink: "/q/quebrar+um+galho/"
 definitions:
   - definition: "The translation for this is \"break a twig\", and the meaning is improvise."

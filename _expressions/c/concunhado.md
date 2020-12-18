@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Concunhado"
-expression: "Concunhado"
 permalink: "/c/concunhado/"
 definitions:
   - definition: "A \"cunhado\" or \"cunhada\" is your brother or sister in law. And a \"concunhado\" (a) would be your brother-in-law's wife, or your sister-in-law's husband."

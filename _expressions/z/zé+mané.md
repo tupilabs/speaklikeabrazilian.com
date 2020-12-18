@@ -2,7 +2,6 @@
 layout: expression
 category: z
 title: "Zé Mané"
-expression: "Zé Mané"
 permalink: "/z/zé+mané/"
 definitions:
   - definition: |

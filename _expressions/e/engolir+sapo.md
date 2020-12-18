@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Engolir sapo"
-expression: "Engolir sapo"
 permalink: "/e/engolir+sapo/"
 definitions:
   - definition: "Having to bear unpleasant things without protesting."

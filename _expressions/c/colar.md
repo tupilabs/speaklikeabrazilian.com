@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Colar"
-expression: "Colar"
 permalink: "/c/colar/"
 definitions:
   - definition: |

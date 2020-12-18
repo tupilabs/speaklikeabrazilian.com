@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Galega"
-expression: "Galega"
 permalink: "/g/galega/"
 definitions:
   - definition: "A blonde woman."

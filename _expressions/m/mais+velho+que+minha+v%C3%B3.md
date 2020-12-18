@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mais velho que minha vó"
-expression: "Mais velho que minha v\u00f3"
 permalink: "/m/mais+velho+que+minha+v%C3%B3/"
 definitions:
   - definition: "As old as the hills. Something that is very old."

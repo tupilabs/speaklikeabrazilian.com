@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dragão"
-expression: "Drag\u00e3o"
 permalink: "/d/drag%C3%A3o/"
 definitions:
   - definition: "Some ugly lady. If you are hanging out with some lads and you spot a really ugly lady."

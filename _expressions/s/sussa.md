@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sussa"
-expression: "Sussa"
 permalink: "/s/sussa/"
 definitions:
   - definition: "A leet way of saying Suave, or Sossegada. Pot heads and surfers use this word a lot too."

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sete pecados capitais."
-expression: "Sete pecados capitais."
 permalink: "/s/sete+pecados+capitais./"
 definitions:
   - definition: "Seven godly sins"

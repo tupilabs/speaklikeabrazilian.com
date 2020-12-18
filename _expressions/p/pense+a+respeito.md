@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pense a respeito"
-expression: "Pense a respeito"
 permalink: "/p/pense+a+respeito/"
 definitions:
   - definition: "Sleep on it"

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mandar a real"
-expression: "Mandar a real"
 permalink: "/m/mandar+a+real/"
 definitions:
   - definition: "To tell the truth. Normally used in a conversation when one wants to describe or explain something. Informal expression."

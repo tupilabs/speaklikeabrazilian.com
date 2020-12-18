@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mermão"
-expression: "Merm\u00e3o"
 permalink: "/m/merm%C3%A3o/"
 definitions:
   - definition: "Shortened version of \"Meu irm\u00e3o\", or my brother / my bro. Used to refer to somebody."

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Puta que pariu"
-expression: "Puta que pariu"
 permalink: "/p/puta+que+pariu/"
 definitions:
   - definition: "\"Puta que pariu\" means \"whore who gave birth\", and you can use it as an insult  or as a simple interjection."

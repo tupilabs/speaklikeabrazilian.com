@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Entregar a rapadura"
-expression: "Entregar a rapadura"
 permalink: "/e/entregar+a+rapadura/"
 definitions:
   - definition: "\"Entregar a rapadura\" (give up the rapadura, give the rapadura to someone else) is the act of giving up, or losing, a competition or match where you were the favorite to win."

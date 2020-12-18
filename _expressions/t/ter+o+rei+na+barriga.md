@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Ter o rei na barriga"
-expression: "Ter o rei na barriga"
 permalink: "/t/ter+o+rei+na+barriga/"
 definitions:
   - definition: "To be arrogant, full of oneself."

@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Aeroporto de mosquitos"
-expression: "Aeroporto de mosquitos"
 permalink: "/a/aeroporto+de+mosquitos/"
 definitions:
   - definition: "Aeroporto de mosquitos (\"mosquitoes airport\") is a diminutive way of addressing a bald man."

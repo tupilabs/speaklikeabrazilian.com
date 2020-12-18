@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bem feito"
-expression: "Bem feito"
 permalink: "/b/bem+feito/"
 definitions:
   - definition: "This expression is used to say that someone deserved what happened to him."

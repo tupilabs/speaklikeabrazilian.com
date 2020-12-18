@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cachorro magro"
-expression: "Cachorro magro"
 permalink: "/c/cachorro+magro/"
 definitions:
   - definition: "A \"skinny dog\" or \"thin dog\" is someone who comes to your house only to eat. They usually arrive, do some small talk, eat and disappear right after of that.\r\n\r\nThe expression comes from when you feed a skinny dog. They are usually afraid, and grab the food and rush away with it."

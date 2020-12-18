@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Espanhola"
-expression: "Espanhola"
 permalink: "/e/espanhola/"
 definitions:
   - definition: "Titfuck."

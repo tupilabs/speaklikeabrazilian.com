@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Paredão"
-expression: "Paredão"
 permalink: "/p/paredão/"
 definitions:
   - definition: "Name in Portuguese of the event in Big Brother where people get to choose someone for eviction."

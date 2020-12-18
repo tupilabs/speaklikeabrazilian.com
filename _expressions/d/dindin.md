@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dindin"
-expression: "Dindin"
 permalink: "/d/dindin/"
 definitions:
   - definition: "Dindin or din din is how cariocas (people native of Rio de Janeiro) call an iceckle. It's literally a small,  skinny rectangular-shape plastic bag filled with fruit juice and then frozen. The person then punctures the bag to suck or eat the \"Dindin\"."

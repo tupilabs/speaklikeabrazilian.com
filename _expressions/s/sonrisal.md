@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sonrisal"
-expression: "Sonrisal"
 permalink: "/s/sonrisal/"
 definitions:
   - definition: |

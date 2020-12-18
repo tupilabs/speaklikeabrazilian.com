@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pepino"
-expression: "Pepino"
 permalink: "/p/pepino/"
 definitions:
   - definition: "A big problem."

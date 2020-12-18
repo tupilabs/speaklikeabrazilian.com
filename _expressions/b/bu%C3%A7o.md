@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Buço"
-expression: "Bu\u00e7o"
 permalink: "/b/bu%C3%A7o/"
 definitions:
   - definition: "Women's mustache."

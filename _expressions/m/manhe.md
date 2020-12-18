@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Manhe"
-expression: "Manhe"
 permalink: "/m/manhe/"
 definitions:
   - definition: "A childish way of saying mom. Kind of like mommy."

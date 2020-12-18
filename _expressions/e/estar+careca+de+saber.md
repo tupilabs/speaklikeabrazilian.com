@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Estar careca de saber"
-expression: "Estar careca de saber"
 permalink: "/e/estar+careca+de+saber/"
 definitions:
   - definition: "To know damn well, to know frigging well, to know perfectly well."

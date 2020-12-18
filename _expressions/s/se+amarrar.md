@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Se amarrar"
-expression: "Se amarrar"
 permalink: "/s/se+amarrar/"
 definitions:
   - definition: |

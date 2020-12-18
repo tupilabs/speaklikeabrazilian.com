@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Boiar"
-expression: "Boiar"
 permalink: "/b/boiar/"
 definitions:
   - definition: "Do not understand something, or miss the point of a joke."

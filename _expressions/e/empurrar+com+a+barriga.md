@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Empurrar com a barriga"
-expression: "Empurrar com a barriga"
 permalink: "/e/empurrar+com+a+barriga/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Brazuca"
-expression: "Brazuca"
 permalink: "/b/brazuca/"
 definitions:
   - definition: "Slang for \"Brasileiro\" (Brazilian)."

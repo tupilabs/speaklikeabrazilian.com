@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Furada"
-expression: "Furada"
 permalink: "/f/furada/"
 definitions:
   - definition: "There are two means (or more):\r\n1) When you are doing (or will do) something boring, it is not enjoyable! Normally associated with riding, or parties, but can be used for any situation.\r\n2) when the soccer player can't kick the ball, he tried to kick, but for disability his feet can't touch the ball."

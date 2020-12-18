@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rede"
-expression: "Rede"
 permalink: "/r/rede/"
 definitions:
   - definition: "Hamaca"

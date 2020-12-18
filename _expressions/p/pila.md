@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pila"
-expression: "Pila"
 permalink: "/p/pila/"
 definitions:
   - definition: "Money."

@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Boca de bueiro"
-expression: "Boca de bueiro"
 permalink: "/b/boca+de+bueiro/"
 definitions:
   - definition: "Someone with really bad breath. The translation is equivalent to Manhole's Mouth, which sounds quite funny in Portuguese."

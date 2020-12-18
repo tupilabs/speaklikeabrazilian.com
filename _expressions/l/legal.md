@@ -2,7 +2,6 @@
 layout: expression
 category: l
 title: "Legal"
-expression: "Legal"
 permalink: "/l/legal/"
 definitions:
   - definition: "Cool, awesome, sweet as."

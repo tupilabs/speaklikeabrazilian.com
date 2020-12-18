@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tirar um sarro"
-expression: "Tirar um sarro"
 permalink: "/t/tirar+um+sarro/"
 definitions:
   #- definition: "Tomar el pelo de alguien, estar de pitorreo. No confundir con el verbo \"sarrar\" o el substantivo \"sarro\", que significa (todav\u00eda en sentido metaf\u00f3rico) hacer sexo, o praticamente estar haciendo sexo mientras si se estan abrazados de forma muy caliente. En el sentido literal, \"sarro\" es el residuo que queda en un pipa tras fumarse."

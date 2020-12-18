@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rodinho de pia"
-expression: "Rodinho de pia"
 permalink: "/r/rodinho+de+pia/"
 definitions:
   - definition: "A squeegee. \"Rodinho\" is the diminutive of \"rodo\" (squeegee). Both \"rodo\" and \"rodinho\" are used, but the latter is more common in casual conversations."

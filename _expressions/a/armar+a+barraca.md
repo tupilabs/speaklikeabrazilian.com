@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Armar a barraca"
-expression: "Armar a barraca"
 permalink: "/a/armar+a+barraca/"
 definitions:
   - definition: "To have an erection. It means to put up a tent, assemble a tent. It probably comes from the shape of an erection in a man's pants."

@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Gaitada"
-expression: "Gaitada"
 permalink: "/g/gaitada/"
 definitions:
   - definition: "Same as a \"gargalhada\". Used mainly in Notheastern Brazil"

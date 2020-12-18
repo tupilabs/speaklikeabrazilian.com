@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Afundar o time"
-expression: "Afundar o time"
 permalink: "/a/afundar+o+time/"
 definitions:
   - definition: "To \"sink the team\" is an expression that means that someone or something caused a team to lose. Usually, the one that is found responsible for sinking the team is called \"[\u00e2ncora](/a/%C3%A2ncora/)\"."

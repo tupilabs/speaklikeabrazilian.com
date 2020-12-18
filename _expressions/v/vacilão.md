@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vacilão"
-expression: "Vacilão"
 permalink: "/v/vacilão/"
 definitions:
   - definition: |

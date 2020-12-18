@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Salvo pelo congo"
-expression: "Salvo pelo congo"
 permalink: "/s/salvo+pelo+congo/"
 definitions:
   - definition: "Saved by the bell. Exactly same meaning as in English."

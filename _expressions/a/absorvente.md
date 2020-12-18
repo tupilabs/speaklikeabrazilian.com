@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Absorvente"
-expression: "Absorvente"
 permalink: "/a/absorvente/"
 definitions:
   - definition: "Penso feminino. Tamb\u00e9m pode ser \"absorvente feminino\"."

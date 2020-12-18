@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dia chuvoso"
-expression: "Dia chuvoso"
 permalink: "/d/dia+chuvoso/"
 definitions:
   - definition: "Rainy day"

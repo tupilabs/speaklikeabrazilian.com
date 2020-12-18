@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Papai e mamãe"
-expression: "Papai e mam\u00e3e"
 permalink: "/p/papai+e+mam%C3%A3e/"
 definitions:
   - definition: "The missionary sexual position."

@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Golaço"
-expression: "Gola\u00e7o"
 permalink: "/g/gola%C3%A7o/"
 definitions:
   - definition: "Un golazo"

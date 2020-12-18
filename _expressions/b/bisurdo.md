@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bisurdo"
-expression: "Bisurdo"
 permalink: "/b/bisurdo/"
 definitions:
   - definition: |

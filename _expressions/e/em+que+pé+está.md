@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Em que pé está"
-expression: "Em que pé está"
 permalink: "/e/em+que+pé+está/"
 definitions:
   - definition: |

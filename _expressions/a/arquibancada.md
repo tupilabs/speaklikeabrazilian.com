@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Arquibancada"
-expression: "Arquibancada"
 permalink: "/a/arquibancada/"
 definitions:
   - definition: "Bleachers"

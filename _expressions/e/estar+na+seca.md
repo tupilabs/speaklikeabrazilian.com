@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Estar na seca"
-expression: "Estar na seca"
 permalink: "/e/estar+na+seca/"
 definitions:
   - definition: "Dry spell. Do not get any in a while. To be chasing tail for a long period."

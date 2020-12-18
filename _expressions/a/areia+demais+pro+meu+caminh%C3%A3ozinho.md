@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Areia demais pro meu caminhãozinho"
-expression: "Areia demais pro meu caminh\u00e3ozinho"
 permalink: "/a/areia+demais+pro+meu+caminh%C3%A3ozinho/"
 definitions:
   - definition: "Same as she's out of my league, but the translation is she is too much sand to my little truck."

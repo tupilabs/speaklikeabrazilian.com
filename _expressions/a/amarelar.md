@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Amarelar"
-expression: "Amarelar"
 permalink: "/a/amarelar/"
 definitions:
   - definition: |

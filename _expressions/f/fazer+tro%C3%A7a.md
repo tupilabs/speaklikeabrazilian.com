@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer troça"
-expression: "Fazer tro\u00e7a"
 permalink: "/f/fazer+tro%C3%A7a/"
 definitions:
   - definition: "Same as ca\u00e7oar or [zoar](/z/zoar/). It means to troll, mock or tease someone. It is not very popular among young people, so you may sound like an old dude if you use it with a teen or small kid."

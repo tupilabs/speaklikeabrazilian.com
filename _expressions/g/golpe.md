@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Golpe"
-expression: "Golpe"
 permalink: "/g/golpe/"
 definitions:
   - definition: Scam.

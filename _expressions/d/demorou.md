@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Demorou"
-expression: "Demorou"
 permalink: "/d/demorou/"
 definitions:
   - definition: "Of course! Hell yeah!"

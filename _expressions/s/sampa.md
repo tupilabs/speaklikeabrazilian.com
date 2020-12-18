@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sampa"
-expression: "Sampa"
 permalink: "/s/sampa/"
 definitions:
   - definition: "Abbreviation of S\u00e3o Paulo (can be used for both the city or the state)."

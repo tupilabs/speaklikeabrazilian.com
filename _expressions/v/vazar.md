@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vazar"
-expression: "Vazar"
 permalink: "/v/vazar/"
 definitions:
   - definition: "Get out, let's go, let's split."

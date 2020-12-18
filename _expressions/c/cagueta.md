@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cagueta"
-expression: "Cagueta"
 permalink: "/c/cagueta/"
 definitions:
   - definition: "A \"cagueta\" is a rat, or a grass. The verb \"caguetar\" is similar to to grass or to rat out someone. There is a saying that goes \"cagueta morre cedo\", meaning more or less \"rats die first\", or \"grass goes first\". "

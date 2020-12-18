@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sonhar acordado"
-expression: "Sonhar acordado"
 permalink: "/s/sonhar+acordado/"
 definitions:
   - definition: "To daydream."

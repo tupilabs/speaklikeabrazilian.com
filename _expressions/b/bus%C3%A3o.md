@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Busão"
-expression: "Bus\u00e3o"
 permalink: "/b/bus%C3%A3o/"
 definitions:
   - definition: "A bus. The right way of saying is \u00f4nibus, but bus\u00e3o is easier to say."

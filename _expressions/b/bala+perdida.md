@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bala perdida"
-expression: "Bala perdida"
 permalink: "/b/bala+perdida/"
 definitions:
   - definition: "Stray bullet"

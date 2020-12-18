@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fea"
-expression: "Fea"
 permalink: "/f/fea/"
 definitions:
   - definition: "Slang for feia"

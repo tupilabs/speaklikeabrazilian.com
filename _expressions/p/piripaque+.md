@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Piripaque "
-expression: "Piripaque "
 permalink: "/p/piripaque+/"
 definitions:
   - definition: "Shock experienced after being stratled "

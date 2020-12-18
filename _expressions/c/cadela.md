@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cadela"
-expression: "Cadela"
 permalink: "/c/cadela/"
 definitions:
   - definition: "A female dog"

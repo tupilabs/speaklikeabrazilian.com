@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tche"
-expression: "Tche"
 permalink: "/t/tche/"
 definitions:
   - definition: "It is used in the south of Brazil, usually in Rio Grande do Sul.\r\nIt means a lot of different things, but it's normally  used to refer to a person. "

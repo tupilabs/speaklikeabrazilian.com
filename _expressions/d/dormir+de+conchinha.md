@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dormir de conchinha"
-expression: "Dormir de conchinha"
 permalink: "/d/dormir+de+conchinha/"
 definitions:
   - definition: "Spooning."

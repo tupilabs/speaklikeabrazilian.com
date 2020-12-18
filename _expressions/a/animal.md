@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Animal"
-expression: "Animal"
 permalink: "/a/animal/"
 definitions:
   - definition: "As a noun it is animal, but when used as adjective, it means that something is really good. Really, really good."

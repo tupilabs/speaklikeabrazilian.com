@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Preservativo"
-expression: "Preservativo"
 permalink: "/p/preservativo/"
 definitions:
   - definition: "A preservative"

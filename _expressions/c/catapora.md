@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Catapora"
-expression: "Catapora"
 permalink: "/c/catapora/"
 definitions:
   - definition: "Chicken pox"

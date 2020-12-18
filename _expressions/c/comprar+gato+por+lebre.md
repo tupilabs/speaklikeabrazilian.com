@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Comprar gato por lebre"
-expression: "Comprar gato por lebre"
 permalink: "/c/comprar+gato+por+lebre/"
 definitions:
   - definition: "To buy snake oil."

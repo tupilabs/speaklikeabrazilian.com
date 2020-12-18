@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Raimunda"
-expression: "Raimunda"
 permalink: "/r/raimunda/"
 definitions:
   - definition: "Any woman with a nice ass, but ugly face."

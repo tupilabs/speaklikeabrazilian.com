@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maneiro"
-expression: "Maneiro"
 permalink: "/m/maneiro/"
 definitions:
   - definition: Cool. Nice. Awesome. Used to describe something or someone.

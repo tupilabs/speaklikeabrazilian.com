@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mulher de tromba"
-expression: "Mulher de tromba"
 permalink: "/m/mulher+de+tromba/"
 definitions:
   - definition: "\"Woman with trunk\", the same as a shemale, transvestite.\n\nThink well... a woman... with a trunk, like an elephant. Genius no?"

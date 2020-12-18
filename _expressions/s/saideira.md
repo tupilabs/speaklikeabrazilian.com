@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Saideira"
-expression: "Saideira"
 permalink: "/s/saideira/"
 definitions:
   - definition: "The last beer before going home."

@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "É o fim"
-expression: "\u00c9 o fim"
 permalink: "/e/%C3%A9+o+fim/"
 definitions:
   - definition: "Is the pits."

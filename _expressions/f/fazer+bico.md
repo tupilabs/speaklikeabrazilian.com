@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer bico"
-expression: "Fazer bico"
 permalink: "/f/fazer+bico/"
 definitions:
   - definition: "To pout. "

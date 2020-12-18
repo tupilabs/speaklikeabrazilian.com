@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chorando as pitangas"
-expression: "Chorando as pitangas"
 permalink: "/c/chorando+as+pitangas/"
 definitions:
   - definition: "Chorando as pitangas, or \"crying the Surinam Cherries\", means that you are crying a river."

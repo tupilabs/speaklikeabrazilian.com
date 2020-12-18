@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Descarga da privada"
-expression: "Descarga da privada"
 permalink: "/d/descarga+da+privada/"
 definitions:
   - definition: "Autoclismo"

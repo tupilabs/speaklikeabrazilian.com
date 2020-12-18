@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Malandro"
-expression: "Malandro"
 permalink: "/m/malandro/"
 definitions:
   - definition: |

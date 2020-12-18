@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maçaneta"
-expression: "Ma\u00e7aneta"
 permalink: "/m/ma%C3%A7aneta/"
 definitions:
   - definition: "Doorknob"

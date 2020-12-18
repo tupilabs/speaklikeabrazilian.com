@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Trem"
-expression: "Trem"
 permalink: "/t/trem/"
 definitions:
   - definition: "Trem literally means train, but in many cases, and in special in Minas Gerais and surroundings, it is used as 'thing', or 'stuff'."

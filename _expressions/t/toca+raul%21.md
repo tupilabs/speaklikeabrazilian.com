@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Toca Raul!"
-expression: "Toca Raul!"
 permalink: "/t/toca+raul%21/"
 definitions:
   - definition: "This is what hecklers yells  in Brazil. In the same way that some hecklers ask for \"Free bird\", by Lynyrd Skynyrd. \n\nRaul Seixas is a famous rock star, from the 70's and 80's, and mixed several Brazilian rhythms and rock and roll, with intelligent lyrics."

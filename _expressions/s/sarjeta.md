@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sarjeta"
-expression: "Sarjeta"
 permalink: "/s/sarjeta/"
 definitions:
   - definition: "Gutter\r\n"

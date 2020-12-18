@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sebo"
-expression: "Sebo"
 permalink: "/s/sebo/"
 definitions:
   - definition: "A store that sells used books."

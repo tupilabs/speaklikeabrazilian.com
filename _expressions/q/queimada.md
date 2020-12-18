@@ -2,7 +2,6 @@
 layout: expression
 category: q
 title: "Queimada"
-expression: "Queimada"
 permalink: "/q/queimada/"
 definitions:
   - definition: "Dogdeball."

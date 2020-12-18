@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Não tô nem aí!"
-expression: "N\u00e3o t\u00f4 nem a\u00ed!"
 permalink: "/n/n%C3%A3o+t%C3%B4+nem+a%C3%AD%21/"
 definitions:
   - definition: "This means that you don\u2019t give a damn about what someone things or what\u2019s going to happen"

@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar de mamar"
-expression: "Dar de mamar"
 permalink: "/d/dar+de+mamar/"
 definitions:
   - definition: "Same as \"amamentar\". It means breastfeed."

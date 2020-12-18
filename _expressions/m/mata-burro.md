@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mata-burro"
-expression: "Mata-burro"
 permalink: "/m/mata-burro/"
 definitions:
   - definition: "Cattle grid. It could be literally translated as kill-donkey."

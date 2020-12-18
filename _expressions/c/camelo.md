@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Camelo"
-expression: "Camelo"
 permalink: "/c/camelo/"
 definitions:
   - definition: "A slang for bike."

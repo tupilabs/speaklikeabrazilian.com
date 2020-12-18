@@ -2,7 +2,6 @@
 layout: expression
 category: x
 title: "X-tudo"
-expression: "X-tudo"
 permalink: "/x/x-tudo/"
 definitions:
   - definition: "A large hamburger with everything on it."

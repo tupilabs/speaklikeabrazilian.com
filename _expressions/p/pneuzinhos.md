@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pneuzinhos"
-expression: "Pneuzinhos"
 permalink: "/p/pneuzinhos/"
 definitions:
   - definition: "Love handles."

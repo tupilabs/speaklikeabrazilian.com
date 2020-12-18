@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Baixar a bola"
-expression: "Baixar a bola"
 permalink: "/b/baixar+a+bola/"
 definitions:
   - definition: "Another one that has a weird translation: \"Lower the ball\". It means slow your roll, or stop pretending something."

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Preço de varejo"
-expression: "Pre\u00e7o de varejo"
 permalink: "/p/pre%C3%A7o+de+varejo/"
 definitions:
   - definition: "Retail price."

@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Ao pé da letra"
-expression: "Ao p\u00e9 da letra"
 permalink: "/a/ao+p%C3%A9+da+letra/"
 definitions:
   - definition: "To the letter."

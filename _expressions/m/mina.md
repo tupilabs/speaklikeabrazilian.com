@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mina"
-expression: "Mina"
 permalink: "/m/mina/"
 definitions:
   - definition: "Abbreviation of \"menina\" (girl). Sometimes you can be seen as maloqueiro for using this. Very common among adolescents or young men in a casual conversation.\n\nIt can also be used for girlfriend."

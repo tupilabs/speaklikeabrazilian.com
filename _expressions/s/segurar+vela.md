@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Segurar vela"
-expression: "Segurar vela"
 permalink: "/e/segurar+vela/"
 definitions:
   - definition: |

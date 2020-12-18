@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Botar na conta"
-expression: "Botar na conta"
 permalink: "/b/botar+na+conta/"
 definitions:
   - definition: "To put on the cuff, to buy on credit."

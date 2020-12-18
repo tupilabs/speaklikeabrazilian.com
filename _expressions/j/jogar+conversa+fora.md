@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "Jogar conversa fora"
-expression: "Jogar conversa fora"
 permalink: "/j/jogar+conversa+fora/"
 definitions:
   - definition: |

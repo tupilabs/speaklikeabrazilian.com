@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bebedeira"
-expression: "Bebedeira"
 permalink: "/b/bebedeira/"
 definitions:
   - definition: "A drink up."

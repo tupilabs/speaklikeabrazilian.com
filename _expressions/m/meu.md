@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Meu"
-expression: "Meu"
 permalink: "/m/meu/"
 definitions:
   - definition: "Same as dude, or bro. Sometimes it may sound childish/teenager-ish, or even girlish, so use with care."

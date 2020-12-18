@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Profissional do sexo"
-expression: "Profissional do sexo"
 permalink: "/p/profissional+do+sexo/"
 definitions:
   - definition: "A gentleman way of saying hooker."

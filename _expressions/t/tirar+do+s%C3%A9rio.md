@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tirar do sério"
-expression: "Tirar do s\u00e9rio"
 permalink: "/t/tirar+do+s%C3%A9rio/"
 definitions:
   - definition: "To get under someone's skin"

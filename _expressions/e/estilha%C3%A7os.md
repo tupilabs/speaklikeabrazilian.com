@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Estilhaços"
-expression: "Estilha\u00e7os"
 permalink: "/e/estilha%C3%A7os/"
 definitions:
   - definition: "Shrapnel"

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Muquifo"
-expression: "Muquifo"
 permalink: "/m/muquifo/"
 definitions:
   - definition: "A dirty place. An ugly house. A place that looks like it belongs to a ghetto."

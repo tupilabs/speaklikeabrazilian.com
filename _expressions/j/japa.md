@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "Japa"
-expression: "Japa"
 permalink: "/j/japa/"
 definitions:
   - definition: "Japanese person."

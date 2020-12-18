@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Refri"
-expression: "Refri"
 permalink: "/r/refri/"
 definitions:
   - definition: "Shortened version of \"refrigerante\" (soft drink)."

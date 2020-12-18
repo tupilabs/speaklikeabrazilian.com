@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dançar"
-expression: "Dançar"
 permalink: "/d/dançar/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bueiro"
-expression: "Bueiro"
 permalink: "/b/bueiro/"
 definitions:
   - definition: "Manhole."

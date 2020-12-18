@@ -2,7 +2,6 @@
 layout: expression
 category: q
 title: "Qual é"
-expression: "Qual \u00e9"
 permalink: "/q/qual+%C3%A9/"
 definitions:
   - definition: "Same as Co\u00e9, but written correctly. The meaning is similar to wazup."

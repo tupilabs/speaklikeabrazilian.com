@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Nusfu"
-expression: "Nusfu"
 permalink: "/n/nusfu/"
 definitions:
   - definition: "Shorten version of \"nos fudemos\", other forms include nosfu. It translates to \"we are fucked\"."

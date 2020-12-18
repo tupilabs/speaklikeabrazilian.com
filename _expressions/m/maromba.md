@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maromba"
-expression: "Maromba"
 permalink: "/m/maromba/"
 definitions:
   - definition: "Someone who is extremely strong, and works out a lot. You always get these in your local gyms."

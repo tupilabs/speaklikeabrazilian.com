@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Puto"
-expression: "Puto"
 permalink: "/p/puto/"
 definitions:
   - definition: "An annoying person, someone inconvenient, or who caused you trouble."

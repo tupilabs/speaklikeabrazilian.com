@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Como fazemos?"
-expression: "Como fazemos?"
 permalink: "/c/como+fazemos%3F/"
 definitions:
   - definition: "Come la facciamo?"

@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Abraço de urso"
-expression: "Abra\u00e7o de urso"
 permalink: "/a/abra%C3%A7o+de+urso/"
 definitions:
   - definition: "A super tight hug, that you give to someone you've been missing, or to someone that you simply love."

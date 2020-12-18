@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Gato"
-expression: "Gato"
 permalink: "/g/gato/"
 alternate_spellings:
   - gatu

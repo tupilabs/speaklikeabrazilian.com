@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Né"
-expression: "Né"
 permalink: "/n/né/"
 definitions:
   - definition: |

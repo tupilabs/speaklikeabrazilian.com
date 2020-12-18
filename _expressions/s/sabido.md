@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sabido"
-expression: "Sabido"
 permalink: "/s/sabido/"
 definitions:
   - definition: "Someone that is smart, that knows a lot about something."

@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Gambiarra"
-expression: "Gambiarra"
 permalink: "/g/gambiarra/"
 definitions:
   - definition: "\"Gambiarras\" are workarounds, or improvisations that people do to overcome problems. Like when you have no power adapter and you build your own with staples and paper clips. Probably the gambiarra champion is MacGyver."

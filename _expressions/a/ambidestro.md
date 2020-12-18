@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Ambidestro"
-expression: "Ambidestro"
 permalink: "/a/ambidestro/"
 definitions:
   - definition: "Ambidextrous"

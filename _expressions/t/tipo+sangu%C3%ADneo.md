@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tipo sanguíneo"
-expression: "Tipo sangu\u00edneo"
 permalink: "/t/tipo+sangu%C3%ADneo/"
 definitions:
   - definition: "Blood type."

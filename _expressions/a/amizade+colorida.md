@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Amizade colorida"
-expression: "Amizade colorida"
 permalink: "/a/amizade+colorida/"
 definitions:
   - definition: "What you say of a friendship when you and somebody else are friends with benefits. You can also say that they are [mais que amigos](/m/mais+que+amigos/) (more than just friends)."

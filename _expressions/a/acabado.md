@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Acabado"
-expression: "Acabado"
 permalink: "/a/acabado/"
 definitions:
   - definition: "Tired, haggard, exhausted, beat."

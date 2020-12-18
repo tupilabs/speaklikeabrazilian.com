@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fechou"
-expression: "Fechou"
 permalink: "/f/fechou/"
 definitions:
   - definition: "Same as okay, or deal."

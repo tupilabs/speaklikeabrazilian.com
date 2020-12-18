@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Birosca"
-expression: "Birosca"
 permalink: "/b/birosca/"
 definitions:
   - definition: |

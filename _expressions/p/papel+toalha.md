@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Papel toalha"
-expression: "Papel toalha"
 permalink: "/p/papel+toalha/"
 definitions:
   - definition: "Papel absorvente."

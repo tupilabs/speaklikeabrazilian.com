@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bobo"
-expression: "Bobo"
 permalink: "/b/bobo/"
 definitions:
   - definition: "Baka ??"

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sopa de letrinhas"
-expression: "Sopa de letrinhas"
 permalink: "/s/sopa+de+letrinhas/"
 definitions:
   - definition: "Alphabet soup. It is important that you use the word letras (plural of letra, or a letter, a character) in the diminutive. That's the normal way to say it."
