@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Futiba"
-expression: "Futiba"
 permalink: "/f/futiba/"
 definitions:
   - definition: "Another way of saying futebol. Used more amongst lads."

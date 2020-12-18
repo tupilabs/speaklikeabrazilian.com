@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Balanço"
-expression: "Balan\u00e7o"
 permalink: "/b/balan%C3%A7o/"
 definitions:
   - definition: "Swingseat"

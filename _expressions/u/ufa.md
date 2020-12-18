@@ -2,7 +2,6 @@
 layout: expression
 category: u
 title: "Ufa"
-expression: "Ufa"
 permalink: "/u/ufa/"
 definitions:
   - definition: "Phew"

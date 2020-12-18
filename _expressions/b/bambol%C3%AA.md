@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bambolê"
-expression: "Bambol\u00ea"
 permalink: "/b/bambol%C3%AA/"
 definitions:
   - definition: "Hula hoop"

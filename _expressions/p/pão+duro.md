@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pão duro"
-expression: "Pão duro"
 permalink: "/p/pão+duro/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Furunfa"
-expression: "Furunfa"
 permalink: "/f/furunfa/"
 definitions:
   - definition: |

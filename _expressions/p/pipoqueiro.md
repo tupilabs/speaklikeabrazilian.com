@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pipoqueiro"
-expression: "Pipoqueiro"
 permalink: "/p/pipoqueiro/"
 definitions:
   - definition: "Someone who is always letting you down. Say you have planned to go shopping, or to the movies, and this person calls you and tells s/he won't be able to make it for some random reason. He is the pipoqueiro."

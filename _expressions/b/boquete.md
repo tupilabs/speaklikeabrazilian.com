@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Boquete"
-expression: "Boquete"
 permalink: "/b/boquete/"
 definitions:
   - definition: "Blowjob."

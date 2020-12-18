@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cagada"
-expression: "Cagada"
 permalink: "/c/cagada/"
 definitions:
   - definition: "When you have completely messed up at something, or have made terrible mistake. For example, you had to send a report, but by accident CTRL+V'ed some reddit link while writing. This would be a \"cagada\"."

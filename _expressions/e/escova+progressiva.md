@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Escova progressiva"
-expression: "Escova progressiva"
 permalink: "/e/escova+progressiva/"
 definitions:
   - definition: "Brazilian blowout or Brazilian hair straightening is a treatment to remove frizz and straight hairs. Sometimes done using chemical products that can be quite dangerous, though a lot of people don't give a s*** as long as they look like a pop star."

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Marca de nascimento"
-expression: "Marca de nascimento"
 permalink: "/m/marca+de+nascimento/"
 definitions:
   - definition: "Birth mark."

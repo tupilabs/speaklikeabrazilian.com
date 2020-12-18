@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tapar o Sol com a peneira"
-expression: "Tapar o Sol com a peneira"
 permalink: "/t/tapar+o+sol+com+a+peneira/"
 definitions:
   - definition: To fix a symptom, but not the root cause. It means, literally, to try to hide the Sun with a

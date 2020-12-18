@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Descolar"
-expression: "Descolar"
 permalink: "/d/descolar/"
 definitions:
   - definition: |

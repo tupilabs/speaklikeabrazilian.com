@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Farofeiro"
-expression: "Farofeiro"
 permalink: "/f/farofeiro/"
 definitions:
   - definition: "A \"redneck\" who goes to the beach for a day, brings his own food and has no consideration for anyone else around.  He/she generally are the typical light-skinned irritating day tourists that crowd the beaches in Brazil.\n\nIt has turned into a term to describe people who are inconsiderate to others and don't want to fit in."

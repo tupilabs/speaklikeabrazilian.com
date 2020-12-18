@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Estombro"
-expression: "Estombro"
 permalink: "/e/estombro/"
 definitions:
   - definition: "Incorrectly way of saying stomach (est\u00f4mago)."

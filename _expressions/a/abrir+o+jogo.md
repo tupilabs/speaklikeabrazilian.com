@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Abrir o jogo"
-expression: "Abrir o jogo"
 permalink: "/a/abrir+o+jogo/"
 definitions:
   - definition: "Say the truth, tell the truth"

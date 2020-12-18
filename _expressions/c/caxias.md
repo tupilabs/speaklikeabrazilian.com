@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Caxias"
-expression: "Caxias"
 permalink: "/c/caxias/"
 definitions:
   - definition: "Old way of saying [CDF](/c/cdf/), meaning that someone is very intelligent, maybe even a nerd. There are still some places where caxias is used more often than CDF."

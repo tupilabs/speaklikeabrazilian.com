@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Até tu, Brutus?"
-expression: "At\u00e9 tu, Brutus?"
 permalink: "/a/at%C3%A9+tu%2C+brutus%3F/"
 definitions:
   - definition: "Et tu, Brute?"

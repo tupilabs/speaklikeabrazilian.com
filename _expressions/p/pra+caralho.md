@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pra caralho"
-expression: "Pra caralho"
 permalink: "/p/pra+caralho/"
 definitions:
   - definition: |

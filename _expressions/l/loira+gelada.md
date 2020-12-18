@@ -2,7 +2,6 @@
 layout: expression
 category: l
 title: "Loira gelada"
-expression: "Loira gelada"
 permalink: "/l/loira+gelada/"
 definitions:
   - definition: "A beer."

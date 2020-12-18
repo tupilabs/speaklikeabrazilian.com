@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Estou até aqui"
-expression: "Estou at\u00e9 aqui"
 permalink: "/e/estou+at%C3%A9+aqui/"
 definitions:
   - definition: "Same meaning as \"I'm up to here\". Sometimes who uses this expression also raise his hand to her/his eyebrows."

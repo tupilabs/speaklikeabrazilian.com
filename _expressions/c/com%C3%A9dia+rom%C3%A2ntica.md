@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Comédia romântica"
-expression: "Com\u00e9dia rom\u00e2ntica"
 permalink: "/c/com%C3%A9dia+rom%C3%A2ntica/"
 definitions:
   - definition: "Chick flick"

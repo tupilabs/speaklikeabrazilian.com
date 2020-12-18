@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "De cabo a rabo"
-expression: "De cabo a rabo"
 permalink: "/d/de+cabo+a+rabo/"
 definitions:
   - definition: "Same as soup to nuts, from cover to cover or from beginning to end. It means to cover a whole topic."

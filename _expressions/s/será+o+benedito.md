@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Será o Benedito?"
-expression: "Será o Benedito?"
 permalink: "/s/será+o+benedito/"
 definitions:
   - definition: |

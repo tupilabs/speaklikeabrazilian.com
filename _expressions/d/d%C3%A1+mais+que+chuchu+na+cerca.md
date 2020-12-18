@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dá mais que chuchu na cerca"
-expression: "D\u00e1 mais que chuchu na cerca"
 permalink: "/d/d%C3%A1+mais+que+chuchu+na+cerca/"
 definitions:
   - definition: "No way to literally translate this, but the sentence uses the verb ([dar](/d/dar/)) to make a comparison between the frequency said girl has sex with the growth cicle of the chayote."

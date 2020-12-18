@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer uma vaquinha"
-expression: "Fazer uma vaquinha"
 permalink: "/f/fazer+uma+vaquinha/"
 definitions:
   - definition: "Collect money. The expression translation (\"To make a little cow\") comes from an old local gamble game that involves , where the cow would give the highest amount."

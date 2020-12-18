@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rachadinha"
-expression: "Rachadinha"
 permalink: "/r/rachadinha/"
 definitions:
   - definition: |

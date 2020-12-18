@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Namorido"
-expression: "Namorido"
 permalink: "/n/namorido/"
 definitions:
   - definition: "A portmanteau which describes a male counterpart who is more than a boyfriend but less than a husband"

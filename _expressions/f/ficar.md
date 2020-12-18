@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Ficar"
-expression: "Ficar"
 permalink: "/f/ficar/"
 definitions:
   - definition: "\"Ficar\" means \"stay\", but can also be used as \"hook up with sb\". But it doesn''t necessarily means that you are getting laid."

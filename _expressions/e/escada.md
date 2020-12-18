@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Escada"
-expression: "Escada"
 permalink: "/e/escada/"
 definitions:
   - definition: "Escalera"

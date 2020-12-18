@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Se liga"
-expression: "Se liga"
 permalink: "/s/se+liga/"
 definitions:
   - definition: "Use to say to someone to pay attention, or with the same meaning as get real."

@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vô"
-expression: "V\u00f4"
 permalink: "/v/v%C3%B4/"
 definitions:
   - definition: "Shortened/leet version of vou (I will go)."

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mão de vaca"
-expression: "Mão de vaca"
 permalink: "/m/mão+de+vaca/"
 definitions:
   - definition: |

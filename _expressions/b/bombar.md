@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bombar"
-expression: "Bombar"
 permalink: "/b/bombar/"
 definitions:
   - definition: "To fail a class, or college year."

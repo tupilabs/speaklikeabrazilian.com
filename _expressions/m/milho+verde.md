@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Milho verde"
-expression: "Milho verde"
 permalink: "/m/milho+verde/"
 definitions:
   - definition: "Sweetcorn."

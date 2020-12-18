@@ -2,7 +2,6 @@
 layout: expression
 category: i
 title: "Imagem cuspida"
-expression: "Imagem cuspida"
 permalink: "/i/imagem+cuspida/"
 definitions:
   - definition: "Spitting image"

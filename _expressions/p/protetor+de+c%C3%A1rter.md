@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Protetor de cárter"
-expression: "Protetor de c\u00e1rter"
 permalink: "/p/protetor+de+c%C3%A1rter/"
 definitions:
   - definition: "Sump guard, belly pan or skid plate."

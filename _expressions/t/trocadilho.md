@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Trocadilho"
-expression: "Trocadilho"
 permalink: "/t/trocadilho/"
 definitions:
   - definition: "Play on words"

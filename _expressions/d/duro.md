@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Duro"
-expression: "Duro"
 permalink: "/d/duro/"
 definitions:
   - definition: "Someone who is broke, with no money."

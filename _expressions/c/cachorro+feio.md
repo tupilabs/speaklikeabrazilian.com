@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cachorro feio"
-expression: "Cachorro feio"
 permalink: "/c/cachorro+feio/"
 definitions:
   - definition: "What you shout to your dog after he/she made some bad thing (like eating your homework ;-). That's one way of saying \"bad dog\" in Portuguese, though some people could say too \"cachorro mau\"."

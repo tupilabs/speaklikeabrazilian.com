@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pica das galáxias "
-expression: "Pica das gal\u00e1xias "
 permalink: "/p/pica+das+gal%C3%A1xias+/"
 definitions:
   - definition: "Pica das gal\u00e1xias literally means Galaxies' cock. It's a Brazilian slang which can be translated to \"badass\". It means that a certain person is the shit at everything they do."

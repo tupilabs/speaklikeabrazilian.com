@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Adeus"
-expression: "Adeus"
 permalink: "/a/adeus/"
 definitions:
   - definition: "Arrivederci"

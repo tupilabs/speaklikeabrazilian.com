@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Breja"
-expression: "Breja"
 permalink: "/b/breja/"
 definitions:
   - definition: "A beer."

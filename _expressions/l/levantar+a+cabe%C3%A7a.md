@@ -2,7 +2,6 @@
 layout: expression
 category: l
 title: "Levantar a cabeça"
-expression: "Levantar a cabe\u00e7a"
 permalink: "/l/levantar+a+cabe%C3%A7a/"
 definitions:
   - definition: "Raise your chin."

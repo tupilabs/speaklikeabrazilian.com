@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mano"
-expression: "Mano"
 permalink: "/m/mano/"
 definitions:
   - definition: "Same as \"bro\". Some time ago, it would be seen as very rude. And even now you don't hear may kids using \"Mano\" while talking to their parents. But you can use it interchangeably with \"Cara\" while talking with your lads."

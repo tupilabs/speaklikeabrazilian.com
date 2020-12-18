@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Feiura"
-expression: "Feiura"
 permalink: "/f/feiura/"
 definitions:
   - definition: "Ugliness."

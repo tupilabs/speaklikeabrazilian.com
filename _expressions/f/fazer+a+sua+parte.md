@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer a sua parte"
-expression: "Fazer a sua parte"
 permalink: "/f/fazer+a+sua+parte/"
 definitions:
   - definition: "Pull your weight."

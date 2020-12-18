@@ -2,7 +2,6 @@
 layout: expression
 category: o
 title: "O que é um peido pra quem tá cagado"
-expression: "O que \u00e9 um peido pra quem t\u00e1 cagado"
 permalink: "/o/o+que+%C3%A9+um+peido+pra+quem+t%C3%A1+cagado/"
 definitions:
   - definition: "This is one of the funniest, but also clearer expressions we have. The translation is \"What is a fart, to someone who is soiled\". It has similar meaning to \"it can't get any worse\". \r\n\r\nIt means that since you are already in a bad situation (like having crapped your pants) smaller things won't make much difference (like farting in this case)."

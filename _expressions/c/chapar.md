@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chapar"
-expression: "Chapar"
 permalink: "/c/chapar/"
 definitions:
   - definition: "Get wasted with booze or weed. Sometimes it is combined with coco (coconuts)."

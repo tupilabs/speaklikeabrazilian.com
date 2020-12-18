@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Molhar a mão"
-expression: "Molhar a m\u00e3o"
 permalink: "/m/molhar+a+m%C3%A3o/"
 definitions:
   - definition: "Literally it means to wet somebody\u2019s hand \u2013 to bribe."

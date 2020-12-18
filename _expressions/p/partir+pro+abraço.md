@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Partir pro abraço"
-expression: "Partir pro abraço"
 permalink: "/p/partir+pro+abraço/"
 definitions:
   - definition: "To celebrate, to commemorate."

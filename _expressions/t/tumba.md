@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tumba"
-expression: "Tumba"
 permalink: "/t/tumba/"
 definitions:
   - definition: "A bad luck person, specially in a game."

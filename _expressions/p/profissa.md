@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Profissa"
-expression: "Profissa"
 permalink: "/p/profissa/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Se achar"
-expression: "Se achar"
 permalink: "/s/se+achar/"
 definitions:
   - definition: "To put on airs. Synonym to \"ser metido\". Normally used with the verb \"ficar\" (to stay), as in \"ficar se achando\"."

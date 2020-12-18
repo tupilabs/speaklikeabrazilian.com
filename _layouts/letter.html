@@ -10,7 +10,7 @@ layout: default
 <ul class="post-list">
 {% for post in paginator.posts %}
 <li>
-  <h2><a href="{{ post.permalink }}">{{ post.expression }}</a></h2>
+  <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
 </li>
 {% endfor %}
 </ul>

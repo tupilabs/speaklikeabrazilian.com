@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tomara que caia"
-expression: "Tomara que caia"
 permalink: "/t/tomara+que+caia/"
 definitions:
   - definition: "A strapless top or dress."

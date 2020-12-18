@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pega nada"
-expression: "Pega nada"
 permalink: "/p/pega+nada/"
 definitions:
   - definition: "Literally translating, it would be \"Takes nothing\". But the meaning is similar to \"No problem\".\n\nIt also is used to demonstrate that you don't care about something."

@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rolê"
-expression: "Rol\u00ea"
 permalink: "/r/rol%C3%AA/"
 definitions:
   - definition: "A walk, ride, or tour."

@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Careca de saber"
-expression: "Careca de saber"
 permalink: "/c/careca+de+saber/"
 definitions:
   - definition: |

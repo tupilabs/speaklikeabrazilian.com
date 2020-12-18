@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Porrada"
-expression: "Porrada"
 permalink: "/p/porrada/"
 definitions:
   - definition: "Porrada is a slang for a physical conflict between two or more individuals, a fight."

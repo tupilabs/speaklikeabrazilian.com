@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vacilar"
-expression: "Vacilar"
 permalink: "/v/vacilar/"
 definitions:
   - definition: "Let down."

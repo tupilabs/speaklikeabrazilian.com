@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tá, tá, tá"
-expression: "Tá, tá, tá"
 permalink: "/t/tá+tá+tá/"
 definitions:
   - definition: |

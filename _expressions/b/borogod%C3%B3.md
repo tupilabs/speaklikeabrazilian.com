@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Borogodó"
-expression: "Borogod\u00f3"
 permalink: "/b/borogod%C3%B3/"
 definitions:
   - definition: "Expression for charm, especially attractive, something unique, that other people don't have, not necessarily sexual."

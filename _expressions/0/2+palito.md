@@ -2,7 +2,6 @@
 layout: expression
 category: 0
 title: "2 palito"
-expression: "2 palito"
 permalink: "/0/2+palito/"
 definitions:
   - definition: "Something that is going to be easy and quick to get done. You can use that to say that you will be right back, or that you won't take long doing something. The plural is not always correct, most of the time people say \"2 palito\", but \"2 palitos\" can also be used."

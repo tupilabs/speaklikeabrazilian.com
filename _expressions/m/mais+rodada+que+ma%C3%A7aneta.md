@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mais rodada que maçaneta"
-expression: "Mais rodada que ma\u00e7aneta"
 permalink: "/m/mais+rodada+que+ma%C3%A7aneta/"
 definitions:
   - definition: "This expression means that someone is a slut/jerk, and has hooked up with lots of people. It's a joke with ma\u00e7anetas (door knobs), that are 'handled' by many different hands."

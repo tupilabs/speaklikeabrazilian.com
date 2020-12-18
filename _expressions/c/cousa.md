@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cousa"
-expression: "Cousa"
 permalink: "/c/cousa/"
 definitions:
   - definition: "Expression from rural areas, especially from Sao Paulo, meaning \"Coisa\", a thing."

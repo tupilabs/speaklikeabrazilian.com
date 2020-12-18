@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tocar bronha"
-expression: "Tocar bronha"
 permalink: "/t/tocar+bronha/"
 definitions:
   - definition: "M\u00e1s ameno que \"bater punheta\", pero con el mismo significado. Pajear."

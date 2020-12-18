@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chegado (a)"
-expression: "Chegado (a)"
 permalink: "/c/chegado+%28a%29/"
 definitions:
   - definition: "If someone is very close to you, he is your \"chegado\"."

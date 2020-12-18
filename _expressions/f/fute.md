@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fute"
-expression: "Fute"
 permalink: "/f/fute/"
 definitions:
   - definition: "Shortened version of futebol (soccer)."

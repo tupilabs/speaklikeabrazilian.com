@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cordinha de crachá"
-expression: "Cordinha de crachá"
 permalink: "/c/cordinha+de+crachá/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "Julgar um livro pela capa"
-expression: "Julgar um livro pela capa"
 permalink: "/j/julgar+um+livro+pela+capa/"
 definitions:
   - definition: "Judge a book by its cover."

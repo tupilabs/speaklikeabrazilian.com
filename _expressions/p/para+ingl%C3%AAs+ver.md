@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Para inglês ver"
-expression: "Para ingl\u00eas ver"
 permalink: "/p/para+ingl%C3%AAs+ver/"
 definitions:
   - definition: "Literally \"For English to see\". It means something that is intended only to keep appearances. For example, when a company keeps a department of innovation even though they don't need it, just to keep appearances."

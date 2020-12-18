@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bagarai"
-expression: "Bagarai"
 permalink: "/b/bagarai/"
 definitions:
   - definition: "A contraction of Pra [caralho](/c/caralho/). Used to say that something is cool, awesome."

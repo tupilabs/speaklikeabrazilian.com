@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Na mosca"
-expression: "Na mosca"
 permalink: "/n/na+mosca/"
 definitions:
   - definition: "Same as hit the bull's eyes. Like when you are on the 21st floor, and throws an egg on that annoying neighbor while he is walking his dog. You scream \"Na mosca!\"."

@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Rapariga"
-expression: "Rapariga"
 permalink: "/r/rapariga/"
 definitions:
   - definition: "Whore"

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pacas"
-expression: "Pacas"
 permalink: "/p/pacas/"
 definitions:
   - definition: "A lot, very. Never used alone."

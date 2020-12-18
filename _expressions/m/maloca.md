@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maloca"
-expression: "Maloca"
 permalink: "/m/maloca/"
 definitions:
   - definition: |

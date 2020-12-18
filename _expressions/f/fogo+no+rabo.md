@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fogo no rabo"
-expression: "Fogo no rabo"
 permalink: "/f/fogo+no+rabo/"
 definitions:
   - definition: |

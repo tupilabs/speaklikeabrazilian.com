@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Santo do pau oco"
-expression: "Santo do pau oco"
 permalink: "/s/santo+do+pau+oco/"
 definitions:
   - definition: "A liar, silly or stupid person. Can be used sometimes do denote someone who is acting in a furtive or sneaking way."

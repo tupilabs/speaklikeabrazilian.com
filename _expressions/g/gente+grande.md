@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Gente grande"
-expression: "Gente grande"
 permalink: "/g/gente+grande/"
 definitions:
   - definition: "Adult, grown up, full grown, elder."

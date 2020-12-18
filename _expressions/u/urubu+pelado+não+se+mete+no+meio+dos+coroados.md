@@ -2,7 +2,6 @@
 layout: expression
 category: u
 title: "Urubu pelado não se mete no meio dos coroados"
-expression: "Urubu pelado não se mete no meio dos coroados"
 permalink: "/u/urubu+pelado+não+se+mete+no+meio+dos+coroados/"
 definitions:
   - definition: |

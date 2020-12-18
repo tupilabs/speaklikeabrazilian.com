@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Preamar"
-expression: "Preamar"
 permalink: "/p/preamar/"
 definitions:
   - definition: "\"Preamar\", or \"Praia-mar\", is the tide in its highest level. It is the closest word in Brazilian Portuguese for the King Tide expression (used mainly in New Zealand and Australia)."

@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chapado"
-expression: "Chapado"
 permalink: "/c/chapado/"
 definitions:
   - definition: "If you\u2019re chapado you\u2019re either very drunk or very high!"

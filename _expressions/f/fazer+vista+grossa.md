@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer vista grossa"
-expression: "Fazer vista grossa"
 permalink: "/f/fazer+vista+grossa/"
 definitions:
   - definition: "To turn a blind eye"

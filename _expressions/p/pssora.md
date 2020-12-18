@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pssora"
-expression: "Pssora"
 permalink: "/p/pssora/"
 definitions:
   - definition: "Shortened version of Professora, usually used by children in junior school (sometimes they use it till high school)."

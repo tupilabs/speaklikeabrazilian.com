@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Deitar"
-expression: "Deitar"
 permalink: "/d/deitar/"
 definitions:
   - definition: "Usually used by young people, \"Deitar\" is used as a verb. It actually means lie down, but it can be used when talking about a really good performance on a test, presentation or a game. For exemple: You just finish a test, and your friend asks how did you go on the test, if you're sure you got a A+ you can say \"Deitei na prova\"."

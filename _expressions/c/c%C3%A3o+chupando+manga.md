@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cão chupando manga"
-expression: "C\u00e3o chupando manga"
 permalink: "/c/c%C3%A3o+chupando+manga/"
 definitions:
   - definition: "A \"dog sucking a mango\". This expression is used to say that someone is very ugly. Not simply ugly, but unbearable ugly."

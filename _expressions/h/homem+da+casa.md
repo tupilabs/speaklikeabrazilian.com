@@ -2,7 +2,6 @@
 layout: expression
 category: h
 title: "Homem da casa"
-expression: "Homem da casa"
 permalink: "/h/homem+da+casa/"
 definitions:
   - definition: "Who wears the trousers."

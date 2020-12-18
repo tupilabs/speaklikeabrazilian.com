@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mais que amigos"
-expression: "Mais que amigos"
 permalink: "/m/mais+que+amigos/"
 definitions:
   - definition: "More than just friends. What you say about friends with benefits. There is also an expression for this type of relationship, [amizade colorida](/a/amizade+colorida/)."

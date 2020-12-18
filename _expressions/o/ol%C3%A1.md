@@ -2,7 +2,6 @@
 layout: expression
 category: o
 title: "Olá"
-expression: "Ol\u00e1"
 permalink: "/o/ol%C3%A1/"
 definitions:
   - definition: "Ciao"

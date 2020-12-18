@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cara de um focinho do outro"
-expression: "Cara de um focinho do outro"
 permalink: "/c/cara+de+um+focinho+do+outro/"
 alternate_spellings:
   - cara de um focinho de outro

@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Breu"
-expression: "Breu"
 permalink: "/b/breu/"
 definitions:
   - definition: "Pitch dark."

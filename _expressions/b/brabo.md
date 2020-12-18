@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Brabo"
-expression: "Brabo"
 permalink: "/b/brabo/"
 definitions:
   - definition: "Misspelling of 'bravo' (angry). Used as slang, may sound childish or provocative depending on the context."

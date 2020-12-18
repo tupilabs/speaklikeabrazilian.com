@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mão na roda"
-expression: "M\u00e3o na roda"
 permalink: "/m/m%C3%A3o+na+roda/"
 definitions:
   - definition: "Something or someone helpful. Or an act of someone helping you. A \"m\u00e3o na roda\" (hand on the wheel) can be either a person helping you, or something handy."

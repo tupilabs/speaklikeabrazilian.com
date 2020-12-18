@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Em perfeito estado"
-expression: "Em perfeito estado"
 permalink: "/e/em+perfeito+estado/"
 definitions:
   - definition: "In mint condition. "

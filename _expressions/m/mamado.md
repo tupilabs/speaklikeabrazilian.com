@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mamado"
-expression: "Mamado"
 permalink: "/m/mamado/"
 definitions:
   - definition: "A slang for \"drunk\"."

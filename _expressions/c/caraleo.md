@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Caraleo"
-expression: "Caraleo"
 permalink: "/c/caraleo/"
 definitions:
   - definition: "A leet way of saying [caralho](/c/caralho/)."

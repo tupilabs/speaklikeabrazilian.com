@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Destro"
-expression: "Destro"
 permalink: "/d/destro/"
 definitions:
   - definition: "Right-handed"

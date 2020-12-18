@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cosquinha"
-expression: "Cosquinha"
 permalink: "/c/cosquinha/"
 definitions:
   - definition: |

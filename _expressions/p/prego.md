@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Prego"
-expression: "Prego"
 permalink: "/p/prego/"
 definitions:
   - definition: "A person who is really bad at something."

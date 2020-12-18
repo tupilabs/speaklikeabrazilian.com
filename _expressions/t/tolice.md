@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tolice"
-expression: "Tolice"
 permalink: "/t/tolice/"
 definitions:
   - definition: |

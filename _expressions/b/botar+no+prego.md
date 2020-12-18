@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Botar no prego"
-expression: "Botar no prego"
 permalink: "/b/botar+no+prego/"
 definitions:
   - definition: |

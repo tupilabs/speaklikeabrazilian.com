@@ -2,7 +2,6 @@
 layout: expression
 category: l
 title: "Lavada"
-expression: "Lavada"
 permalink: "/l/lavada/"
 definitions:
   - definition: |

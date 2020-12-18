@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fii"
-expression: "Fii"
 permalink: "/f/fii/"
 definitions:
   - definition: "Filho. Used mainly in the country side. In Scooby Doo, Shaggy calls Scooby fii or [fio](/f/fio/) sometimes."

@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Eles que sao brancos que se entendam"
-expression: "Eles que sao brancos que se entendam"
 permalink: "/e/eles+que+são+brancos+que+se+entendam/"
 definitions:
   - definition: |

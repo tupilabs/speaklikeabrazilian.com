@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maricas"
-expression: "Maricas"
 permalink: "/m/maricas/"
 definitions:
   - definition: "Faggot"

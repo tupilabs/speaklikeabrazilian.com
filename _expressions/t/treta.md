@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Treta"
-expression: "Treta"
 permalink: "/t/treta/"
 definitions:
   - definition: "A treta is a fight or an unpleasant situation in general. There is also the verb \u201ctretar\u201d."

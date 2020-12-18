@@ -2,12 +2,10 @@
 layout: expression
 category: u
 title: "Uma boa"
-expression: "Uma boa"
 permalink: "/u/uma+boa/"
 definitions:
   - definition: |
-      This expression comes from another expression: "uma boa ideia", meaning
-      "a good idea".
+      This expression comes from another       "a good idea".
       
       The shortened version is used for convenience. Important to note that
       that is always in the feminine. Never "um bom", because it comes from

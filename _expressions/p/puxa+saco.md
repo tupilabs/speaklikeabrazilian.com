@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Puxa saco"
-expression: "Puxa saco"
 permalink: "/p/puxa+saco/"
 definitions:
   - definition: Someone who kisses one's ass, flattering just to receive something in return.

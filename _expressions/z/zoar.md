@@ -2,7 +2,6 @@
 layout: expression
 category: z
 title: "Zoar"
-expression: "Zoar"
 permalink: "/z/zoar/"
 definitions:
   - definition: "To kid someone, pull someone's leg, tease sb."

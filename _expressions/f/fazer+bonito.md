@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer bonito"
-expression: "Fazer bonito"
 permalink: "/f/fazer+bonito/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pisar na bola"
-expression: "Pisar na bola"
 permalink: "/p/pisar+na+bola/"
 definitions:
   - definition: "In English we have the expression \u201cto drop the ball\u201d, in Portuguese we say \u201cto step on the ball\u201d. It can mean to screw something up or let someone down."

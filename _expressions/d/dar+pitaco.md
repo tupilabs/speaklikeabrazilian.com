@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar pitaco"
-expression: "Dar pitaco"
 permalink: "/d/dar+pitaco/"
 definitions:
   - definition: |

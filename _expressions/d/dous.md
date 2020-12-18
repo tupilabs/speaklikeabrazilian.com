@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dous"
-expression: "Dous"
 permalink: "/d/dous/"
 definitions:
   - definition: Misspelling of "dois", meaning two. Common in the country-side, and also in old Brazilian Portuguese.

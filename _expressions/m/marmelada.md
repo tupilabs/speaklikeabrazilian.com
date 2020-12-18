@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Marmelada"
-expression: "Marmelada"
 permalink: "/m/marmelada/"
 definitions:
   - definition: "A sweet, made of the fruit quince (marmelo in Portuguese)."

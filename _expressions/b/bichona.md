@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bichona"
-expression: "Bichona"
 permalink: "/b/bichona/"
 definitions:
   - definition: "A big \"bicha\" (faggot)."

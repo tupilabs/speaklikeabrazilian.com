@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tô dentro"
-expression: "T\u00f4 dentro"
 permalink: "/t/t%C3%B4+dentro/"
 definitions:
   - definition: "I'm game."

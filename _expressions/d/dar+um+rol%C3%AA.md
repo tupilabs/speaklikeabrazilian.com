@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar um rolê"
-expression: "Dar um rol\u00ea"
 permalink: "/d/dar+um+rol%C3%AA/"
 definitions:
   - definition: "Take a walk, go for a walk."

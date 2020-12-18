@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Braçal"
-expression: "Bra\u00e7al"
 permalink: "/b/bra%C3%A7al/"
 definitions:
   - definition: "Hard physical work, from the word bra\u00e7o (arm)."

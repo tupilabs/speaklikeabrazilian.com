@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sair do controle"
-expression: "Sair do controle"
 permalink: "/s/sair+do+controle/"
 definitions:
   - definition: "Go pear shaped. You say that 'as coisas sa\u00edram do controle', same as things have gone pear shaped, or things went awry."

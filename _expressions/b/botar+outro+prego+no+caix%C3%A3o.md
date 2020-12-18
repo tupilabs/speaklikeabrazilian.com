@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Botar outro prego no caixão"
-expression: "Botar outro prego no caix\u00e3o"
 permalink: "/b/botar+outro+prego+no+caix%C3%A3o/"
 definitions:
   - definition: "Put another nail in the coffin."

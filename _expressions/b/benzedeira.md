@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Benzedeira"
-expression: "Benzedeira"
 permalink: "/b/benzedeira/"
 definitions:
   - definition: |

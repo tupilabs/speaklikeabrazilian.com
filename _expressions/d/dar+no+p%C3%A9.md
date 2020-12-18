@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar no pé"
-expression: "Dar no p\u00e9"
 permalink: "/d/dar+no+p%C3%A9/"
 definitions:
   - definition: "Run away from something or somewhere."

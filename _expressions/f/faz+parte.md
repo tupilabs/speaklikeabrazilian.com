@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Faz parte"
-expression: "Faz parte"
 permalink: "/f/faz+parte/"
 definitions:
   - definition: |

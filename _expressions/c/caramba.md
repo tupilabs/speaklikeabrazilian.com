@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Caramba"
-expression: "Caramba"
 permalink: "/c/caramba/"
 definitions:
   - definition: A Spanish expression that is also used in Portuguese, meaning "damn", "wow", "shit", "dang", etc.

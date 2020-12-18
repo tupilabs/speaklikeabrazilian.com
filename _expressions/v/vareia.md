@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vareia"
-expression: "Vareia"
 permalink: "/v/vareia/"
 definitions:
   - definition: "Incorrectly way of saying vary (variar verb, in the third person of singular). Sometimes it can be used to make fun of something or someone too."

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Salgadinho"
-expression: "Salgadinho"
 permalink: "/s/salgadinho/"
 definitions:
   - definition: "Salgadinho (or simply salgado - \"salty\") englobes snacks , such as  pastel,esfiha bolinha de queijo, empada (also called empadinha), risoles,  quibe, enrolado, croquete, p\u00e3o de batata, etc.\n\nIt's usually some type of dough and meat or other filling fried in hot oil and, in general, are very cheap. An example of what could be called a salgado or salgadinho here in Brazil, are the American/Kiwi/etc pies, like mince & cheese pies."

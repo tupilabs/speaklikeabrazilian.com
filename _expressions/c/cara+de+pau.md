@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cara de pau"
-expression: "Cara de pau"
 permalink: "/c/cara+de+pau/"
 definitions:
   - definition: "This is a popular brazilian expression you should try to learn. Cara de pau meaning is an inconvenient person who doesn\u2019t have a good sense of common etiquette or consideration for other people.\r\n\r\nTo have the/some nerve \u2013 When someone does something intentionally even though they know it is morally or ethically incorrect."

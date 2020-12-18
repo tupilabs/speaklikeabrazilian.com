@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Facada"
-expression: "Facada"
 permalink: "/f/facada/"
 definitions:
   - definition: "When something is extremely expensive, you can say that it is a \"facada\". Say you find a beer for 100 USD in a local buteco. You could say that that is a facada."

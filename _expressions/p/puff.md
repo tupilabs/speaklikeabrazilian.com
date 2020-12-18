@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Puff"
-expression: "Puff"
 permalink: "/p/puff/"
 definitions:
   - definition: "A beanbag"

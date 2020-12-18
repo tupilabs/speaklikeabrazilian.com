@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bah"
-expression: "Bah"
 permalink: "/b/bah/"
 definitions:
   - definition: "Interjection used by ga\u00fachos (people from Rio Grande do Sul) in basically any situation, such as surprise, admiration, relief, sadness and so on. "

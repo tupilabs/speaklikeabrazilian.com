@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Causar"
-expression: "Causar"
 permalink: "/c/causar/"
 definitions:
   - definition: "Cause a turmoil or tumult."

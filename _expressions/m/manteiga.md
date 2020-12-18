@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Manteiga"
-expression: "Manteiga"
 permalink: "/m/manteiga/"
 definitions:
   - definition: "burro"

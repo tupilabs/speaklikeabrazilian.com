@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bicicleta"
-expression: "Bicicleta"
 permalink: "/b/bicicleta/"
 definitions:
   - definition: "Overhead kick"

@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tirar sardinha com mão do gato"
-expression: "Tirar sardinha com mão do gato"
 permalink: "/t/tirar+sardinha+com+mão+do+gato/"
 definitions:
   - definition: "To act sneakily. Like a cat when it tries to steal a fish."

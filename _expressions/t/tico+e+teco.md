@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tico e Teco"
-expression: "Tico e Teco"
 permalink: "/t/tico+e+teco/"
 definitions:
   - definition: "Chip and Dale."

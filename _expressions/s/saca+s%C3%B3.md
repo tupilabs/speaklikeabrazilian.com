@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Saca só"
-expression: "Saca s\u00f3"
 permalink: "/s/saca+s%C3%B3/"
 definitions:
   - definition: "Saca s\u00f3 is an expression used by us to tell someone that they have to look at something, by that I mean the expression can be translated into English as \"check it out\". Dude, you gotta check it out, this is so cool!"

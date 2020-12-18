@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Canhão"
-expression: "Canh\u00e3o"
 permalink: "/c/canh%C3%A3o/"
 definitions:
   - definition: "An ugly woman.\nCannon."

@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Concha"
-expression: "Concha"
 permalink: "/c/concha/"
 definitions:
   - definition: "A ladle"

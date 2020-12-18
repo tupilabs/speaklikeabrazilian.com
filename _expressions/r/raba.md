@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Raba"
-expression: "Raba"
 permalink: "/r/raba/"
 definitions:
   - definition: "Butt, or ass. Very vulgar, definitely not appropriate for work place, doctor, parents, etc."

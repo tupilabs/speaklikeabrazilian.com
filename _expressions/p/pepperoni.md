@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pepperoni"
-expression: "Pepperoni"
 permalink: "/p/pepperoni/"
 definitions:
   - definition: "Salame piccante"

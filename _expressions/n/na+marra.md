@@ -2,7 +2,6 @@
 layout: expression
 category: n
 title: "Na marra"
-expression: "Na marra"
 permalink: "/n/na+marra/"
 definitions:
   - definition: "By force."

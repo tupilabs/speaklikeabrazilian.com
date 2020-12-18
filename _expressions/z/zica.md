@@ -2,7 +2,6 @@
 layout: expression
 category: z
 title: "Zica"
-expression: "Zica"
 permalink: "/z/zica/"
 definitions:
   - definition: "Bad luck or a problem."

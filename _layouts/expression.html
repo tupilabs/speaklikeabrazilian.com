@@ -4,7 +4,7 @@ layout: default
 
 {%- include search.html -%}
 
-<h1 class="expression-text">{{ page.expression }}</h1>
+<h1 class="expression-text">{{ page.title }}</h1>
 
 {%- if page.alternate_spellings -%}
 <div class="alternate-expressions">
@@ -51,7 +51,7 @@ layout: default
         <ul>
         {%- for image in entry.images -%}
         <li>
-            <img src="/assets/images/expressions{{ page.permalink }}{{ image }}" alt="Image entered for expression {{ page.expression }}" />
+            <img src="/assets/images/expressions{{ page.permalink }}{{ image }}" alt="Image entered for expression {{ page.title }}" />
         </li>
         {%- endfor -%}
         </ul>

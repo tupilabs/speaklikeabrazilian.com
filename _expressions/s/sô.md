@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sô"
-expression: "Sô"
 permalink: "/s/sô/"
 definitions:
   - definition: |

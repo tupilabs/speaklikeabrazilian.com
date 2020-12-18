@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Foi mal"
-expression: "Foi mal"
 permalink: "/f/foi+mal/"
 definitions:
   - definition: "Sorry! My bad!"

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mulher camarão"
-expression: "Mulher camar\u00e3o"
 permalink: "/m/mulher+camar%C3%A3o/"
 definitions:
   - definition: "A ''shrimp woman'' is any woman with a really ugly face, but with a hot body. We say that she's a shrimp woman, because you can chop the head off and eat the rest of the body."

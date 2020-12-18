@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pé direito"
-expression: "P\u00e9 direito"
 permalink: "/p/p%C3%A9+direito/"
 definitions:
   - definition: "Not your right foot. The \"p\u00e9 direito\" is the ceiling height, or the distance between ceiling and floor."

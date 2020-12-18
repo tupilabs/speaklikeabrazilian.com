@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Responsa"
-expression: "Responsa"
 permalink: "/r/responsa/"
 definitions:
   - definition: "It comes from \"responsabilidade\" (responsibility). This shortened version is used both as noun or adjective, and means that something is very good and reliable."

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Moleque"
-expression: "Moleque"
 permalink: "/m/moleque/"
 definitions:
   - definition: |

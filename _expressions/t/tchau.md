@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tchau"
-expression: "Tchau"
 permalink: "/t/tchau/"
 definitions:
   - definition: "Ciao "

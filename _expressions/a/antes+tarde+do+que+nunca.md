@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Antes tarde do que nunca"
-expression: "Antes tarde do que nunca"
 permalink: "/a/antes+tarde+do+que+nunca/"
 definitions:
   - definition: |

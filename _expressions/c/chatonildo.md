@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chatonildo"
-expression: "Chatonildo"
 permalink: "/c/chatonildo/"
 definitions:
   - definition: "An annoying person."

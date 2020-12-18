@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fechô"
-expression: "Fech\u00f4"
 permalink: "/f/fech%C3%B4/"
 definitions:
   - definition: "Expression used to seal a deal"

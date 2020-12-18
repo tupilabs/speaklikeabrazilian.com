@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pode crer"
-expression: "Pode crer"
 permalink: "/p/pode+crer/"
 definitions:
   - definition: |

@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vender seu peixe"
-expression: "Vender seu peixe"
 permalink: "/v/vender+seu+peixe/"
 definitions:
   - definition: |

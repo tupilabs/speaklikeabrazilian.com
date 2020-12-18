@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Seca"
-expression: "Seca"
 permalink: "/s/seca/"
 definitions:
   - definition: "Drought."

@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tô sem saco"
-expression: "T\u00f4 sem saco"
 permalink: "/t/t%C3%B4+sem+saco/"
 definitions:
   - definition: "I don't feel like it.\nI have no desire."

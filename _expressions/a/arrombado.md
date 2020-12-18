@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Arrombado"
-expression: "Arrombado"
 permalink: "/a/arrombado/"
 definitions:
   - definition: "Someone who is a pain in the back."

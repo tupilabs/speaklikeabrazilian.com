@@ -2,7 +2,6 @@
 layout: expression
 category: r
 title: "Recém casados"
-expression: "Rec\u00e9m casados"
 permalink: "/r/rec%C3%A9m+casados/"
 definitions:
   - definition: "Just married."

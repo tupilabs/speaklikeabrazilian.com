@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "Jogar verde pra colher maduro"
-expression: "Jogar verde pra colher maduro"
 permalink: "/j/jogar+verde+pra+colher+maduro/"
 definitions:
   - definition: "It translates to \"To throw out green fruit and pick it ripe\", and means to  say something you think is half-true so that another person tells you a secret."

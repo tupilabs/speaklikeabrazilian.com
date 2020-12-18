@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chiclete"
-expression: "Chiclete"
 permalink: "/c/chiclete/"
 definitions:
   - definition: "Pastilha el\u00e1stica."

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Suave"
-expression: "Suave"
 permalink: "/s/suave/"
 definitions:
   - definition: "It's all right."

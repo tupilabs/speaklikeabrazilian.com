@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Folgado"
-expression: "Folgado"
 permalink: "/f/folgado/"
 synonyms:
   - folgadinho

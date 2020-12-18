@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Garapa"
-expression: "Garapa"
 permalink: "/g/garapa/"
 definitions:
   - definition: "Sugar cane juice, same as \"caldo de cana\"."

@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fazer luzes"
-expression: "Fazer luzes"
 permalink: "/f/fazer+luzes/"
 definitions:
   - definition: "Highlight your hair. The noun (highlights) is \"luzes\", and the verb (hair highlight) is \"fazer luzes\". It is always in the plural, never \"luz\", but always \"luzes\"."

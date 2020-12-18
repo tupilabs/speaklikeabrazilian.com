@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Manezinho"
-expression: "Manezinho"
 permalink: "/m/manezinho/"
 definitions:
   - definition: "Someone born in Florian\u00f3polis, like Gustavo Kuerten."

@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fugir da raia"
-expression: "Fugir da raia"
 permalink: "/f/fugir+da+raia/"
 definitions:
   - definition: "Run away from your obligations, try to avoid your responsibilities."

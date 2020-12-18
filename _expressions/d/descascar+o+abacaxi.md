@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Descascar o abacaxi"
-expression: "Descascar o abacaxi"
 permalink: "/d/descascar+o+abacaxi/"
 definitions:
   - definition: "\"Peel the pineapple\", is to solve a big problem."

@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Feioso"
-expression: "Feioso"
 permalink: "/f/feioso/"
 definitions:
   - definition: "Someone that is \"ugly\". If you want to turn somebody down after that person came to talk to you, you can say \"Sai daqui seu feioso.\". It would be translated more or less like \"Get out your ugly bastard\"."

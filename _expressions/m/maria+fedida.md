@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maria fedida"
-expression: "Maria fedida"
 permalink: "/m/maria+fedida/"
 definitions:
   - definition: "Stink bug (literally stinky/smelly Mary)."

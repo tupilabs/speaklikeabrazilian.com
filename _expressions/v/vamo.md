@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Vamo"
-expression: "Vamo"
 permalink: "/v/vamo/"
 definitions:
   - definition: |

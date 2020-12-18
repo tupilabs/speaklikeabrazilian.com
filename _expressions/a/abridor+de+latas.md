@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Abridor de latas"
-expression: "Abridor de latas"
 permalink: "/a/abridor+de+latas/"
 definitions:
   - definition: "Can opener."

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sacanagem"
-expression: "Sacanagem"
 permalink: "/s/sacanagem/"
 definitions:
   - definition: |

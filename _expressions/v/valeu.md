@@ -2,7 +2,6 @@
 layout: expression
 category: v
 title: "Valeu"
-expression: "Valeu"
 permalink: "/v/valeu/"
 definitions:
   - definition: "It is the same as \"obrigado(a)\", but less formal."

@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Asfalto"
-expression: "Asfalto"
 permalink: "/a/asfalto/"
 definitions:
   - definition: "What Brazilians living in slums (favelas) call the formal city."

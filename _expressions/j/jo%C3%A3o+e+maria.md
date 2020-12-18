@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "João e Maria"
-expression: "Jo\u00e3o e Maria"
 permalink: "/j/jo%C3%A3o+e+maria/"
 definitions:
   - definition: "Hansel and Gretel"

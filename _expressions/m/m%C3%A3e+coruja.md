@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mãe coruja"
-expression: "M\u00e3e coruja"
 permalink: "/m/m%C3%A3e+coruja/"
 definitions:
   - definition: "A doting mother."

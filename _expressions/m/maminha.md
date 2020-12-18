@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Maminha"
-expression: "Maminha"
 permalink: "/m/maminha/"
 definitions:
   - definition: "Tri-tip, also sold as Santa Maria Steak, Newport Steak (when cut into individual steaks), aguillote baronne (France), punta de anca, punta de Solomo, or colita de cuadril (Latin America).\n\nIt is cut from the bottom sirloin, from the muscle group that controls the steers back legs (it applies its force to the steer's kneecap)."

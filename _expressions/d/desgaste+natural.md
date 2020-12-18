@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Desgaste natural"
-expression: "Desgaste natural"
 permalink: "/d/desgaste+natural/"
 definitions:
   - definition: "Fair wear and tear."

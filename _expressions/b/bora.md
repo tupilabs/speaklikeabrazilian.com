@@ -2,7 +2,6 @@
 layout: expression
 category: b
 title: "Bora"
-expression: "Bora"
 permalink: "/b/bora/"
 definitions:
   - definition: "Leet way of saying \"Embora\" or \"Simbora\", meaning \"let's go\"."

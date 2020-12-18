@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mangueira"
-expression: "Mangueira"
 permalink: "/m/mangueira/"
 definitions:
   - definition: "It can refer to a) a Mango Tree (mangueira in Portuguese, or [p\u00e9 de](/p/p%C3%A9+de/) manga too), b) to the famous carioca Samba School, Esta\u00e7\u00e3o Primeira de Mangueira (aka Mangueira), or yet to c) a hose. It really depends on the context."

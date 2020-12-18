@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar murro em ponta de faca"
-expression: "Dar murro em ponta de faca"
 permalink: "/f/dar+murro+em+ponta+de+faca/"
 definitions:
   - definition: |

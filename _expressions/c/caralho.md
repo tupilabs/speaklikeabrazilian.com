@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Caralho"
-expression: "Caralho"
 permalink: "/c/caralho/"
 definitions:
   - definition: "A \"caralho\" is a \"dick\". It is used in the same way that \"shit\" is used in English. Also known as \"[caraleo](/c/caraleo/)\"."

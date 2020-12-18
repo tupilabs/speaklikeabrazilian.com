@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cascalho"
-expression: "Cascalho"
 permalink: "/c/cascalho/"
 definitions:
   - definition: "Word used to say \"money\" in some places."

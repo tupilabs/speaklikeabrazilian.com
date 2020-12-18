@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "Apertar os cintos"
-expression: "Apertar os cintos"
 permalink: "/a/apertar+os+cintos/"
 definitions:
   - definition: "To buckle up. Used both when you enter in a car, or when something dangerous, big or interesting is about to happen."

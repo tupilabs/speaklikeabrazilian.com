@@ -2,7 +2,6 @@
 layout: expression
 category: i
 title: "Interesseira"
-expression: "Interesseira"
 permalink: "/i/interesseira/"
 definitions:
   - definition: "A golddigger."

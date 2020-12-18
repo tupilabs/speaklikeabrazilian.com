@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Durante o ano todo"
-expression: "Durante o ano todo"
 permalink: "/d/durante+o+ano+todo/"
 definitions:
   - definition: "Year-round, throughout the year."

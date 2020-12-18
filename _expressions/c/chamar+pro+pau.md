@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Chamar pro pau"
-expression: "Chamar pro pau"
 permalink: "/c/chamar+pro+pau/"
 definitions:
   - definition: "Call someone for a fight (the translation would be call to the cock or dick)."

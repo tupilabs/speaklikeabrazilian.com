@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Fila"
-expression: "Fila"
 permalink: "/f/fila/"
 definitions:
   - definition: "No Brasil uma \"fila\" \u00e9 o mesmo que bicha em Portugal."

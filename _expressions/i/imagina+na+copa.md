@@ -2,7 +2,6 @@
 layout: expression
 category: i
 title: "Imagina na copa"
-expression: "Imagina na copa"
 permalink: "/i/imagina+na+copa/"
 definitions:
   - definition: "\"Imagine what it'll be like during the World Cup,\" has become a favorite among Brazilians stuck in traffic, or in line at their woefully overcrowded airports. (from Reuters.com)"

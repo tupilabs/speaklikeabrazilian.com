@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Frios"
-expression: "Frios"
 permalink: "/f/frios/"
 definitions:
   - definition: "Cold meats or cold cuts, like cheese, ham, salami, etc."

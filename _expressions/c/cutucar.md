@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Cutucar"
-expression: "Cutucar"
 permalink: "/c/cutucar/"
 definitions:
   - definition: |

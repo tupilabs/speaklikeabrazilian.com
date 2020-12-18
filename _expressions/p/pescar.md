@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Pescar"
-expression: "Pescar"
 permalink: "/p/pescar/"
 definitions:
   - definition: "Pescar means to fish, but can also be used as a slang for when a person is nodding off, and you can see that s/he is trying very hard to stay awake. \r\n\r\nPescar does not mean to sleep, but when you are fighting hard to not sleep, and your head moves forward and you get it straight up again, almost sleeps, and keep doing that for a while."

@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mamata"
-expression: "Mamata"
 permalink: "/m/mamata/"
 definitions:
   - definition: "Something easy, enjoyable, or that doesn't require too much effort from you."

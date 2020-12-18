@@ -2,7 +2,6 @@
 layout: expression
 category: z
 title: "Zarolho"
-expression: "Zarolho"
 permalink: "/z/zarolho/"
 definitions:
   - definition: "Called crossed eyes or squint."

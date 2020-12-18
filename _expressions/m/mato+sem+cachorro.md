@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mato sem cachorro"
-expression: "Mato sem cachorro"
 permalink: "/m/mato+sem+cachorro/"
 definitions:
   - definition: "In trouble, same as up the creek (without a paddle). The translation is 'in the woods, without a dog', probably a reference to someone lost or hunting without a dog."

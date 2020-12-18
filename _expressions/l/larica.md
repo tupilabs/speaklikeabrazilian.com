@@ -2,7 +2,6 @@
 layout: expression
 category: l
 title: "Larica"
-expression: "Larica"
 permalink: "/l/larica/"
 definitions:
   - definition: "One could argue that a good translation is \"starvation\", but this word became popular with the pot-heads. It is the same as \"munchies\". You can use it while you are with some lads in a pub, but you can''t use it in a formal business meeting."

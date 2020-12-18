@@ -2,7 +2,6 @@
 layout: expression
 category: u
 title: "Urubu em guerra é frango"
-expression: "Urubu em guerra \u00e9 frango"
 permalink: "/u/urubu+em+guerra+%C3%A9+frango/"
 definitions:
   - definition: "The translation of this expression is \"Vulture in a war is chicken\". It is used when you are in the end of a party, or when you are desperate for a girl. So any girl will look beautiful for you, or a vulture will look like chicken for you."

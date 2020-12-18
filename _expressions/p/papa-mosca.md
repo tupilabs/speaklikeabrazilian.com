@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Papa-mosca"
-expression: "Papa-mosca"
 permalink: "/p/papa-mosca/"
 definitions:
   - definition: "A little jumping spider. The name comes from the verb 'papar', that means to eat (like in bicho pap\u00e3o, or papinha de nen\u00eam)."

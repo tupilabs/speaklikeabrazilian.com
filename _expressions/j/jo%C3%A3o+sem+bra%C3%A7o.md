@@ -2,7 +2,6 @@
 layout: expression
 category: j
 title: "João sem braço"
-expression: "Jo\u00e3o sem bra\u00e7o"
 permalink: "/j/jo%C3%A3o+sem+bra%C3%A7o/"
 definitions:
   - definition: "\"Jo\u00e3o sem bra\u00e7o\" (armless John) is an expression used to say that someone is playing dead in a situation that requires an action from him/her."

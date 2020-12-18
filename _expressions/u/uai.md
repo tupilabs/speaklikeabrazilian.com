@@ -2,7 +2,6 @@
 layout: expression
 category: u
 title: "Uai"
-expression: "Uai"
 permalink: "/u/uai/"
 definitions:
   - definition: |

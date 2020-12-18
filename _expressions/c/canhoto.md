@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Canhoto"
-expression: "Canhoto"
 permalink: "/c/canhoto/"
 definitions:
   - definition: "Left-handed"

@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Paulatinamente"
-expression: "Paulatinamente"
 permalink: "/p/paulatinamente/"
 definitions:
   - definition: "Progressively, gradually, little by little."

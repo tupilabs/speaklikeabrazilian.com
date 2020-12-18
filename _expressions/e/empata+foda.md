@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Empata foda"
-expression: "Empata foda"
 permalink: "/e/empata+foda/"
 definitions:
   - definition: "Cockblocker. Same as \"empaca foda\"."

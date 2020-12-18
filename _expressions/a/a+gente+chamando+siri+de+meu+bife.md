@@ -2,7 +2,6 @@
 layout: expression
 category: a
 title: "A gente chamando siri de meu bife"
-expression: "A gente chamando siri de meu bife"
 permalink: "/a/a+gente+chamando+siri+de+meu+bife/"
 variations:
   - no aperto siri é bife

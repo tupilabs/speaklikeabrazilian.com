@@ -2,7 +2,6 @@
 layout: expression
 category: l
 title: "Lan house"
-expression: "Lan house"
 permalink: "/l/lan+house/"
 definitions:
   - definition: "Cyber caf\u00e9"

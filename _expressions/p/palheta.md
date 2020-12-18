@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Palheta"
-expression: "Palheta"
 permalink: "/p/palheta/"
 definitions:
   - definition: "Pick, guitar pick"

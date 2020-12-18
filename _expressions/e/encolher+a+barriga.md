@@ -2,7 +2,6 @@
 layout: expression
 category: e
 title: "Encolher a barriga"
-expression: "Encolher a barriga"
 permalink: "/e/encolher+a+barriga/"
 definitions:
   - definition: "Suck in your stomach to appear skinnier. "

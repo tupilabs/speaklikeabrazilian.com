@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Mortadela"
-expression: "Mortadela"
 permalink: "/m/mortadela/"
 definitions:
   - definition: "Bologna or mortadella."

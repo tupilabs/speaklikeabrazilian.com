@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Saco cheio"
-expression: "Saco cheio"
 permalink: "/e/saco+cheio/"
 definitions:
   - definition: |

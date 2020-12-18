@@ -2,7 +2,6 @@
 layout: expression
 category: c
 title: "Caô"
-expression: "Ca\u00f4"
 permalink: "/c/ca%C3%B4/"
 definitions:
   - definition: "Ca\u00f4 is a lie which people tell other people intending to fool them."

@@ -2,7 +2,6 @@
 layout: expression
 category: z
 title: "Zás"
-expression: "Zás"
 permalink: "/z/zás/"
 definitions:
   - definition: |

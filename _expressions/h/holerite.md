@@ -2,7 +2,6 @@
 layout: expression
 category: h
 title: "Holerite"
-expression: "Holerite"
 permalink: "/h/holerite/"
 definitions:
   - definition: "A hollerith. "

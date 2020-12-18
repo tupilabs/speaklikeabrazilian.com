@@ -2,7 +2,6 @@
 layout: expression
 category: f
 title: "Funk"
-expression: "Funk"
 permalink: "/f/funk/"
 definitions:
   - definition: "Stupid songs to which you need to dance like a piriguete."

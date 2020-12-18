@@ -2,7 +2,6 @@
 layout: expression
 category: p
 title: "Popozão"
-expression: "Popoz\u00e3o"
 permalink: "/p/popoz%C3%A3o/"
 definitions:
   - definition: "Dat ass!"

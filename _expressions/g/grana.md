@@ -2,7 +2,6 @@
 layout: expression
 category: g
 title: "Grana"
-expression: "Grana"
 permalink: "/g/grana/"
 definitions:
   - definition: "slang  expression for money\nEnglish equivlanents  dough  clams."

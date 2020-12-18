@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Merda"
-expression: "Merda"
 permalink: "/m/merda/"
 definitions:
   - definition: "Shit."

@@ -2,7 +2,6 @@
 layout: expression
 category: t
 title: "Tiro ao álvaro"
-expression: "Tiro ao álvaro"
 permalink: "/t/tiro+ao+álvaro/"
 definitions:
   - definition: |

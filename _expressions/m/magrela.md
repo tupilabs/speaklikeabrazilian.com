@@ -2,7 +2,6 @@
 layout: expression
 category: m
 title: "Magrela"
-expression: "Magrela"
 permalink: "/m/magrela/"
 definitions:
   - definition: "Bike"

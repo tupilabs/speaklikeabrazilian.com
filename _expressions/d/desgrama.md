@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Desgrama"
-expression: "Desgrama"
 permalink: "/d/desgrama/"
 definitions:
   - definition: Something bad, or unwanted.

@@ -2,7 +2,6 @@
 layout: expression
 category: s
 title: "Sinhô"
-expression: "Sinhô"
 permalink: "/s/sinhô/"
 definitions:
   - definition: "Expression from rural areas, especially from Sao Paulo, meaning \"Senhor\", mister."

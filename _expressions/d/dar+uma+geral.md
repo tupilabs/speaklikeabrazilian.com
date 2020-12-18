@@ -2,7 +2,6 @@
 layout: expression
 category: d
 title: "Dar uma geral"
-expression: "Dar uma geral"
 permalink: "/d/dar+uma+geral/"
 definitions:
   - definition: "To clean up a place, to tidy it up, organize it."
