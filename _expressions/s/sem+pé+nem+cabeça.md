@@ -9,7 +9,7 @@ definitions:
       logic, or simply doesn't make any sense.
     example: |
       - E foi por isso que cheguei tarde, amor.
-      - Mas que explicação mais **sem pé nem cabeça João Henrique!
+      - Mas que explicação mais **sem pé nem cabeça** João Henrique!
     created: "2021-01-28T00:05:56"
     author: "kinow"
 ---
