@@ -7,7 +7,7 @@ labels: ''
 assignees: ''
 
 ---
-
+<!-- Fill in as much as you can, but just the expression is enough if you don't have time -->
 ## Enter new expression text, or link to existing URL
 <!-- Add "Fundo do poço". Or enter a URL ilke https://speaklikeabrazilian.com/h/holerite/. -->
 
@@ -18,8 +18,7 @@ assignees: ''
 ---
 layout: expression
 category: a # This is the letter collection name, values are a-z, and 0 for numerical 
-title: "A gente chamando siri de meu bife" # This is the page title
-expression: "A gente chamando siri de meu bife" # This is the expression display name
+title: "A gente chamando siri de meu bife" # This is the expression and page title
 permalink: "/a/a+gente+chamando+siri+de+meu+bife/" # This is the expression permanent link
 variations:
   - no aperto siri é bife
