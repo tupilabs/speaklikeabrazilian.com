@@ -16,8 +16,7 @@ YAML metadata. This is the current schema of an expression Markdown file.
 ---
 layout: expression
 category: a # This is the letter collection name, values are a-z, and 0 for numerical 
-title: "A gente chamando siri de meu bife" # This is the page title
-expression: "A gente chamando siri de meu bife" # This is the expression display name
+title: "A gente chamando siri de meu bife" # This is the expression and page title
 permalink: "/a/a+gente+chamando+siri+de+meu+bife/" # This is the expression permanent link
 variations:
   - no aperto siri é bife
