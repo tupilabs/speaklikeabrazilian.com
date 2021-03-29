@@ -3,13 +3,22 @@
   transition: 0.3s;
   padding: 10px 20px 4px 20px;
   margin: 10px 0;
+
+  @media screen and (min-width: $on-large) {
+    margin: 10px 10px;
+  }
 }
 
-ul.post-list {
-  li {
+div.post-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: $on-large) {
+    grid-template-columns: 1fr 1fr;
+  }
+  div {
     @include card()
   }
-  li:hover {
+  div:hover {
     box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
   }
 }
