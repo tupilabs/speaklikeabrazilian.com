@@ -6,17 +6,13 @@ categories: blog
 note: Lyrics from [Letras.mus.br](https://www.letras.mus.br/bezerra-da-silva/44558/)
 ---
 
-<!--
 <p style="text-align: center">
-<img
-  src="/assets/posts/2019-09-21-brazilian-portuguese-expressions-in-songs-bezerra-da-silva-malandro-é-malandro-e-mané-é-mané/bezerra.png"
-  alt="Two illustrations of Bezerra da Silva"
-  aria-label="Two illustrations of Bezerra da Silva"
-  style="max-width: 80%;"
+  <img
+    src="/assets/posts/2019-09-21-brazilian-portuguese-expressions-in-songs-bezerra-da-silva-malandro-é-malandro-e-mané-é-mané/bezerra-da-silva.png"
+    alt="Illustration of Bezerra da Silva"
+    aria-label="Illustration of Bezerra da Silva"
   />
 </p>
--->
-
 
 Songs are a great way to learn Brazilian Portuguese expressions. In today's post, we will
 see some expressions from [Bezerra da Silva](https://pt.wikipedia.org/wiki/Bezerra_da_Silva)'s

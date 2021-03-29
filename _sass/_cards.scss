@@ -5,7 +5,12 @@
   margin: 10px 0;
 
   @media screen and (min-width: $on-large) {
-    margin: 10px 10px;
+    &:nth-child(odd) {
+      margin-right: 5px;
+    }
+    &:nth-child(even) {
+      margin-left: 5px;
+    }
   }
 }
 
