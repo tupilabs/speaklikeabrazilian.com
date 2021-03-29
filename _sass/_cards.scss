@@ -20,10 +20,10 @@ div.post-list {
   @media screen and (min-width: $on-large) {
     grid-template-columns: 1fr 1fr;
   }
-  div {
+  div:first-child {
     @include card()
   }
-  div:hover {
+  div:first-child:hover {
     box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
   }
 }
