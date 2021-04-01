@@ -4,26 +4,27 @@
   padding: 10px 20px 4px 20px;
   margin: 10px 0;
 
-  @media screen and (min-width: $on-large) {
-    &:nth-child(odd) {
-      margin-right: 5px;
-    }
-    &:nth-child(even) {
-      margin-left: 5px;
-    }
+  &:hover {
+    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
   }
 }
 
-div.post-list {
-  display: grid;
-  grid-template-columns: 1fr;
+.post-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   @media screen and (min-width: $on-large) {
-    grid-template-columns: 1fr 1fr;
+    .post-card {
+      width: 49%;
+    }
   }
-  div:first-child {
-    @include card()
-  }
-  div:first-child:hover {
-    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
+  .post-card {
+    display: flex;
+    flex-direction: column;
+
+    .post-content {
+      @include card();
+    }
   }
 }

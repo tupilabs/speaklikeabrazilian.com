@@ -26,21 +26,23 @@ layout: default
   <div class="post-list">
     {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
     {%- for post in posts -%}
-    <div>
-      <span class="post-meta">{{ post.date | date: date_format }}</span>
-      <h3>
-        <a class="post-link" href="{{ post.url | relative_url }}">
-          {{ post.title | escape }}
-        </a>
-      </h3>
-      {%- if site.show_excerpts -%}
-      {{ post.excerpt }}
-      {%- if post.content contains site.excerpt_separator -%}
-      <p class="more-link">
-        <a href="{{ post.url | relative_url }}">&hellip; continue reading &rarr;</a>
-      </p>
-      {%- endif -%}
-      {%- endif -%}
+    <div class="post-card">
+      <div class="post-content">
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+        {%- if site.show_excerpts -%}
+        {{ post.excerpt }}
+        {%- if post.content contains site.excerpt_separator -%}
+        <p class="more-link">
+          <a href="{{ post.url | relative_url }}">&hellip; continue reading &rarr;</a>
+        </p>
+        {%- endif -%}
+        {%- endif -%}
+      </div>
     </div>
     {%- endfor -%}
   </div>
