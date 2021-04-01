@@ -9,8 +9,8 @@ definitions:
       small residential side streets, or streets that are not well
       known to commute.
     example: |
-      - Nossa, nem sei mais onde estamos. Você conhece uns caminhos
-      rato nesse bairro hein?
+      - Nossa, nem sei mais onde estamos. Você conhece uns **caminhos
+      rato** nesse bairro hein?
     created: "2021-04-02T07:20:14"
     author: "kinow"
 ---
