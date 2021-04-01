@@ -9,7 +9,7 @@ A website with Brazilian Portuguese expressions. Content licensed under the
 
 ## Expressions format
 
-Expressions are create as Markdown files, using Jekyll's [Front Matter](https://jekyllrb.com/docs/front-matter/)
+Expressions are created as Markdown files, using Jekyll's [Front Matter](https://jekyllrb.com/docs/front-matter/)
 YAML metadata. This is the current schema of an expression Markdown file.
 
 ```yaml
