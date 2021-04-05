@@ -1,19 +1,13 @@
 ---
-name: Add or update an expression
-about: Send us a new expression, update an expression, or report issues with existing
-  expressions
-title: ''
-labels: ''
-assignees: ''
-
+name: "Add or update an expression"
+about: "Send us a new expression, update an expression, or report issues with existing expressions"
+title: "Add expression: "
+labels: "expressions"
+assignees: "kinow"
 ---
-<!-- Fill in as much as you can, but just the expression is enough if you don't have time -->
-## Enter new expression text, or link to existing URL
-<!-- Add "Fundo do poço". Or enter a URL ilke https://speaklikeabrazilian.com/h/holerite/. -->
-
 
 ## Fill the expression template
-<!-- Try to fill as much as possible. It will be reviewed before it is merged. Required items are [layout, category, title, expression, permalink, definitions[definition, example, created, author, ]] (at least 1 definition is required) -->
+<!-- If possible, fill in as much as possible. However, just the expression is enough too if you don't have time. Thank you! -->
 
 ---
 layout: expression
