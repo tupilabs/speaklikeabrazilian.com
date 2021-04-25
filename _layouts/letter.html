@@ -7,13 +7,15 @@ layout: default
 <h1>{{ page.title }}</h1>
 
 {%- if paginator.posts.size > 0 -%}
-<ul class="post-list">
+<div class="post-list">
 {% for post in paginator.posts %}
-<li>
-  <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
-</li>
+  <div class="post-card">
+    <div class="post-content">
+      <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+    </div>
+  </div>
 {% endfor %}
-</ul>
+</div>
 {%- endif -%}
 
 {%-include letter-pagination.html -%}
