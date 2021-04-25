@@ -4,6 +4,8 @@ layout: default
 
 {%- include search.html -%}
 
+<article>
+
 <h1 class="expression-text">{{ page.title }}</h1>
 
 {%- if page.alternate_spellings -%}
@@ -77,5 +79,7 @@ layout: default
 <br/>
 
 {% endfor %}
+
+</article>
 
 {% include social-page.html url=page.url title=page.title %}
