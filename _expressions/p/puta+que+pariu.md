@@ -2,10 +2,22 @@
 layout: expression
 category: p
 title: "Puta que pariu"
+variations:
+  - Puta que o pariu
+  - Ta que pariu
+  - Ta que o pariu
+  - Taquepariu
 permalink: "/p/puta+que+pariu/"
 definitions:
-  - definition: "\"Puta que pariu\" means \"whore who gave birth\", and you can use it as an insult  or as a simple interjection."
-    example: "- V\u00e1 pra puta que te pariu! (go back to the whore who gave birth to you)\n\n- Puta que pariu, [t\u00f4](/t/t%C3%B4/) t\u00e3o cansado. (whore who gave birth, I'm so tired)"
+  - definition: |
+      A curse similar to “shit”. It translates to “bitch that gave birth”, but
+      is normally used for any situation, without addressing directly a person.
+    example: |
+        - Cadê o João?
+        - Foi no banheiro.
+        - **Puta que pariu**! Foi no banheiro de novo?
+    
+        - **Puta que o pariu**! Que trânsito!
     created: "2012-09-04T14:19:38"
     author: "kinow"
 ---
