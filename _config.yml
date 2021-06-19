@@ -15,7 +15,7 @@ markdown: kramdown
 theme: minima
 
 include:
-  - expressions
+#  - expressions
   - _pages
 
 exclude:
@@ -44,10 +44,10 @@ plugins:
 last-modified-at:
   date-format: '%d-%b-%y'
 
-collections:
- expressions:
-  output: true
-  permalink: /:path/
+#collections:
+# expressions:
+#  output: true
+#  permalink: /:path/
 
 pagination:
  enabled: true
