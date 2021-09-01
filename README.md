@@ -4,6 +4,8 @@
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Website](https://img.shields.io/website/https/speaklikeabrazilian.com.svg?color=green&up_message=live)](https://speaklikeabrazilian.com/)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X1618T2)
+
 A website with Brazilian Portuguese expressions. Content licensed under the
 [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](LICENSE.txt).
 
