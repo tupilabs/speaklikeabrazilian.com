@@ -1,0 +1,20 @@
+.page-content {
+  .wrapper {
+    .post-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    /* each post */
+    .post {
+      max-width: 60vw;
+      .post-header {}
+      .post-content {
+        p > img {
+          margin: 1rem 0;
+        }
+      }
+    }
+  }
+}

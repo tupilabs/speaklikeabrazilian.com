@@ -9,22 +9,16 @@
   }
 }
 
-.post-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  @media screen and (min-width: $on-large) {
-    .post-card {
-      width: 49%;
-    }
-  }
+@media screen and (min-width: $on-large) {
   .post-card {
-    display: flex;
-    flex-direction: column;
+    width: 49%;
+  }
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
 
-    .post-content {
-      @include card();
-    }
+  .post-content {
+    @include card();
   }
 }
