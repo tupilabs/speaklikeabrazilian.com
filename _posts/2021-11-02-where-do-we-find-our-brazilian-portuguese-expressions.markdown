@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Where do we find our new Brazilian Portuguese expressions?"
+title:  "Where do we find our Brazilian Portuguese expressions?"
 date:   2021-11-02 23:05:26 +1300
 categories: blog
 note: Kudos to Algolia for the free tier for their great search service
@@ -22,7 +22,7 @@ They provide a weekly report email with some analytics of the searches performed
 in the website.
 
 <img
-  src="/assets/posts/2021-11-02-where-do-we-find-our-new-brazilian-portuguese-expressions/algolia-1.png"
+  src="/assets/posts/2021-11-02-where-do-we-find-our-brazilian-portuguese-expressions/algolia-1.png"
   alt="Screenshot of Algolia weekly report email"
   aria-label="Screenshot of Algolia weekly report email"
 />
@@ -30,7 +30,7 @@ in the website.
 It shows the number of searches, as well as the most popular ones.
 
 <img
-  src="/assets/posts/2021-11-02-where-do-we-find-our-new-brazilian-portuguese-expressions/algolia-2.png"
+  src="/assets/posts/2021-11-02-where-do-we-find-our-brazilian-portuguese-expressions/algolia-2.png"
   alt="Screenshot of Algolia weekly report email"
   aria-label="Screenshot of Algolia weekly report email"
 />
@@ -40,7 +40,7 @@ with no results. This shows what users were looking for, but couldn't find
 an expression for.
 
 <img
-  src="/assets/posts/2021-11-02-where-do-we-find-our-new-brazilian-portuguese-expressions/algolia-3.png"
+  src="/assets/posts/2021-11-02-where-do-we-find-our-brazilian-portuguese-expressions/algolia-3.png"
   alt="Screenshot of Algolia weekly report email"
   aria-label="Screenshot of Algolia weekly report email"
 />
