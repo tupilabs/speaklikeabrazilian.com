@@ -4,7 +4,10 @@ title:  "Where do we find our Brazilian Portuguese expressions?"
 date:   2021-11-02 23:05:26 +1300
 categories: blog
 note: Kudos to Algolia for the free tier for their great search service
+image: /assets/posts/2021-11-02-where-do-we-find-our-brazilian-portuguese-expressions/search-by-algolia-light-background.png
 ---
+
+![Algolia search logo]({{"/assets/posts/2021-11-02-where-do-we-find-our-brazilian-portuguese-expressions/search-by-algolia-light-background.png" | absolute_url}})
 
 Our best source of expressions in Portuguese is our curious users!
 
