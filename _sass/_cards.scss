@@ -1,24 +1,12 @@
-@mixin card {
-  border: 1px solid rgba(0,0,0,0.1);
-  transition: 0.3s;
-  padding: 10px 20px 4px 20px;
-  margin: 10px 0;
-
-  &:hover {
-    box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
-  }
-}
-
-@media screen and (min-width: $on-large) {
-  .post-card {
-    width: 49%;
-  }
-}
 .post-card {
-  display: flex;
-  flex-direction: column;
-
   .post-content {
-    @include card();
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: 0.3s;
+    padding: 10px 20px 4px 20px;
+    margin: 10px 0;
+
+    &:hover {
+      box-shadow: 1px 2px 4px 0 rgba(0,0,0,0.2);
+    }
   }
 }
