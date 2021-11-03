@@ -3,10 +3,10 @@ layout: post
 title:  "The importance of learning local expressions"
 date:   2019-03-16 22:53:26 +1300
 categories: blog
-image: "/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png"
+image: "/assets/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png"
 ---
 
-![Combining two expressions]({{"/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
+![Combining two expressions]({{"/assets/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
 
 After attending classes of some foreign language, speaking with native speakers you may realize they are not always
 able to understand what you want to say. If you have ever met an exchange student trying to speak in your native
@@ -55,9 +55,9 @@ with local expressions it still fails to translate and sometimes may give differ
 expressions or punctuation used. Compare the results of searching just for the expression, with searching for
 the expression combined with <span lang="pt-BR">Opa</span> (which is another local expression).
 
-![Expression]({{"/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-25-51.png" | absolute_url}})
+![Expression]({{"/assets/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-25-51.png" | absolute_url}})
 
-![Combining two expressions]({{"/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
+![Combining two expressions]({{"/assets/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
 
 We hope you will find the expressions listed here helpful. Now start browsing our Brazilian Portuguese expressions,
 and <span lang="pt-BR" markdown="1">**Que a força esteja com você 🖖**</span>!
