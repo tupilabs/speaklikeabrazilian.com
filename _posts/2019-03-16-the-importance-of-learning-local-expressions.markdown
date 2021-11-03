@@ -3,7 +3,10 @@ layout: post
 title:  "The importance of learning local expressions"
 date:   2019-03-16 22:53:26 +1300
 categories: blog
+image: "/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png"
 ---
+
+![Combining two expressions]({{"/assets/images/posts/2019-03-16-the-importance-of-learning-local-expressions/Screenshot from 2019-03-24 01-26-24.png" | absolute_url}})
 
 After attending classes of some foreign language, speaking with native speakers you may realize they are not always
 able to understand what you want to say. If you have ever met an exchange student trying to speak in your native
