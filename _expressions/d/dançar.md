@@ -11,6 +11,6 @@ definitions:
       - Nada. **Dancei**.
     created: "2020-10-30T15:47:21"
     author: "kinow"
-synonyms:
-  - se dar mal
+    synonyms:
+      - se dar mal
 ---
