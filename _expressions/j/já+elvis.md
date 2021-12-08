@@ -1,7 +1,7 @@
 ---
 layout: expression
 category: j
-title: "Já elvis"
+title: "Já Elvis"
 permalink: "/j/já+elvis/"
 definitions:
   - definition: |
