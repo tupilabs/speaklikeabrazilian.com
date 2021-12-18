@@ -6,6 +6,7 @@ permalink: "/t/tira+isso+da+cabeça/"
 variations:
   - tira essa ideia da cabeça
   - tirar isso da cabeça
+  - tirar da cabeça
 definitions:
   - definition: |
       To give up on an idea, to stop thinking about something. Normally in the
