@@ -9,7 +9,7 @@ definitions:
       informally in emails and texts.
     example: |
       - Melhor irmos agora que vai chover.
-      - Vdd.
+      - **Vdd**.
     created: "2022-08-30T17:22:03"
     author: "kinow"
 ---
