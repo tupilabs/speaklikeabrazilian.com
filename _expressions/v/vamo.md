@@ -12,6 +12,8 @@ definitions:
       - **Vamo** ver um filme?
       
       - É semana que vem que **vamo** pra praia?
+    
+      - **Vamo Brasil!**
     created: 2020-04-29T14:44:00
     author: "kinow"
 ---
