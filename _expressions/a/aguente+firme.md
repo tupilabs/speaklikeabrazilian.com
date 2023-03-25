@@ -1,8 +1,8 @@
 ---
 layout: expression
-category: b
+category: a
 title: "Aguente firme"
-permalink: "/b/aguente+firme/"
+permalink: "/a/aguente+firme/"
 definitions:
   - definition: |
       Be strong. Stay strong. Hold tight (closest to the translation too).
