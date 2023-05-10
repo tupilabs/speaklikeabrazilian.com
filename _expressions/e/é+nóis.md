@@ -3,6 +3,8 @@ layout: expression
 category: e
 title: "É nóis"
 permalink: "/e/nóis/"
+synonyms:
+  - tamo junto
 definitions:
   - definition: |
       An informal expression that means “OK”, “Sweet”, “Great job”. It transmits a positive
