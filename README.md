@@ -46,6 +46,12 @@ definitions: # An array of definitions for this expression
 
 ```
 
+It is a good practice to escape special characters in frontmatter — as seen in the `expressions` files. There are several ways to do that, one of them is using [this website](https://r12a.github.io/app-conversion/).
+
+1. Paste the expression in the "Characters" box.
+2. In the "JS/Java/C" box, the "ES6" checkbox should be unticked.
+3. Copy the result of that box into your file.
+
 ## Build
 
 ```bash
