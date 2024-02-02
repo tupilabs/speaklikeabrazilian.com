@@ -59,6 +59,10 @@ $ bundle install
 $ bundle exec jekyll serve -w --incremental
 ```
 
+GitHub Actions are used to build and deploy the site and to update the search index.
+
+Dependabot is also used to scan for vulnerabilities and updates.
+
 ## Deploy
 
 Pushing to GitHub is the only requirement to update the site. We have a GitHub action that publishes
