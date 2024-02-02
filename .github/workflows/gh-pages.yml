@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
 jobs:
   gh-pages:
     runs-on: ubuntu-20.04
@@ -26,11 +30,17 @@ jobs:
         uses: actions/setup-ruby@v1
         with:
           ruby-version: 3.0.x
-      # Algolia search index
-      - name: Update Algolia index
+
+      - name: Bundle Jekyll
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+          bundle exec jekyll build
+
+      # Algolia search index
+      - name: Update Algolia index
+        if: github.ref == 'refs/heads/master'
+        run: |
           bundle exec jekyll algolia
         env:
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_KEY }}
