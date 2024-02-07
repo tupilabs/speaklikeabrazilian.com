@@ -68,6 +68,19 @@ jobs:
       # Clone the code
       - uses: actions/checkout@v4
 
+      # Set up Ruby
+      - name: Set up Ruby 3
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      # Generate static site
+      - name: Bundle Jekyll
+        run: |
+          bundle install --jobs 4 --retry 3
+          bundle exec jekyll build
+
       # Algolia search index
       - name: Update Algolia index
         if: github.ref == 'refs/heads/master'
