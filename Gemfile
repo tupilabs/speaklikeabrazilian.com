@@ -8,7 +8,7 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~> 3"
+gem "jekyll", "~> 4"
 # security fix for jekyll/github-pages old dependency of kramdown
 gem "kramdown", ">= 2.3.1"
 gem "kramdown-parser-gfm"
