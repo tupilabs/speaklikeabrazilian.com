@@ -4,38 +4,69 @@ on:
     branches:
       - master
   pull_request:
-    branches:
-      - master
   workflow_dispatch:
 jobs:
-  gh-pages:
-    runs-on: ubuntu-20.04
+  # Build job
+  build:
+    runs-on: ubuntu-latest
     steps:
+      # Clone the code
       - uses: actions/checkout@v4
 
-      # Use GitHub Actions' cache to shorten build times and decrease load on servers
-      - uses: actions/cache@v1
+      # Set up Ruby
+      - name: Set up Ruby 3
+        uses: ruby/setup-ruby@v1
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
+          ruby-version: '3.3'
+          bundler-cache: true
 
-      # Standard usage
-      - uses:  helaili/jekyll-action@2.0.1
-        env:
-          JEKYLL_PAT: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Set up Ruby 3.0
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 3.0.x
-
+      # Generate static site
       - name: Bundle Jekyll
         run: |
-          gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec jekyll build
+
+      # Upload the gh-pages artifact
+      - name: Fix permissions
+        run: |
+          chmod -c -R +rX "_site/" | while read line; do
+            echo "::warning title=Invalid file permissions automatically fixed::$line"
+          done
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+  # Deploy job
+  deploy:
+    # Add a dependency to the build job
+    needs: build
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    permissions:
+      pages: write    # to deploy to gh-pages
+      id-token: write # to verify the deployment originates from an appropriate source
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    # Specify runner + deployment step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Update search index
+  search-index:
+    runs-on: ubuntu-latest
+
+    # Add a dependency to the deployment job
+    needs: deploy
+
+    steps:
+      # Clone the code
+      - uses: actions/checkout@v4
 
       # Algolia search index
       - name: Update Algolia index
