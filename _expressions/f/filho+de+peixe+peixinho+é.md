@@ -15,7 +15,7 @@ definitions:
       it can simply be translated to “filha de peixe, peixinha é”.
     example: |
       - O Éderson engravidou a vizinha!
-      - Igual o pai dele! Filho de peixe, [/n/né/](né)?
+      - Igual o pai dele! **Filho de peixe**, [/n/né/](né)?
     created: "2024-03-24T15:07:33"
     author: "kinow"
     synonyms:
