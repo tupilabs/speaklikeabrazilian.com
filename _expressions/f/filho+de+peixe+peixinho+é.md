@@ -18,4 +18,10 @@ definitions:
       - Igual o pai dele! Filho de peixe, [/n/né/](né)?
     created: "2024-03-24T15:07:33"
     author: "kinow"
+    synonyms:
+      - tal pai, tal filho
+      - tal pai, tal filha
+      - tal mãe, tal filha
+      - tal mãe, tal filho
+      - cara de um, focinho de outro
 ---
