@@ -124,7 +124,7 @@ GEM
       google-protobuf (>= 3.25, < 5.0)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
-    twitter_cldr (6.12.0)
+    twitter_cldr (6.12.1)
       camertron-eprun
       cldr-plurals-runtime-rb (~> 1.1)
       tzinfo
