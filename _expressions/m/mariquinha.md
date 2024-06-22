@@ -2,7 +2,7 @@
 layout: expression
 category: m
 title: "Mariquinha"
-permalink: "/m/maricas/"
+permalink: "/m/mariquinha/"
 definitions:
   - definition: |
       Diminutive of ”marica”, but with same meaning of a faggot or a sissy.

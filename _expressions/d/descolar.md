@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: d
-title: "Descolar"
-permalink: "/d/descolar/"
+title: "Descolado"
+permalink: "/d/descolado/"
 definitions:
   - definition: |
       Someone "descolado" is someone cool. Not necessarily good-looking, but a person that is

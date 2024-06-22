@@ -1,8 +1,8 @@
 ---
 layout: expression
 category: s
-title: "Sabido"
-permalink: "/s/sabido/"
+title: "Safada"
+permalink: "/s/safada/"
 definitions:
   - definition: |
      Safada or safado is someone who is naughty, kinky,
