@@ -7,8 +7,8 @@ permalink: "/press"
 nosocial: true
 ---
 
-If you are a journalist, blogger, student, or anybody looking for
-information about this website, this page should help you refer to,
+If you are a journalist, blogger, student, or someone looking for
+information about Speak Like A Brazilian, this page should help you refer to,
 explain or otherwise cite Speak Like A Brazilian correctly.
 
 ## About Speak Like A Brazilian
