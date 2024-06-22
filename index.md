@@ -5,3 +5,6 @@
 layout: home
 list_title:  ' '
 ---
+
+<img src="/assets/images/paraty-2608027_1280.jpg" alt="Photography of Paraty, in Rio de Janeiro" title="Photography of Paraty, by clara5656 (pixabay)" />
+
