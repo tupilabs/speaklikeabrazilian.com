@@ -16,30 +16,29 @@ explain or otherwise cite Speak Like A Brazilian correctly.
 Speak Like A Brazilian is a public website, licensed under a Creative
 Commons license. It was created in 2012 by Bruno P. Kinoshita so that
 he could help an Irish friend living in Brazil to understand better
-what was spoken in supermarket, drusgtores, pubs, and other places where
-the casual Brazilian Portuguese is used.
+what was spoken in supermarkets, drugstores, pubs, and other places
+where colloquial Brazilian Portuguese is used.
 
 The website is hosted on GitHub, and built with Open Source libraries.
 The source code of the whole website is also available on
 [GitHub](https://github.com/tupilabs/speaklikeabrazilian.com/).
 
-Planned future work includes working more on semantic web and linked data,
-providing resources such as data that can be imported by users to create
-dictionaries, machine translation tools, or perform other natural language
-processing work.
+Planned future work includes semantic web and linked data, providing
+resources such as data that can be imported by users to create dictionaries,
+machine translation tools, or perform other natural language processing work.
 
 The website name can be abbreviated to SLBR. At the moment we are serving
 {{ site.expressions.size }} expressions.
 
 ## Press Contacts
 
-Feel free to get in contact directly with [Bruno P. Kinoshita](https://twitter.com/kinow)
-for comment, clarification, or questions about Speak Like A Brazilian.
+Feel free to get in contact directly with [Bruno P. Kinoshita](https://kinoshita.eti.br)
+for comments, clarifications, or questions about Speak Like A Brazilian.
 
 ## In the media
 
 These are some examples of Speak Like A Brazilian being mentioned
-in the media, blogs, social media, and academia.
+on the media, blogs, social media, and academia.
 
 - Blogs and News sites
   * [link](https://catracalivre.com.br/arquivo/site-explica-expressoes-brasileiras-para-estrangeiros/)—Post in **Catraca Livre** news website by Bruno P. Kinoshita
