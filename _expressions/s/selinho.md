@@ -9,7 +9,7 @@ definitions:
       but it is more common between lovers.
     example: |
       - Eu beijei o Daniel!
-      - Mas foi [de lingua](/d/de+lingua/) e tudo?
+      - Mas foi [de lingua](/d/de+língua/) e tudo?
       - Ah, foi um **selinho**, mas também conta vai!?
     created: "2023-06-24T10:50:55"
     author: "kinow"

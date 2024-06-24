@@ -2,7 +2,7 @@
 layout: expression
 category: d
 title: "Dar murro em ponta de faca"
-permalink: "/f/dar+murro+em+ponta+de+faca/"
+permalink: "/d/dar+murro+em+ponta+de+faca/"
 definitions:
   - definition: |
       To insist. The expression translates to "to punch the tip of a knife",
