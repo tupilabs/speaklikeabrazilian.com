@@ -3,6 +3,8 @@ layout: expression
 category: v
 title: "Vamo"
 permalink: "/v/vamo/"
+variations:
+  - Vâmo
 definitions:
   - definition: |
       Common misspelling of "vamos" (let's go). In normal conversation, in rare cases "vamos" is
@@ -13,7 +15,7 @@ definitions:
       
       - É semana que vem que **vamo** pra praia?
     
-      - **Vamo Brasil!**
+      - **Vâmo Brasil!**
     created: 2020-04-29T14:44:00
     author: "kinow"
 ---
