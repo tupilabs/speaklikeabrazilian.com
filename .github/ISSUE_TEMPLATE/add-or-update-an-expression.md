@@ -1,9 +1,9 @@
 ---
-name: "Add or update an expression"
-about: "Send us a new expression, update an expression, or report issues with existing expressions"
+name: Add or update an expression
+about: Send us a new expression, update an expression, or report issues with existing expressions
 title: "Add expression: "
-labels: "expressions"
-assignees: "kinow"
+labels: expression
+assignees: kinow
 ---
 
 <!--
