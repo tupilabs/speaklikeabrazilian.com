@@ -34,7 +34,7 @@ GEM
     ffi (1.17.0-java)
     filesize (0.2.0)
     forwardable-extended (2.6.0)
-    google-protobuf (4.28.0)
+    google-protobuf (4.28.2)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
