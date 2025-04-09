@@ -1,5 +1,14 @@
 .page-content {
   .wrapper {
+    .home {
+      img#landing-page-photo {
+        width: 100%;
+        max-width: 100%;
+        height: 450px;
+        object-fit: cover;
+        object-position: 0 -130px;
+      }
+    }
     .post-list {
       column-count: 1;
       column-gap: 1em;
