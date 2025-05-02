@@ -5,6 +5,8 @@ title: Oxe
 permalink: "/o/oxe/"
 variations:
   - oxi
+  - och
+  - ochi
 definitions:
   - definition: |
       An interjection used normally when someone discords or finds something strange. Can
