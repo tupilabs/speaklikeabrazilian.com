@@ -18,7 +18,7 @@ GEM
       httpclient (~> 2.8, >= 2.8.3)
       json (>= 1.5.1)
     base64 (0.3.0)
-    bigdecimal (3.2.1)
+    bigdecimal (3.2.2)
     camertron-eprun (1.1.1)
     cldr-plurals-runtime-rb (1.1.0)
     colorator (1.1.0)
