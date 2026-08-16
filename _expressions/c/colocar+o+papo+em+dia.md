@@ -3,6 +3,8 @@ layout: expression
 category: c
 title: "Colocar o papo em dia"
 permalink: "/c/colocar+o+papo+em+dia/"
+variations:
+  - botar o papo em dia
 definitions:
   - definition: |
       As in [“bater papo”](/b/bater+papo), here “papo” means a chat, conversation.
