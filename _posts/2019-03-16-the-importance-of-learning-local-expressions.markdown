@@ -12,11 +12,11 @@ After attending classes of some foreign language, speaking with native speakers 
 able to understand what you want to say. If you have ever met an exchange student trying to speak in your native
 language, you may have noticed too if that doesn't sound very natural.
 
-<!--more-->
-
 Besides the pronunciation, the vocabulary, and being able to conjugate verbs, another thing that helps us to sound
 more natural in another language are the local expressions. This includes things like slangs, colloquialisms,
 regional expressions, and local jokes. Take the following example.
+
+<!--more-->
 
 <div lang="pt-BR" markdown="1">
 - _Como está o café? (How's the coffee?)_
