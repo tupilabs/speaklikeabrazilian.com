@@ -16,3 +16,17 @@ footer {
     }
   }
 }
+
+.landing-hero {
+  height: clamp(140px, 20vw, 260px);
+
+  background-image:
+          linear-gradient(
+                          rgba(0, 50, 40, .10),
+                          rgba(0, 50, 40, .10)
+          ),
+          url("/assets/images/paraty-2608027_1280.jpg");
+
+  background-size: cover;
+  background-position: center 55%;
+}

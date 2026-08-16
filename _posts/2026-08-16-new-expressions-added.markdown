@@ -32,6 +32,8 @@ they're used:
 - [boladona](/b/boladona/)
 - [zap](/z/zap/)
 
+<!--more-->
+
 Many of these expressions have variations, synonyms, and specific
 contexts where they're more commonly used. Some are informal, some
 can vary depending on the speaker, and others have meanings that aren't
